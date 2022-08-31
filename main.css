@@ -12245,7 +12245,7 @@ tbody, td, tfoot, th, thead, tr {
 .raise:hover,
 .raise:focus {
   background-color: #e5ff6025;
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
   transform: translateY(-0.25em);
 }
 
