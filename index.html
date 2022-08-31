@@ -4,12 +4,14 @@
 <!-- Title: AnLoMinus -->
 <!-- Aouthor: Leon Yaakobov -->
 <!-- Last Update: 30-08-2022 -->
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>AnLoMinus</title>
   <title>Leon Yaakobov</title>
   <link rel="stylesheet" href="main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <script type="text/javascript" src="Addons/script.js">
 
   </script>
@@ -26,6 +28,129 @@
     body {
       font-family: 'Roboto Mono', monospace;
       background: #212121;
+    }
+  </style>
+  <style media="screen">
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+
+
+
+    .card.hackbox {
+      background-color: #141d2b;
+    }
+
+    .hackbox-heading {
+      color: #9fef00;
+    }
+
+    .hackbox-heading:hover {
+      color: #ffe700;
+    }
+
+    .hackbox p {
+      color: #a4b1cd;
+    }
+
+    .hb {
+      color: #9fef00;
+    }
+
+    .hb:hover {
+      color: #fff;
+    }
+
+    .card.tryhackme {
+      background-color: #161e2d;
+    }
+
+    .tryhackme-heading {
+      color: #a6170e;
+      font-family: "Ubuntu Mono", monospace;
+    }
+
+    .tryhackme-heading:hover {
+      color: #fff;
+    }
+
+    .tryhackme p {
+      color: #8e929c;
+      font-family: "Ubuntu", sans-serif;
+    }
+
+    .tryhackme p:hover {
+      color: #fff;
+    }
+
+    .tr:hover {
+      color: #88cc14;
+    }
+
+    .tr {
+      color: #a6170e;
+    }
+
+    h2 {
+      color: #0a0a23;
+      font-size: 2.5rem;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      color: #0a0a23;
+      margin: 20px 20px;
+      font-family: "Roboto", sans-serif;
+      padding: 10px 20px;
+    }
+
+    ul {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 30px;
+    }
+
+    li {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+
+    i {
+      color: #0a0a23;
+      font-size: 2em;
+      transition: all 0.3s ease;
+    }
+
+    i:hover {
+      transform: translate3d(0, -12px, 22px);
+      color: #616171;
+    }
+
+    .material-icons-outlined {
+      color: #767676;
+    }
+
+    h2 {
+      transition: all 0.4s ease;
+    }
+
+    h2:hover {
+      transform: translate3d(0, -10px, 20px);
+      color: #616171;
+    }
+
+    h5 {
+      font-family: "Jost", sans-serif;
+    }
+
+    footer {
+      flex-wrap: wrap;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 
@@ -211,16 +336,47 @@
       next()
     </script>
   </div>
-
   <div class="row card-body gradient-border raise">
     <h3 class="text-center glitch b2">Achievements</h1> <br>
-    <div class="card-body col-md-4 gradient-border raise text-center">
-    <h1 class="glitch">TryHackMe</h1> <br>
-    <script src="https://tryhackme.com/badge/723537"></script> </div>
-    <div class="row card-body col-md-4 gradient-border raise">
-    <h1 class="glitch">GitHub</h1> <br> </div>
-    <div class="row card-body col-md-4 gradient-border raise"></div>
-    <div class="row card-body col-md-4 gradient-border raise"></div>
+      <div class="card-body col-md-4 gradient-border raise text-center">
+        <!-- <h1 class="glitch">TryHackMe</h1> <br> -->
+        <h2 class="tryhackme-heading">TryHackMe</h2>
+        <div class="tryhackme gradient-border raise">
+          <div class="content">
+            <a href="https://tryhackme.com">
+            </a>
+            <p> Cyber Security is a huge topic. This path will give you a hands-on introduction to different areas within cyber.
+              Completing this learning path will give you the knowledge to kick start your cyber journey.</p>
+            <ul class="list">
+              <li><a href="https://tryhackme.com/" target="_blank"><i class="fab fa-leanpub tr"></i></a></li>
+              <li><a href="https://tryhackme.com/leaderboards"><i class="fas fa-trophy tr"></i></a></li>
+              <li><a href="https://tryhackme.com/develop-rooms"><i class="fas fa-university tr"></i>
+                </a></li>
+            </ul>
+          </div>
+        </div>
+        <script src="https://tryhackme.com/badge/723537"></script>
+      </div>
+      <div class="card-body col-md-4 gradient-border raise text-center">
+        <!-- <h1 class="glitch">HackTheBox</h1> -->
+        <h2 class="hackbox-heading">HackTheBox </h2>
+        <div class="hackbox gradient-border raise">
+          <div class="content">
+            <a href="https://academy.hackthebox.com/dashboard">
+            </a>
+            <p>Join a dynamically growing hacking community and take your cybersecurity skills to the next level through the most captivating, gamified, hands-on training experience!</p>
+            <ul class="list ">
+
+              <li><a href="https://academy.hackthebox.com/"><i class="fas fa-cube hb"></i></a></li>
+              <li><a href="https://www.hackthebox.com/hacker/ctf"><i class="fas fa-flag hb"></i></i></a></li>
+              <li><a href="https://gitlab.com/" target="_blank"><i class="fas fa-graduation-cap hb"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="row card-body col-md-4 gradient-border raise"></div>
+      <div class="row card-body col-md-4 gradient-border raise"></div>
   </div>
 
 </body>
@@ -251,7 +407,8 @@
     </li>
   </ul>
 </div>
-<p class="text-center raise gradient-border"> © CopyRight | Leon Yaakobov | 30-08-2022 | Israel ©<p>
+<p class="text-center raise gradient-border"> © CopyRight | Leon Yaakobov | 30-08-2022 | Israel ©
+<p>
 
 
 </html>
