@@ -30,54 +30,6 @@
       font-family: 'Roboto Mono', monospace;
       background: #212121;
     }
-    .blob.purple {
-	background: rgba(142, 68, 173, 1);
-	box-shadow: 0 0 0 0 rgba(142, 68, 173, 1);
-	animation: pulse-purple 2s infinite;
-}
-
-@keyframes pulse-purple {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
-	}
-
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
-	}
-}
-
-
-.blob.white {
-	background: white;
-	box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-	animation: pulse-white 2s infinite;
-}
-
-@keyframes pulse-white {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-	}
-
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-	}
-}
-
-
   </style>
   <style media="screen">
     @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
@@ -652,91 +604,140 @@
     </script>
   </div>
   <div class="row card-body gradient-border raise">
-    <h3 class="text-center glitch b2">Achievements</h1> <br>
-      <div class="card-body col-md-4 gradient-border raise text-center">
-        <!-- <h1 class="glitch">TryHackMe</h1> <br> -->
-        <h2 class="tryhackme-heading">TryHackMe</h2>
-        <div class="tryhackme gradient-border raise">
-          <div class="content">
-            <a href="https://tryhackme.com/signup?referrer=Anlominus">
-            </a>
-            <p>
-              Cyber Security is a huge topic. <br>
-              This path will give you a hands-on introduction to different areas within cyber.<br>
-              Completing this learning path will give you the knowledge to kick start your cyber journey.</p>
-            <ul class="list">
-              <li><a href="https://tryhackme.com/" target="_blank"><i class="fab fa-leanpub tr"></i></a></li>
-              <li><a href="https://tryhackme.com/leaderboards"><i class="fas fa-trophy tr"></i></a></li>
-              <li><a href="https://tryhackme.com/develop-rooms"><i class="fas fa-university tr"></i>
-                </a></li>
-            </ul>
-          </div>
-        </div>
-        <script src="https://tryhackme.com/badge/723537"></script>
-      </div>
-      <div class="card-body col-md-4 gradient-border raise text-center">
-        <!-- <h1 class="glitch">HackTheBox</h1> -->
-        <h2 class="hackbox-heading">HackTheBox </h2>
-        <div class="hackbox gradient-border raise">
-          <div class="content">
-            <a href="https://academy.hackthebox.com/dashboard">
-            </a>
-            <p>Join a dynamically growing hacking community and take your cybersecurity skills to the next level through the most captivating, gamified, hands-on training experience!</p>
-            <ul class="list ">
-
-              <li><a href="https://academy.hackthebox.com/"><i class="fas fa-cube hb"></i></a></li>
-              <li><a href="https://www.hackthebox.com/hacker/ctf"><i class="fas fa-flag hb"></i></i></a></li>
-              <li><a href="https://gitlab.com/" target="_blank"><i class="fas fa-graduation-cap hb"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <br>
-      </div>
-      <div class="row card-body col-md-4 gradient-border raise"></div>
-      <div class="row card-body col-md-4 gradient-border raise"></div>
-  </div>
-  <div class="row card-body gradient-border raise">
-    <div class="row col-md gradient-border raise">
-    </div>
-    <div class="row col-md gradient-border raise">
-    </div>
-    <div class="row col-md gradient-border raise">
+    <h3 class="text-center glitch b2">Examples</h3> <br>
+    <div class="row card-body col-md-12 gradient-border raise">
+      <ul class="list-group">
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+        <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+        <li class="list-group-item list-group-item-success">A simple success list group item</li>
+        <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+        <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+        <li class="list-group-item list-group-item-info">A simple info list group item</li>
+        <li class="list-group-item list-group-item-light">A simple light list group item</li>
+        <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+      </ul>
     </div>
   </div>
   <div class="row card-body gradient-border raise">
-    <h3 class="text-center glitch b2">CyberPunk</h1> <br>
-      <div class="row card-body col-md-12 gradient-border raise">
-      </div>
-  </div>
+    <script>
+      $('#myList a').on('click', function(e) {
+        e.preventDefault()
+        $(this).tab('show')
+      })
+      $('#myList a[href="#profile"]').tab('show') // Select tab by name
+      $('#myList a:first-child').tab('show') // Select first tab
+      $('#myList a:last-child').tab('show') // Select last tab
+      $('#myList a:nth-child(3)').tab('show') // Select third tab
+      $('a[data-toggle="list"]').on('shown.bs.tab', function(e) {
+        e.target // newly activated tab
+        e.relatedTarget // previous active tab
+      })
+    </script>
+    <!-- List group -->
+    <div class="list-group" id="myList" role="tablist">
+      <a class="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab">Home</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Profile</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" href="#messages" role="tab">Messages</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Settings</a>
+    </div>
 
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="home" role="tabpanel">...1</div>
+      <div class="tab-pane" id="profile" role="tabpanel">...2</div>
+      <div class="tab-pane" id="messages" role="tabpanel">...3</div>
+      <div class="tab-pane" id="settings" role="tabpanel">...4</div>
+    </div>
+  </div>
 </body>
 <div id="MainFooter" class="card-footer gradient-border raise">
-  <ul class="nav justify-content-center">
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://www.GitHub.com/AnLoMinus">GitHub</a>
-    </li>
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://www.youtube.com/channel/UC8SHibsQxieCi1bnv38x9hA">YouTube</a>
-    </li>
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://www.Twitter.com/AnLoMinus">Twitter</a>
-    </li>
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://www.InstaGram.com/AnLoMinusx">InstaGram</a>
-    </li>
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://www.TeleGram.me/AnLoMinus">TeleGram</a>
-    </li>
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://api.WhatsApp.com/send?phone=972543285967">WhatsApp</a>
-    </li>
-    <li class="col text-center nav-item raise gradient-border blob purple">
-      <a class="nav-link" href="https://www.linkedin.com/in/AnLoMinus">LinkedIn</a>
-      <i class="fa-linkedin"></i>
-    </li>
-  </ul>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <style>
+
+      section .color {
+        position: absolute;
+        filter: blur(150px);
+      }
+
+      section .color:nth-child(1) {
+        < !-- background: #ff359b;
+        -->width: 500px;
+        height: 500px;
+        top: -350px;
+      }
+
+      section .color:nth-child(2) {
+        < !-- background: #00d2ff;
+        -->width: 500px;
+        height: 500px;
+        bottom: -150px;
+        right: 100px;
+      }
+
+      section .color:nth-child(3) {
+        < !-- background: #fffd87;
+        -->width: 300px;
+        height: 300px;
+        bottom: 50px;
+        right: 150px;
+      }
+
+      ul li a {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
+        font-size: 2em;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        transition: 0.5s;
+        overflow: hidden;
+      }
+
+      ul li a:hover {
+        transform: translateY(-20px);
+      }
+
+      ul li a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100px;
+        /* background: rgba(255, 255, 255, 0.5); */
+        transform: skewX(45deg) translateX(150px);
+        transition: 0.5s;
+      }
+
+      ul li a:hover::before {
+        transform: skewX(45deg) translateX(-150px);
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+
+  <section class="row card-body col-md">
+      <div class="col text-center nav-item raise gradient-border"><a href="https://www.GitHub.com/AnLoMinus"><i class="fa fa-github" aria-hidden="true">GitHub</i></a></div>
+      <div class="col text-center nav-item raise gradient-border"><a href="https://www.TeleGram.me/AnLoMinus"><i class="fa fa-telegram" aria-hidden="true">TeleGram</i></a></div>
+      <div class="col text-center nav-item raise gradient-border"><a href="https://www.facebook.com/AnLoMinusX"><i class="fa fa-facebook" aria-hidden="true">FaceBook</i></a></div>
+      <div class="col text-center nav-item raise gradient-border"><a href="https://www.Twitter.com/AnLoMinus"><i class="fa fa-twitter" aria-hidden="true">Twitter</i></a></div>
+      <div class="col text-center nav-item raise gradient-border"><a href="https://www.InstaGram.com/AnLoMinusx"><i class="fa fa-instagram" aria-hidden="true">InstaGram</i></a></div>
+      <div class="col text-center nav-item raise gradient-border"><a href="https://www.linkedin.com/in/AnLoMinus"><i class="fa fa-linkedin" aria-hidden="true">LinkedIn</i></a></div>
+      <div class="col text-center nav-item raise gradient-border"><a href="https://api.WhatsApp.com/send?phone=972543285967"><i class="fa fa-whatsapp" aria-hidden="true">WhatsApp</i></a></div>
+  </section>
+
 </div>
-<p class="text-center raise gradient-border tryhackme-heading"> © CopyRight | Leon Yaakobov | 20-09-2022 | Israel ©
+<p class="text-center raise gradient-border tryhackme-heading"> © CopyRight | Leon Yaakobov | 10-09-2022 | Israel ©
 <p>
 
 
