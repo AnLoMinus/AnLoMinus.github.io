@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en" class="g7">
+<!-- Version: 1.0.2 -->
+<!-- Title: AnLoMinus -->
+<!-- Aouthor: Leon Yaakobov -->
+<!-- Last Update: 10-09-2022 -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Leon Yaakobov | Official">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
+  <title>AnLoMinus</title>
+  <title>Leon Yaakobov</title>
+  <meta name="theme-color" content="#f4f4f4" />
+  <title>AnLoMinus, RhytMix, MultiMan</title>
+  <link rel="stylesheet" href="main.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script> -->
+  <style media="screen">
+    @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+    html {
+      font-family: 'Roboto Mono', monospace;
+      background: #212121;
+      height: 100%;
+      width: auto;
+    }
+
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: #212121;
+    }
+    .blob.purple {
+	background: rgba(142, 68, 173, 1);
+	box-shadow: 0 0 0 0 rgba(142, 68, 173, 1);
+	animation: pulse-purple 2s infinite;
+}
+
+@keyframes pulse-purple {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+	}
+}
+
+
+.blob.white {
+	background: white;
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+	animation: pulse-white 2s infinite;
+}
+
+@keyframes pulse-white {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+
+  </style>
+  <style media="screen">
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+
+    .card.hackbox {
+      background-color: #141d2b;
+    }
+
+    .hackbox-heading {
+      color: #9fef00;
+    }
+
+    .hackbox-heading:hover {
+      color: #ffe700;
+    }
+
+    .hackbox p {
+      color: #a4b1cd;
+    }
+
+    .hb {
+      color: #9fef00;
+    }
+
+    .hb:hover {
+      color: #fff;
+    }
+
+    .card.tryhackme {
+      background-color: #161e2d;
+    }
+
+    .tryhackme-heading {
+      color: #a6170e;
+      font-family: "Ubuntu Mono", monospace;
+    }
+
+    .tryhackme-heading:hover {
+      color: #fff;
+    }
+
+    .tryhackme p {
+      color: #8e929c;
+      font-family: "Ubuntu", sans-serif;
+    }
+
+    .tryhackme p:hover {
+      color: #fff;
+    }
+
+    .tr:hover {
+      color: #88cc14;
+    }
+
+    .tr {
+      color: #a6170e;
+    }
+
+    h2 {
+      color: #0a0a23;
+      font-size: 2.5rem;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      color: #0a0a23;
+      margin: 20px 20px;
+      font-family: "Roboto", sans-serif;
+      padding: 10px 20px;
+    }
+
+    ul {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      /* padding-top: 30px; */
+    }
+
+    i {
+      color: #0a0a23;
+      font-size: 2em;
+      transition: all 0.3s ease;
+    }
+
+    i:hover {
+      transform: translate3d(0, -12px, 22px);
+      color: #616171;
+    }
+
+    .material-icons-outlined {
+      color: #767676;
+    }
+
+    h2 {
+      transition: all 0.4s ease;
+    }
+
+    h2:hover {
+      transform: translate3d(0, -10px, 20px);
+      color: #616171;
+    }
+
+    h5 {
+      font-family: "Jost", sans-serif;
+    }
+
+    footer {
+      flex-wrap: wrap;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+  <style media="screen">
+    .g9 {
+      background-image: linear-gradient(90deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(67.5deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(112.5deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(45deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(90deg, rgb(95, 3, 74), rgb(35, 65, 96));
+      background-blend-mode: overlay, overlay, overlay, overlay, normal;
+    }
+
+    .g7 {
+      background-image: radial-gradient(circle at center center,
+          transparent 0%,
+          rgb(33, 33, 33) 99%),
+        repeating-linear-gradient(0deg,
+          rgba(163, 163, 163, 0.2) 0px,
+          rgba(163, 163, 163, 0.2) 1px,
+          transparent 1px,
+          transparent 6px),
+        repeating-linear-gradient(90deg,
+          rgba(163, 163, 163, 0.2) 0px,
+          rgba(163, 163, 163, 0.2) 1px,
+          transparent 1px,
+          transparent 6px),
+        linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+    }
+  </style>
+</head>
+
+<body class="col-md g7">
+  <div class="row col-md ">
+    <div class="col-md " id="output" style="text-align:left;">
+      <style>
+        #output {
+          padding-left: 1em;
+          font-size: 24px;
+          color: #f4f4f4;
+        }
+      </style>
+      <!-- partial -->
+      <script>
+        setInterval(function() {
+          var date = new Date();
+          var format = [
+            ("0" + date.getHours()).substr(-2), ("0" + date.getMinutes()).substr(-2), ("0" + date.getSeconds()).substr(-2)
+          ].join(":");
+          document.getElementById("output").innerHTML = format;
+        }, 500);
+      </script>
+
+    </div>
+    <div class="col-md ">
+
+    </div>
+    <div class="col-md tryhackme-heading" style="text-align:right;">
+      בס״ד
+    </div>
+  </div>
+  <div class="text-center card-header gradient-border raise" id="MainTitle">
+    <div class="glitch firstText b2" data-text="AnLoMinus">
+      <h1>AnLoMinus</h1>
+    </div>
+    <style>
+      < !--#spinner,
+      .face.back,
+      h1 {
+        text-align: center
+      }
+
+      body {
+        background: #000;
+        font-family: Tahoma, Verdana, sans-serif
+      }
+
+      .type1,
+      .type2,
+      h1 {
+        font-family: Orbitron
+      }
+
+      h1 {
+        font-size: 50px;
+        /* margin: 1px; */
+        /* text-transform: uppercase */
+      }
+
+      .red,
+      .type1 {
+        font-size: 21px
+      }
+
+      #spinner {
+        animation-name: spinner;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 7s;
+        transform-style: preserve-3d
+      }
+
+      @keyframes spinner {
+        from {
+          transform: rotateY(0)
+        }
+
+        to {
+          transform: rotateY(-360deg)
+        }
+      }
+
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden
+      }
+
+      #div1,
+      h2 span {
+        position: relative
+      }
+
+      .face.back {
+        display: block;
+        transform: rotateY(180deg);
+        box-sizing: border-box;
+        color: #fff
+      }
+
+      #div1 {
+        left: -66px;
+        top: 140px;
+        height: 250px;
+        width: 100px;
+        -webkit-perspective: 150px;
+        perspective: 150px
+      }
+
+      #div2 {
+        height: 1px;
+        width: 150px;
+        padding: 50px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, .11);
+        -webkit-transform: rotateX(45deg);
+        transform: rotateX(45deg)
+      }
+
+      h2 span {
+        top: -60px
+      }
+
+      .red {
+        color: #FF5E5E;
+        text-shadow: 0 0 15px #FF5E5E;
+        text-shadow: 0 0 15px #fff;
+        -webkit-transition: width .5s;
+        -webkit-animation: loading 5s ease-out infinite
+      }
+
+      @-webkit-keyframes loading {
+
+        0%,
+        100% {
+          opacity: .2
+        }
+
+        50% {
+          opacity: 1
+        }
+      }
+
+      .type1 {
+        color: #3c3
+      }
+
+      .type2 {
+        color: #999;
+        font-size: 20px
+      }
+
+      .kcf {
+        --interval: 4s;
+        color: #d4d4d4;
+        /* color: tomato; */
+        --color1: orangered;
+        --color2: firebrick;
+        --color3: maroon;
+        --color4: darkred;
+        text-shadow:
+          0 0 10px var(--color1),
+          0 0 20px var(--color2),
+          0 0 30px var(--color3),
+          0 0 40px var(--color4);
+        will-change: filter, color;
+        filter: saturate(60%);
+        animation: flicker steps(100) var(--interval) 1s infinite;
+        font-family: Yellowtail;
+
+        @keyframes flicker {
+          50% {
+            color: white;
+            filter: saturate(200%) hue-rotate(20deg);
+          }
+        }
+      }
+
+      /* <script language="JavaScript1.2">function ClearError(){return!0}window.onerror=ClearError;
+      -->
+      </script> */
+    </style>
+    <script>
+      window.onload = function() {
+        var n, e = document.getElementsByTagName("h1")[0],
+          a = e.innerText || e.textContent,
+          t = [],
+          l = 0,
+          o = null;
+        for (n = 0; n < a.length; ++n) t.push("<span>" + a[n] + "</span>");
+        e.innerHTML = t.join(""), t = e.childNodes;
+        var r = function() {
+          for (l += .01, l >= 1 && clearInterval(o), n = 0; n < t.length; ++n) Math.random() < l ? t[n].className = "kcf" : t[n].className = ""
+        };
+        setInterval(r, 100)
+      };
+    </script>
+
+  </div>
+  <div class="text-center card-header gradient-border raise g7" id="MainTitle">
+    <style media="screen">
+      @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+
+      #glitch {
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      #glitch {
+        font-weight: 700;
+        font-size: 28px;
+        color: #FAFAFA;
+      }
+
+      #glitch>.text>.dud {
+        color: red;
+      }
+
+      #glitch {
+        animation: 1500ms infinite normal glitch;
+      }
+
+      #glitch>span#cursor {
+        animation: 1500ms infinite normal cursor;
+      }
+
+      @keyframes glitch {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 1;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+
+      @keyframes cursor {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 0;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+    </style>
+    <div id="glitch">
+      &nbsp;<div class="text"></div><span id="cursor">█</span>
+    </div>
+    <!-- partial -->
+    <script>
+      class TextScramble {
+        constructor(el) {
+          this.el = el
+          this.chars = '!<>-_\\/[]{}—=+*^?#________'
+          this.update = this.update.bind(this)
+        }
+        setText(newText) {
+          const oldText = this.el.innerText
+          const length = Math.max(oldText.length, newText.length)
+          const promise = new Promise((resolve) => this.resolve = resolve)
+          this.queue = []
+          for (let i = 0; i < length; i++) {
+            const from = oldText[i] || ''
+            const to = newText[i] || ''
+            const start = Math.floor(Math.random() * 40)
+            const end = start + Math.floor(Math.random() * 40)
+            this.queue.push({
+              from,
+              to,
+              start,
+              end
+            })
+          }
+          cancelAnimationFrame(this.frameRequest)
+          this.frame = 0
+          this.update()
+          return promise
+        }
+        update() {
+          let output = ''
+          let complete = 0
+          for (let i = 0, n = this.queue.length; i < n; i++) {
+            let {
+              from,
+              to,
+              start,
+              end,
+              char
+            } = this.queue[i]
+            if (this.frame >= end) {
+              complete++
+              output += to
+            } else if (this.frame >= start) {
+              if (!char || Math.random() < 0.28) {
+                char = this.randomChar()
+                this.queue[i].char = char
+              }
+              output += `<span class="dud">${char}</span>`
+            } else {
+              output += from
+            }
+          }
+          this.el.innerHTML = output
+          if (complete === this.queue.length) {
+            this.resolve()
+          } else {
+            this.frameRequest = requestAnimationFrame(this.update)
+            this.frame++
+          }
+        }
+        randomChar() {
+          return this.chars[Math.floor(Math.random() * this.chars.length)]
+        }
+      }
+
+      // ——————————————————————————————————————————————————
+      // Example
+      // ——————————————————————————————————————————————————
+
+      const phrases = [
+        'Hello World 👋🏼',
+        'My Name is',
+        'Leon Yaakobov',
+        'I`m Multi Man',
+        'Freelancer',
+        'Bug Hunter',
+        'PC Technical',
+        'Sound Editor',
+        'Web Developer',
+        'Ethical Hacker',
+        'Graphic Designer',
+        'Product Promotion',
+        'Video Productions',
+        'Penetration Tester',
+        'Projects Management',
+        'Systems Administration',
+        ''
+      ]
+
+      const el = document.querySelector('.text')
+      const fx = new TextScramble(el)
+
+      let counter = 0
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 999)
+        })
+        counter = (counter + 1) % phrases.length
+      }
+
+      next()
+    </script>
+  </div>
+  <div class="row card-body gradient-border raise">
+      <div class="card-body col-md-4 gradient-border raise text-center">
+        <h1 class="glitch" >TryHackMe</h1>
+        <h2 class="tryhackme-heading text-center">TryHackMe</h2>
+        <div class="tryhackme gradient-border raise">
+          <div class="content">
+            <p>
+              Cyber Security is a huge topic. <br>
+              This path will give you a hands-on introduction to different areas within cyber.<br>
+              Completing this learning path will give you the knowledge to kick start your cyber journey.</p>
+              <br>
+              <div class="text-center">
+                <a href="https://tryhackme.com/p/Anlominus">Profile</a>
+                <a href="https://tryhackme.com/signup?referrer=Anlominus">AnLoMinus Referrer</a>
+
+              </div>
+            <ul class="list">
+              <li><a href="https://tryhackme.com/" target="_blank"><i class="fab fa-leanpub tr"></i></a></li>
+              <li><a href="https://tryhackme.com/leaderboards"><i class="fas fa-trophy tr"></i></a></li>
+              <li><a href="https://tryhackme.com/develop-rooms"><i class="fas fa-university tr"></i>
+                </a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- <script src="https://tryhackme.com/badge/723537"></script> -->
+      </div>
+      <div class="card-body col-md-4 gradient-border raise text-center">
+        <h1 class="glitch">HackTheBox</h1>
+        <h2 class="hackbox-heading">HackTheBox </h2>
+        <div class="hackbox gradient-border raise">
+          <div class="content">
+            <a href="https://academy.hackthebox.com/dashboard">
+            </a>
+            <p>Join a dynamically growing hacking community and take your cybersecurity skills to the next level through the most captivating, gamified, hands-on training experience!</p>
+            <p>
+              <a href="https://app.hackthebox.com/profile/150095">Profile</a>
+
+            </p>
+
+            <ul class="list ">
+
+              <li><a href="https://academy.hackthebox.com/"><i class="fas fa-cube hb"></i></a></li>
+              <li><a href="https://www.hackthebox.com/hacker/ctf"><i class="fas fa-flag hb"></i></i></a></li>
+              <li><a href="https://gitlab.com/" target="_blank"><i class="fas fa-graduation-cap hb"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="row card-body col-md-4 gradient-border raise"></div>
+      <div class="row card-body col-md-4 gradient-border raise"></div>
+  </div>
+  <div class="card-header gradient-border raise">
+    <div class="card-body col-md gradient-border raise" style="background:transparent">
+      <div class="card-header">
+        <div class="content">
+          <h1>Projects</h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="tab-wrap col-md tryhackme-heading">
+
+            <input type="radio" id="tab4" name="tabGroup2" class="tab">
+            <label for="tab4"><h4 class="  text-center col-md" href="#">HacKingPro</h4></label>
+
+            <input type="radio" id="tab5" name="tabGroup2" class="tab">
+            <label for="tab5"><h4 class="  text-center col-md" href="#">Diablo</h4></label>
+
+            <input type="radio" id="tab6" name="tabGroup2" class="tab">
+            <label for="tab6"><h4 class=" text-center col-md" href="#">Bug Bountyy</h4> </label>
+
+            <input type="radio" id="tab7" name="tabGroup2" class="tab">
+            <label for="tab7"><h4 class=" text-center col-md" href="#">Tools</h4> </label>
+
+            <input type="radio" id="tab8" name="tabGroup2" class="tab">
+            <label for="tab8"><h4 class=" text-center col-md  " href="#">All Tools</h4> </label>
+
+            <div class="tab__content">
+              <a href="https://GitHub.com/AnLoMinus/HacKingPro" class="hackbox-heading"><h1  class="hackbox-heading">HacKingPro</h1></a>
+              <p class=""> The Goal of HacKingPro Project is to give a full Knowledge of Cyber Zone, with attension to Cyber Security and Systems Administration
+                <br> <br>
+                This Project going to be Most Popular and Downloaded Shell/Bash Tool Ever!
+                <br> <br>
+              </p>
+            </div>
+
+            <div class="tab__content">
+              <h3>Tools</h3>
+              <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+              </p>
+
+              <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+            </div>
+
+            <div class="tab__content">
+              <h3>Download</h3>
+              <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+              </p>
+            </div>
+
+            <div class="tab__content">
+              <h3>Kiwis</h3>
+              <p>Praesent nonummy mi in odio.</p>
+            </div>
+
+            <div class="tab__content">
+              <h3>Tomatos</h3>
+              <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+
+  </div>
+
+</body>
+<footer>
+  <ul class="nav justify-content-center">
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.GitHub.com/AnLoMinus">GitHub</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.youtube.com/channel/UC8SHibsQxieCi1bnv38x9hA">YouTube</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.Twitter.com/AnLoMinus">Twitter</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.InstaGram.com/AnLoMinusx">InstaGram</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.TeleGram.me/AnLoMinus">TeleGram</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://api.WhatsApp.com/send?phone=972543285967">WhatsApp</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.linkedin.com/in/AnLoMinus">LinkedIn</a>
+      <i class="fa-linkedin"></i>
+    </li>
+  </ul>
+</div>
+</footer>
+
+<p class="text-center tryhackme-heading"> © CopyRight | Leon Yaakobov | 11-10-2022 | Israel ©
+<p>
+
+
+</html>

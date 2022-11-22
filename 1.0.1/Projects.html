@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Leon Yaakobov</title>
+  <link rel="stylesheet" href="main.css">
+  <style media="screen">
+    @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+    html {
+      font-family: 'Roboto Mono', monospace;
+      background: #212121;
+      height: 100%;
+      width: auto;
+    }
+
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: #212121;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="basadText">
+    בס״ד
+  </div>
+  <div class="text-center card-header gradient-border raise" id="MainTitle">
+  <div class="glitch firstText b2" data-text="AnLoMinus">AnLoMinus</div></div>
+  <div class="text-center card-header gradient-border raise" id="MainTitle">
+    <style media="screen">
+      @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+
+      #glitch {
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      #glitch {
+        font-weight: 700;
+        font-size: 28px;
+        color: #FAFAFA;
+      }
+
+      #glitch>.text>.dud {
+        color: red;
+      }
+
+      #glitch {
+        animation: 1500ms infinite normal glitch;
+      }
+
+      #glitch>span#cursor {
+        animation: 1500ms infinite normal cursor;
+      }
+
+      @keyframes glitch {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 1;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+
+      @keyframes cursor {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 0;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+    </style>
+    <div id="glitch">
+      &nbsp;<div class="text"></div><span id="cursor">█</span>
+    </div>
+    <!-- partial -->
+    <script>
+      class TextScramble {
+        constructor(el) {
+          this.el = el
+          this.chars = '!<>-_\\/[]{}—=+*^?#________'
+          this.update = this.update.bind(this)
+        }
+        setText(newText) {
+          const oldText = this.el.innerText
+          const length = Math.max(oldText.length, newText.length)
+          const promise = new Promise((resolve) => this.resolve = resolve)
+          this.queue = []
+          for (let i = 0; i < length; i++) {
+            const from = oldText[i] || ''
+            const to = newText[i] || ''
+            const start = Math.floor(Math.random() * 40)
+            const end = start + Math.floor(Math.random() * 40)
+            this.queue.push({
+              from,
+              to,
+              start,
+              end
+            })
+          }
+          cancelAnimationFrame(this.frameRequest)
+          this.frame = 0
+          this.update()
+          return promise
+        }
+        update() {
+          let output = ''
+          let complete = 0
+          for (let i = 0, n = this.queue.length; i < n; i++) {
+            let {
+              from,
+              to,
+              start,
+              end,
+              char
+            } = this.queue[i]
+            if (this.frame >= end) {
+              complete++
+              output += to
+            } else if (this.frame >= start) {
+              if (!char || Math.random() < 0.28) {
+                char = this.randomChar()
+                this.queue[i].char = char
+              }
+              output += `<span class="dud">${char}</span>`
+            } else {
+              output += from
+            }
+          }
+          this.el.innerHTML = output
+          if (complete === this.queue.length) {
+            this.resolve()
+          } else {
+            this.frameRequest = requestAnimationFrame(this.update)
+            this.frame++
+          }
+        }
+        randomChar() {
+          return this.chars[Math.floor(Math.random() * this.chars.length)]
+        }
+      }
+
+      // ——————————————————————————————————————————————————
+      // Example
+      // ——————————————————————————————————————————————————
+
+      const phrases = [
+        'Hello World 👋🏼',
+        'My Name is',
+        'Leon Yaakobov',
+        'I`m Freelancer',
+        'I`m Multi Man',
+        'Bug Hunter',
+        'PC Technical',
+        'Sound Editor',
+        'Web Developer',
+        'Ethical Hacker',
+        'Graphic Designer',
+        'Product Promotion',
+        'Video Productions',
+        'Penetration Tester',
+        'Projects Management',
+        'Systems Administration',
+        ''
+
+      ]
+
+      const el = document.querySelector('.text')
+      const fx = new TextScramble(el)
+
+      let counter = 0
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 999)
+        })
+        counter = (counter + 1) % phrases.length
+      }
+
+      next()
+    </script>
+  </div>
+  <div class="card-header gradient-border raise" id="MainMenu">
+    <ul class="nav justify-content-center">
+      <li class="col text-center nav-item raise gradient-border">
+        <a class="nav-link" href="About.html">About</a>
+      </li>
+      <li class="col text-center nav-item raise gradient-border">
+        <a class="nav-link" href="Services.html">Services</a>
+      </li>
+      <li class="col text-center nav-item raise gradient-border">
+        <a class="nav-link" href="index.html">HOME</a>
+      </li>
+      <li class="col text-center nav-item raise gradient-border">
+        <a class="nav-link" href="Projects.html">Projects</a>
+      </li>
+      <li class="col text-center nav-item raise gradient-border">
+        <a class="nav-link" href="Certifications.html">Certifications</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row card-body gradient-border raise " id="MainBody">
+    <div class="card-body col-md-12 gradient-border raise">
+      <div class="gradient-border raise tab-wrap">
+        <input type="radio" id="tab4" name="tabGroup2" class="tab" checked="">
+        <label class="gradient-border raise" for="tab4">HacKingPro</label>
+
+        <input type="radio" id="tab5" name="tabGroup2" class="tab">
+        <label class="gradient-border raise" for="tab5"></label>
+
+        <input type="radio" id="tab6" name="tabGroup2" class="tab">
+        <label class="gradient-border raise" for="tab6">Bananas</label>
+
+        <input type="radio" id="tab7" name="tabGroup2" class="tab">
+        <label class="gradient-border raise" for="tab7">Kiwis</label>
+
+        <input type="radio" id="tab8" name="tabGroup2" class="tab">
+        <label class="gradient-border raise" for="tab8">Tomatos</label>
+
+        <div class="tab__content">
+          <h3 class="text-center">HacKingPro</h3>
+          <p class="text-center">Hack Like a Pro </p>
+          ACTIVITIES <br><br>
+          CTF - Capture The Flag <br>
+          Hack The Box / TryHackMe<br>
+          <br>
+          Open Source Projects<br>
+          GitHub / Codepen<br>
+        </div>
+        <div class="tab__content">
+          <h3 class="text-center">Orange</h3>
+          <p class="text-center">Eat Like a Pro </p>
+        </div>
+        <div class="tab__content">
+          <h3>Bananas</h3>
+          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+          </p>
+        </div>
+        <div class="tab__content">
+          <h3>Kiwis</h3>
+          <p>Praesent nonummy mi in odio.</p>
+        </div>
+        <div class="tab__content">
+          <h3>Tomatos</h3>
+          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum.</p>
+        </div>
+
+        <div class="card-body col-md-4 gradient-border raise">
+          <p>
+            <a class="status-icon  hint--bottom-right  hint--error" style="background:indianred" aria-label="This is an error tooltip">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ffffff" d="M8.27,3L3,8.27V15.73L8.27,21H15.73L21,15.73V8.27L15.73,3M8.41,7L12,10.59L15.59,7L17,8.41L13.41,12L17,15.59L15.59,17L12,13.41L8.41,17L7,15.59L10.59,12L7,8.41"></path>
+              </svg>
+            </a>
+            <a class="status-icon  hint--bottom-right  hint--warning" style="background:orange" aria-label="This is a warning tooltip">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ffffff" d="M11,4.5H13V15.5H11V4.5M13,17.5V19.5H11V17.5H13Z"></path>
+              </svg>
+            </a>
+            <a class="status-icon  hint--bottom-left  hint--info" style="background:lightblue" aria-label="This is an info tooltip">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ffffff"
+                  d="M12,2A7,7 0 0,1 19,9C19,11.38 17.81,13.47 16,14.74V17A1,1 0 0,1 15,18H9A1,1 0 0,1 8,17V14.74C6.19,13.47 5,11.38 5,9A7,7 0 0,1 12,2M9,21V20H15V21A1,1 0 0,1 14,22H10A1,1 0 0,1 9,21M12,4A5,5 0 0,0 7,9C7,11.05 8.23,12.81 10,13.58V16H14V13.58C15.77,12.81 17,11.05 17,9A5,5 0 0,0 12,4Z">
+                </path>
+              </svg>
+            </a>
+            <a class="status-icon  hint--bottom-right  hint--success" style="background:lightgreen" aria-label="This is success tooltip">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ffffff" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
+              </svg>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<div id="MainFooter" class="card-footer gradient-border raise">
+  <ul class="nav justify-content-center">
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://www.GitHub.com/AnLoMinus">GitHub</a>
+    </li>
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://www.youtube.com/channel/UC8SHibsQxieCi1bnv38x9hA">YouTube</a>
+    </li>
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://www.Twitter.com/AnLoMinus">Twitter</a>
+    </li>
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://www.InstaGram.com/AnLoMinusx">InstaGram</a>
+    </li>
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://www.TeleGram.me/AnLoMinus">TeleGram</a>
+    </li>
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://api.WhatsApp.com/send?phone=972543285967">WhatsApp</a>
+    </li>
+    <li class="col text-center nav-item raise gradient-border">
+      <a class="nav-link" href="https://www.linkedin.com/in/AnLoMinus">LinkedIn</a>
+      <i class="fa-linkedin"></i>
+    </li>
+  </ul>
+</div>
+
+
+</html>

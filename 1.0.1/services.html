@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en" class="g7">
+<!-- Version: 1.0.2 -->
+<!-- Title: AnLoMinus -->
+<!-- Aouthor: Leon Yaakobov -->
+<!-- Last Update: 10-09-2022 -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Leon Yaakobov | Official">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
+  <title>AnLoMinus</title>
+  <title>Leon Yaakobov</title>
+  <meta name="theme-color" content="#f4f4f4" />
+  <title>AnLoMinus, RhytMix, MultiMan</title>
+  <link rel="stylesheet" href="main.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script> -->
+  <style media="screen">
+    @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+    html {
+      font-family: 'Roboto Mono', monospace;
+      background: #212121;
+      height: 100%;
+      width: auto;
+    }
+
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: #212121;
+    }
+
+    .blob.purple {
+      background: rgba(142, 68, 173, 1);
+      box-shadow: 0 0 0 0 rgba(142, 68, 173, 1);
+      animation: pulse-purple 2s infinite;
+    }
+
+    @keyframes pulse-purple {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+      }
+    }
+
+
+    .blob.white {
+      background: white;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+      animation: pulse-white 2s infinite;
+    }
+
+    @keyframes pulse-white {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+  </style>
+  <style media="screen">
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+
+    .card.hackbox {
+      background-color: #141d2b;
+    }
+
+    .hackbox-heading {
+      color: #9fef00;
+    }
+
+    .hackbox-heading:hover {
+      color: #ffe700;
+    }
+
+    .hackbox p {
+      color: #a4b1cd;
+    }
+
+    .hb {
+      color: #9fef00;
+    }
+
+    .hb:hover {
+      color: #fff;
+    }
+
+    .card.tryhackme {
+      background-color: #161e2d;
+    }
+
+    .tryhackme-heading {
+      color: #a6170e;
+      font-family: "Ubuntu Mono", monospace;
+    }
+
+    .tryhackme-heading:hover {
+      color: #fff;
+    }
+
+    .tryhackme p {
+      color: #8e929c;
+      font-family: "Ubuntu", sans-serif;
+    }
+
+    .tryhackme p:hover {
+      color: #fff;
+    }
+
+    .tr:hover {
+      color: #88cc14;
+    }
+
+    .tr {
+      color: #a6170e;
+    }
+
+    h2 {
+      color: #0a0a23;
+      font-size: 2.5rem;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      color: #0a0a23;
+      margin: 20px 20px;
+      font-family: "Roboto", sans-serif;
+      padding: 10px 20px;
+    }
+
+    ul {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      /* padding-top: 30px; */
+    }
+
+    i {
+      color: #0a0a23;
+      font-size: 2em;
+      transition: all 0.3s ease;
+    }
+
+    i:hover {
+      transform: translate3d(0, -12px, 22px);
+      color: #616171;
+    }
+
+    .material-icons-outlined {
+      color: #767676;
+    }
+
+    h2 {
+      transition: all 0.4s ease;
+    }
+
+    h2:hover {
+      transform: translate3d(0, -10px, 20px);
+      color: #616171;
+    }
+
+    h5 {
+      font-family: "Jost", sans-serif;
+    }
+
+    footer {
+      flex-wrap: wrap;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+  <style media="screen">
+    .g9 {
+      background-image: linear-gradient(90deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(67.5deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(112.5deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(45deg,
+          rgb(168, 86, 201) 0%,
+          rgb(168, 86, 201) 3%,
+          rgb(140, 74, 173) 3%,
+          rgb(140, 74, 173) 11%,
+          rgb(112, 61, 145) 11%,
+          rgb(112, 61, 145) 20%,
+          rgb(85, 49, 118) 20%,
+          rgb(85, 49, 118) 49%,
+          rgb(57, 37, 90) 49%,
+          rgb(57, 37, 90) 71%,
+          rgb(29, 24, 62) 71%,
+          rgb(29, 24, 62) 72%,
+          rgb(1, 12, 34) 72%,
+          rgb(1, 12, 34) 100%),
+        linear-gradient(90deg, rgb(95, 3, 74), rgb(35, 65, 96));
+      background-blend-mode: overlay, overlay, overlay, overlay, normal;
+    }
+
+    .g7 {
+      background-image: radial-gradient(circle at center center,
+          transparent 0%,
+          rgb(33, 33, 33) 99%),
+        repeating-linear-gradient(0deg,
+          rgba(163, 163, 163, 0.2) 0px,
+          rgba(163, 163, 163, 0.2) 1px,
+          transparent 1px,
+          transparent 6px),
+        repeating-linear-gradient(90deg,
+          rgba(163, 163, 163, 0.2) 0px,
+          rgba(163, 163, 163, 0.2) 1px,
+          transparent 1px,
+          transparent 6px),
+        linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
+    }
+  </style>
+</head>
+
+<body class="col-md g7">
+  <div class="row col-md ">
+    <div class="col-md " id="output" style="text-align:left;">
+      <style>
+        #output {
+          padding-left: 1em;
+          font-size: 24px;
+          color: #f4f4f4;
+        }
+      </style>
+      <!-- partial -->
+      <script>
+        setInterval(function() {
+          var date = new Date();
+          var format = [
+            ("0" + date.getHours()).substr(-2), ("0" + date.getMinutes()).substr(-2), ("0" + date.getSeconds()).substr(-2)
+          ].join(":");
+          document.getElementById("output").innerHTML = format;
+        }, 500);
+      </script>
+
+    </div>
+    <div class="col-md ">
+
+    </div>
+    <div class="col-md tryhackme-heading" style="text-align:right;">
+      בס״ד
+    </div>
+  </div>
+  <div class="text-center card-header gradient-border raise" id="MainTitle">
+    <div class="glitch firstText b2" data-text="AnLoMinus">
+      <h1>AnLoMinus</h1>
+    </div>
+    <style>
+      < !--#spinner,
+      .face.back,
+      h1 {
+        text-align: center
+      }
+
+      body {
+        background: #000;
+        font-family: Tahoma, Verdana, sans-serif
+      }
+
+      .type1,
+      .type2,
+      h1 {
+        font-family: Orbitron
+      }
+
+      h1 {
+        font-size: 50px;
+        /* margin: 1px; */
+        /* text-transform: uppercase */
+      }
+
+      .red,
+      .type1 {
+        font-size: 21px
+      }
+
+      #spinner {
+        animation-name: spinner;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 7s;
+        transform-style: preserve-3d
+      }
+
+      @keyframes spinner {
+        from {
+          transform: rotateY(0)
+        }
+
+        to {
+          transform: rotateY(-360deg)
+        }
+      }
+
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden
+      }
+
+      #div1,
+      h2 span {
+        position: relative
+      }
+
+      .face.back {
+        display: block;
+        transform: rotateY(180deg);
+        box-sizing: border-box;
+        color: #fff
+      }
+
+      #div1 {
+        left: -66px;
+        top: 140px;
+        height: 250px;
+        width: 100px;
+        -webkit-perspective: 150px;
+        perspective: 150px
+      }
+
+      #div2 {
+        height: 1px;
+        width: 150px;
+        padding: 50px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, .11);
+        -webkit-transform: rotateX(45deg);
+        transform: rotateX(45deg)
+      }
+
+      h2 span {
+        top: -60px
+      }
+
+      .red {
+        color: #FF5E5E;
+        text-shadow: 0 0 15px #FF5E5E;
+        text-shadow: 0 0 15px #fff;
+        -webkit-transition: width .5s;
+        -webkit-animation: loading 5s ease-out infinite
+      }
+
+      @-webkit-keyframes loading {
+
+        0%,
+        100% {
+          opacity: .2
+        }
+
+        50% {
+          opacity: 1
+        }
+      }
+
+      .type1 {
+        color: #3c3
+      }
+
+      .type2 {
+        color: #999;
+        font-size: 20px
+      }
+
+      .kcf {
+        --interval: 4s;
+        color: #d4d4d4;
+        /* color: tomato; */
+        --color1: orangered;
+        --color2: firebrick;
+        --color3: maroon;
+        --color4: darkred;
+        text-shadow:
+          0 0 10px var(--color1),
+          0 0 20px var(--color2),
+          0 0 30px var(--color3),
+          0 0 40px var(--color4);
+        will-change: filter, color;
+        filter: saturate(60%);
+        animation: flicker steps(100) var(--interval) 1s infinite;
+        font-family: Yellowtail;
+
+        @keyframes flicker {
+          50% {
+            color: white;
+            filter: saturate(200%) hue-rotate(20deg);
+          }
+        }
+      }
+
+      /* <script language="JavaScript1.2">function ClearError(){return!0}window.onerror=ClearError;
+      -->
+      </script> */
+    </style>
+    <script>
+      window.onload = function() {
+        var n, e = document.getElementsByTagName("h1")[0],
+          a = e.innerText || e.textContent,
+          t = [],
+          l = 0,
+          o = null;
+        for (n = 0; n < a.length; ++n) t.push("<span>" + a[n] + "</span>");
+        e.innerHTML = t.join(""), t = e.childNodes;
+        var r = function() {
+          for (l += .01, l >= 1 && clearInterval(o), n = 0; n < t.length; ++n) Math.random() < l ? t[n].className = "kcf" : t[n].className = ""
+        };
+        setInterval(r, 100)
+      };
+    </script>
+
+  </div>
+  <div class="text-center card-header gradient-border raise g7" id="MainTitle">
+    <style media="screen">
+      @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+
+      #glitch {
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      #glitch {
+        font-weight: 700;
+        font-size: 28px;
+        color: #FAFAFA;
+      }
+
+      #glitch>.text>.dud {
+        color: red;
+      }
+
+      #glitch {
+        animation: 1500ms infinite normal glitch;
+      }
+
+      #glitch>span#cursor {
+        animation: 1500ms infinite normal cursor;
+      }
+
+      @keyframes glitch {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 1;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+
+      @keyframes cursor {
+        0% {
+          opacity: 0;
+          left: 0px;
+        }
+
+        40% {
+          opacity: 0;
+          left: -2px;
+        }
+
+        80% {
+          opacity: 1;
+          left: -2px;
+        }
+      }
+    </style>
+    <div id="glitch">
+      &nbsp;<div class="text"></div><span id="cursor">█</span>
+    </div>
+    <!-- partial -->
+    <script>
+      class TextScramble {
+        constructor(el) {
+          this.el = el
+          this.chars = '!<>-_\\/[]{}—=+*^?#________'
+          this.update = this.update.bind(this)
+        }
+        setText(newText) {
+          const oldText = this.el.innerText
+          const length = Math.max(oldText.length, newText.length)
+          const promise = new Promise((resolve) => this.resolve = resolve)
+          this.queue = []
+          for (let i = 0; i < length; i++) {
+            const from = oldText[i] || ''
+            const to = newText[i] || ''
+            const start = Math.floor(Math.random() * 40)
+            const end = start + Math.floor(Math.random() * 40)
+            this.queue.push({
+              from,
+              to,
+              start,
+              end
+            })
+          }
+          cancelAnimationFrame(this.frameRequest)
+          this.frame = 0
+          this.update()
+          return promise
+        }
+        update() {
+          let output = ''
+          let complete = 0
+          for (let i = 0, n = this.queue.length; i < n; i++) {
+            let {
+              from,
+              to,
+              start,
+              end,
+              char
+            } = this.queue[i]
+            if (this.frame >= end) {
+              complete++
+              output += to
+            } else if (this.frame >= start) {
+              if (!char || Math.random() < 0.28) {
+                char = this.randomChar()
+                this.queue[i].char = char
+              }
+              output += `<span class="dud">${char}</span>`
+            } else {
+              output += from
+            }
+          }
+          this.el.innerHTML = output
+          if (complete === this.queue.length) {
+            this.resolve()
+          } else {
+            this.frameRequest = requestAnimationFrame(this.update)
+            this.frame++
+          }
+        }
+        randomChar() {
+          return this.chars[Math.floor(Math.random() * this.chars.length)]
+        }
+      }
+
+      // ——————————————————————————————————————————————————
+      // Example
+      // ——————————————————————————————————————————————————
+
+      const phrases = [
+        'Hello World 👋🏼',
+        'My Name is',
+        'Leon Yaakobov',
+        'I`m Multi Man',
+        'Freelancer',
+        'Bug Hunter',
+        'PC Technical',
+        'Sound Editor',
+        'Web Developer',
+        'Ethical Hacker',
+        'Graphic Designer',
+        'Product Promotion',
+        'Video Productions',
+        'Penetration Tester',
+        'Projects Management',
+        'Systems Administration',
+        ''
+      ]
+
+      const el = document.querySelector('.text')
+      const fx = new TextScramble(el)
+
+      let counter = 0
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 999)
+        })
+        counter = (counter + 1) % phrases.length
+      }
+
+      next()
+    </script>
+  </div>
+  <div class="row col-md text-center card-header gradient-border raise" align="center" style="font-size: 120%;">
+    <p>Hello</p>
+    <div class="card col-md-3 gradient-border raise" style="width: 18rem;">
+      <!-- <img src="./assets/vid/Ocean.mp4" class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">Graphic & Design</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Logo</li>
+        <li class="list-group-item">Banner</li>
+        <li class="list-group-item">Flayer</li>
+        <li class="list-group-item">Credit Card</li>
+      </ul>
+      <!-- <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div> -->
+    </div>
+
+    <div class="card col-md-3 gradient-border raise" style="width: 18rem;">
+      <!-- <img src="./assets/vid/Ocean.mp4" class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">Video & Animation</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Logo</li>
+        <li class="list-group-item">Banner</li>
+        <li class="list-group-item">Flayer</li>
+        <li class="list-group-item">Credit Card</li>
+      </ul>
+      <!-- <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div> -->
+    </div>
+
+    <div class="card col-md-3 gradient-border raise" style="width: 18rem;">
+      <!-- <img src="./assets/vid/Ocean.mp4" class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">Music & Audio</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Logo</li>
+        <li class="list-group-item">Banner</li>
+        <li class="list-group-item">Flayer</li>
+        <li class="list-group-item">Credit Card</li>
+      </ul>
+      <!-- <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div> -->
+    </div>
+
+    <div class="card col-md-3 gradient-border raise" style="width: 18rem;">
+      <!-- <img src="./assets/vid/Ocean.mp4" class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">Programming & Tech</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Bash / Shell</li>
+        <li class="list-group-item">HTML</li>
+        <li class="list-group-item">CSS</li>
+        <li class="list-group-item">JS</li>
+        <li class="list-group-item">PHP</li>
+        <li class="list-group-item">Python</li>
+        <li class="list-group-item">PowerShell</li>
+      </ul>
+      <!-- <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div> -->
+    </div>
+
+
+  </div>
+  <div class="row col-md card-header nav-item" align="center" style="font-size: 120%;">
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Graphics & Design</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Digital Marketing</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Writing & Translation</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Video & Animation</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Music & Audio</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Programming & Tech</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Business</a> </div>
+    <div class="col-md-4 text-center gradient-border raise" style="padding: 3%; border-style: outset; border-width: 6px; border-color: #84b936;"> <a href="#" class="hackbox-heading">Lifestyle</a> </div>
+  </div>
+
+</body>
+<footer>
+  <ul class="nav justify-content-center">
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.GitHub.com/AnLoMinus">GitHub</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.youtube.com/channel/UC8SHibsQxieCi1bnv38x9hA">YouTube</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.Twitter.com/AnLoMinus">Twitter</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.InstaGram.com/AnLoMinusx">InstaGram</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.TeleGram.me/AnLoMinus">TeleGram</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://api.WhatsApp.com/send?phone=972543285967">WhatsApp</a>
+    </li>
+    <li class="hackbox-heading col-md text-center nav-item">
+      <a class="nav-link hackbox-heading" href="https://www.linkedin.com/in/AnLoMinus">LinkedIn</a>
+      <i class="fa-linkedin"></i>
+    </li>
+  </ul>
+  </div>
+</footer>
+
+<p class="text-center tryhackme-heading"> © CopyRight | Leon Yaakobov | 23-10-2022 | Israel ©
+<p>
+
+
+</html>
+
+
+
+<!--
+
+# Logo & Brand Identity
+- Logo Design
+- Brand Style Guides
+- Fonts & Typography
+- Business Cards & Stationery
+- Graphics for Streamers
+
+# Art & Illustration
+- NFT Art
+- Illustration
+- Storyboards
+- Tattoo Design
+- Pattern Design
+- Cartoons & Comics
+- Portraits & Caricatures
+
+# Web & App Design
+- UX Design
+- App Design
+- Icon Design
+- Website Design
+- Landing Page Design
+
+# Marketing Design
+- Web Banners
+- Email Design
+- Single Design
+- Packaging & Covers
+- Social Media Design
+
+# Packaging & Label Design
+- Book Design
+- Podcast Cover Art
+- Album Cover Design
+
+# Visual Design
+- Print Design
+- Image Editing
+- Resume Design
+- Vector Tracing
+- Infographic Design
+- Presentation Design
+- Architecture & Building Design
+
+# T-Shirts & Merchandise
+- Flyer Design
+- Brochure Design
+- Poster Design
+- Catalog Design
+- Menu Design
+- Invitation Design
+- Product & Characters Design
+- Industrial & Product Design
+- Character Modeling
+
+ -->
