@@ -88,8 +88,9 @@
 
             /* עיצוב הכותרת של הצ'אט */
             .chat-container {
-                margin: 20px auto;
-                max-width: 800px;
+                margin: 1% auto;
+                max-width: 49%;
+                border-radius: 18px;
             }
 
             .accordion {
@@ -99,7 +100,7 @@
                 padding: 18px;
                 width: 100%;
                 border: none;
-                text-align: right;
+                text-align: center;
                 outline: none;
                 font-size: 1.2rem;
                 transition: background-color 0.3s ease;
@@ -253,7 +254,7 @@
         </header>
 
         <!-- קרוסלה לתפריט העליון -->
-        <div class="carousel-container">
+        <div class="carousel-container" style="display: none;">
             <div class="carousel-item category-health"><a href="health-wellbeing.html"><span>🩺</span> בריאות
                     ורווחה <span>🩺</span></a></div>
             <div class="carousel-item category-family"><a href="family-relationships.html"><span>👨‍👩‍👧‍👦</span>
@@ -273,19 +274,44 @@
                     רוחניות ומשמעות <span>🧘‍♂️</span></a></div>
         </div>
 
+        <div class="chat-container" style="display: none;">
+            <!-- כותרת השיחה מופיעה למעלה -->
+            <button class="accordion">AnLoMinus</button>
+            <div class="panel">
+                <!-- Iframe עם השיחה עצמה -->
+                <iframe src="https://anlominus.github.io/1.html" title="Anlominus-GitHub" loading="lazy"></iframe>
+            </div>
+        </div>
+
         <div class="row" id="base-2-line">
-            <div class="chat-container">
+            <div class="chat-container category-health">
                 <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion">CodePen: חיים בריאים ומאוזנים</button>
+                <button class="accordion category-health">🩺 בריאות ורווחה 🩺</button>
                 <div class="panel">
                     <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="https://codepen.io/Anlominus/full/jOjQKWX" title="Anlominus-CodePen"
-                        loading="lazy"></iframe>
+                    <iframe src="health-wellbeing.html" title="Anlominus-CodePen" loading="lazy"></iframe>
                 </div>
             </div>
-            <div class="chat-container">
+            <div class="chat-container category-family">
                 <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion">🧘‍♂️ רוחניות ומשמעות</button>
+                <button class="accordion category-family">👨‍👩‍👧‍👦 משפחה ויחסים 👨‍👩‍👧‍👦</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="family-relationships.html" title="AnLoMinus-Git" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="chat-container category-community">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-community">🌍 סביבה וקהילה 🌍</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="environment-community.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-spirituality">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-spirituality">🧘‍♂️ רוחניות ומשמעות 🧘‍♂️</button>
                 <div class="panel">
                     <!-- Iframe עם השיחה עצמה -->
                     <iframe src="spirituality-meaning.html" title="AnLoMinus-Git" loading="lazy"></iframe>
@@ -293,7 +319,42 @@
             </div>
         </div>
 
-        <!-- קרדיטים -->
+
+        <div class="row" id="base-2-line">
+            <div class="chat-container category-work">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-work">💼 עבודה וקריירה 💼</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="work-career.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-leisure">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-leisure">🎉 פנאי ובילוי 🎉</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="leisure-entertainment.html" title="AnLoMinus-Git" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="chat-container category-finance">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-finance">💰 כספים וניהול פיננסי 💰</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="finance-management.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-personal_growth">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-personal_growth">📈 התפתחות אישית 📈</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="personal-development.html" title="AnLoMinus-Git" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div> <!-- קרדיטים -->
         <footer>
             <p>פותח ע"י: לאון יעקובוב ושותפיו, OpenAI 🤝</p>
             <p>גירסה 1.3</p>
