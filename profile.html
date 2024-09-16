@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnLoMinus</title>
+    <!-- <link rel="stylesheet" href="./0-css/style.css"> -->
+
+</head>
+
+<body>
+    <header style="display: none;">
+        <section style="">
+            <span>
+                <a href="http://www.toratemetfreeware.com/index.html?downloads" target="_blank">
+                    <strong>בס״ד</strong>
+                </a>
+            </span>
+
+        </section>
+        <section class="profile-container">
+            <div class="profile-ring electric">
+                <img src="./AnLoMinus.jpeg" alt="" srcset="">
+                <!-- <img src="AnLoMinus.jpeg" alt="Profile Picture"> -->
+            </div>
+        </section>
+        <!-- <h1>הפרופיל שלי</h1> -->
+    </header>
+
+    <span style="text-align: center;">
+        <h1>AnLoMinus</h1>
+    </span>
+    <br>
+    <section class="X-Tabs">
+
+        <div class="tabs">
+            <div class="tab" onclick="showTab('projects')">פרויקטים</div>
+            <div class="tab" onclick="showTab('businesses')">עסקים</div>
+            <div class="tab" onclick="showTab('goals')">מטרות</div>
+            <div class="tab" onclick="showTab('tasks')">משימות</div>
+        </div>
+
+        <div id="projects" class="content">
+            <h2>פרויקטים</h2>
+            <ul>
+                <li></li>
+                <li>פיתוח כלים</li>
+                <li>בניית אתרים</li>
+                <li>עיצוב ממשקים</li>
+            </ul>
+            <!-- Projects -->
+
+        </div>
+
+        <div id="businesses" class="content">
+            <h2>עסקים</h2>
+            <ul>
+                <li>ירקנייה דיגיטלית</li>
+                <!-- הוסף כאן פרויקטים נוספים -->
+            </ul>
+            <!-- Business -->
+
+        </div>
+
+        <div id="goals" class="content">
+            <h2>מטרות</h2>
+            <ul>
+                <li>השקת אפליקציה</li>
+                <li>השגת לקוחות נוספים</li>
+                <!-- הוסף כאן מטרות נוספות -->
+            </ul>
+        </div>
+
+        <div id="tasks" class="content">
+            <h2>משימות</h2>
+            <ul>
+                <li>פעולה יומית 1</li>
+                <li>פעולה יומית 2</li>
+                <!-- הוסף כאן משימות נוספות -->
+            </ul>
+        </div>
+
+        <script>
+            function showTab(tabId) {
+                var tabs = document.querySelectorAll('.tab');
+                var contents = document.querySelectorAll('.content');
+
+                tabs.forEach(function (tab) {
+                    tab.classList.remove('active');
+                });
+
+                contents.forEach(function (content) {
+                    content.classList.remove('active');
+                });
+
+                document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            }
+
+            // Show the first tab by default
+            document.querySelector('.tab').click();
+        </script>
+
+    </section>
+    <br>
+
+    <section class="X-Tabs">
+
+        <div class="tabs">
+            <div class="tab" onclick="showTab('x-tools')">פיתוח כלים</div>
+            <div class="tab" onclick="showTab('x-sites')">בניית אתריים</div>
+            <div class="tab" onclick="showTab('x-ui')">עיצוב ממשקים</div>
+        </div>
+
+        <div id="x-tools" class="content">
+            <h2>פיתוח כלים</h2>
+            <ul>
+                <li></li>
+                <li>פיתוח כלים</li>
+                <li>בניית אתרים</li>
+                <li>עיצוב ממשקים</li>
+            </ul>
+            <!-- Projects -->
+
+        </div>
+
+        <div id="x-sites" class="content">
+            <h2>בניית אתרים</h2>
+            <ul>
+                <li>ירקנייה דיגיטלית</li>
+                <!-- הוסף כאן פרויקטים נוספים -->
+            </ul>
+            <!-- Business -->
+
+        </div>
+
+        <div id="x-ui" class="content">
+            <h2>עיצוב ממשקים</h2>
+            <ul>
+                <li>השקת אפליקציה</li>
+                <li>השגת לקוחות נוספים</li>
+                <!-- הוסף כאן מטרות נוספות -->
+            </ul>
+        </div>
+
+
+    </section>
+    <script src="./0-js/script.js"></script>
+</body>
+
+</html>

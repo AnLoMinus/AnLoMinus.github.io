@@ -26,6 +26,7 @@
                 background-color: #1a1a1d;
                 color: #fff;
                 direction: rtl;
+                padding: 1%;
             }
 
             /* עיצוב כותרת */
@@ -88,8 +89,9 @@
 
             /* עיצוב הכותרת של הצ'אט */
             .chat-container {
-                margin: 20px auto;
-                max-width: 800px;
+                margin: 1% auto;
+                max-width: 100%;
+                border-radius: 18px;
             }
 
             .accordion {
@@ -99,7 +101,7 @@
                 padding: 18px;
                 width: 100%;
                 border: none;
-                text-align: right;
+                text-align: center;
                 outline: none;
                 font-size: 1.2rem;
                 transition: background-color 0.3s ease;
@@ -253,180 +255,104 @@
         </header>
 
         <!-- קרוסלה לתפריט העליון -->
-        <div class="carousel-container">
+        <div class="carousel-container" style="display: none;">
             <div class="carousel-item category-health"><a href="health-wellbeing.html"><span>🩺</span> בריאות
-                    ורווחה</a></div>
+                    ורווחה <span>🩺</span></a></div>
             <div class="carousel-item category-family"><a href="family-relationships.html"><span>👨‍👩‍👧‍👦</span>
-                    משפחה ויחסים</a></div>
-            <div class="carousel-item category-work"><a href="work-career.html"><span>💼</span> עבודה וקריירה</a>
+                    משפחה ויחסים <span>👨‍👩‍👧‍👦</span></a></div>
+            <div class="carousel-item category-work"><a href="work-career.html"><span>💼</span> עבודה וקריירה
+                    <span>💼</span></a>
             </div>
             <div class="carousel-item category-leisure"><a href="leisure-entertainment.html"><span>🎉</span> פנאי
-                    ובילוי</a></div>
+                    ובילוי <span>🎉</span></a></div>
             <div class="carousel-item category-finance"><a href="finance-management.html"><span>💰</span> כספים וניהול
-                    פיננסי</a></div>
+                    פיננסי <span>💰</span></a></div>
             <div class="carousel-item category-personal_growth"><a href="personal-development.html"><span>📈</span>
-                    התפתחות אישית</a></div>
+                    התפתחות אישית <span>📈</span></a></div>
             <div class="carousel-item category-community"><a href="environment-community.html"><span>🌍</span> סביבה
-                    וקהילה</a></div>
+                    וקהילה <span>🌍</span></a></div>
             <div class="carousel-item category-spirituality"><a href="spirituality-meaning.html"><span>🧘‍♂️</span>
-                    רוחניות ומשמעות</a></div>
+                    רוחניות ומשמעות <span>🧘‍♂️</span></a></div>
         </div>
 
-        <div class="chat-container">
+        <div class="chat-container" style="display: none;">
             <!-- כותרת השיחה מופיעה למעלה -->
-            <button class="accordion">שיחה 1: איך מתחילים?</button>
+            <button class="accordion">AnLoMinus</button>
             <div class="panel">
                 <!-- Iframe עם השיחה עצמה -->
-                <iframe src="https://chatgpt.com/share/0cf74885-4bdf-421c-8e37-1837211860b3" title="שיחה משותפת"
-                    loading="lazy"></iframe>
+                <iframe src="https://anlominus.github.io/1.html" title="Anlominus-GitHub" loading="lazy"></iframe>
             </div>
         </div>
 
-        <!-- קונטיינרים חולפים לפי קטגוריות -->
-        <div class="content-container category-health">
-
-            <div class="container">
-                <h1 class="category-title">בריאות ורווחה</h1>
-
-                <div class="row">
-                    <!-- פעילות גופנית -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">פעילות גופנית</h5>
-                                <p class="card-text">מידע והמלצות על שגרת אימונים מתאימה לשיפור הבריאות הכללית
-                                    והכושר הגופני.
-                                </p>
-                                <a href="#" class="btn btn-primary">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- תזונה -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">תזונה</h5>
-                                <p class="card-text">הדרכה על תזונה מאוזנת הכוללת ויטמינים, מינרלים וכל המרכיבים
-                                    החיוניים
-                                    לבריאות הגוף.</p>
-                                <a href="#" class="btn btn-primary">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- שינה ומנוחה -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">שינה ומנוחה</h5>
-                                <p class="card-text">חשיבות השינה והדרכים להבטיח מנוחה איכותית לשיפור הבריאות
-                                    והביצועים היומיים.
-                                </p>
-                                <a href="#" class="btn btn-primary">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- בריאות נפשית -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">בריאות נפשית</h5>
-                                <p class="card-text">שיטות לטיפול וריפוי הנפש באמצעות מודעות, טיפול רגשי והקפדה על
-                                    איזון חיים
-                                    נפשי.</p>
-                                <a href="#" class="btn btn-primary">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="" id="base-2-line">
+            <div class="chat-container category-health">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-health">🩺 בריאות ורווחה 🩺</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="health-wellbeing.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-family">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-family">👨‍👩‍👧‍👦 משפחה ויחסים 👨‍👩‍👧‍👦</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="family-relationships.html" title="AnLoMinus-Git" loading="lazy"></iframe>
                 </div>
             </div>
 
-        </div>
+            <div class="chat-container category-community">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-community">🌍 סביבה וקהילה 🌍</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="environment-community.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-spirituality">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-spirituality">🧘‍♂️ רוחניות ומשמעות 🧘‍♂️</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="spirituality-meaning.html" title="AnLoMinus-Git" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-work">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-work">💼 עבודה וקריירה 💼</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="work-career.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-leisure">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-leisure">🎉 פנאי ובילוי 🎉</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="leisure-entertainment.html" title="AnLoMinus-Git" loading="lazy"></iframe>
+                </div>
+            </div>
 
-        <div class="content-container category-family">
-            <h1>תוכן משפחה ויחסים</h1>
-
-            <div class="container">
-                <h1 class="category-title">משפחה ויחסים</h1>
-
-                <div class="row">
-                    <!-- זוגיות -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">זוגיות</h5>
-                                <p class="card-text">טיפים וכלים לשיפור התקשורת והקשר עם בן/בת הזוג וחיזוק הזוגיות.</p>
-                                <a href="#" class="btn btn-success">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- הורות -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">הורות</h5>
-                                <p class="card-text">הדרכה על שיטות חינוך, יחסים עם הילדים והתמודדות עם אתגרים הוריים.
-                                </p>
-                                <a href="#" class="btn btn-success">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- קשרים משפחתיים -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">קשרים משפחתיים</h5>
-                                <p class="card-text">הדרכים לשמירה וחיזוק של הקשרים בתוך המשפחה, כולל התמודדות עם
-                                    קונפליקטים.</p>
-                                <a href="#" class="btn btn-success">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- חברים וקהילה -->
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">חברים וקהילה</h5>
-                                <p class="card-text">חשיבות הקשרים החברתיים והקהילתיים לשמירה על בריאות נפשית וחיים
-                                    מאוזנים.</p>
-                                <a href="#" class="btn btn-success">למידע נוסף</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="chat-container category-finance">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-finance">💰 כספים וניהול פיננסי 💰</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="finance-management.html" title="Anlominus-CodePen" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="chat-container category-personal_growth">
+                <!-- כותרת השיחה מופיעה למעלה -->
+                <button class="accordion category-personal_growth">📈 התפתחות אישית 📈</button>
+                <div class="panel">
+                    <!-- Iframe עם השיחה עצמה -->
+                    <iframe src="personal-development.html" title="AnLoMinus-Git" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
 
-        <div class="content-container category-work">
-            <h1>תוכן עבודה וקריירה</h1>
-
-        </div>
-
-        <div class="content-container category-leisure">
-            <h1>תוכן פנאי ובילוי</h1>
-
-        </div>
-        <div class="content-container category-finance">
-            <h1>תוכן כספים וניהול פיננסי</h1>
-
-        </div>
-        <div class="content-container category-personal_growth">
-            <h1>תוכן התפתחות אישית</h1>
-
-        </div>
-        <div class="content-container category-community">
-            <h1>תוכן סביבה וקהילה</h1>
-
-        </div>
-        <div class="content-container category-spirituality">
-            <h1>תוכן רוחניות ומשמעות</h1>
-
-        </div>
 
         <!-- קרדיטים -->
         <footer>
