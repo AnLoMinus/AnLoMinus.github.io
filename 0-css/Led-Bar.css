@@ -1,0 +1,66 @@
+/* Default Styles */
+#led-bar {
+  background-color: #4a4a4a50;
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  text-shadow: 0 0 10px black;
+  /* box-shadow: 0 0 25px #4a4a4a4a; */
+  padding: 20px;
+  /* transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, text-shadow 0.5s ease; */
+  font-family: "Arial", sans-serif;
+  animation: fadeIn 3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spark {
+  0% {
+    box-shadow: 0 0 15px #4a4a4a4a, 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 25px #4a4a4a4b, 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 15px #4a4a4a4c, 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@media (max-width: 600px) {
+  #led-bar {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+}

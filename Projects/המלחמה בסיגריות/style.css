@@ -1,0 +1,125 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e9ecef;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+header {
+  background-color: #d9534f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.quote-bar {
+  background-color: #f0ad4e;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.video-section,
+.health-tools,
+.success-stories,
+.support-tools,
+.community-section,
+.mindfulness-tools,
+.donations-section,
+.campaigns-section,
+.volunteers-section,
+.feedback-section {
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video-container iframe {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.health-tools,
+.donations-section,
+.mindfulness-tools,
+.campaigns-section {
+  background: linear-gradient(135deg, #a0c4ff, #b9fbc0);
+  color: #333;
+}
+
+.success-stories,
+.community-section,
+.feedback-section {
+  background: linear-gradient(135deg, #d5b8ff, #ff9a8b);
+  color: #fff;
+}
+
+.support-tools {
+  background: linear-gradient(135deg, #e6e9f0, #eef1f6);
+  color: #333;
+}
+
+.volunteers-section {
+  background: linear-gradient(135deg, #d9a7c7, #fff);
+  color: #333;
+}
+
+h2 {
+  color: #d9534f;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c9302c;
+}
+
+footer {
+  background-color: #d9534f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}

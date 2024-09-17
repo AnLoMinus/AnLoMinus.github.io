@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnLoMinus</title>
+    <link rel="stylesheet" href="./0-css/style.css">
+</head>
+
+<body>
+    <header style="display: none;">
+        <section>
+            <span>
+                <a href="http://www.toratemetfreeware.com/index.html?downloads" target="_blank">
+                    <strong>בס״ד</strong>
+                </a>
+            </span>
+        </section>
+        <section class="profile-container">
+            <div class="profile-ring electric">
+                <img src="./AnLoMinus.jpeg" alt="">
+            </div>
+        </section>
+    </header>
+
+    <span style="text-align: center;" id="X-Bar">
+        <h1>AnLoMinus</h1>
+        <style>
+            /* Default Styles */
+            #led-bar {
+                color: #ffffff;
+                font-size: 2rem;
+                text-align: center;
+                /* border-radius: 10px; */
+                text-shadow: 0 0 10px black;
+                /* box-shadow: 0 0 25px #4a4a4a4a; */
+                padding: 20px;
+                /* transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, text-shadow 0.5s ease; */
+                font-family: 'Arial', sans-serif;
+                animation: fadeIn 3s;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
+
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeOut {
+                0% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            @keyframes spark {
+                0% {
+                    box-shadow: 0 0 15px #4a4a4a4a, 0 0 5px rgba(255, 255, 255, 0.5);
+                }
+
+                50% {
+                    box-shadow: 0 0 25px #4a4a4a4b, 0 0 10px rgba(255, 255, 255, 0.8);
+                }
+
+                100% {
+                    box-shadow: 0 0 15px #4a4a4a4c, 0 0 5px rgba(255, 255, 255, 0.5);
+                }
+            }
+
+            @media (max-width: 600px) {
+                #led-bar {
+                    font-size: 1.5rem;
+                    padding: 15px;
+                }
+            }
+        </style>
+        <div id="led-bar"></div>
+        <script>
+
+        </script>
+    </span>
+    <br>
+
+    <section>
+
+    </section>
+    <section class="X-Tabs">
+
+        <div class="tabs">
+            <div class="tab active-tab" onclick="showTab('projects')">פרויקטים</div>
+            <div class="tab" onclick="showTab('businesses')">עסקים</div>
+            <div class="tab" onclick="showTab('goals')">מטרות</div>
+            <div class="tab" onclick="showTab('tasks')">משימות</div>
+        </div><br>
+
+        <div id="projects" class="content">
+            <h2>פרויקטים</h2>
+            <ul id="projectList"></ul>
+            <input type="text" id="newProject" placeholder="הוסף פרויקט חדש">
+            <button onclick="addItem('projects')">הוסף פרויקט</button>
+            <br>
+            <!-- Projects Category -->
+            <div class="category">
+                <h2><a href="./BrainWave/index.html" target="_blank">BrainWave</a></h2>
+
+                <div class="carousel-container">
+                    <style>
+                        .carousel-container {
+                            display: flex;
+                            overflow-x: auto;
+                            white-space: nowrap;
+                            padding: 20px 0;
+                            background-color: #333;
+                        }
+                    </style>
+                    <div class="carousel-item"><a href="#">סביבה וקהילה</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="businesses" class="content">
+            <h2>עסקים</h2>
+            <ul id="businessList"></ul>
+            <input type="text" id="newBusiness" placeholder="הוסף עסק חדש">
+            <button onclick="addItem('businesses')">הוסף עסק</button>
+        </div>
+
+        <div id="goals" class="content">
+            <h2>מטרות</h2>
+            <ul id="goalList"></ul>
+            <input type="text" id="newGoal" placeholder="הוסף מטרה חדשה">
+            <button onclick="addItem('goals')">הוסף מטרה</button>
+        </div>
+
+        <div id="tasks" class="content">
+            <h2>משימות</h2>
+            <ul id="taskList"></ul>
+            <input type="text" id="newTask" placeholder="הוסף משימה חדשה">
+            <button onclick="addItem('tasks')">הוסף משימה</button>
+        </div>
+
+    </section>
+    <br>
+
+    <button onclick="saveToFile()">שמור לקובץ JSON</button>
+    <button onclick="loadFromFile()">טען קובץ JSON</button>
+    <br>
+
+    <iframe src="./footer.html" frameborder="0" style="width: 100%;"></iframe>
+    <!-- <script src="./0-js/script.js"></script> -->
+    <script id="x-AnLoMinusLoadJSON">
+        // Data Object to Store Input
+        let data = {
+            projects: [],
+            businesses: [],
+            goals: [],
+            tasks: []
+        };
+
+        // Function to Show Selected Tab Content
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+            contents.forEach(content => content.classList.remove('active'));
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active-tab');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Function to Add Items to List
+        function addItem(category) {
+            let inputId = `new${capitalizeFirstLetter(category.slice(0, -1))}`;
+            if (category === 'businesses') {
+                inputId = 'newBusiness'; // הבטחה לזהות את האלמנט של עסקים בצורה נכונה
+            }
+            const value = document.getElementById(inputId).value;
+            if (value) {
+                data[category].push(value);
+                updateList(category);
+                document.getElementById(inputId).value = ''; // איפוס השדה לאחר הוספה
+            } else {
+                alert('הזן ערך לפני הוספה'); // בדיקה אם השדה ריק
+            }
+        }
+
+        // Function to Update List with Items
+        function updateList(category) {
+            let listId;
+            if (category === 'businesses') {
+                listId = 'businessList'; // הבטחה לזיהוי נכון של רשימת העסקים
+            } else {
+                listId = `${category.slice(0, -1)}List`;
+            }
+            const list = document.getElementById(listId);
+            list.innerHTML = '';
+            data[category].forEach((item, index) => {
+                list.innerHTML += `<li>${item} <button onclick="editItem('${category}', ${index})">ערוך</button> <button onclick="deleteItem('${category}', ${index})">מחק</button></li>`;
+            });
+        }
+
+        // Function to Edit List Items
+        function editItem(category, index) {
+            const newValue = prompt('ערוך פריט:', data[category][index]);
+            if (newValue) {
+                data[category][index] = newValue;
+                updateList(category);
+            }
+        }
+
+        // Function to Delete List Items
+        function deleteItem(category, index) {
+            data[category].splice(index, 1);
+            updateList(category);
+        }
+
+        // Function to Save Data as JSON File
+        function saveToFile() {
+            const jsonData = JSON.stringify(data);
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'AnLoMinus.json';
+            link.click();
+        }
+
+        // פונקציה לטעינה אוטומטית של קובץ JSON משרת כאשר הדף נטען
+        window.onload = function () {
+            fetch('./AnLoMinus.json') // קובץ JSON בשרת
+                .then(response => response.json())
+                .then(jsonData => {
+                    data = jsonData;
+                    ['projects', 'businesses', 'goals', 'tasks'].forEach(updateList);
+                })
+                .catch(error => console.error('Error loading JSON:', error));
+        };
+
+        // Function to Load Data from JSON File
+        function loadFromFile() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.onchange = function (e) {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    data = JSON.parse(event.target.result);
+                    ['projects', 'businesses', 'goals', 'tasks'].forEach(updateList);
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        // Capitalize the First Letter of a String
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        // Show the First Tab by Default
+        document.querySelector('.tab').click();
+
+    </script>
+    <script src="./0-js/Sentences.js"></script>
+
+</body>
+
+</html>

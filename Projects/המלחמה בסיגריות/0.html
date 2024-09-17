@@ -1,0 +1,325 @@
+<html>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הפסקת עישון - הארגון למלחמה בעישון</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #d9534f;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #d9534f;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .video-container iframe {
+            width: 300px;
+            height: 200px;
+            margin: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .video-container iframe:hover {
+            transform: scale(1.05);
+        }
+
+        .quote-bar {
+            background-color: #f0ad4e;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .quote-bar p {
+            margin: 0;
+        }
+
+        .stat-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f5f5f5;
+            border-top: 4px solid #d9534f;
+            border-bottom: 4px solid #d9534f;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #5bc0de;
+        }
+
+        .stat-item p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        footer {
+            background-color: #d9534f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        /* כפתור המחשבון */
+        .calc-button {
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .calc-button:hover {
+            background-color: #31b0d5;
+        }
+
+        /* עיצוב טיימר */
+        .timer {
+            font-size: 2em;
+            color: #d9534f;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border: 2px solid #d9534f;
+            display: inline-block;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        /* עיצוב עבור הצ'אט */
+        .chat-container {
+            background-color: #f5f5f5;
+            border: 2px solid #d9534f;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .chat-box p {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 70%;
+            margin-bottom: 10px;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            font-size: 1em;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .send-btn {
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .send-btn:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>הארגון למלחמה בעישון</h1>
+        <p>מתחילים את הדרך לחיים בריאים - ביחד</p>
+    </header>
+
+    <div class="quote-bar" id="quoteBar">
+        <p>"הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה."</p>
+    </div>
+
+    <div class="content">
+        <h2>סדרת סרטונים להפסיק לעשן</h2>
+        <div class="video-container">
+            <!-- דוגמא לסרטון מוטמע -->
+            <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- כפתור מחשבון לחיסכון בכסף -->
+        <h2>חשב את החיסכון שלך</h2>
+        <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
+
+        <!-- טיימר גמילה -->
+        <h2>טיימר גמילה</h2>
+        <div class="timer" id="quitTimer">00 ימים 00 שעות 00 דקות 00 שניות</div>
+
+        <!-- צ'אט תמיכה -->
+        <h2>צ'אט תמיכה קהילתי</h2>
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox"></div>
+            <input type="text" id="chatInput" class="chat-input" placeholder="כתוב הודעה...">
+            <button class="send-btn" onclick="sendMessage()">שלח</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 הארגון למלחמה בעישון</p>
+    </footer>
+
+</body>
+
+</html>
+<script>
+    // בר ציטוטים מתחלפים
+    const quotes = [
+        "כל סיגריה שאתה לא מדליק מאריכה את חייך בעוד רגעים חשובים.",
+        "הבחירה שלך להפסיק לעשן היא הבחירה שלך להמשיך לחיות.",
+        "הפסקת עישון זה לא רק להציל את הבריאות שלך, זה להציל את חייך.",
+        "החיים שלך שווים יותר ממה שיכול להציע סיגריה.",
+        "לכל סיגריה יש תג מחיר - הבריאות שלך.",
+        "החיים הם לא משחק, אל תתן לעשן להיות המנצח.",
+        "סיגריות לא משפרות לך את החיים, הן רק גונבות אותם לאט לאט."
+    ];
+
+    let currentQuoteIndex = 0;
+    const quoteBar = document.getElementById('quoteBar');
+
+    setInterval(() => {
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        quoteBar.textContent = quotes[currentQuoteIndex];
+    }, 4000);
+
+    // מחשבון חיסכון
+    function calculateSavings() {
+        const cigarettesPerDay = prompt("כמה סיגריות אתה מעשן ביום?");
+        const costPerPack = prompt("מה המחיר של קופסת סיגריות?");
+        const cigarettesPerPack = 20; // בהנחה שקופסה מכילה 20 סיגריות
+
+        if (cigarettesPerDay && costPerPack) {
+            const dailyCost = (cigarettesPerDay / cigarettesPerPack) * costPerPack;
+            const weeklyCost = dailyCost * 7;
+            const monthlyCost = dailyCost * 30;
+            const yearlyCost = dailyCost * 365;
+
+            alert(`
+                עלות יומית: ₪${dailyCost.toFixed(2)}
+                עלות שבועית: ₪${weeklyCost.toFixed(2)}
+                עלות חודשית: ₪${monthlyCost.toFixed(2)}
+                עלות שנתית: ₪${yearlyCost.toFixed(2)}
+            `);
+        } else {
+            alert("אנא הכנס מספרים תקינים כדי לבצע את החישוב.");
+        }
+    }
+
+    // טיימר גמילה
+    function startQuitTimer() {
+        const startTime = new Date("2024-01-01T00:00:00"); // זמן ההתחלה של הגמילה
+        const timerElement = document.getElementById('quitTimer');
+
+        setInterval(() => {
+            const now = new Date();
+            const elapsed = now - startTime;
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((elapsed / (1000 * 60)) % 60);
+            const seconds = Math.floor((elapsed / 1000) % 60);
+
+            timerElement.textContent = `${days} ימים ${hours} שעות ${minutes} דקות ${seconds} שניות`;
+        }, 1000);
+    }
+
+    // צ'אט תמיכה
+    function sendMessage() {
+        const chatBox = document.getElementById('chatBox');
+        const chatInput = document.getElementById('chatInput');
+        const message = chatInput.value;
+
+        if (message.trim() !== "") {
+            const newMessage = document.createElement('p');
+            newMessage.textContent = message;
+            chatBox.appendChild(newMessage);
+            chatInput.value = ""; // נקה את שדה ההודעה לאחר השליחה
+            chatBox.scrollTop = chatBox.scrollHeight; // גלול למטה לצפייה בהודעה האחרונה
+        }
+    }
+
+    // הפעלת טיימר הגמילה ברגע טעינת הדף
+    window.onload = startQuitTimer;
+</script>
+
+</body>
+
+</html>
+
+</html>

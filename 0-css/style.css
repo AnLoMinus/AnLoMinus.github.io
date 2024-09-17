@@ -362,13 +362,6 @@ a {
   }
 }
 
-footer {
-  color: var(--text-color);
-  text-align: center;
-  font-size: 0.9em;
-  margin-top: 20px;
-}
-
 a {
   /* color: var(--link-color); */
   color: skyblue;
