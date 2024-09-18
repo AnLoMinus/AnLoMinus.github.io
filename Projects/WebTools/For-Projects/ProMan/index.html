@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול פרויקטים - עיצוב משתנה</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- תפריט ניווט -->
+    <nav>
+        <ul>
+            <li><a href="#overview">סקירה כללית</a></li>
+            <li><a href="#goals">מטרות ויעדים</a></li>
+            <li><a href="#work-plan">תוכנית עבודה</a></li>
+            <li><a href="#team">צוות הפרויקט</a></li>
+            <li><a href="#budget">תקציב</a></li>
+            <li><a href="#progress">שלבי התקדמות</a></li>
+            <li><a href="#reports">דוחות</a></li>
+            <li><a href="#settings">הגדרות ושמירה</a></li>
+        </ul>
+    </nav>
+
+    <!-- עמוד 1 - סקירה כללית -->
+    <section id="overview">
+        <h1>סקירה כללית</h1>
+        <p>שם הפרויקט: <span>פרויקט לדוגמה</span></p>
+        <p>קטגוריה: <span>פיתוח</span></p>
+        <p>תאריך התחלה: <span>01/01/2023</span></p>
+        <p>תאריך סיום: <span>31/12/2023</span></p>
+        <p>סטטוס: <span id="status">בהתקדמות</span></p>
+        <p>עדיפות: <span>גבוהה</span></p>
+    </section>
+
+    <!-- עמודים נוספים... -->
+    <!-- עמוד 2 - מטרות ויעדים -->
+    <section id="goals">
+        <h1>מטרות ויעדים</h1>
+        <p>מטרות הפרויקט: <span>מטרות לדוגמה</span></p>
+        <p>סיכונים פוטנציאליים: <span>סיכון לדוגמה</span></p>
+    </section>
+
+    <!-- עמוד 3 - תוכנית עבודה ותחזיות -->
+    <section id="work-plan">
+        <h1>תוכנית עבודה ותחזיות</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>שם המשימה</th>
+                    <th>עדיפות</th>
+                    <th>תאריך התחלה</th>
+                    <th>תאריך סיום</th>
+                    <th>סטטוס</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>משימה 1</td>
+                    <td>גבוהה</td>
+                    <td>01/01/2023</td>
+                    <td>31/01/2023</td>
+                    <td>בהתקדמות</td>
+                </tr>
+                <!-- משימות נוספות יופיעו כאן -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- עמוד 4 - צוות הפרויקט -->
+    <section id="team">
+        <h1>צוות הפרויקט</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>שם</th>
+                    <th>תפקיד</th>
+                    <th>פרטי קשר</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>שם לדוגמה</td>
+                    <td>מנהל פרויקט</td>
+                    <td>email@example.com</td>
+                </tr>
+                <!-- חברי צוות נוספים יופיעו כאן -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- עמוד 5 - תקציב וניהול כספים -->
+    <section id="budget">
+        <h1>תקציב וניהול כספים</h1>
+        <p>תקציב כולל: <span>100,000 ₪</span></p>
+        <p>הוצאות עד כה: <span>50,000 ₪</span></p>
+        <p>יתרה: <span>50,000 ₪</span></p>
+    </section>
+
+    <!-- עמוד 6 - שלבי התקדמות וסקירה -->
+    <section id="progress">
+        <h1>שלבי התקדמות וסקירה</h1>
+        <p>שלב נוכחי: <span>פיתוח</span></p>
+        <p>שלבים קודמים: <span>תכנון</span></p>
+        <p>השלבים הבאים: <span>בדיקות, הטמעה</span></p>
+    </section>
+
+    <!-- עמוד 7 - דוחות וסטטיסטיקות -->
+    <section id="reports">
+        <h1>דוחות וסטטיסטיקות</h1>
+        <p>דוחות ביצועים יופיעו כאן.</p>
+        <p>סטטיסטיקות כלליות יופיעו כאן.</p>
+    </section>
+
+    <!-- עמוד 8 - הגדרות ושמירה -->
+    <section id="settings">
+        <h1>הגדרות ושמירה</h1>
+        <p>אפשרות לטעינת קבצים.</p>
+        <p>כפתור לשמירת הנתונים.</p>
+        <button>שמור נתונים</button>
+    </section>
+
+
+    <!-- עמוד 8 - הגדרות ושמירה -->
+    <section id="settings">
+        <h1>הגדרות ושמירה</h1>
+        <p>בחר סטטוס פרויקט:</p>
+        <select id="project-status">
+            <option value="start">בהתחלה</option>
+            <option value="in_progress" selected>בהתקדמות</option>
+            <option value="completed">הושלם</option>
+            <option value="delayed">בעיכוב</option>
+        </select>
+        <button onclick="saveData()">שמור נתונים</button>
+    </section>
+
+    <script src="./script.js"></script>
+
+
+</body>
+
+</html>

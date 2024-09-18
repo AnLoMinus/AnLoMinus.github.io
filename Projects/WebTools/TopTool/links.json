@@ -1,0 +1,22 @@
+{
+  "links": [
+    {
+      "title": "Google",
+      "description": "מנוע החיפוש הפופולרי ביותר",
+      "url": "https://www.google.com",
+      "category": "פיתוח"
+    },
+    {
+      "title": "Facebook",
+      "description": "הרשת החברתית הפופולרית",
+      "url": "https://www.facebook.com",
+      "category": "מדיה"
+    },
+    {
+      "title": "Slack",
+      "description": "כלי לניהול תקשורת בצוותים",
+      "url": "https://www.slack.com",
+      "category": "פרודוקטיביות"
+    }
+  ]
+}

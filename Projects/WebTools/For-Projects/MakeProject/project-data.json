@@ -1,0 +1,29 @@
+{
+  "projectName": "שלום עולם",
+  "projectDescription": "אותו עולם",
+  "category": "פיתוח",
+  "startDate": "2024-09-18",
+  "endDate": "2024-09-18",
+  "projectStatus": "בהתקדמות",
+  "priorityLevel": "מיידי",
+  "objectives": "שלום עולם",
+  "currentPhase": "בדיקות",
+  "risks": "אין",
+  "budget": "0",
+  "tasks": [
+    {
+      "name": "123456",
+      "priority": "גבוהה",
+      "startDate": "",
+      "endDate": "",
+      "status": "לא התחיל"
+    }
+  ],
+  "team": [
+    {
+      "name": "12345",
+      "role": "65432",
+      "contact": "123456787"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #fffaf1;
+  color: #333;
+  direction: rtl;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #ff6f00;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+button {
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e53935;
+}
+
+.progress-bar {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.progress {
+  height: 5px;
+  background-color: #ff6f00;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transition: width 0.3s ease;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.step.active p {
+  color: #ff6f00;
+}
+
+.step i {
+  font-size: 24px;
+  color: #ff6f00;
+  display: block;
+}
+
+.step p {
+  margin-top: 5px;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step-active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+
+  .progress-bar {
+    flex-direction: column;
+  }
+
+  .step {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .step i {
+    font-size: 1.5rem;
+  }
+
+  .progress {
+    height: 3px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 0.8rem;
+  }
+}

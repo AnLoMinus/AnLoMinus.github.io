@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרופיל אישי</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            direction: rtl;
+            font-family: 'Alef', sans-serif;
+            background-color: #1A1E25;
+            color: #DCD0C0;
+        }
+
+
+        /* עיצוב כותרות */
+        h1,
+        h2,
+        h3 {
+            color: #497496;
+            /* צבע כחול בינוני */
+        }
+
+        /* עיצוב קישורים */
+        a {
+            color: #122946;
+            /* צבע כחול כהה */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #A38A66;
+            /* צבע בהיר */
+        }
+
+        /* עיצוב רקע כפתורים */
+        button {
+            background-color: #4F4945;
+            /* צבע כהה בינוני */
+            color: #DCD0C0;
+            /* צבע שמנת */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #332F2D;
+            /* צבע כהה */
+        }
+
+        /* עיצוב של בר האנימציה */
+        .projects-bar {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background-color: #0F141F;
+            /* צבע כחול כהה מאוד מאוד */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .projects-scroll {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 15px;
+            color: #DCD0C0;
+            /* צבע שמנת */
+            background-color: #497496;
+            /* צבע כחול בינוני */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project-link:hover {
+            background-color: #A38A66;
+            /* צבע בהיר */
+            color: #1A1E25;
+            /* צבע כהה מאוד */
+        }
+
+
+        .dashboard-menu {
+            text-align: right;
+            width: 60px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            background-color: #343a40;
+            color: #fff;
+            padding-top: 20px;
+            transition: width 0.3s;
+            z-index: 1000;
+            border-right: 2px solid #495057;
+        }
+
+        .dashboard-menu.expanded {
+            width: 240px;
+        }
+
+        .dashboard-menu .nav-link {
+            color: #adb5bd;
+            margin: 5px 0;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .dashboard-menu .nav-link:hover {
+            background-color: #495057;
+            color: #fff;
+        }
+
+        .dashboard-menu .nav-link i {
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .dashboard-menu .nav-link span {
+            display: none;
+        }
+
+        .dashboard-menu.expanded .nav-link span {
+            display: inline;
+            padding-right: 10px;
+        }
+
+        .dashboard-content {
+            margin-right: 80px;
+            padding: 20px;
+            transition: margin-right 0.3s;
+        }
+
+        .dashboard-content.expanded {
+            margin-right: 270px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .toggle-menu {
+            position: absolute;
+            top: 20px;
+            left: 70px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .toggle-menu:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .dashboard-menu {
+                width: 50px;
+            }
+
+            .dashboard-menu.expanded {
+                width: 200px;
+            }
+
+            .dashboard-content {
+                margin-right: 60px;
+            }
+
+            .dashboard-content.expanded {
+                margin-right: 220px;
+            }
+
+            .toggle-menu {
+                left: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-menu {
+                width: 45px;
+            }
+
+            .dashboard-menu.expanded {
+                width: 180px;
+            }
+
+            .dashboard-content {
+                margin-right: 50px;
+            }
+
+            .dashboard-content.expanded {
+                margin-right: 200px;
+            }
+
+            .toggle-menu {
+                left: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-menu">
+        <div style="padding: 10%;">
+            <img src="../AnLoMinus.github.io/AnLoMinus.jpeg" alt="Logo" style="width: 100%;">
+        </div>
+        <nav class="nav flex-column">
+            <button class="nav-link toggle-menu">>>>>></button>
+            <button class="nav-link active" data-section="about-me"><i class="bi bi-person"></i><span
+                    class="ms-2">אודות</span></button>
+            <button class="nav-link" data-section="skills"><i class="bi bi-tools"></i><span
+                    class="ms-2">כישורים</span></button>
+            <button class="nav-link" data-section="projects"><i class="bi bi-briefcase"></i><span
+                    class="ms-2">פרויקטים</span></button>
+            <button class="nav-link" data-section="blog"><i class="bi bi-chat-left-text"></i><span
+                    class="ms-2">בלוג</span></button>
+            <button class="nav-link" data-section="contact"><i class="bi bi-envelope"></i><span class="ms-2">צור
+                    קשר</span></button>
+        </nav>
+    </div>
+
+    <div class="dashboard-content">
+
+        <!-- מקטע אודות -->
+        <div id="about-me" class="section active">
+
+            <h1>אודות</h1>
+            <p>שלום! אני אנלומינוס, מעצב UX עם ניסיון רחב בתחום עיצוב אתרים ופיתוח פתרונות דיגיטליים מתקדמים. אני עוסק
+                ביצירת חוויות משתמש מושלמות שמתחברות בין אסתטיקה לפונקציונליות.</p>
+
+            <img src="../../AnLoMinus/AnLoMinus.github.io/AnLoMinus.jpeg" alt="תמונה על עצמי" class="img-fluid mb-3">
+
+            <h2>רקע מקצועי</h2>
+            <p>במהלך השנים עבדתי על מגוון פרויקטים חדשניים ומורכבים, הכוללים:</p>
+            <ul>
+                <li>אתרי פורטפוליו: בניתי דפי פורטפוליו מרהיבים המשלבים אייפרים ואלמנטים אינטראקטיביים כדי להציג
+                    פרויקטים בצורה היצירתית והמתקדמת ביותר.</li>
+                <li>מערכות ניהול פרויקטים: פיתחתי מערכת ניהול פרויקטים המאפשרת תצוגה ברורה של משימות, כולל אפשרויות
+                    לעריכה ישירה, הצגת סטטוס התקדמות, וניהול צבעים עבור מצבים שונים.</li>
+                <li>כלים לניהול תכנים: עיצבתי כלי לניהול והצגת פרומפטים עם אפשרות חיפוש ומיון לפי קטגוריות, המאפשר הצגת
+                    תוכן בצורה קרדית ונגישה.</li>
+                <li>אתרי סיוע לקהילה: פיתחתי אתר לשם ארגון למאבק בעישון, כולל כלי מחשוב, סיפור הצלחה, וטיפים להתמודדות
+                    עם התמכרות.</li>
+            </ul>
+
+            <h2>מטרות ויעדים</h2>
+            <p>אני שואף להקים ארגון בינלאומי למאבק בעישון, שיכלול מגוון פעילויות ותמיכה לקהילה. תהליך זה כולל הקמת
+                עמותה, רישום עם רשויות המס, פיתוח אסטרטגיה עולמית, קבלת רישיונות, הכנת תוכנית עסקית וקידום הארגון.</p>
+
+            <h2>התמחות טכנולוגית</h2>
+            <p>אני מתמחה בפיתוח אתרי אינטרנט באמצעות HTML, CSS ו-JavaScript, עם דגש על עיצובים רספונסיביים וחדשניים. אני
+                נרגש ליישם צבעים, אנימציות, ואלמנטים אינטראקטיביים שמתאימים לצרכים הספציפיים של כל פרויקט.</p>
+
+            <h2>פרויקטים עתידיים</h2>
+            <p>אני מתכנן לשדרג את האתר שלי עם פונקציות נוספות, כולל תוספת של חלוקת קישורים למועדפים, עיצוב קטעי מוזיקה,
+                ופיתוח ממשקים חדשים כדי לשפר את חווית המשתמש ולמקסם את הפוטנציאל של כל פרויקט.</p>
+
+            <h2>הכישורים שלי</h2>
+            <ul>
+                <li>
+                    <strong>עיצוב גרפי ו-UX/UI</strong>
+                    <p>אני בעל ניסיון נרחב בעיצוב גרפי שמקיף את כל שלבי הפיתוח, כולל עיצוב ממשקי משתמש (UI) וחוויות
+                        משתמש (UX). אני מתמחה ביצירת פתרונות עיצוב שמבוססים על מחקרי משתמשים ומבני מידע, תוך שימוש
+                        בעקרונות עיצוב מודרניים ליצירת חוויות מרהיבות וידידותיות למשתמש. עבודתי כוללת עיצוב לוגואים,
+                        טיפוגרפיה, צבעים, ופריסות שמסייעות למתג את המוצר ולשפר את השימושיות.</p>
+                </li>
+                <li>
+                    <strong>פיתוח אתרים עם HTML, CSS, ו-JavaScript</strong>
+                    <p>אני מתמחה בפיתוח אתרי אינטרנט תוך שימוש בטכנולוגיות בסיסיות כמו HTML, CSS, ו-JavaScript. אני
+                        מקפיד על יצירת אתרים רספונסיביים ומותאמים לכל המכשירים, כולל עבודה עם טכנולוגיות מתקדמות כמו CSS
+                        Grid ו-Flexbox ליצירת פריסות מתקדמות, ו-JavaScript לבניית אינטראקטיביות ותכנים דינמיים. הניסיון
+                        שלי כולל פיתוח מערכות ניהול תוכן, אינטגרציה עם APIs, ובניית אפליקציות צד לקוח.</p>
+                </li>
+                <li>
+                    <strong>ניהול פרויקטים ופתרונות מותאמים אישית</strong>
+                    <p>במהלך הקריירה שלי, ניהלתי מגוון רחב של פרויקטים טכנולוגיים, החל משלב התכנון ועד שלב ההשקה. אני
+                        מיומן בניהול פרויקטים תוך שימוש בשיטות עבודה שונות כמו Agile ו-Waterfall, ותוך כדי שיתוף פעולה
+                        עם צוותים מרובים. אני מתמחה בפתרונות מותאמים אישית בהתאם לצרכים ספציפיים של לקוחות, כולל ניהול
+                        לוחות זמנים, תקציבים, ומשאבים.</p>
+                </li>
+                <li>
+                    <strong>תכנון חוויות משתמש משולבות</strong>
+                    <p>אני בעל ניסיון רב בתכנון חוויות משתמש שמבוססות על שילוב בין עיצוב גרפי, ניתוח נתונים, והבנת צרכי
+                        המשתמש. אני מתמחה ביצירת פרסונות, מיפוי מסעות משתמש, ובניית תהליכים אינטראקטיביים שמבטיחים
+                        חוויות חלקות ויעילות. תהליכי העבודה שלי כוללים סקרים, ראיונות, ובדיקות שימושיות כדי להבטיח
+                        שהפתרונות שלי עונים על הציפיות ומספקים ערך מוסף למשתמשים.</p>
+                </li>
+            </ul>
+
+
+            <p>אני מזמין אתכם לגלות עוד על עבודתי ולהתחבר איתי דרך פרויקטים שונים שיצרתי.</p>
+            <style>
+                .projects-bar {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    position: relative;
+                    margin-top: 20px;
+                }
+
+                .projects-scroll {
+                    display: inline-block;
+                    white-space: nowrap;
+                    animation: scroll 15s linear infinite;
+                }
+
+                .project-link {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    margin-right: 15px;
+                    color: #ffffff;
+                    background-color: #007bff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+
+                .project-link:hover {
+                    background-color: #0056b3;
+                    color: #ffffff;
+                }
+
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(100%);
+                    }
+
+                    100% {
+                        transform: translateX(-100%);
+                    }
+                }
+            </style>
+            <div class="projects-bar">
+                <div class="projects-scroll">
+                    <a href="#project1" class="project-link">פרויקט 1</a>
+                    <a href="#project2" class="project-link">פרויקט 2</a>
+                    <a href="#project3" class="project-link">פרויקט 3</a>
+                    <a href="#project4" class="project-link">פרויקט 4</a>
+                    <a href="#project5" class="project-link">פרויקט 5</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- מקטע כישורים -->
+        <div id="skills" class="section">
+            <h1>כישורים</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>טכנולוגיות</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React, Angular</li>
+                        <li>Node.js, Python</li>
+                        <li>MongoDB, MySQL</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>כישורים מקצועיים</h3>
+                    <ul>
+                        <li>פיתוח ממשקים רספונסיביים</li>
+                        <li>תכנון ארכיטקטורת מערכות</li>
+                        <li>עבודה בצוותים אג'יליים</li>
+                        <li>ניהול פרויקטים ופיתוח מוצרים</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>תרשים כישורים</h3>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90"
+                    aria-valuemin="0" aria-valuemax="100">HTML/CSS</div>
+            </div>
+            <div class="progress mt-2">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85"
+                    aria-valuemin="0" aria-valuemax="100">JavaScript</div>
+            </div>
+            <div class="progress mt-2">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100">React</div>
+            </div>
+            <div class="progress mt-2">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                    aria-valuemin="0" aria-valuemax="100">Node.js</div>
+            </div>
+        </div>
+
+        <!-- מקטע פרויקטים -->
+        <div id="projects" class="section">
+            <h1>פרויקטים</h1>
+            <p>הנה חלק מהפרויקטים שביצעתי:</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>פרויקט 1</h3>
+                    <p>פרויקט ליצירת פלטפורמה לניהול משימות בצוותי פיתוח.</p>
+                    <a href="#" class="btn btn-primary">צפה בפרויקט</a>
+                </div>
+                <div class="col-md-6">
+                    <h3>פרויקט 2</h3>
+                    <p>אתר מסחר אלקטרוני המאפשר למשתמשים לקנות מוצרים אונליין בצורה מהירה.</p>
+                    <a href="#" class="btn btn-primary">צפה בפרויקט</a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>פרויקט 3</h3>
+                    <p>אפליקציה לניהול תקציב אישי עם ממשק משתמש ידידותי.</p>
+                    <a href="#" class="btn btn-primary">צפה בפרויקט</a>
+                </div>
+                <div class="col-md-6">
+                    <h3>פרויקט 4</h3>
+                    <p>פלטפורמת ניהול אירועים עם מערכת רישום מתקדמת ומשוב.</p>
+                    <a href="#" class="btn btn-primary">צפה בפרויקט</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- מקטע בלוג -->
+        <div id="blog" class="section">
+            <h1>בלוג</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>מאמר 1: טיפים לפיתוח אפליקציות רספונסיביות</h3>
+                    <p>למד כיצד לבנות אפליקציות המתאימות לכל סוגי המכשירים, תוך שמירה על מהירות ויעילות.</p>
+                    <a href="#" class="btn btn-secondary">קרא עוד</a>
+                </div>
+                <div class="col-md-12 mt-3">
+                    <h3>מאמר 2: המדריך השלם ל-React</h3>
+                    <p>הכר את הפלטפורמה הפופולרית לפיתוח אפליקציות צד-לקוח בצורה מקצועית וידידותית למשתמש.</p>
+                    <a href="#" class="btn btn-secondary">קרא עוד</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- מקטע צור קשר -->
+        <div id="contact" class="section">
+            <h1>צור קשר</h1>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">שם מלא</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">כתובת דוא"ל</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">הודעה</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">שלח הודעה</button>
+                <div id="form-feedback" class="mt-3"></div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        // Handle toggling of the menu
+        document.querySelector('.toggle-menu').addEventListener('click', function () {
+            document.querySelector('.dashboard-menu').classList.toggle('expanded');
+            document.querySelector('.dashboard-content').classList.toggle('expanded');
+        });
+
+        // Handle switching between sections
+        document.querySelectorAll('.nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.section').forEach(function (section) {
+                    section.classList.remove('active');
+                });
+
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
