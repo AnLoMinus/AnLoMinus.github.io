@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שאלון מנהל פרויקטים</title>
+    <style>
+        html {
+            direction: rtl;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        header {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        form {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0%;
+            border-radius: 5px;
+        }
+
+        .step-indicator {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>שאלון מנהל פרויקטים</h1>
+        <p>אנא מלא את הפרטים הבאים כדי לעזור לנו להבין את התחומים השונים של תפקיד מנהל הפרויקטים.</p>
+    </header>
+
+    <main>
+        <div style="align-self: center;" class="step-indicator" id="step-indicator">שלב 1 מתוך 11</div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <form id="project-form" novalidate>
+            <!-- Step 1: Project Planning -->
+            <section class="step active" id="step-1">
+                <h2>שלב 1: תכנון ולוח זמנים של הפרויקט</h2>
+                <label for="project-scope">📋 היקף הפרויקט:</label>
+                <br>
+                <textarea id="project-scope" name="project-scope" rows="4" placeholder="הגדר את היקף הפרויקט" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-project-scope"></span>
+                <br>
+                <label for="general-objective">🎯 מטרה כללית:</label>
+                <br>
+                <input type="text" id="general-objective" name="general-objective" placeholder="הכנס מטרה כללית"
+                    required aria-required="true">
+                <span class="error" id="error-general-objective"></span>
+                <br>
+                <label for="specific-objectives">🎯 מטרות ספציפיות:</label>
+                <br>
+                <textarea id="specific-objectives" name="specific-objectives" rows="4" placeholder="הכנס מטרות ספציפיות"
+                    required aria-required="true"></textarea>
+                <span class="error" id="error-specific-objectives"></span>
+                <br>
+                <label for="main-deliverables">📑 תוצרים עיקריים:</label>
+                <br>
+                <textarea id="main-deliverables" name="main-deliverables" rows="4" placeholder="הכנס תוצרים עיקריים"
+                    required aria-required="true"></textarea>
+                <span class="error" id="error-main-deliverables"></span>
+                <br>
+                <label for="intermediate-deliverables">📑 תוצרים ביניים:</label>
+                <br>
+                <textarea id="intermediate-deliverables" name="intermediate-deliverables" rows="4"
+                    placeholder="הכנס תוצרים ביניים"></textarea>
+                <br>
+                <label for="project-plan">📅 תוכנית פרויקט מפורטת:</label>
+                <br>
+                <textarea id="project-plan" name="project-plan" rows="6"
+                    placeholder="הכנס תוכנית פרויקט מפורטת כולל לוחות זמנים ואבני דרך" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-project-plan"></span>
+                <br>
+                <label for="project-schedule">📆 לוח זמנים:</label>
+                <br>
+                <input type="date" id="project-schedule" name="project-schedule" required aria-required="true">
+                <span class="error" id="error-project-schedule"></span>
+                <br>
+                <label for="schedule-adherence">📊 הבטחת adherence:</label>
+                <br>
+                <textarea id="schedule-adherence" name="schedule-adherence" rows="4"
+                    placeholder="הכנס פרטים על כיצד תוודא adherence ללוח זמנים" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-schedule-adherence"></span>
+                <br>
+                <button type="button" onclick="nextStep(2)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 2: Team Coordination -->
+            <section class="step" id="step-2">
+                <h2>שלב 2: תיאום צוות</h2>
+                <label for="task-assignment">🗂 הקצאת משימות ואחריות:</label>
+                <br>
+                <textarea id="task-assignment" name="task-assignment" rows="4"
+                    placeholder="הכנס פרטים על הקצאת משימות ואחריות לחברי הצוות" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-task-assignment"></span>
+                <br>
+                <label for="team-communication">📞 תיאום תקשורת בין חברי הצוות:</label>
+                <br>
+                <textarea id="team-communication" name="team-communication" rows="4"
+                    placeholder="הכנס פרטים על תקשורת בין חברי הצוות" required aria-required="true"></textarea>
+                <span class="error" id="error-team-communication"></span>
+                <br>
+                <label for="team-meetings">📅 קיום פגישות צוות רגילות:</label>
+                <br>
+                <textarea id="team-meetings" name="team-meetings" rows="4"
+                    placeholder="הכנס פרטים על קיום פגישות צוות ועדכוני מצב" required aria-required="true"></textarea>
+                <span class="error" id="error-team-meetings"></span>
+                <br>
+                <label>🔧 תיאום צוות - סוגי התקשורת:</label>
+                <br>
+                <fieldset>
+                    <legend>בחר את סוגי התקשורת:</legend>
+                    <input type="checkbox" id="email" name="communication" value="email">
+                    <label for="email">אימייל</label><br>
+                    <input type="checkbox" id="meetings" name="communication" value="meetings">
+                    <label for="meetings">פגישות</label><br>
+                    <input type="checkbox" id="chat" name="communication" value="chat">
+                    <label for="chat">צ'אט</label><br>
+                    <input type="checkbox" id="phone" name="communication" value="phone">
+                    <label for="phone">טלפון</label>
+                </fieldset>
+                <br>
+                <button type="button" onclick="prevStep(1)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(3)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 3: Resource Management -->
+            <section class="step" id="step-3">
+                <h2>שלב 3: ניהול משאבים</h2>
+                <label for="resource-allocation">🛠 הקצאת משאבים:</label>
+                <br>
+                <textarea id="resource-allocation" name="resource-allocation" rows="4"
+                    placeholder="הכנס פרטים על הקצאת משאבים כולל תקציב, כלים ואנשים" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-resource-allocation"></span>
+                <br>
+                <label for="resource-monitoring">📈 ניטור השימוש במשאבים:</label>
+                <br>
+                <textarea id="resource-monitoring" name="resource-monitoring" rows="4"
+                    placeholder="הכנס פרטים על ניטור השימוש במשאבים וביצוע התאמות לפי הצורך" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-resource-monitoring"></span>
+                <br>
+                <label for="budget-approval">💵 אישור תקציב:</label>
+                <select id="budget-approval" name="budget-approval" required aria-required="true">
+                    <option value="" disabled selected>בחר אישור תקציב</option>
+                    <option value="approved">אושר</option>
+                    <option value="pending">ממתין</option>
+                    <option value="rejected">נדחה</option>
+                </select>
+                <span class="error" id="error-budget-approval"></span>
+                <br>
+                <button type="button" onclick="prevStep(2)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(4)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 4: Risk Management -->
+            <section class="step" id="step-4">
+                <h2>שלב 4: ניהול סיכונים</h2>
+                <label for="risk-identification">⚠️ זיהוי סיכונים:</label>
+                <br>
+                <textarea id="risk-identification" name="risk-identification" rows="4"
+                    placeholder="הכנס פרטים על זיהוי סיכונים בעיתיים שעלולים להשפיע על הפרויקט" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-risk-identification"></span>
+                <br>
+                <label for="risk-mitigation">🛡 פיתוח אסטרטגיות הפחתה:</label>
+                <br>
+                <textarea id="risk-mitigation" name="risk-mitigation" rows="4"
+                    placeholder="הכנס פרטים על פיתוח אסטרטגיות הפחתה ותוכניות חירום" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-risk-mitigation"></span>
+                <br>
+                <label for="issue-resolution">🛠 טיפול ופתרון בעיות:</label>
+                <br>
+                <textarea id="issue-resolution" name="issue-resolution" rows="4"
+                    placeholder="הכנס פרטים על טיפול ופתרון בעיות ככל שהן מתעוררות" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-issue-resolution"></span>
+                <br>
+                <label>⚠️ ניהול סיכונים - רמת הסיכון:</label>
+                <fieldset>
+                    <legend>בחר את רמת הסיכון:</legend>
+                    <input type="radio" id="high-risk" name="risk-level" value="high" required aria-required="true">
+                    <label for="high-risk">סיכון גבוה</label><br>
+                    <input type="radio" id="medium-risk" name="risk-level" value="medium" required aria-required="true">
+                    <label for="medium-risk">סיכון בינוני</label><br>
+                    <input type="radio" id="low-risk" name="risk-level" value="low" required aria-required="true">
+                    <label for="low-risk">סיכון נמוך</label>
+                </fieldset>
+                <span class="error" id="error-risk-level"></span>
+                <br>
+                <button type="button" onclick="prevStep(3)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(5)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 5: Quality Control -->
+            <section class="step" id="step-5">
+                <h2>שלב 5: בקרת איכות</h2>
+                <label for="quality-standards">🔍 שמירה על סטנדרטי איכות:</label>
+                <br>
+                <textarea id="quality-standards" name="quality-standards" rows="4"
+                    placeholder="הכנס פרטים על שמירה על סטנדרטים גבוהים של איכות, כולל בדיקות ותעודות" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-quality-standards"></span>
+                <br>
+                <label>🔍 בקרת איכות - סוגי סטנדרטים:</label>
+                <br>
+                <fieldset>
+                    <legend>בחר את סוגי הסטנדרטים:</legend>
+                    <input type="checkbox" id="standards-compliance" name="quality-standards-type" value="compliance">
+                    <label for="standards-compliance">עמידה בדרישות</label><br>
+                    <input type="checkbox" id="certifications" name="quality-standards-type" value="certifications">
+                    <label for="certifications">הסמכות</label>
+                </fieldset>
+                <br>
+                <button type="button" onclick="prevStep(4)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(6)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 6: Stakeholder Communication -->
+            <section class="step" id="step-6">
+                <h2>שלב 6: תקשורת עם בעלי עניין</h2>
+                <label for="stakeholder-communication">📢 שמירה על תקשורת עם בעלי עניין:</label>
+                <br>
+                <textarea id="stakeholder-communication" name="stakeholder-communication" rows="4"
+                    placeholder="הכנס פרטים על שמירה על תקשורת עם בעלי עניין ועדכון שלהם על התקדמות הפרויקט" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-stakeholder-communication"></span>
+                <br>
+                <label for="expectations-management">📈 ניהול ציפיות בעלי עניין:</label>
+                <br>
+                <textarea id="expectations-management" name="expectations-management" rows="4"
+                    placeholder="הכנס פרטים על ניהול ציפיות בעלי עניין וטיפול בהערות או ביקורת" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-expectations-management"></span>
+                <br>
+                <label>📢 תקשורת עם בעלי עניין - ערוצים:</label>
+                <br>
+                <fieldset>
+                    <legend>בחר את ערוצי התקשורת:</legend>
+                    <input type="radio" id="email-stakeholder" name="stakeholder-channel" value="email" required
+                        aria-required="true">
+                    <label for="email-stakeholder">אימייל</label><br>
+                    <input type="radio" id="meetings-stakeholder" name="stakeholder-channel" value="meetings" required
+                        aria-required="true">
+                    <label for="meetings-stakeholder">פגישות</label><br>
+                    <input type="radio" id="reports-stakeholder" name="stakeholder-channel" value="reports" required
+                        aria-required="true">
+                    <label for="reports-stakeholder">דו"ח מצב</label>
+                </fieldset>
+                <span class="error" id="error-stakeholder-channel"></span>
+                <br>
+                <button type="button" onclick="prevStep(5)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(7)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 7: Progress Tracking -->
+            <section class="step" id="step-7">
+                <h2>שלב 7: מעקב ודיווח על התקדמות</h2>
+                <label for="progress-tracking">📊 מעקב אחר התקדמות:</label>
+                <br>
+                <textarea id="progress-tracking" name="progress-tracking" rows="4"
+                    placeholder="הכנס פרטים על מעקב אחר התקדמות הפרויקט לעומת אבני הדרך והמועדים" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-progress-tracking"></span>
+                <br>
+                <label for="progress-reports">📈 הכנה והצגת דוחות מצב:</label>
+                <br>
+                <textarea id="progress-reports" name="progress-reports" rows="4"
+                    placeholder="הכנס פרטים על הכנה והצגת דוחות מצב לבעלי עניין ולניהול העליון" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-progress-reports"></span>
+                <br>
+                <label>📊 דיווח על התקדמות - סוגי דוחות:</label>
+                <br>
+                <fieldset>
+                    <legend>בחר את סוגי הדוחות:</legend>
+                    <input type="checkbox" id="weekly-report" name="progress-reports-type" value="weekly">
+                    <label for="weekly-report">דו"ח שבועי</label><br>
+                    <input type="checkbox" id="monthly-report" name="progress-reports-type" value="monthly">
+                    <label for="monthly-report">דו"ח חודשי</label><br>
+                    <input type="checkbox" id="ad-hoc-report" name="progress-reports-type" value="ad-hoc">
+                    <label for="ad-hoc-report">דו"ח אקראי</label>
+                </fieldset>
+                <br>
+                <button type="button" onclick="prevStep(6)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(8)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 8: Documentation -->
+            <section class="step" id="step-8">
+                <h2>שלב 8: תיעוד</h2>
+                <label for="project-documentation">📂 שמירה על תיעוד הפרויקט:</label>
+                <br>
+                <textarea id="project-documentation" name="project-documentation" rows="4"
+                    placeholder="הכנס פרטים על שמירה על תיעוד הפרויקט, כולל תוכניות, לוחות זמנים ודוחות" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-project-documentation"></span>
+                <br>
+                <label for="documentation-access">🔒 הבטחת עדכניות ונגישות:</label>
+                <br>
+                <textarea id="documentation-access" name="documentation-access" rows="4"
+                    placeholder="הכנס פרטים על הבטחת עדכניות ונגישות כל תיעוד הפרויקט" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-documentation-access"></span>
+                <br>
+                <label>📂 תיעוד - גישה לתיעוד:</label>
+                <br>
+                <fieldset>
+                    <legend>בחר את אפשרויות הגישה:</legend>
+                    <input type="checkbox" id="secure-access" name="documentation-access-type" value="secure">
+                    <label for="secure-access">גישה מאובטחת</label><br>
+                    <input type="checkbox" id="read-only" name="documentation-access-type" value="read-only">
+                    <label for="read-only">גישה לקריאה בלבד</label>
+                </fieldset>
+                <br>
+                <button type="button" onclick="prevStep(7)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(9)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 9: Problem Solving -->
+            <section class="step" id="step-9">
+                <h2>שלב 9: פתרון בעיות</h2>
+                <label for="conflict-resolution">🔧 פתרון קונפליקטים:</label>
+                <br>
+                <textarea id="conflict-resolution" name="conflict-resolution" rows="4"
+                    placeholder="הכנס פרטים על פתרון קונפליקטים ובעיות בתוך הצוות" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-conflict-resolution"></span>
+                <br>
+                <label for="problem-solving">🛠 מתן פתרונות לאתגרים:</label>
+                <br>
+                <textarea id="problem-solving" name="problem-solving" rows="4"
+                    placeholder="הכנס פרטים על מתן פתרונות לאתגרים המתעוררים במהלך חיי הפרויקט" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-problem-solving"></span>
+                <br>
+                <label>🔧 פתרון בעיות - סוגי בעיות:</label>
+                <br>
+                <fieldset>
+                    <legend>בחר את סוגי הבעיות:</legend>
+                    <input type="radio" id="team-conflicts" name="problem-type" value="team-conflicts" required
+                        aria-required="true">
+                    <label for="team-conflicts">קונפליקטים צוותיים</label><br>
+                    <input type="radio" id="technical-issues" name="problem-type" value="technical-issues" required
+                        aria-required="true">
+                    <label for="technical-issues">בעיות טכניות</label><br>
+                    <input type="radio" id="resource-constraints" name="problem-type" value="resource-constraints"
+                        required aria-required="true">
+                    <label for="resource-constraints">מגבלות משאבים</label>
+                </fieldset>
+                <span class="error" id="error-problem-type"></span>
+                <br>
+                <button type="button" onclick="prevStep(8)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(10)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 10: Project Closure -->
+            <section class="step" id="step-10">
+                <h2>שלב 10: סיום פרויקט</h2>
+                <label for="project-completion">🏁 הבטחת סיום כל התוצרים:</label>
+                <br>
+                <textarea id="project-completion" name="project-completion" rows="4"
+                    placeholder="הכנס פרטים על הבטחת סיום כל התוצרים של הפרויקט ועמידה בסטנדרטים הנדרשים" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-project-completion"></span>
+                <br>
+                <label for="post-project-review">🔍 קיום סקירה לאחר פרויקט:</label>
+                <br>
+                <textarea id="post-project-review" name="post-project-review" rows="4"
+                    placeholder="הכנס פרטים על קיום סקירה לאחר פרויקט והפקת לקחים לעתיד" required
+                    aria-required="true"></textarea>
+                <span class="error" id="error-post-project-review"></span>
+                <br>
+                <label for="project-closure-report">📑 דו"ח סיום פרויקט:</label>
+                <br>
+                <textarea id="project-closure-report" name="project-closure-report" rows="4"
+                    placeholder="הכנס פרטים על הכנת דו" ח סיום פרויקט הכולל סקירה של כל התהליכים, התוצרים והביצועים"
+                    required aria-required="true"></textarea>
+                <span class="error" id="error-project-closure-report"></span>
+                <br>
+                <button type="button" onclick="prevStep(9)">חזור לשלב הקודם</button>
+                <button type="button" onclick="nextStep(11)">המשך לשלב הבא</button>
+            </section>
+
+            <!-- Step 11: Preview and Save -->
+            <section class="step" id="step-11">
+                <h2>שלב 11: תצוגה מקדימה ושמירה</h2>
+                <div id="preview-results">
+                    <!-- The results will be inserted here dynamically -->
+                </div>
+                <br>
+                <button type="button" onclick="saveToLocal('json')">שמור כ-JSON</button>
+                <button type="button" onclick="saveToLocal('txt')">שמור כ-TXT</button>
+                <button type="button" onclick="saveToLocal('xml')">שמור כ-XML</button>
+                <br>
+                <button type="button" onclick="prevStep(10)">חזור לשלב הקודם</button>
+                <button type="submit" onclick="showConfirmation()">שלח</button>
+            </section>
+        </form>
+    </main>
+
+    <script>
+        // Real-time validation
+        document.querySelectorAll('input, textarea, select').forEach(function (element) {
+            element.addEventListener('input', function () {
+                validateField(element);
+            });
+        });
+
+        function validateField(element) {
+            const errorElement = document.getElementById(`error-${element.name}`);
+            if (!element.checkValidity()) {
+                errorElement.textContent = element.validationMessage;
+            } else {
+                errorElement.textContent = '';
+            }
+        }
+
+        function nextStep(stepNumber) {
+            const currentStep = document.getElementById('step-' + (stepNumber - 1));
+            const inputs = currentStep.querySelectorAll('input, textarea, select');
+            let valid = true;
+
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    valid = false;
+                    validateField(input);
+                }
+            });
+
+            if (valid) {
+                if (stepNumber === 11) {
+                    // Fill the preview results
+                    const formData = new FormData(document.querySelector('form'));
+                    let previewHTML = '<h3>תצוגה מקדימה:</h3><ul>';
+                    formData.forEach((value, key) => {
+                        const inputElement = document.querySelector(`[name="${key}"]`);
+                        const placeholder = inputElement ? inputElement.placeholder : '';
+                        const displayValue = value ? `<strong>${value}</strong>` : `<strong>${placeholder}</strong>`;
+                        previewHTML += `<li><strong>${key}:</strong> ${displayValue}</li>`;
+                    });
+                    previewHTML += '</ul>';
+                    document.getElementById('preview-results').innerHTML = previewHTML;
+                }
+                showStep(stepNumber);
+                updateProgress(stepNumber);
+            }
+        }
+
+        function showStep(stepNumber) {
+            document.querySelectorAll('.step').forEach(function (step) {
+                step.classList.remove('active');
+            });
+            document.getElementById('step-' + stepNumber).classList.add('active');
+            document.getElementById('step-indicator').innerText = `שלב ${stepNumber} מתוך 11`;
+        }
+
+        function prevStep(stepNumber) {
+            showStep(stepNumber);
+            updateProgress(stepNumber);
+        }
+
+        function updateProgress(stepNumber) {
+            const progress = (stepNumber - 1) / 10 * 100; // Calculate progress percentage
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function saveToLocal(format) {
+            const formData = new FormData(document.querySelector('form'));
+            let data;
+
+            switch (format) {
+                case 'json':
+                    data = JSON.stringify(Object.fromEntries(formData));
+                    downloadFile('form-data.json', data, 'application/json');
+                    break;
+                case 'txt':
+                    data = Array.from(formData).map(([key, value]) => `${key}: ${value}`).join('\n');
+                    downloadFile('form-data.txt', data, 'text/plain');
+                    break;
+                case 'xml':
+                    data = '<formData>' + Array.from(formData).map(([key, value]) =>
+                        `<item><key>${key}</key><value>${value}</value></item>`
+                    ).join('') + '</formData>';
+                    downloadFile('form-data.xml', data, 'application/xml');
+                    break;
+            }
+        }
+
+        function downloadFile(filename, data, mimeType) {
+            const blob = new Blob([data], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function showConfirmation() {
+            alert("הטופס נשלח בהצלחה!");
+        }
+
+        // Initialize the first step
+        showStep(1);
+    </script>
+</body>
+
+</html>

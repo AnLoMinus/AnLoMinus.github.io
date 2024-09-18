@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnLoMinus Planet</title>
-    <link rel="stylesheet" href="./0-css/Fresh.css">
-    <link rel="stylesheet" href="./0-css/Led-Bar.css">
+    <link rel="stylesheet" href="./css/Fresh.css">
+    <link rel="stylesheet" href="./css/Led-Bar.css">
 </head>
 
 <body>
@@ -55,206 +55,25 @@
             </span>
         </section>
         <br>
-        <!-- Accordions section -->
-        <section id="X-Accordions" style="display: none;">
-            <style>
-                h1 {
-                    text-align: center;
-                    /* color: #333; */
-                }
 
-                .accordion {
-                    margin: 0%;
-                    padding: 0;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    width: 100%;
-                }
-
-                .accordion-item {
-                    border-bottom: 1px solid #ddd;
-                    border-radius: 18px;
-                }
-
-                .accordion-header {
-                    background-color: #4a4a4a50;
-                    color: #ddd;
-                    cursor: pointer;
-                    /* padding: 15px; */
-                    width: 100%;
-                    text-align: right;
-                    border: none;
-                    border-radius: 18px;
-                    outline: none;
-                    /* transition: background-color 0.2s ease; */
-                }
-
-                .accordion-header:hover {
-                    /* background-color: #ccc; */
-                }
-
-                .accordion-content {
-                    display: none;
-                    /* padding: 15px; */
-                    /* background-color: #fafafa; */
-                }
-
-                /* עיצוב 1: גלריית פרוייקטים - Grid Layout */
-                .grid-layout {
-                    /* display: grid; */
-                    /* grid-template-columns: repeat(3, 1fr); */
-                    /* gap: 15px; */
-                }
-
-                .grid-layout .item {
-                    /* background-color: #4caf50; */
-                    /* color: white; */
-                    /* padding: 20px; */
-                    /* text-align: center; */
-                    /* border-radius: 5px; */
-                }
-
-                /* עיצוב 2: גלריית עסקים - Carousel Layout */
-                .carousel-layout {
-                    display: flex;
-                    overflow-x: auto;
-                    gap: 15px;
-                }
-
-                .carousel-layout .item {
-                    background-color: #2196F3;
-                    color: white;
-                    padding: 20px;
-                    text-align: center;
-                    border-radius: 5px;
-                    /* min-width: 150px; */
-                }
-
-                /* עיצוב 3: גלריית אתרים - Masonry Layout */
-                .masonry-layout {
-                    column-count: 3;
-                    column-gap: 15px;
-                }
-
-                .masonry-layout .item {
-                    background-color: #FFC107;
-                    color: white;
-                    padding: 20px;
-                    margin-bottom: 15px;
-                    break-inside: avoid;
-                    border-radius: 5px;
-                }
-
-                /* עיצוב 4: גלריית כלים - Flexbox Layout */
-                .flexbox-layout {
-                    display: flex;
-                    justify-content: space-around;
-                }
-
-                .flexbox-layout .item {
-                    background-color: #f44336;
-                    color: white;
-                    padding: 20px;
-                    text-align: center;
-                    border-radius: 5px;
-                    flex: 1;
-                    margin: 0 10px;
-                }
-            </style>
-
-            <div class="">
-                <h1>תיק עבודות</h1>
-
-                <!-- עיצוב 1 - גלריית פרוייקטים -->
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header">גלריית פרוייקטים - עיצוב 1</button>
-                        <div class="accordion-content">
-                            <div class="gallery grid-layout">
-                                <div class="item">פרוייקט 1</div>
-                                <div class="item">פרוייקט 2</div>
-                                <div class="item">פרוייקט 3</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- עיצוב 2 - גלריית עסקים -->
-                    <div class="accordion-item">
-                        <button class="accordion-header">גלריית עסקים - עיצוב 2</button>
-                        <div class="accordion-content">
-                            <div class="gallery carousel-layout">
-                                <div class="item">עסק 1</div>
-                                <div class="item">עסק 2</div>
-                                <div class="item">עסק 3</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- עיצוב 3 - גלריית אתרים -->
-                    <div class="accordion-item">
-                        <button class="accordion-header">גלריית אתרים - עיצוב 3</button>
-                        <div class="accordion-content">
-                            <div class="gallery masonry-layout">
-                                <div class="item">אתר 1</div>
-                                <div class="item">אתר 2</div>
-                                <div class="item">אתר 3</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- עיצוב 4 - גלריית כלים -->
-                    <div class="accordion-item">
-                        <button class="accordion-header">גלריית כלים - עיצוב 4</button>
-                        <div class="accordion-content">
-                            <div class="gallery flexbox-layout">
-                                <div class="item">כלי 1</div>
-                                <div class="item">כלי 2</div>
-                                <div class="item">כלי 3</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                const accordionItems = document.querySelectorAll('.accordion-item');
-
-                accordionItems.forEach(item => {
-                    const header = item.querySelector('.accordion-header');
-                    header.addEventListener('click', () => {
-                        const openItem = document.querySelector('.accordion-item.active');
-                        toggleAccordion(item);
-                        if (openItem && openItem !== item) {
-                            toggleAccordion(openItem);
-                        }
-                    });
-                });
-
-                function toggleAccordion(item) {
-                    const content = item.querySelector('.accordion-content');
-                    if (item.classList.contains('active')) {
-                        content.style.display = 'none';
-                        item.classList.remove('active');
-                    } else {
-                        content.style.display = 'block';
-                        item.classList.add('active');
-                    }
-                }
-
-
-            </script>
-            </div>
-        </section>
 
         <!-- Projects section -->
         <div class="projects">
             <div class="gallery-section">
                 <h2>פרויקטים</h2>
                 <div class="gallery">
-                    <a href="#" class="card" data-description="פיתוח כלים">Tool Development</a>
-                    <a href="#" class="card" data-description="בניית אתרים">Web Development</a>
-                    <a href="#" class="card" data-description="עיצוב ממשקים">UI Design</a>
-                    <a href="#" class="card" data-description="מערכות מבוססות אינטרנט">Cloud Systems</a>
+                    <a href="./Projects/BrainWave/MultiHealth/index.html" class="card"
+                        data-description="ניהול אורך חיים בריא ומאוזן">MultiHealth</a>
+                    <a href="./Projects/המלחמה בסיגריות/index.html" class="card" data-description="מתחילים את הדרך לחיים בריאים
+
+                    ">הארגון
+                        למלחמה בעישון</a>
+
+                    <a href="./Projects/מערכת לניהול מצוות/index.html" class="card"
+                        data-description="מערכת לניהול מצוות יום-יום">מערכת ניהול מצוות</a>
+                    <!-- <a href="#" class="card" data-description="פיתוח כלים">Tool Development</a> -->
+                    <!-- <a href="#" class="card" data-description="בניית אתרים">Web Development</a> -->
+                    <!-- <a href="#" class="card" data-description="עיצוב ממשקים">UI Design</a> -->
                 </div>
             </div>
         </div>
@@ -264,10 +83,10 @@
             <div class="gallery-section">
                 <h2>עסקים</h2>
                 <div class="gallery">
-                    <a href="#" class="card" data-description="ירקנייה דיגיטלית">ירקנייה דיגיטלית</a>
-                    <a href="#" class="card" data-description="עסק נוסף">Business 2</a>
-                    <a href="#" class="card" data-description="עסק נוסף">Business 3</a>
-                    <a href="#" class="card" data-description="עסק נוסף">Business 4</a>
+                    <a href="#" class="card" data-description="שירותים דיגיטליים">דיגיטל</a>
+                    <a href="#" class="card" data-description="עסק נוסף">כח אדם</a>
+                    <a href="#" class="card" data-description="עסק נוסף">נדל״ן תיווך</a>
+                    <a href="#" class="card" data-description="עסק נוסף">שירות לקוחות</a>
                 </div>
             </div>
         </div>
@@ -277,10 +96,10 @@
             <div class="gallery-section">
                 <h2>מטרות</h2>
                 <div class="gallery">
-                    <a href="#" class="card" data-description="השקת אפליקציה">Launch App</a>
-                    <a href="#" class="card" data-description="השגת לקוחות נוספים">Acquire Clients</a>
+                    <a href="#" class="card" data-description="השקת אפליקציה">ניהול אורך חיים בריא ומאוזן</a>
+                    <a href="#" class="card" data-description="השגת לקוחות נוספים">סט כלים לפרודוקטיביות</a>
                     <a href="#" class="card" data-description="פרויקט נוסף">New Project</a>
-                    <a href="#" class="card" data-description="התפתחות אישית">Personal Growth</a>
+                    <a href="#" class="card" data-description="הצבת יעדים ובניית תוכנית">התפתחות אישית</a>
                 </div>
             </div>
         </div>
@@ -290,30 +109,16 @@
             <div class="gallery-section">
                 <h2>משימות</h2>
                 <div class="gallery">
-                    <a href="./Projects/המלחמה בסיגריות/index.html" class="card" data-description="פגישת צוות">הארגון
-                        למלחמה בעישון</a>
-                    <a href="#" class="card" data-description="פגישת צוות">Team Meeting</a>
+                    <!-- <a href="#" class="card" data-description="פגישת צוות">Team Meeting</a>
                     <a href="#" class="card" data-description="בדיקת קוד">Code Review</a>
                     <a href="#" class="card" data-description="שיווק ופרסום">Marketing</a>
-                    <a href="#" class="card" data-description="השלמת פרויקט">Finish Project</a>
+                    <a href="#" class="card" data-description="השלמת פרויקט">Finish Project</a> -->
+                    <a href="#" class="card" data-description="בדיקת קוד">בדיקת תקינות הקוד והנגשתו</a>
+                    <a href="#" class="card" data-description="בניית אתר וקביעת גירסה ראשונה">לקבוע ממשק סופי לאתר</a>
                 </div>
             </div>
         </div>
 
-        <!-- Tasks section -->
-        <div class="tasks">
-            <div class="gallery-section">
-                <h2>משימות</h2>
-                <div class="gallery">
-                    <a href="./Projects/המלחמה בסיגריות/index.html" class="card" data-description="פגישת צוות">הארגון
-                        למלחמה בעישון</a>
-                    <a href="#" class="card" data-description="פגישת צוות">Team Meeting</a>
-                    <a href="#" class="card" data-description="בדיקת קוד">Code Review</a>
-                    <a href="#" class="card" data-description="שיווק ופרסום">Marketing</a>
-                    <a href="#" class="card" data-description="השלמת פרויקט">Finish Project</a>
-                </div>
-            </div>
-        </div>
 
         <!-- Tools section -->
         <div class="tools">
@@ -331,7 +136,39 @@
                         <a href="./Projects/ChatGPT-Prompts-Generator/PromptBase/01.html" class="card"
                             data-description="מחולל הוראות">PrompBase</a>
                     </div>
+                </div><br>
+
+                <div atyle="text-align center;" style="">
+                    <h2>לחיים</h2>
+                    <div class="gallery">
+                        <a href="./Projects/WebTools/For-Life/רשימת קניות.html" target="_blank"
+                            rel="noopener noreferrer" class="card">רשימת קניות</a>
+                        <a href="./Projects/WebTools/For-Life/PnaiLi/index.html
+                    " target="_blank" rel="noopener noreferrer" class="card">פנאי לי</a>
+                    </div>
+                </div><br>
+
+                <div atyle="text-align center;" style="">
+                    <h2>לפרוייקטים</h2>
+                    <div class="gallery">
+                        <a href="./Projects/WebTools/For-Projects/System Project Manager/Tools/index.html"
+                            target="_blank" rel="noopener noreferrer" class="card" style="display: none;">Management of
+                            goals and tasks</a>
+
+                        <a href="./Projects/WebTools/For-Projects/מנהל פרוייקטים/ניהול פרויקט/index.html"
+                            target="_blank" rel="noopener noreferrer" class="card">תכנון פרויקט ולוח זמנים</a>
+                        <a href="./Projects/WebTools/For-Projects/מנהל פרוייקטים/תוכנית עבודה ל-12 שעות/index.html"
+                            target="_blank" rel="noopener noreferrer" class="card">תוכנית עבודה ל-12 שעות לפרויקט</a>
+                        <a href="./Projects/WebTools/For-Projects/מנהל פרוייקטים/תכנון שבועי/index.html" target="_blank"
+                            rel="noopener noreferrer" class="card">ניהול מטרות שבועיות</a>
+                        <a href="./Projects/2.html" target="_blank" rel="noopener noreferrer" class="card">לוח
+                            מחוונים</a>
+                        <a href="./Projects/WebTools/For-Projects/Management of goals and tasks/index.html"
+                            target="_blank" rel="noopener noreferrer" class="card">ניהול יעדים ומשימות</a>
+
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -342,8 +179,8 @@
     </section>
 
 
-    <script src="./0-js/script.js"></script>
-    <script src="./0-js/Sentences.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/Sentences.js"></script>
 
 </body>
 

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טופס שאלון - ניהול פרויקטים</title>
+</head>
+
+<body>
+    <header>
+        <h1>טופס שאלון - ניהול פרויקטים</h1>
+    </header>
+
+    <main>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>הגדרת היקף הפרויקט, מטרות ותוצרים</legend>
+
+                <!-- Forms -->
+                <div>
+                    <label for="project-name">📁 שם הפרויקט:</label>
+                    <input type="text" id="project-name" name="project-name" placeholder="הכנס שם הפרויקט" required>
+                </div>
+
+                <div>
+                    <label for="project-description">📜 תיאור הפרויקט:</label>
+                    <textarea id="project-description" name="project-description" rows="4"
+                        placeholder="הכנס תיאור קצר של הפרויקט" required></textarea>
+                </div>
+
+                <!-- Input Groups -->
+                <div>
+                    <label for="general-objective">🎯 מטרה כללית:</label>
+                    <input type="text" id="general-objective" name="general-objective" placeholder="הכנס מטרה כללית"
+                        required>
+                </div>
+
+                <div>
+                    <label for="specific-objectives">🎯 מטרות ספציפיות:</label>
+                    <textarea id="specific-objectives" name="specific-objectives" rows="4"
+                        placeholder="הכנס מטרות ספציפיות" required></textarea>
+                </div>
+
+                <div>
+                    <label for="main-deliverables">📑 תוצרים עיקריים:</label>
+                    <textarea id="main-deliverables" name="main-deliverables" rows="4" placeholder="הכנס תוצרים עיקריים"
+                        required></textarea>
+                </div>
+
+                <div>
+                    <label for="intermediate-deliverables">📑 תוצרים ביניים:</label>
+                    <textarea id="intermediate-deliverables" name="intermediate-deliverables" rows="4"
+                        placeholder="הכנס תוצרים ביניים"></textarea>
+                </div>
+
+                <!-- Dropdown Menus -->
+                <div>
+                    <label for="project-scope">📋 היקף הפרויקט:</label>
+                    <select id="project-scope" name="project-scope">
+                        <option value="small">קטן</option>
+                        <option value="medium">בינוני</option>
+                        <option value="large">גדול</option>
+                    </select>
+                </div>
+
+                <!-- Login and Registration -->
+                <div>
+                    <label for="user-email">📧 דוא"ל משתמש:</label>
+                    <input type="email" id="user-email" name="user-email" placeholder="הכנס דוא" ל" required>
+                </div>
+
+                <div>
+                    <label for="user-password">🔒 סיסמה:</label>
+                    <input type="password" id="user-password" name="user-password" placeholder="הכנס סיסמה" required>
+                </div>
+
+                <div>
+                    <label for="confirm-password">🔒 אישור סיסמה:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="אשר סיסמה"
+                        required>
+                </div>
+
+                <div>
+                    <label for="user-role">👤 תפקיד משתמש:</label>
+                    <select id="user-role" name="user-role">
+                        <option value="admin">מנהל</option>
+                        <option value="editor">עורך</option>
+                        <option value="viewer">צופה</option>
+                    </select>
+                </div>
+
+                <!-- Text Areas -->
+                <div>
+                    <label for="project-needs">❓ צרכים נוספים:</label>
+                    <textarea id="project-needs" name="project-needs" rows="4"
+                        placeholder="הכנס צרכים נוספים"></textarea>
+                </div>
+
+                <!-- Radio Groups -->
+                <div>
+                    <label>🔄 ניהול שינויים:</label>
+                    <div>
+                        <input type="radio" id="change-management-yes" name="change-management" value="yes">
+                        <label for="change-management-yes">כן</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="change-management-no" name="change-management" value="no">
+                        <label for="change-management-no">לא</label>
+                    </div>
+                </div>
+
+                <!-- Checkboxes -->
+                <div>
+                    <label>📊 קריטריוני הצלחה:</label>
+                    <div>
+                        <input type="checkbox" id="success-criteria-1" name="success-criteria" value="budget">
+                        <label for="success-criteria-1">תוך עמידה בתקציב</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="success-criteria-2" name="success-criteria" value="timeline">
+                        <label for="success-criteria-2">השלמה בזמן</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="success-criteria-3" name="success-criteria" value="quality">
+                        <label for="success-criteria-3">איכות גבוהה</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="success-criteria-4" name="success-criteria"
+                            value="client-satisfaction">
+                        <label for="success-criteria-4">שביעות רצון הלקוח</label>
+                    </div>
+                </div>
+
+                <!-- Toggles -->
+                <div>
+                    <label for="quality-assurance-toggle">🔍 אבטחת איכות:</label>
+                    <input type="checkbox" id="quality-assurance-toggle" name="quality-assurance-toggle">
+                </div>
+
+                <!-- Action Panels -->
+                <div>
+                    <button type="submit">שלח</button>
+                </div>
+
+                <!-- Combo Boxes -->
+                <div>
+                    <label for="project-dependencies">🔗 תלותי פרויקט:</label>
+                    <select id="project-dependencies" name="project-dependencies">
+                        <option value="dependency1">תלות 1</option>
+                        <option value="dependency2">תלות 2</option>
+                        <option value="dependency3">תלות 3</option>
+                        <option value="dependency4">תלות 4</option>
+                        <option value="dependency5">תלות 5</option>
+                    </select>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
+
+</html>

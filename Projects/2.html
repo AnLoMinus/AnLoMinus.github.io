@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תפריט לוח מחוונים</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            direction: rtl;
+            font-family: 'Alef', sans-serif;
+            background-color: #f8f9fa;
+            direction: rtl;
+        }
+
+        .dashboard-menu {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            /* left: 0; */
+            background-color: #343a40;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+        .dashboard-menu .nav-link {
+            color: #adb5bd;
+            margin: 10px 0;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .dashboard-menu .nav-link:hover {
+            background-color: #495057;
+            color: #fff;
+        }
+
+        .dashboard-menu .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .dashboard-content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        .category-status {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: inline-block;
+
+        }
+
+        .category-status h5 {
+            margin-bottom: 15px;
+        }
+
+        .category-status p {
+            margin-bottom: 0;
+        }
+
+        .category-icon {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-menu">
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="#">לוח מחוונים</a>
+            <a class="nav-link" href="#">ניהול זמן</a>
+            <a class="nav-link" href="#">ניהול פרויקטים</a>
+            <a class="nav-link" href="#">מעקב אחר ביצועים</a>
+            <a class="nav-link" href="#">תזכורות</a>
+            <a class="nav-link" href="#">משימות</a>
+            <a class="nav-link" href="#">לו"ז יומי</a>
+            <a class="nav-link" href="#">מדדי ביצועים</a>
+            <a class="nav-link" href="#">הערכות</a>
+        </nav>
+    </div>
+
+    <div class="dashboard-content">
+        <h1>לוח מחוונים</h1>
+
+        <div class="category-status">
+            <h5><i class="bi bi-clock category-icon"></i>ניהול זמן</h5>
+            <p>מצב: פעיל</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-briefcase category-icon"></i>ניהול פרויקטים</h5>
+            <p>מצב: בתהליך</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-bar-chart category-icon"></i>מעקב אחר ביצועים</h5>
+            <p>מצב: מוכן לדיווח</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-bell category-icon"></i>תזכורות</h5>
+            <p>מצב: 5 תזכורות קרובות</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-list-task category-icon"></i>משימות</h5>
+            <p>מצב: 3 משימות בהמתנה</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-calendar3 category-icon"></i>לו"ז יומי</h5>
+            <p>מצב: יום עמוס</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-bar-chart-line category-icon"></i>מדדי ביצועים</h5>
+            <p>מצב: עלייה של 10%</p>
+        </div>
+
+        <div class="category-status">
+            <h5><i class="bi bi-clipboard-check category-icon"></i>הערכות</h5>
+            <p>מצב: מוכן להערכה</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סיכום הקוד</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 20px;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .code-container {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .code-container pre {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .list {
+            list-style-type: disc;
+            margin: 10px 0;
+            padding: 0;
+        }
+
+        .list li {
+            margin: 5px 0;
+        }
+
+        .summary {
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .summary h3 {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section">
+            <h2>סיכום הקוד</h2>
+            <div class="code-container">
+                <pre>
+                //+------------------------------------------------------------------+
+                //| פונקציה לחישוב נפח הפוזיציה על פי הסיכון                         |
+                //+------------------------------------------------------------------+
+                double CalculateLotSize(double riskPercent)
+                {
+                    double balance = AccountInfoDouble(ACCOUNT_BALANCE);
+                    double stopLoss = stopLossInPips * SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+                    double lotSize = (balance * (riskPercent / 100)) / (stopLoss * SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE));
+
+                    // התאמה לנפח מינימלי ומקסימלי
+                    double minLot = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN);
+                    double maxLot = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MAX);
+                    lotSize = MathMax(minLot, MathMin(lotSize, maxLot));
+
+                    return NormalizeDouble(lotSize, SymbolInfoInteger(_Symbol, SYMBOL_VOLUME_DIGITS));
+                }
+                </pre>
+                <p><strong>תיאור:</strong> מחשבת את נפח הפוזיציה על פי הסיכון שנבחר תוך התאמה לנפח מינימלי ומקסימלי.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>פונקציה לפתיחת פוזיציה</h2>
+            <div class="code-container">
+                <pre>
+                //+------------------------------------------------------------------+
+                //| פונקציה לפתיחת פוזיציה (קנייה או מכירה)                           |
+                //+------------------------------------------------------------------+
+                bool OpenPosition(string symbol, bool isBuy)
+                {
+                    MqlTradeRequest request;
+                    MqlTradeResult result;
+
+                    ZeroMemory(request);
+                    ZeroMemory(result);
+
+                    double lotSize = CalculateLotSize(riskPercentage);
+
+                    request.action = TRADE_ACTION_DEAL;
+                    request.symbol = symbol;
+                    request.volume = lotSize;
+                    request.deviation = 10;
+                    request.magic = magicNumber;
+
+                    if (isBuy)
+                    {
+                        request.type = ORDER_TYPE_BUY;
+                        request.price = SymbolInfoDouble(symbol, SYMBOL_ASK);
+                        request.sl = request.price - (stopLossInPips * SymbolInfoDouble(symbol, SYMBOL_POINT));
+                        request.tp = request.price + (takeProfitInPips * SymbolInfoDouble(symbol, SYMBOL_POINT));
+                    }
+                    else
+                    {
+                        request.type = ORDER_TYPE_SELL;
+                        request.price = SymbolInfoDouble(symbol, SYMBOL_BID);
+                        request.sl = request.price + (stopLossInPips * SymbolInfoDouble(symbol, SYMBOL_POINT));
+                        request.tp = request.price - (takeProfitInPips * SymbolInfoDouble(symbol, SYMBOL_POINT));
+                    }
+
+                    if (!OrderSend(request, result))
+                    {
+                        Print("שגיאה בפתיחת פוזיציה: ", result.retcode);
+                        return false;
+                    }
+                    else
+                    {
+                        Print("פוזיציה נפתחה בהצלחה.");
+                    }
+
+                    return true;
+                }
+                </pre>
+                <p><strong>תיאור:</strong> פותחת פוזיציה בהתאם לנתונים הקלט (קנייה או מכירה) ומביאה בחשבון את סטופ-לוס
+                    ולקיחת רווחים.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>פונקציה לניהול סטופ נגרר</h2>
+            <div class="code-container">
+                <pre>
+                //+------------------------------------------------------------------+
+                //| פונקציה לניהול סטופ נגרר                                          |
+                //+------------------------------------------------------------------+
+                void ManageTrailingStop()
+                {
+                    for (int i = PositionsTotal() - 1; i >= 0; i--)
+                    {
+                        if (PositionSelectByIndex(i) && PositionGetInteger(POSITION_MAGIC) == magicNumber)
+                        {
+                            double price = PositionGetDouble(POSITION_PRICE_OPEN);
+                            double stopLoss = PositionGetDouble(POSITION_SL);
+                            double currentPrice = PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_BUY ? 
+                                                  SymbolInfoDouble(_Symbol, SYMBOL_BID) : SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+
+                            double newStop = PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_BUY ? 
+                                             currentPrice - (stopLossInPips * SymbolInfoDouble(_Symbol, SYMBOL_POINT)) :
+                                             currentPrice + (stopLossInPips * SymbolInfoDouble(_Symbol, SYMBOL_POINT));
+                            
+                            if (PositionGetDouble(POSITION_SL) != newStop)
+                            {
+                                if (!ModifyStopLoss(PositionGetInteger(POSITION_TICKET), newStop))
+                                {
+                                    Print("שגיאה בשינוי סטופ-לוס");
+                                }
+                            }
+                        }
+                    }
+                }
+                </pre>
+                <p><strong>תיאור:</strong> מנהל את סטופ נגרר לפוזיציות פתוחות על פי סוג הפוזיציה ומעדכן את הסטופ-לוס אם
+                    יש צורך.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>פונקציה לשינוי סטופ-לוס</h2>
+            <div class="code-container">
+                <pre>
+                //+------------------------------------------------------------------+
+                //| פונקציה לשינוי סטופ-לוס                                          |
+                //+------------------------------------------------------------------+
+                bool ModifyStopLoss(ulong ticket, double newStopLoss)
+                {
+                    MqlTradeRequest request;
+                    MqlTradeResult result;
+
+                    ZeroMemory(request);
+                    ZeroMemory(result);
+
+                    request.action = TRADE_ACTION_SLTP;
+                    request.symbol = _Symbol;
+                    request.ticket = ticket;
+                    request.sl = newStopLoss;
+
+                    if (!OrderSend(request, result))
+                    {
+                        Print("שגיאה בשינוי סטופ-לוס: ", result.retcode);
+                        return false;
+                    }
+                    else
+                    {
+                        Print("סטופ-לוס שונה בהצלחה.");
+                    }
+
+                    return true;
+                }
+                </pre>
+                <p><strong>תיאור:</strong> משנה את הסטופ-לוס של פוזיציה קיימת על פי מספר הטיקט וערך חדש לסטופ-לוס.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>פונקציה לניהול פוזיציות פתוחות</h2>
+            <div class="code-container">
+                <pre>
+                //+------------------------------------------------------------------+
+                //| פונקציה לניהול פוזיציות פתוחות                                    |
+                //+------------------------------------------------------------------+
+                void ManagePositions()
+                {
+                    int openPositions = 0;
+
+                    for (int i = PositionsTotal() - 1; i >= 0; i--)
+                    {
+                        if (PositionSelectByIndex(i) && PositionGetInteger(POSITION_MAGIC) == magicNumber)
+                        {
+                            openPositions++;
+                        }
+                    }
+
+                    if (openPositions < maxOpenPositions)
+                    {
+                        if (/* תנאים לפתיחת BUY */ true)
+                            OpenPosition(_Symbol, true);
+                        else if (/* תנאים לפתיחת SELL */ false)
+                            OpenPosition(_Symbol, false);
+                    }
+                }
+                </pre>
+                <p><strong>תיאור:</strong> מנהל את הפוזיציות הפתוחות ומבצע פתיחת פוזיציות חדשות אם מספר הפוזיציות
+                    הפתוחות קטן מהמגבלה.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>פונקציה לניהול עסקאות סגורות</h2>
+            <div class="code-container">
+                <pre>
+                //+------------------------------------------------------------------+
+                //| פונקציה לניהול עסקאות סגורות                                      |
+                //+------------------------------------------------------------------+
+                void ManageClosedPositions()
+                {
+                    for (int i = OrdersHistoryTotal() - 1; i >= 0; i--)
+                    {
+                        if (OrderSelect(i, SELECT_BY_POS, MODE_HISTORY) && OrderGetInteger(ORDER_MAGIC) == magicNumber)
+                        {
+                            // ניהול עסקאות סגורות
+                        }
+                    }
+                }
+                </pre>
+                <p><strong>תיאור:</strong> מנהל את העסקאות הסגורות מתוך ההיסטוריה ומבצע פעולות נוספות אם נדרש.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>סיכום הקוד</h2>
+            <div class="summary">
+                <h3>סיכום</h3>
+                <ul>
+                    <li><strong>מספר פונקציות:</strong> 6</li>
+                    <li><strong>מספר שורות:</strong> 400 (הערכה)</li>
+                    <li><strong>מספר אותיות בקוד:</strong> <span id="letterCount"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // חישוב מספר האותיות בקוד
+        const codeContainers = document.querySelectorAll('.code-container pre');
+        let totalLetters = 0;
+
+        codeContainers.forEach(container => {
+            totalLetters += container.innerText.length;
+        });
+
+        document.getElementById('letterCount').textContent = totalLetters.toLocaleString();
+    </script>
+</body>
+
+</html>

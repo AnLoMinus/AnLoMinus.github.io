@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול ארגון נגד עישון</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>ניהול הקמת ארגון נגד עישון</h1>
+
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-inner">
+                <!-- Carousel items for all six phases -->
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-button" onclick="prevSlide()">קודם</button>
+                <button class="carousel-button" onclick="nextSlide()">הבא</button>
+            </div>
+            <div class="progress-indicator" id="progress-indicator">שלב 1 מתוך 6</div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-bar-inner" id="progress-bar-inner"></div>
+        </div>
+
+        <div class="notification" id="progress-notification" style="display: none;"></div>
+
+        <table id="project-table">
+            <thead>
+                <tr>
+                    <th>משימה</th>
+                    <th>סטטוס</th>
+                    <th>זמן לסיום</th>
+                    <th>אחראי</th>
+                    <th>פעולה</th>
+                </tr>
+            </thead>
+            <tbody id="task-body">
+                <!-- Tasks will be populated here -->
+            </tbody>
+        </table>
+
+        <button class="save-btn" onclick="saveTasks()">שמור משימות</button>
+        <button class="load-btn" onclick="loadTasks()">טען משימות</button>
+
+
+        <!-- כפתור לייצוא JSON -->
+        <button class="export-btn" onclick="exportProject()">ייצוא JSON</button>
+
+        <!-- כפתור לטעינת JSON -->
+        <input type="file" id="import-file" style="display:none" onchange="importProject(event)" />
+        <label for="import-file" class="import-btn">טעינת JSON</label>
+        <style>
+            .export-btn,
+            .import-btn {
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 10px 5px;
+            }
+
+            .export-btn:hover,
+            .import-btn:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <!-- Modal עבור עריכת משימות -->
+        <div class="modal" id="task-modal">
+            <div class="modal-content">
+                <h2>עריכת משימה</h2>
+                <input type="text" id="edit-task-name" placeholder="שם משימה">
+                <input type="text" id="edit-task-time" placeholder="זמן לסיום">
+                <input type="text" id="edit-task-responsible" placeholder="אחראי">
+                <button onclick="saveTaskEdit()">שמור</button>
+                <button onclick="closeTaskModal()">סגור</button>
+            </div>
+        </div>
+
+        <div class="credits">
+            <p>קרדיטים: <a href="https://www.linkedin.com/in/leon-yakubov" target="_blank">לאון יעקובוב</a> ו-<a
+                    href="https://chat.openai.com" target="_blank">ChatGPT</a></p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מנהלי פרויקטים - תחומי אחריות</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>מנהל פרויקטים (PM)</h1>
+    </header>
+    <main>
+
+
+        <section class="responsibilities" role="region" aria-labelledby="responsibilities-heading">
+            <h2 id="responsibilities-heading">תחומי אחריות</h2>
+
+            <!-- Accordion Section 1 -->
+            <input type="checkbox" id="section1" class="accordion-checkbox" aria-labelledby="section1-label">
+            <label for="section1" class="accordion-label" id="section1-label">תכנון ולוח זמנים של הפרויקט</label>
+            <div class="accordion-content">
+                <article class="team-collaboration">
+                    <section class="section-title">
+                        <h2>ניהול צוות ושיתוף פעולה</h2>
+                        <p>מדריך לניהול אפקטיבי של צוותי עבודה, כולל הקצאת משימות, תקשורת ותיאום.</p>
+                    </section>
+
+                    <div class="collaboration-overview">
+                        <p>ניהול צוות מוצלח דורש הגדרת תפקידים ברורה, תקשורת אפקטיבית ופגישות סדירות להבטחת שיתוף פעולה.
+                            במדריך זה תמצאו את הכלים והטיפים לניהול צוות בצורה המיטבית.</p>
+                    </div>
+
+                    <div class="collaboration-details">
+                        <ul class="collaboration-steps">
+                            <li>
+                                <div class="step-header">
+                                    <strong>הקצאת משימות ואחריות לחברי הצוות:</strong>
+                                    <button class="toggle-content">+</button>
+                                </div>
+                                <ul class="step-content">
+                                    <li>הגדרת תפקידים ומשימות לכל חבר צוות בצורה ברורה ומובנת.</li>
+                                    <li>הבטחת בהירות לגבי תחומי האחריות של כל אחד, כולל תיאום עם שאר הצוות.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="step-header">
+                                    <strong>תיאום תקשורת בין חברי הצוות להבטחת שיתוף פעולה חלק:</strong>
+                                    <button class="toggle-content">+</button>
+                                </div>
+                                <ul class="step-content">
+                                    <li>יצירת ערוצי תקשורת אפקטיביים כמו דואר אלקטרוני, צ'אט קבוצתי, ופגישות שבועיות.
+                                    </li>
+                                    <li>הבטחת שיתוף מידע מלא ותיאום בין הצוותים השונים, כולל דיווחים קבועים.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="step-header">
+                                    <strong>קיום פגישות צוות רגילות ועדכוני מצב:</strong>
+                                    <button class="toggle-content">+</button>
+                                </div>
+                                <ul class="step-content">
+                                    <li>קביעת פגישות קבועות לעדכון והערכת התקדמות, תוך מעקב אחר אבני דרך.</li>
+                                    <li>רישום והפצת פרוטוקולים של פגישות, כדי לשמור על תיעוד מסודר ושקיפות.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="communication-tools">
+                        <h3>כלים מומלצים לתקשורת ותיאום</h3>
+                        <ul class="tools-list">
+                            <li><strong>Slack:</strong> פלטפורמת צ'אט קבוצה לניהול תקשורת צוותים בזמן אמת.</li>
+                            <li><strong>Zoom:</strong> כלי וידאו קונפרנס לפגישות מרוחקות עם אפשרות להקלטה.</li>
+                            <li><strong>Microsoft Teams:</strong> פתרון כולל לניהול תקשורת ותיאום בין צוותים.</li>
+                            <li><strong>Google Meet:</strong> כלי וידאו חינמי לניהול פגישות צוות בצורה קלה ונוחה.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <style>
+                    .team-collaboration {
+                        background-color: #f8f9fa;
+                        border-radius: 10px;
+                        padding: 30px;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .section-title h2 {
+                        font-size: 2rem;
+                        color: #343a40;
+                        margin-bottom: 10px;
+                    }
+
+                    .section-title p {
+                        font-size: 1.1rem;
+                        color: #6c757d;
+                    }
+
+                    .collaboration-overview {
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+
+                    .collaboration-overview img {
+                        max-width: 100%;
+                        border-radius: 8px;
+                        margin-bottom: 15px;
+                    }
+
+                    .collaboration-overview p {
+                        font-size: 1.2rem;
+                        color: #495057;
+                        line-height: 1.6;
+                    }
+
+                    .collaboration-details {
+                        margin-top: 30px;
+                    }
+
+                    .collaboration-steps {
+                        list-style: none;
+                        padding: 0;
+                    }
+
+                    .step-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color: #e9ecef;
+                        padding: 15px 20px;
+                        border-radius: 5px;
+                        margin-bottom: 10px;
+                    }
+
+                    .step-header strong {
+                        font-size: 1.4rem;
+                        color: #17a2b8;
+                    }
+
+                    .toggle-content {
+                        font-size: 1.5rem;
+                        background-color: transparent;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+                    .step-content {
+                        display: none;
+                        padding-left: 25px;
+                        margin-bottom: 20px;
+                    }
+
+                    .step-content li {
+                        margin-bottom: 10px;
+                        color: #495057;
+                    }
+
+                    .communication-tools {
+                        margin-top: 40px;
+                    }
+
+                    .communication-tools h3 {
+                        font-size: 1.6rem;
+                        color: #343a40;
+                        margin-bottom: 15px;
+                    }
+
+                    .tools-list {
+                        list-style: none;
+                        padding: 0;
+                    }
+
+                    .tools-list li {
+                        margin-bottom: 10px;
+                        font-size: 1.1rem;
+                        color: #495057;
+                    }
+                </style>
+
+                <script>
+                    document.querySelectorAll('.toggle-content').forEach(button => {
+                        button.addEventListener('click', function () {
+                            const content = this.parentElement.nextElementSibling;
+                            if (content.style.display === 'block') {
+                                content.style.display = 'none';
+                                this.textContent = '+';
+                            } else {
+                                content.style.display = 'block';
+                                this.textContent = '-';
+                            }
+                        });
+                    });
+                </script>
+
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Accordion Section 2 -->
+            <input type="checkbox" id="section2" class="accordion-checkbox" aria-labelledby="section2-label">
+            <label for="section2" class="accordion-label" id="section2-label">תיאום צוות</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>הקצאת משימות ואחריות לחברי הצוות:</strong>
+                            <ul>
+                                <li>הגדרת תפקידים ומשימות לכל חבר צוות.</li>
+                                <li>בהירות לגבי תחומי האחריות של כל אחד.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>תיאום תקשורת בין חברי הצוות להבטחת שיתוף פעולה חלק:</strong>
+                            <ul>
+                                <li>יצירת ערוצי תקשורת אפקטיביים (כגון דואר אלקטרוני, צ'אט, פגישות).</li>
+                                <li>הבטחת שיתוף מידע ותיאום בין הצוותים השונים.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>קיום פגישות צוות רגילות ועדכוני מצב:</strong>
+                            <ul>
+                                <li>קביעת פגישות קבועות לעדכון והערכת התקדמות.</li>
+                                <li>רישום והפצת פרוטוקולים של פגישות.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Accordion Section 3 -->
+            <input type="checkbox" id="section3" class="accordion-checkbox" aria-labelledby="section3-label">
+            <label for="section3" class="accordion-label" id="section3-label">ניהול משאבים</label>
+            <div class="accordion-content">
+                <article class="team-management">
+                    <section class="section-header">
+                        <h2>ניהול צוות ושיתוף פעולה אפקטיבי</h2>
+                        <p>כיצד לנהל צוות בצורה יעילה, עם דגש על הקצאת משימות, תקשורת ברורה, ופגישות קבועות.</p>
+                    </section>
+
+                    <div class="team-management-content">
+                        <ul class="management-steps">
+                            <li>
+                                <div class="step-header">
+                                    <strong>הקצאת משימות ואחריות לחברי הצוות:</strong>
+                                    <button class="toggle-content">+</button>
+                                </div>
+                                <ul class="step-content">
+                                    <li>הגדרת תפקידים ומשימות בצורה ברורה ומדויקת לכל חבר צוות.</li>
+                                    <li>הבטחת בהירות לגבי תחומי האחריות של כל אחד, כדי למנוע חוסר הבנה ואי-סדר.</li>
+                                    <li><em>טיפ:</em> יצירת מסמך תפקידים משותף המסביר את תפקידי כל חבר צוות.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="step-header">
+                                    <strong>תיאום תקשורת בין חברי הצוות להבטחת שיתוף פעולה חלק:</strong>
+                                    <button class="toggle-content">+</button>
+                                </div>
+                                <ul class="step-content">
+                                    <li>יצירת ערוצי תקשורת אפקטיביים, כגון דואר אלקטרוני, צ'אט קבוצתי, ופגישות סדירות.
+                                    </li>
+                                    <li>הבטחת שיתוף מידע מדויק ותיאום בין הצוותים השונים כדי למנוע כפילויות.</li>
+                                    <li><em>טיפ:</em> שימוש בכלים לניהול פרויקטים כמו Slack או Microsoft Teams לצורך
+                                        שיתוף פעולה.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="step-header">
+                                    <strong>קיום פגישות צוות רגילות ועדכוני מצב:</strong>
+                                    <button class="toggle-content">+</button>
+                                </div>
+                                <ul class="step-content">
+                                    <li>קביעת פגישות קבועות לצורך עדכון והערכת התקדמות הפרויקט.</li>
+                                    <li>רישום והפצת פרוטוקולים של פגישות לצורך תיעוד והבטחת מעקב אחר החלטות.</li>
+                                    <li><em>טיפ:</em> סיכום פגישות קצר ואפקטיבי שמחולק לכל חברי הצוות לאחר כל פגישה.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="team-tips">
+                        <h3>כלים נוספים להצלחת ניהול צוות</h3>
+                        <ul class="tools-list">
+                            <li><strong>Asana:</strong> כלי לניהול משימות המאפשר מעקב אחר התקדמות הפרויקט והמשימות
+                                השונות.</li>
+                            <li><strong>Trello:</strong> מערכת לניהול פרויקטים וויזואלית שמבוססת על לוחות ומשימות.</li>
+                            <li><strong>Google Drive:</strong> פלטפורמה לשיתוף קבצים וניהול מסמכים עם הצוות.</li>
+                            <li><strong>Zoom:</strong> כלי וידאו קונפרנס לניהול פגישות מרוחקות.</li>
+                        </ul>
+                    </div>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Accordion Section 4 -->
+            <input type="checkbox" id="section4" class="accordion-checkbox" aria-labelledby="section4-label">
+            <label for="section4" class="accordion-label" id="section4-label">ניהול סיכונים</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>זיהוי סיכונים בעיתיים שעלולים להשפיע על הפרויקט:</strong>
+                            <ul>
+                                <li>הערכת גורמים שיכולים להשפיע לרעה על התקדמות הפרויקט.</li>
+                                <li>זיהוי בעיות פוטנציאליות שיכולות להפריע להשגת מטרות הפרויקט.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>פיתוח אסטרטגיות הפחתה ותוכניות חירום:</strong>
+                            <ul>
+                                <li>יצירת תוכניות לניהול סיכונים והפחתת השפעתם.</li>
+                                <li>פיתוח אסטרטגיות לתגובה מהירה במקרה של סיכון.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>טיפול ופתרון בעיות ככל שהן מתעוררות:</strong>
+                            <ul>
+                                <li>טיפול בבעיות מיד כשהן מתעוררות.</li>
+                                <li>מענה מהיר ויעיל לבעיות כדי לצמצם את השפעתן על הפרויקט.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Accordion Section 5 -->
+            <input type="checkbox" id="section5" class="accordion-checkbox" aria-labelledby="section5-label">
+            <label for="section5" class="accordion-label" id="section5-label">בקרת איכות</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>הבטחת עמידה בסטנדרטים של איכות והדרישות של הפרויקט:</strong>
+                            <ul>
+                                <li>הגדרת קריטריונים ברורים לסטנדרטים של איכות עבור כל שלב בפרויקט.</li>
+                                <li>ביצוע בדיקות תקופתיות כדי לוודא שהמוצרים או התוצרים עומדים בדרישות שנקבעו.</li>
+                                <li>תיאום עם צוותי פיתוח, עיצוב, ותחזוקה על מנת להבטיח עמידה בסטנדרטים.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>סקירת העבודה המיוצרת על ידי חברי הצוות ומתן משוב:</strong>
+                            <ul>
+                                <li>ביצוע סקירות קוד ומסמכים על מנת לזהות בעיות פוטנציאליות ולוודא עמידה בדרישות.</li>
+                                <li>ספקת משוב מעשי לבני הצוות על מנת לשפר את העבודה ולתקן בעיות לפני הסיום.</li>
+                                <li>קיום פגישות סדירות כדי לדון במשוב ולתכנן צעדים לתיקון ושיפור.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Accordion Section 6 -->
+            <input type="checkbox" id="section6" class="accordion-checkbox" aria-labelledby="section6-label">
+            <label for="section6" class="accordion-label" id="section6-label">תקשורת עם בעלי עניין</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>שמירה על תקשורת עם בעלי עניין ועדכון שלהם על התקדמות הפרויקט:</strong>
+                            <ul>
+                                <li>קיום פגישות ועדכונים תקופתיים עם בעלי עניין כדי לספק מידע על התקדמות הפרויקט.</li>
+                                <li>הפצת דוחות מצב וסקירות פרויקט כדי לשמור על שקיפות ומעורבות של בעלי עניין.</li>
+                                <li>השתמש בכלים ובשיטות תקשורת המתאימים להעדפות בעלי עניין (כגון דואר אלקטרוני, פגישות
+                                    וידאו, דיווחים כתובים).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>ניהול ציפיות בעלי עניין וטיפול בהערות או ביקורת:</strong>
+                            <ul>
+                                <li>הבהרת מטרות וציפיות של בעלי עניין בתחילת הפרויקט ובמהלכו.</li>
+                                <li>קבלת משוב והערות מבעלי עניין וטיפול בהם בצורה פרואקטיבית.</li>
+                                <li>ניהול ציפיות והבטחת שהן מתואמות עם מטרות הפרויקט והכיוונים המתקבלים.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Accordion Section 7 -->
+            <input type="checkbox" id="section7" class="accordion-checkbox" aria-labelledby="section7-label">
+            <label for="section7" class="accordion-label" id="section7-label">סיכום והערכה</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>הערכה כוללת של הפרויקט לאחר סיום:</strong>
+                            <ul>
+                                <li>ביצוע הערכה כוללת של התהליך והתוצרים של הפרויקט.</li>
+                                <li>הפקת דוחות סיום המעריכים את הצלחת הפרויקט והזיהוי של תחומים לשיפור.</li>
+                                <li>ניתוח ההשפעות של הפרויקט על הארגון או הלקוח.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>הפקת לקחים וייעוץ לפרויקטים עתידיים:</strong>
+                            <ul>
+                                <li>הפקת לקחים חשובים מהפרויקט לצורך שיפור פרויקטים עתידיים.</li>
+                                <li>תיעוד ההמלצות והצעדים לשיפור שניתן ליישם בפרויקטים עתידיים.</li>
+                                <li>העברת ידע והמלצות לצוותים אחרים בארגון או ללקוחות.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <!-- Additional Articles in Accordion -->
+            <input type="checkbox" id="section8" class="accordion-checkbox" aria-labelledby="section8-label">
+            <label for="section8" class="accordion-label" id="section8-label">מעקב ודיווח על התקדמות</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>מעקב אחר התקדמות הפרויקט לעומת אבני הדרך והמועדים:</strong>
+                            <ul>
+                                <li>תיאום בין לוח הזמנים של הפרויקט לבין ההתקדמות בפועל.</li>
+                                <li>הערכת האם אבני הדרך מושגות בהתאם לתכנון המקורי.</li>
+                                <li>זיהוי עיכובים אפשריים והתמודדות עם בעיות שנגרמות כדי למנוע עיכובים נוספים.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>הכנה והצגת דוחות מצב לבעלי עניין ולניהול העליון:</strong>
+                            <ul>
+                                <li>הכנת דוחות תקופתיים שמסכמים את מצב הפרויקט, כולל הישגים, בעיות ותחזיות עתידיות.</li>
+                                <li>הצגת דוחות בפגישות ועדכונים עם בעלי עניין ועם הנהלה בכירה.</li>
+                                <li>התאמת הנתונים וודא שהמידע בדוחות נכון ומדויק, כדי לשמור על שקיפות ואמון.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <input type="checkbox" id="section9" class="accordion-checkbox" aria-labelledby="section9-label">
+            <label for="section9" class="accordion-label" id="section9-label">תיעוד</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>שמירה על תיעוד הפרויקט, כולל תוכניות, לוחות זמנים ודוחות:</strong>
+                            <ul>
+                                <li>איסוף ושמירה על כל המסמכים הקשורים לפרויקט, כולל תוכניות עבודה, לוחות זמנים ודוחות
+                                    התקדמות.</li>
+                                <li>ארגון התיעוד בצורה מסודרת וניתנת לאיתור, כדי להקל על גישה ושימוש עתידי.</li>
+                                <li>עדכון התיעוד באופן שוטף בהתאם לשינויים ולתוספות בפרויקט.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>הבטחת עדכניות ונגישות כל תיעוד הפרויקט:</strong>
+                            <ul>
+                                <li>בדיקה שוטפת של התיעוד לוודא שהוא מעודכן וכולל את המידע העדכני ביותר.</li>
+                                <li>הבטחת גישה נוחה לתיעוד עבור כל המעורבים בפרויקט, כולל צוותי עבודה ובעלי עניין.</li>
+                                <li>יישום אמצעי אבטחה כדי להגן על התיעוד מפני אובדן או גניבה, תוך שמירה על פרטיות המידע.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <input type="checkbox" id="section10" class="accordion-checkbox" aria-labelledby="section10-label">
+            <label for="section10" class="accordion-label" id="section10-label">פתרון בעיות</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>פתרון קונפליקטים ובעיות בתוך הצוות:</strong>
+                            <ul>
+                                <li>זיהוי מוקדם של קונפליקטים ובעיות בתקשורת בין חברי הצוות.</li>
+                                <li>ניהול דיונים ופתרון חילוקי דעות בצורה מקצועית והוגנת.</li>
+                                <li>פיתוח ויישום אסטרטגיות לפתור בעיות בתיאום צוות ולשמור על מורל גבוה.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>מתן פתרונות לאתגרים המתעוררים במהלך חיי הפרויקט:</strong>
+                            <ul>
+                                <li>הערכה של האתגרים והבעיות העולות במהלך התקדמות הפרויקט.</li>
+                                <li>פיתוח פתרונות יצירתיים ויישומיים כדי להתגבר על האתגרים.</li>
+                                <li>ביצוע התאמות בתוכנית הפרויקט בהתאם לפתרונות שנמצאו ולשינויים הנדרשים.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+            <input type="checkbox" id="section11" class="accordion-checkbox" aria-labelledby="section11-label">
+            <label for="section11" class="accordion-label" id="section11-label">סיום פרויקט</label>
+            <div class="accordion-content">
+                <article>
+                    <ul>
+                        <li>
+                            <strong>הבטחת סיום כל התוצרים של הפרויקט ועמידה בסטנדרטים הנדרשים:</strong>
+                            <ul>
+                                <li>בדיקה שיטתית של כל התוצרים כדי לוודא שהם עונים על הדרישות והציפיות שנקבעו בפרויקט.
+                                </li>
+                                <li>תיאום עם צוותי העבודה לביצוע תיקונים אחרונים ושינויים לפי הצורך.</li>
+                                <li>אישור סופי של התוצרים על ידי בעלי עניין או גורמים מוסמכים לפני סיום הפרויקט.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>קיום סקירה לאחר פרויקט להערכת הצלחות ואזורי שיפור:</strong>
+                            <ul>
+                                <li>ארגון פגישה עם כל הצוות לבחינת הצלחות הפרויקט ולקחים שנלמדו.</li>
+                                <li>סקירת נקודות חזקות וחלשות בתהליך העבודה, והפקת לקחים חשובים.</li>
+                                <li>כתיבת דוח סקירה הכולל המלצות לשיפורים עתידיים ולקחים נלמדים.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>תיעוד לקחים שנלמדו ושיטות עבודה מומלצות לפרויקטים עתידיים:</strong>
+                            <ul>
+                                <li>תיעוד הסיכומים והלקחים שנלמדו במהלך הפרויקט בצורה מסודרת ומקצועית.</li>
+                                <li>פיתוח והטמעת שיטות עבודה מומלצות שנמצאו יעילות במהלך הפרויקט.</li>
+                                <li>שיתוף המידע עם צוותי פרויקטים עתידיים כדי לשפר את התהליכים ולמנוע בעיות דומות.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                <label>
+                    <input type="checkbox" class="completion-checkbox" onchange="toggleCompletion(this)"> סיימתי את החלק
+                    הזה
+                </label>
+            </div>
+
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 מנהלי פרויקטים - כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        function toggleCompletion(checkbox) {
+            const content = checkbox.closest('.accordion-content');
+            if (checkbox.checked) {
+                content.classList.add('completed');
+            } else {
+                content.classList.remove('completed');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תפריט צף עם תכונות משופרות</title>
+    <style>
+        body {
+            direction: rtl;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+            transition: width 0.3s, background-color 0.3s;
+            z-index: 1000;
+            padding-top: 60px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar:hover {
+            width: 300px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            position: relative;
+            padding: 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #34495e;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li.active,
+        .sidebar ul li:hover {
+            background-color: #2980b9;
+        }
+
+        .sidebar ul li .icon {
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        .sidebar ul li .sub-menu {
+            display: none;
+            padding-left: 20px;
+            background-color: #34495e;
+            border-left: 2px solid #1abc9c;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .sidebar ul li .sub-menu.open {
+            display: block;
+            max-height: 200px;
+        }
+
+        .sidebar ul li .sub-menu a {
+            display: block;
+            padding: 10px;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li .sub-menu a:hover {
+            background-color: #2980b9;
+        }
+
+        .content {
+            margin-right: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            transition: margin-right 0.3s, width 0.3s;
+            position: relative;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: -50px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: left 0.3s, background-color 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background-color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 80px;
+                overflow: hidden;
+            }
+
+            .sidebar:hover {
+                width: 250px;
+            }
+
+            .content {
+                margin-right: 80px;
+                width: calc(100% - 80px);
+            }
+        }
+
+        /* Custom scrollbar */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 10px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background-color: #777;
+        }
+
+        /* Card styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar" role="navigation" aria-label="Main Navigation">
+        <button class="toggle-btn" id="toggle-btn" aria-expanded="false" aria-controls="sidebar">≡</button>
+        <ul>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="health">
+                <span class="icon">🏋️‍♂️</span> בריאות ורווחה
+                <ul class="sub-menu" role="menu">
+                    <li tabindex="0" role="menuitem" aria-haspopup="true" aria-expanded="false" data-category="health">
+                        <a href="#">תזונה</a>
+                    </li>
+                    <li role="menuitem"><a href="#">שינה ומנוחה</a></li>
+                    <li role="menuitem"><a href="#">בריאות נפשית</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="family">
+                <span class="icon">👨‍👩‍👧‍👦</span> משפחה ויחסים
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">זוגיות</a></li>
+                    <li role="menuitem"><a href="#">הורות</a></li>
+                    <li role="menuitem"><a href="#">קשרים משפחתיים</a></li>
+                    <li role="menuitem"><a href="#">חברים וקהילה</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="career">
+                <span class="icon">💼</span> עבודה וקריירה
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">תעסוקה ושאיפות מקצועיות</a></li>
+                    <li role="menuitem"><a href="#">השכלה והכשרה</a></li>
+                    <li role="menuitem"><a href="#">יזמות ופיתוח עסקי</a></li>
+                    <li role="menuitem"><a href="#">איזון בין עבודה לחיים פרטיים</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="leisure">
+                <span class="icon">🎨</span> פנאי ובילוי
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">תחביבים</a></li>
+                    <li role="menuitem"><a href="#">נסיעות וטיילות</a></li>
+                    <li role="menuitem"><a href="#">תרבות ואמנות</a></li>
+                    <li role="menuitem"><a href="#">זמן עם חברים ומשפחה</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="finance">
+                <span class="icon">💰</span> כספים וניהול פיננסי
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">תכנון תקציב</a></li>
+                    <li role="menuitem"><a href="#">חיסכון והשקעות</a></li>
+                    <li role="menuitem"><a href="#">ניהול חובות</a></li>
+                    <li role="menuitem"><a href="#">ביטוח ופנסיה</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="personal-development">
+                <span class="icon">🌱</span> התפתחות אישית
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">מטרות חיים וחזון</a></li>
+                    <li role="menuitem"><a href="#">קריאה ולימודים</a></li>
+                    <li role="menuitem"><a href="#">מדיטציה והתבוננות פנימית</a></li>
+                    <li role="menuitem"><a href="#">פיתוח מיומנויות חדשות</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="community">
+                <span class="icon">🏘️</span> סביבה וקהילה
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">תרומה והתנדבות</a></li>
+                    <li role="menuitem"><a href="#">קיימות ואקולוגיה</a></li>
+                    <li role="menuitem"><a href="#">יחסים עם שכנים וקהילה</a></li>
+                </ul>
+            </li>
+            <li tabindex="0" aria-haspopup="true" aria-expanded="false" data-category="spirituality">
+                <span class="icon">🔮</span> רוחניות ומשמעות
+                <ul class="sub-menu" role="menu">
+                    <li role="menuitem"><a href="#">פילוסופיה ואמונות</a></li>
+                    <li role="menuitem"><a href="#">דת ותרגול רוחני</a></li>
+                    <li role="menuitem"><a href="#">חקר משמעות החיים</a></li>
+                    <li role="menuitem"><a href="#">זיכרון ושימור מורשת</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content" id="content">
+        <h1>ברוכים הבאים!</h1>
+        <p>השתמש בתפריט הצדדי כדי לנווט בין הקטגוריות השונות.</p>
+
+        <div id="category-content">
+            <!-- תוכן דינמי יוזרק כאן -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('toggle-btn');
+            const sidebar = document.getElementById('sidebar');
+            const categoryContent = document.getElementById('category-content');
+
+            // תוכן לכל קטגוריה
+            const contentData = {
+                health: `
+                    <div class="card show">
+                        <h2>בריאות ורווחה</h2>
+                        <p>קטגוריה זו עוסקת בכל מה שקשור לבריאות גופנית ונפשית, כולל טיפים לפעילות גופנית, תזונה נכונה, שינה איכותית ובריאות נפשית.</p>
+                    </div>
+                `,
+                family: `
+                    <div class="card show">
+                        <h2>משפחה ויחסים</h2>
+                        <p>כאן תמצאו מידע על זוגיות, הורות, קשרים משפחתיים וחברויות, כולל טיפים לשיפור הקשרים עם האנשים החשובים לכם.</p>
+                    </div>
+                `,
+                career: `
+                    <div class="card show">
+                        <h2>עבודה וקריירה</h2>
+                        <p>קטגוריה זו מציעה מידע על תעסוקה, השכלה, יזמות ואיזון בין עבודה לחיים פרטיים, כדי לעזור לכם לבנות קריירה מצליחה.</p>
+                    </div>
+                `,
+                leisure: `
+                    <div class="card show">
+                        <h2>פנאי ובילוי</h2>
+                        <p>גלה תחביבים חדשים, רעיונות לנסיעות, תרבות ואמנות, וכיצד לבלות זמן איכות עם חברים ומשפחה.</p>
+                    </div>
+                `,
+                finance: `
+                    <div class="card show">
+                        <h2>כספים וניהול פיננסי</h2>
+                        <p>קטגוריה זו עוסקת בתכנון תקציב, חיסכון, ניהול חובות וביטוח, כדי לעזור לכם לנהל את הכספים שלכם בצורה חכמה.</p>
+                    </div>
+                `,
+                personalDevelopment: `
+                    <div class="card show">
+                        <h2>התפתחות אישית</h2>
+                        <p>כאן תמצאו טיפים למטרות חיים, קריאה, מדיטציה ופיתוח מיומנויות חדשות, כדי לעזור לכם לגדול ולהתפתח.</p>
+                    </div>
+                `,
+                community: `
+                    <div class="card show">
+                        <h2>סביבה וקהילה</h2>
+                        <p>קטגוריה זו עוסקת בתרומה לקהילה, קיימות ואקולוגיה, וכיצד לבנות קשרים עם השכנים שלכם.</p>
+                    </div>
+                `,
+                spirituality: `
+                    <div class="card show">
+                        <h2>רוחניות ומשמעות</h2>
+                        <p>גלה פילוסופיות שונות, דתות ותרגולים רוחניים, וכיצד לחקור את משמעות החיים.</p>
+                    </div>
+                `
+            };
+
+            // טען תוכן התחלתי
+            categoryContent.innerHTML = contentData.health;
+
+            // החלף נראות סרגל צד
+            toggleBtn.addEventListener('click', () => {
+                const isCollapsed = sidebar.classList.toggle('collapsed');
+                categoryContent.classList.toggle('content-expanded');
+                toggleBtn.setAttribute('aria-expanded', !isCollapsed);
+            });
+
+            // החלף תצוגת תפריט
+            document.querySelectorAll('.sidebar > ul > li').forEach(item => {
+                item.addEventListener('click', function () {
+                    const subMenu = this.querySelector('.sub-menu');
+                    if (subMenu) {
+                        const isOpen = subMenu.classList.toggle('open');
+                        this.setAttribute('aria-expanded', isOpen);
+                    }
+                    // טען תוכן לפי קטגוריה שנבחרה
+                    const category = this.getAttribute('data-category');
+                    loadCategoryContent(category);
+                });
+            });
+
+            // טען תוכן לפי קטגוריה שנבחרה
+            function loadCategoryContent(category) {
+                categoryContent.innerHTML = contentData[category];
+            }
+
+            // ניווט עם מקלדת
+            document.querySelectorAll('.sidebar ul li').forEach(item => {
+                item.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        this.click();
+                    }
+                });
+            });
+
+            // הדגשת פריט תפריט פעיל
+            document.querySelectorAll('.sidebar ul li a').forEach(link => {
+                link.addEventListener('click', function () {
+                    document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+                    this.closest('li').classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

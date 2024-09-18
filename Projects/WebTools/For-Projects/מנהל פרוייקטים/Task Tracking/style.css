@@ -1,0 +1,265 @@
+body {
+  background: linear-gradient(135deg, #000428, #004e92, #00ff99);
+}
+body {
+  font-family: "Orbitron", sans-serif; /* A futuristic font */
+  /* background: linear-gradient(
+    135deg,
+    #000428,
+    #004e92
+  ); Dark gradient background */
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  direction: rtl; /* Right-to-left text direction */
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1,
+h2,
+h3 {
+  color: #00ff99; /* Neon green for headings */
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Glowing effect */
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #e0e0e0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Glowing effect */
+}
+
+input[type="text"],
+textarea {
+  width: calc(100% - 22px);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #00ff99;
+  background: rgba(0, 0, 0, 0.9);
+  color: #e0e0e0;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background 0.3s, border-color 0.3s;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Glowing input fields */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  background: #222;
+  border-color: #00ff99;
+  outline: none;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #ff0081,
+    #ff8c00
+  ); /* Neon gradient buttons */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5); /* Neon glow effect */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff8c00, #ff0081);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.7); /* Enhanced glow on hover */
+}
+
+button.edit-btn {
+  background: linear-gradient(135deg, #00ff99, #00bfae);
+}
+
+button.edit-btn:hover {
+  background: linear-gradient(135deg, #00bfae, #00ff99);
+}
+
+button.delete-btn {
+  background: linear-gradient(135deg, #ff0044, #ff3366);
+}
+
+button.delete-btn:hover {
+  background: linear-gradient(135deg, #ff3366, #ff0044);
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.4); /* Neon shadow effect */
+}
+
+#task-list .task-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: 15px;
+}
+
+#task-list .task-actions button {
+  margin: 0;
+}
+
+#summary-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5); /* Neon glow effect */
+}
+
+#file-operations {
+  margin-top: 30px;
+  text-align: center;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00ff99;
+  border-radius: 8px;
+  color: #e0e0e0;
+  padding: 10px;
+  font-size: 16px;
+  transition: background 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+}
+
+input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, #ff0081, #ff8c00);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(135deg, #ff8c00, #ff0081);
+}
+
+button {
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8); /* Enhanced glow effect */
+}
+
+#task-list li {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Stronger neon shadow */
+}
+
+button.edit-btn::before {
+  content: "\f044"; /* FontAwesome edit icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 8px;
+}
+
+button {
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+}
+
+button:active {
+  transform: scale(0.98); /* Button press effect */
+}
+
+#task-list li {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#task-list li.added {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+#task-list li.removed {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+.container {
+  display: grid;
+  /* grid-template-columns: 50%; */
+  gap: 20px;
+  border: #00bfae 3px solid;
+}
+
+#task-tracker,
+#daily-evaluation,
+#summary,
+#file-operations {
+  grid-column: span 1;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 10px;
+  background: #00ff99;
+  width: 0;
+  transition: width 0.3s;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Adjust as needed */
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

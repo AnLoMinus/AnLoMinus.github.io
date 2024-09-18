@@ -132,3 +132,26 @@ function joinVolunteers() {
 function submitFeedback() {
   alert("שלח את המשוב שלך.");
 }
+
+// מחשבון חיסכון
+function calculateSavings() {
+  const cigarettesPerDay = prompt("כמה סיגריות אתה מעשן ביום?");
+  const costPerPack = prompt("מה המחיר של קופסת סיגריות?");
+  const cigarettesPerPack = 20; // בהנחה שקופסה מכילה 20 סיגריות
+
+  if (cigarettesPerDay && costPerPack) {
+    const dailyCost = (cigarettesPerDay / cigarettesPerPack) * costPerPack;
+    const weeklyCost = dailyCost * 7;
+    const monthlyCost = dailyCost * 30;
+    const yearlyCost = dailyCost * 365;
+
+    alert(`
+              עלות יומית: ₪${dailyCost.toFixed(2)}
+              עלות שבועית: ₪${weeklyCost.toFixed(2)}
+              עלות חודשית: ₪${monthlyCost.toFixed(2)}
+              עלות שנתית: ₪${yearlyCost.toFixed(2)}
+          `);
+  } else {
+    alert("אנא הכנס מספרים תקינים כדי לבצע את החישוב.");
+  }
+}

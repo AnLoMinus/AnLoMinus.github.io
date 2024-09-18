@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול יעדים ומשימות</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>ניהול יעדים ומשימות</h1>
+        <nav>
+            <ul>
+                <li><a href="#">דף הבית</a></li>
+                <li><a href="#">פרויקטים</a></li>
+                <li><a href="#">משימות</a></li>
+                <li><a href="#">הגדרות</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>דשבורד</h2>
+            <div id="progress-chart">
+                <!-- גרפים יכנסו כאן -->
+            </div>
+        </section>
+        <section id="user-auth">
+            <h2>התחברות/הרשמה</h2>
+            <form id="auth-form">
+                <input type="text" id="username" placeholder="שם משתמש" required>
+                <input type="password" id="password" placeholder="סיסמה" required>
+                <button type="submit">התחבר</button>
+            </form>
+            <p id="auth-status"></p>
+        </section>
+
+        <section id="tasks">
+            <h2>משימות</h2>
+            <ul id="task-list">
+                <li>משימה 1 - תאריך יעד: 01/09/2024</li>
+                <li>משימה 2 - תאריך יעד: 05/09/2024</li>
+                <!-- משימות נוספות -->
+                <!-- דוגמה למשימה -->
+                <li>
+                    משימה 1 - תאריך יעד: 01/09/2024
+                    <button class="delete-task">מחק</button>
+                </li>
+            </ul>
+            <section id="add-task">
+                <h2>הוסף משימה חדשה</h2>
+                <form id="task-form">
+                    <input type="text" id="task-name" placeholder="שם המשימה" required>
+                    <input type="date" id="task-deadline" required>
+                    <button type="submit">הוסף משימה</button>
+                </form>
+            </section>
+        </section>
+
+        <section id="projects">
+            <h2>פרויקטים</h2>
+            <ul id="project-list">
+                <li>פרויקט 1 - סטטוס: בביצוע</li>
+                <li>פרויקט 2 - סטטוס: ממתין</li>
+                <!-- פרויקטים נוספים -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 כל הזכויות שמורות</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="he" ng-app="activitiesApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="אתר פעילויות פנאי בישראל מציע מגוון פעילויות לכל המשפחה ברחבי הארץ. חיפוש פעילויות לפי אזורים, סוגים ומחירים.">
+    <meta name="keywords" content="פעילויות פנאי, סיורי רחוב, הופעות, סדנאות, ירידים, שווקים, טיולים, ישראל">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אתר פעילויות פנאי בישראל</title>
+    <style>
+        :root {
+            --primary-bg: #fafafa;
+            --primary-color: #333;
+            --header-bg: #b3e5fc;
+            --header-text: #01579b;
+            --nav-bg: #e1bee7;
+            --nav-text: #4a148c;
+            --banner-bg: #000;
+            --button-bg: #4db6ac;
+            --button-hover: #00897b;
+            --border-radius: 8px;
+        }
+
+        body {
+            direction: rtl;
+            font-family: Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            color: var(--header-text);
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--nav-text);
+            font-size: 18px;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            text-decoration: underline;
+        }
+
+        .banner {
+            background-image: url('https://via.placeholder.com/1200x300');
+            background-position: center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 32px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        main {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            background-color: #c8e6c9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+        }
+
+        .search-box label {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .search-box input,
+        .search-box select {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: var(--border-radius);
+        }
+
+        .search-box button {
+            background-color: var(--button-bg);
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+        }
+
+        .search-box button:hover,
+        .search-box button:focus {
+            background-color: var(--button-hover);
+        }
+
+        .event-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .event {
+            background-color: #fff9c4;
+            width: 30%;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            loading: lazy;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover,
+        footer a:focus {
+            text-decoration: underline;
+        }
+
+        .footer-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .event {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .search-box {
+                padding: 10px;
+            }
+
+            .region-buttons button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body ng-controller="activitiesCtrl">
+
+    <!-- Header -->
+    <header>
+        אתר פעילויות פנאי בישראל
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+        <a href="#">דף הבית</a>
+        <a href="#">אודות</a>
+        <a href="#">צפון</a>
+        <a href="#">מרכז</a>
+        <a href="#">דרום</a>
+        <a href="#">מזרח</a>
+        <a href="#">מערב</a>
+        <a href="#">צור קשר</a>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner" aria-label="Banner">
+        מגלים את ישראל מחדש - פעילויות פנאי לכל המשפחה
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- חיפוש מתקדם -->
+        <section class="search-box" aria-label="Advanced Search">
+            <h2>חיפוש מתקדם</h2>
+            <form ng-submit="searchActivities()">
+                <label for="activityType">סוג פעילות:</label>
+                <select id="activityType" ng-model="search.type" aria-label="Activity Type">
+                    <option value="סיורי רחוב">סיורי רחוב</option>
+                    <option value="הופעות">הופעות</option>
+                    <option value="סדנאות">סדנאות</option>
+                    <option value="ירידים">ירידים</option>
+                    <option value="שווקים">שווקים</option>
+                    <option value="טיולים">טיולים</option>
+                </select>
+                <label for="region">אזור:</label>
+                <div class="region-buttons">
+                    <button ng-click="filterRegion('צפון')">צפון</button>
+                    <button ng-click="filterRegion('מרכז')">מרכז</button>
+                    <button ng-click="filterRegion('דרום')">דרום</button>
+                    <button ng-click="filterRegion('מזרח')">מזרח</button>
+                    <button ng-click="filterRegion('מערב')">מערב</button>
+                </div>
+
+                <label for="date">תאריך:</label>
+                <input type="date" id="date" ng-model="search.date">
+                <label for="priceRange">טווח מחירים:</label>
+                <input type="range" id="priceRange" ng-model="search.priceRange" min="0" max="500">
+                <span>{{ search.priceRange }} ש"ח</span>
+                <button type="submit">חפש</button>
+            </form>
+        </section>
+
+        <!-- רשימת אירועים נבחרים -->
+        <section aria-label="Selected Events">
+            <h2>אירועים נבחרים</h2>
+            <div class="event-list">
+                <article class="event" ng-repeat="event in events" aria-label="Event">
+                    <img src="{{event.image}}" alt="{{event.title}}" loading="lazy">
+                    <h3>{{event.title}}</h3>
+                    <p>{{event.description}}</p>
+                    <button>פרטים נוספים</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer role="contentinfo" aria-label="footer content">
+        <p>&copy; 2024 אתר פעילויות פנאי בישראל</p>
+        <nav aria-label="footer navigation">
+            <a href="#">אודות</a> | <a href="#">שאלות נפוצות</a> | <a href="#">תקנון פרטיות</a>
+        </nav>
+        <div class="footer-icons">
+            <a href="#" aria-label="Facebook" title="Facebook">
+                <i class="fa fa-facebook" style="background-color:#3b5998; padding: 5px; border-radius: 50%;"></i>
+            </a>
+            <a href="#" aria-label="Instagram" title="Instagram">
+                <i class="fa fa-instagram" style="background-color:#E4405F; padding: 5px; border-radius: 50%;"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Responsive Enhancements -->
+    <style>
+        :root {
+            --primary-bg: #f0f4f8;
+            /* Light, elegant background */
+            --primary-color: #333;
+            /* Keep the main text dark for readability */
+            --header-bg: #004d40;
+            /* Teal for a strong header */
+            --header-text: #ffffff;
+            /* White header text for contrast */
+            --nav-bg: #00796b;
+            /* Slightly lighter teal for nav bar */
+            --nav-text: #ffffff;
+            /* White for clear navigation */
+            --button-bg: #ff7043;
+            /* Vibrant orange for call-to-action buttons */
+            --button-hover: #ff5722;
+            /* Darker orange for hover effect */
+            --border-radius: 10px;
+            /* Smooth border radii */
+            --event-bg: linear-gradient(135deg, #ffccbc, #ffab91);
+            /* Warm gradient for event cards */
+            --footer-bg: #333333;
+            /* Dark, elegant footer */
+            --footer-text: #ffffff;
+            /* White for footer links */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 30px;
+            text-align: center;
+            font-size: 32px;
+            color: var(--header-text);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: var(--nav-text);
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #c8e6c9;
+            /* Subtle green on hover */
+        }
+
+        button {
+            background-color: var(--button-bg);
+            padding: 12px 25px;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: var(--button-hover);
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+        }
+
+        .event {
+            background: var(--event-bg);
+            color: #333;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--footer-text);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        footer a:hover {
+            color: #ffab91;
+            /* Highlight footer links on hover */
+        }
+
+        .footer-icons a {
+            color: white;
+            margin: 0 15px;
+            font-size: 28px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                font-size: 24px;
+                padding: 20px;
+            }
+
+            .event {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            footer {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+
+
+    <!-- AngularJS Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        // AngularJS Application
+        var app = angular.module('activitiesApp', []);
+
+        app.controller('activitiesCtrl', function ($scope) {
+            // Default search parameters
+            $scope.search = {
+                type: '',
+                region: '',
+                date: '',
+                priceRange: ''
+            };
+
+            // Function to simulate searching activities based on user input
+            $scope.searchActivities = function () {
+                console.log('Search Parameters:', $scope.search);
+                alert('חיפוש פעילויות בוצע עבור: ' + $scope.search.type + ', ' + $scope.search.region);
+                // Here you would make a call to a backend or service to fetch activities
+            };
+
+            // Function to go to a specific region
+            $scope.goToRegion = function (region) {
+                console.log('Going to region:', region);
+                alert('מעבר לאזור ' + region);
+                // Here you would likely navigate to another view or page in a real app
+            };
+
+            // Sample list of events (simulating data that would be fetched from a backend)
+            $scope.events = [
+                {
+                    title: 'פסטיבל עכו',
+                    description: 'פסטיבל תיאטרון ייחודי בעיר העתיקה.',
+                    image: 'https://via.placeholder.com/300x150'
+                },
+                {
+                    title: 'סיור קולינרי בטבריה',
+                    description: 'חוויה קולינרית בלב הגליל.',
+                    image: 'https://via.placeholder.com/300x150'
+                },
+                {
+                    title: 'פסטיבל המדבר',
+                    description: 'פסטיבל מוזיקה במכתש רמון.',
+                    image: 'https://via.placeholder.com/300x150'
+                },
+                {
+                    title: 'סיור חופים בהרצליה',
+                    description: 'סיור מודרך על חופי הים של הרצליה.',
+                    image: 'https://via.placeholder.com/300x150'
+                }
+            ];
+        });
+
+    </script>

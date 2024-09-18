@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Chat Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Color Palette */
+        :root {
+            --primary-bg: #1f1f3b;
+            --secondary-bg: #29294d;
+            --card-bg: #34346b;
+            --primary-text: #e0e0e0;
+            --button-bg: #4caf50;
+            --button-hover-bg: #5acb5e;
+            --progress-bg: #4caf50;
+            --progress-stripe-bg: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: var(--secondary-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-box {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .messages {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: var(--primary-bg);
+            margin-bottom: 10px;
+        }
+
+        .chat-box input[type="text"] {
+            width: 70%;
+            padding: 12px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .chat-box input[type="text"]:focus {
+            background-color: #555;
+        }
+
+        .chat-box button {
+            padding: 12px 25px;
+            background-color: var(--button-bg);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .chat-box button:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-2px);
+        }
+
+        .chat-box button:active {
+            transform: translateY(1px);
+        }
+
+        /* Spacing improvements */
+        .chat-box input,
+        .chat-box button {
+            margin-top: 10px;
+        }
+
+        /* Progress Bar Styling */
+        .progress {
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: var(--progress-bg);
+            background-image: var(--progress-stripe-bg);
+            background-size: 40px 40px;
+            animation: progress-stripes 2s linear infinite;
+        }
+
+        @keyframes progress-stripes {
+            0% {
+                background-position: 40px 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--primary-bg);
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            color: var(--primary-text);
+        }
+
+        /* Transitions */
+        a,
+        .navbar-brand {
+            transition: color 0.3s ease;
+        }
+
+        a:hover,
+        .navbar-brand:hover {
+            color: var(--button-bg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container chat-container">
+        <!-- Chat Box 1: Project Manager -->
+        <div class="chat-box" id="chat-1">
+            <h4>Project Manager</h4>
+            <div class="messages" id="messages-1"></div>
+            <input type="text" id="message-input-1" placeholder="Type your message...">
+            <button id="send-btn-1">Send</button>
+        </div>
+
+        <!-- Chat Box 2: Lead Programmer -->
+        <div class="chat-box" id="chat-2">
+            <h4>Lead Programmer</h4>
+            <div class="messages" id="messages-2"></div>
+            <input type="text" id="message-input-2" placeholder="Type your message...">
+            <button id="send-btn-2">Send</button>
+        </div>
+
+        <!-- Chat Box 3: UI/UX Designer -->
+        <div class="chat-box" id="chat-3">
+            <h4>UI/UX Designer</h4>
+            <div class="messages" id="messages-3"></div>
+            <input type="text" id="message-input-3" placeholder="Type your message...">
+            <button id="send-btn-3">Send</button>
+        </div>
+
+        <!-- Chat Box 4: QA Manager -->
+        <div class="chat-box" id="chat-4">
+            <h4>QA Manager</h4>
+            <div class="messages" id="messages-4"></div>
+            <input type="text" id="message-input-4" placeholder="Type your message...">
+            <button id="send-btn-4">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
+
+        const chatElements = [
+            { input: 'message-input-1', messages: 'messages-1', user: 'Project Manager' },
+            { input: 'message-input-2', messages: 'messages-2', user: 'Lead Programmer' },
+            { input: 'message-input-3', messages: 'messages-3', user: 'UI/UX Designer' },
+            { input: 'message-input-4', messages: 'messages-4', user: 'QA Manager' },
+        ];
+
+        chatElements.forEach((chat, index) => {
+            document.getElementById(`send-btn-${index + 1}`).addEventListener('click', function () {
+                const input = document.getElementById(chat.input);
+                const message = {
+                    user: chat.user,
+                    content: input.value,
+                    timestamp: new Date().toISOString(),
+                };
+                socket.send(JSON.stringify(message));
+                input.value = '';
+            });
+        });
+
+        socket.onmessage = function (event) {
+            const message = JSON.parse(event.data);
+            chatElements.forEach(chat => {
+                const messageElement = document.createElement('div');
+                messageElement.innerText = `[${message.user}] ${message.content}`;
+                document.getElementById(chat.messages).appendChild(messageElement);
+            });
+        };
+    </script>
+</body>
+
+</html>

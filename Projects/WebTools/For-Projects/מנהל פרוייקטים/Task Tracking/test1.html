@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Settings</title>
+    <style>
+        body {
+            font-family: "Orbitron", sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            color: #00ff99;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        #target-settings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section h2 {
+            color: #00ff99;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #e0e0e0;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        input[type="text"],
+        textarea,
+        select,
+        input[type="date"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #00ff99;
+            background: rgba(0, 0, 0, 0.9);
+            color: #e0e0e0;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: background 0.3s, border-color 0.3s;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus,
+        input[type="date"]:focus {
+            background: #222;
+            border-color: #00ff99;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff0081, #ff8c00);
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ff8c00, #ff0081);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.7);
+        }
+
+        #notification {
+            display: none;
+            background: rgba(0, 255, 0, 0.8);
+            color: #000;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.5);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .file-input {
+            margin: 10px 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #222;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #00ff99;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 900px;
+            color: #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5);
+        }
+
+        .modal-header {
+            padding: 10px 0;
+            border-bottom: 1px solid #00ff99;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .close {
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #ff0081;
+        }
+
+        .modal-body {
+            padding: 10px 0;
+            overflow-y: auto;
+        }
+
+        .modal-body pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>הגדרות יעד</h1>
+        <div id="target-settings">
+            <!-- Target Type and Goals -->
+            <div class="section">
+                <h2>סוג היעד ותיאור</h2>
+                <label for="target-type">בחר סוג יעד:</label>
+                <select id="target-type">
+                    <option value="daily">יומי</option>
+                    <option value="weekly">שבועי</option>
+                    <option value="monthly">חודשי</option>
+                    <option value="custom">מותאם אישית</option>
+                </select>
+                <label for="goal-description">תיאור היעד:</label>
+                <textarea id="goal-description" placeholder="פרט את היעד שלך כאן..."></textarea>
+            </div>
+
+            <!-- Target Metrics and Progress Tracking -->
+            <div class="section">
+                <h2>מדדים ומעקב התקדמות</h2>
+                <label for="metric">בחר מדד:</label>
+                <select id="metric">
+                    <option value="tasks">מספר משימות</option>
+                    <option value="time">זמן מושקע</option>
+                    <option value="percentage">אחוז השגה</option>
+                </select>
+                <label for="progress">מעקב התקדמות:</label>
+                <input type="number" id="progress" min="0" max="100" placeholder="הזן אחוז התקדמות">
+            </div>
+
+            <!-- Target Deadlines and Reminders -->
+            <div class="section">
+                <h2>מועדים ותזכורות</h2>
+                <label for="deadline">תאריך יעד:</label>
+                <input type="date" id="deadline">
+                <label for="reminder">הגדר תזכורות:</label>
+                <input type="checkbox" id="reminder" checked>
+            </div>
+
+            <!-- Customization and Preferences -->
+            <div class="section">
+                <h2>התאמה אישית והעדפות</h2>
+                <label for="color-code">בחר צבע:</label>
+                <input type="color" id="color-code" value="#00ff99">
+                <label for="priority">בחר עדיפות:</label>
+                <select id="priority">
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+            </div>
+
+            <!-- Target History and Statistics -->
+            <div class="section">
+                <h2>היסטוריה וסטטיסטיקות</h2>
+                <button id="view-history">צפה בהיסטוריה</button>
+                <button id="view-stats">צפה בסטטיסטיקות</button>
+            </div>
+
+            <!-- User Feedback and Notes -->
+            <div class="section">
+                <h2>הערות ומשוב</h2>
+                <label for="feedback">הערות:</label>
+                <textarea id="feedback" placeholder="כתבו את ההערות שלכם כאן..."></textarea>
+                <label for="personal-notes">הערות אישיות:</label>
+                <textarea id="personal-notes" placeholder="כתבו את ההערות האישיות שלכם כאן..."></textarea>
+            </div>
+
+            <!-- Synchronization and Privacy -->
+            <div class="section">
+                <h2>סנכרון ופרטיות</h2>
+                <label for="sync">בחר סנכרון:</label>
+                <select id="sync">
+                    <option value="daily">יומי</option>
+                    <option value="weekly">שבועי</option>
+                    <option value="monthly">חודשי</option>
+                    <option value="none">ללא סנכרון</option>
+                </select>
+                <label for="sync-frequency">תדירות סנכרון:</label>
+                <input type="text" id="sync-frequency" placeholder="הזן את תדירות הסנכרון">
+                <label for="password">סיסמה:</label>
+                <input type="text" id="password" placeholder="הזן סיסמה">
+                <label for="privacy">פרטיות:</label>
+                <select id="privacy">
+                    <option value="public">ציבורי</option>
+                    <option value="private">פרטי</option>
+                    <option value="protected">מוגן</option>
+                </select>
+            </div>
+
+            <!-- Save and Load Settings -->
+            <div class="section">
+                <button id="save-settings">שמור הגדרות</button>
+                <input type="file" id="load-file" class="file-input" accept=".json">
+                <button id="load-settings">טעון הגדרות</button>
+            </div>
+
+            <!-- Notification -->
+            <div id="notification" class="notification"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Displaying Settings -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>הגדרות נטענות</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <pre id="settings-content"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('save-settings').addEventListener('click', function () {
+            // Get form values
+            const targetType = document.getElementById('target-type').value;
+            const goalDescription = document.getElementById('goal-description').value;
+            const metric = document.getElementById('metric').value;
+            const progress = document.getElementById('progress').value;
+            const deadline = document.getElementById('deadline').value;
+            const reminder = document.getElementById('reminder').checked;
+            const colorCode = document.getElementById('color-code').value;
+            const priority = document.getElementById('priority').value;
+            const feedback = document.getElementById('feedback').value;
+            const personalNotes = document.getElementById('personal-notes').value;
+            const sync = document.getElementById('sync').value;
+            const syncFrequency = document.getElementById('sync-frequency').value;
+            const password = document.getElementById('password').value;
+            const privacy = document.getElementById('privacy').value;
+
+            // Create a JSON object
+            const settings = {
+                targetType,
+                goalDescription,
+                metric,
+                progress,
+                deadline,
+                reminder,
+                colorCode,
+                priority,
+                feedback,
+                personalNotes,
+                sync,
+                syncFrequency,
+                password,
+                privacy
+            };
+
+            // Convert JSON object to a Blob
+            const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'settings.json';
+            a.click();
+            URL.revokeObjectURL(url);
+
+            // Display notification
+            const notification = document.getElementById('notification');
+            notification.textContent = 'הגדרות נשמרו כקובץ!';
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        });
+
+        document.getElementById('load-settings').addEventListener('click', function () {
+            const fileInput = document.getElementById('load-file');
+            if (fileInput.files.length === 0) {
+                alert('אנא בחר קובץ להעלאה.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const settings = JSON.parse(event.target.result);
+
+                // Populate form with loaded settings
+                document.getElementById('target-type').value = settings.targetType;
+                document.getElementById('goal-description').value = settings.goalDescription;
+                document.getElementById('metric').value = settings.metric;
+                document.getElementById('progress').value = settings.progress;
+                document.getElementById('deadline').value = settings.deadline;
+                document.getElementById('reminder').checked = settings.reminder;
+                document.getElementById('color-code').value = settings.colorCode;
+                document.getElementById('priority').value = settings.priority;
+                document.getElementById('feedback').value = settings.feedback;
+                document.getElementById('personal-notes').value = settings.personalNotes;
+                document.getElementById('sync').value = settings.sync;
+                document.getElementById('sync-frequency').value = settings.syncFrequency;
+                document.getElementById('password').value = settings.password;
+                document.getElementById('privacy').value = settings.privacy;
+
+                // Display modal with settings content
+                const settingsContent = JSON.stringify(settings, null, 2);
+                document.getElementById('settings-content').textContent = settingsContent;
+                const modal = document.getElementById('settings-modal');
+                modal.style.display = 'flex';
+
+                // Display notification
+                const notification = document.getElementById('notification');
+                notification.textContent = 'הגדרות נטענו בהצלחה!';
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            };
+
+            reader.readAsText(file);
+        });
+
+        document.querySelector('.close').addEventListener('click', function () {
+            document.getElementById('settings-modal').style.display = 'none';
+        });
+
+        window.onclick = function (event) {
+            if (event.target === document.getElementById('settings-modal')) {
+                document.getElementById('settings-modal').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+
+</html>

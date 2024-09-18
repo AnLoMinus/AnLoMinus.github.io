@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול יעדים ופרויקטים</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>ניהול יעדים ופרויקטים</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">דשבורד</a></li>
+                <li><a href="#tasks">משימות</a></li>
+                <li><a href="#projects">פרויקטים</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>דשבורד</h2>
+            <div id="chart-container">
+                <!-- הוספת ספריית Chart.js -->
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                <!-- קונטיינר לגרף -->
+                <div id="stats-container">
+                    <canvas id="statsChart"></canvas>
+                </div>
+
+                <script>
+                    const ctx2 = document.getElementById('statsChart').getContext('2d');
+                    const statsChart = new Chart(ctx2, {
+                        type: 'pie',
+                        data: {
+                            labels: ['הושלם', 'בתהליך', 'לא התחיל'],
+                            datasets: [{
+                                data: [10, 5, 3],
+                                backgroundColor: ['#4CAF50', '#FFC107', '#F44336']
+                            }]
+                        }
+                    });
+                </script>
+
+
+            </div>
+
+        </section>
+
+        <section id="tasks">
+            <h2>משימות</h2>
+            <ul id="task-list">
+                <!-- רשימת משימות תיכנס כאן -->
+                <!-- טופס להוספת משימה -->
+                <form id="task-form">
+                    <input type="text" id="task-name" placeholder="שם המשימה" required>
+                    <button type="submit">הוסף משימה</button>
+                </form>
+
+                <script>
+                    document.getElementById('task-form').addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        const taskName = document.getElementById('task-name').value;
+                        // הוספת המשימה לרשימה
+                        const taskList = document.getElementById('task-list');
+                        const newTask = document.createElement('li');
+                        newTask.textContent = taskName;
+                        taskList.appendChild(newTask);
+                        document.getElementById('task-name').value = '';
+                    });
+                </script>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>פרויקטים</h2>
+            <ul id="project-list">
+                <!-- רשימת פרויקטים תיכנס כאן -->
+                <form id="project-form">
+                    <input type="text" id="project-name" placeholder="שם הפרויקט" required>
+                    <input type="date" id="project-deadline" placeholder="תאריך סיום" required>
+                    <textarea id="project-description" placeholder="תיאור הפרויקט"></textarea>
+                    <button type="submit">הוסף פרויקט</button>
+                </form>
+
+                <script>
+                    document.getElementById('project-form').addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        const projectName = document.getElementById('project-name').value;
+                        const projectDeadline = document.getElementById('project-deadline').value;
+                        const projectDescription = document.getElementById('project-description').value;
+                        // הוספת הפרויקט לרשימה
+                        const projectList = document.getElementById('project-list');
+                        const newProject = document.createElement('li');
+                        newProject.textContent = `${projectName} - ${projectDeadline}: ${projectDescription}`;
+                        projectList.appendChild(newProject);
+                        document.getElementById('project-form').reset();
+                    });
+                </script>
+            </ul>
+        </section>
+        <form id="feedback-form">
+            <h3>משוב</h3>
+            <textarea id="feedback" placeholder="כתוב את המשוב שלך כאן" required></textarea>
+            <button type="submit">שלח משוב</button>
+        </form>
+
+        <script>
+            document.getElementById('feedback-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const feedback = document.getElementById('feedback').value;
+                // שלח את המשוב למנהל האתר (למשל, באמצעות דואר אלקטרוני)
+                console.log('משוב התקבל:', feedback);
+                alert('תודה על המשוב שלך!');
+                document.getElementById('feedback-form').reset();
+            });
+        </script>
+
+    </main>
+
+    <footer>
+        <p>© 2024 כל הזכויות שמורות</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

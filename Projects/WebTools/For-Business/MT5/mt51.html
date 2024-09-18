@@ -1,0 +1,326 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        direction: rtl;
+        text-align: right;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .results {
+        margin-top: 20px;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .results p {
+        margin: 5px 0;
+    }
+
+    .graph-panel {
+        margin-top: 20px;
+    }
+
+    .graph-container {
+        margin-bottom: 20px;
+    }
+
+    .info-panel {
+        margin-top: 20px;
+        background-color: #fff;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .info-panel h2 {
+        margin-top: 0;
+        color: #333;
+    }
+
+    .info-panel p {
+        margin: 5px 0;
+        color: #555;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaTrader Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>MetaTrader Simulator</h1>
+        <div class="form-group">
+            <label for="stopLoss">סטופ-לוס (%)</label>
+            <input type="number" id="stopLoss" value="1.0" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="takeProfit">רווח (%)</label>
+            <input type="number" id="takeProfit" value="0.01" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="positionAmount">כמות הפוזיציה (בדולרים)</label>
+            <input type="number" id="positionAmount" value="20.0" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="leverage">מינוף</label>
+            <input type="number" id="leverage" value="950" step="1">
+        </div>
+        <button onclick="simulateTrade()">בצע מסחר</button>
+
+        <div class="results" id="results">
+            <!-- תוצאות הסימולציה יוצגו כאן -->
+        </div>
+
+        <div class="graph-panel">
+            <div class="graph-container">
+                <h2>גרף RSI</h2>
+                <canvas id="rsiChart" width="400" height="200"></canvas>
+            </div>
+            <div class="graph-container">
+                <h2>גרף מחיר</h2>
+                <canvas id="priceChart" width="400" height="200"></canvas>
+            </div>
+            <div class="graph-container">
+                <h2>גרף 3</h2>
+                <canvas id="chart3" width="400" height="200"></canvas>
+            </div>
+            <div class="graph-container">
+                <h2>גרף 4</h2>
+                <canvas id="chart4" width="400" height="200"></canvas>
+            </div>
+            <div class="graph-container">
+                <h2>גרף 5</h2>
+                <canvas id="chart5" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>מידע נוסף</h2>
+            <p id="currentDollarValue">ערך הדולר הנוכחי בעולם: $1.00</p>
+            <p id="globalEconomicInfo">מידע כלכלי עולמי נוסף...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // הגרף עבור RSI
+        const ctxRSI = document.getElementById('rsiChart').getContext('2d');
+        const rsiChart = new Chart(ctxRSI, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'RSI',
+                    data: [30, 35, 40, 50, 45],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // הגרף עבור מחיר
+        const ctxPrice = document.getElementById('priceChart').getContext('2d');
+        const priceChart = new Chart(ctxPrice, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'מחיר',
+                    data: [10, 20, 15, 25, 30],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // הגרף עבור נתונים נוספים
+        const ctxChart3 = document.getElementById('chart3').getContext('2d');
+        const chart3 = new Chart(ctxChart3, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'גרף 3',
+                    data: [15, 25, 20, 30, 35],
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        const ctxChart4 = document.getElementById('chart4').getContext('2d');
+        const chart4 = new Chart(ctxChart4, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'גרף 4',
+                    data: [20, 30, 25, 35, 40],
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        const ctxChart5 = document.getElementById('chart5').getContext('2d');
+        const chart5 = new Chart(ctxChart5, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'גרף 5',
+                    data: [25, 35, 30, 40, 45],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // עדכון נתונים כל 2 שניות
+        function updateCharts() {
+            const newData = Array.from({ length: 5 }, () => Math.random() * 100);
+
+            rsiChart.data.datasets[0].data = newData;
+            rsiChart.update();
+
+            priceChart.data.datasets[0].data = newData;
+            priceChart.update();
+
+            chart3.data.datasets[0].data = newData;
+            chart3.update();
+
+            chart4.data.datasets[0].data = newData;
+            chart4.update();
+
+            chart5.data.datasets[0].data = newData;
+            chart5.update();
+        }
+
+        setInterval(updateCharts, 2000);
+
+        // סימולציה של מסחר
+        function simulateTrade() {
+            const stopLoss = parseFloat(document.getElementById('stopLoss').value);
+            const takeProfit = parseFloat(document.getElementById('takeProfit').value);
+            const positionAmount = parseFloat(document.getElementById('positionAmount').value);
+            const leverage = parseFloat(document.getElementById('leverage').value);
+
+            // חישובים בסיסיים (הנחות)
+            const entryPrice = 100; // דוגמה
+            const currentPrice = entryPrice + Math.random() * 10 - 5;
+            const stopLossPrice = entryPrice - (entryPrice * (stopLoss / 100));
+            const takeProfitPrice = entryPrice + (entryPrice * (takeProfit / 100));
+
+            let result = '';
+            if (currentPrice <= stopLossPrice) {
+                result = `הפסדת כסף. המחיר הנוכחי (${currentPrice.toFixed(2)}) ירד מתחת לסטופ-לוס (${stopLossPrice.toFixed(2)})`;
+            } else if (currentPrice >= takeProfitPrice) {
+                result = `הצלחת להרוויח כסף. המחיר הנוכחי (${currentPrice.toFixed(2)}) עלה מעל לרווח (${takeProfitPrice.toFixed(2)})`;
+            } else {
+                result = `אין שינוי משמעותי. המחיר הנוכחי (${currentPrice.toFixed(2)}) הוא בין סטופ-לוס לרווח.`;
+            }
+
+            document.getElementById('results').innerHTML = `
+        <p>מחיר כניסה: ${entryPrice.toFixed(2)}</p>
+        <p>מחיר נוכחי: ${currentPrice.toFixed(2)}</p>
+        <p>סטופ-לוס: ${stopLossPrice.toFixed(2)}</p>
+        <p>רווח: ${takeProfitPrice.toFixed(2)}</p>
+        <p>${result}</p>
+    `;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+body {
+  font-family: Arial, sans-serif;
+  direction: rtl;
+  background-color: #f4f4f9;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.carousel-item:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.carousel-controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.carousel-button:hover {
+  background-color: #45a049;
+}
+
+.progress-indicator {
+  text-align: center;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.completed {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.in-progress {
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+}
+
+.not-started {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+.save-btn,
+.load-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px;
+}
+
+.save-btn:hover,
+.load-btn:hover {
+  background-color: #45a049;
+}
+
+.notification {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #d9edf7;
+  border: 1px solid #bce8f1;
+  border-radius: 5px;
+  color: #31708f;
+}
+
+.credits {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.credits a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.modal-content button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress-bar-inner {
+  width: 0;
+  height: 20px;
+  background-color: #4caf50;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .carousel-item {
+    padding: 10px;
+  }
+}

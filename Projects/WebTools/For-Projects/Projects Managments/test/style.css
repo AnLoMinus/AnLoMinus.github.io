@@ -1,0 +1,212 @@
+/* Reset some basic styles */
+body,
+h1,
+h2,
+label,
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+}
+
+/* Body and header styles */
+body {
+  background-color: #1e1e1e;
+  color: #e1e1e1;
+  line-height: 1.6;
+  direction: rtl; /* תצוגה מימין לשמאל */
+}
+
+header {
+  background: #121212;
+  color: #e1e1e1;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #b28dff; /* צבע זהב-סגול */
+}
+
+/* Main section styles */
+main {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Flex container for the two main sections */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Form and content sections */
+.section {
+  flex: 1;
+  background: #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 0;
+  max-width: 550px; /* הגבלת רוחב התוכן */
+  min-width: 300px; /* הגבלת רוחב התוכן */
+  text-align: center;
+}
+
+/* Ensure equal size for forms and content */
+#add-goal-form,
+#add-project-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #b28dff; /* צבע זהב-סגול */
+}
+
+/* Form elements */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #e1e1e1;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1em;
+  background: #333;
+  color: #e1e1e1;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Buttons */
+button {
+  background: #b28dff; /* צבע זהב-סגול */
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #9a78d7; /* צבע כהה יותר */
+}
+
+/* Layout for goal and project lists */
+#goal-list,
+#project-list {
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+}
+
+#goal-list li,
+#project-list li {
+  background: #444;
+  border-bottom: 1px solid #555;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  color: #e1e1e1;
+}
+
+#goal-list li strong,
+#project-list li strong {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Buttons for editing and deleting */
+.edit-button,
+.delete-button {
+  background: #b28dff; /* צבע זהב-סגול */
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-size: 14px;
+  margin: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  background: #d32f2f;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 0.8;
+}
+
+/* Chart styles */
+#reports {
+  text-align: center;
+}
+
+canvas {
+  max-width: 100%;
+  height: 400px;
+}
+
+/* Upload section styles */
+#upload-section {
+  text-align: center;
+}
+
+#json-display {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background: #333;
+  color: #e1e1e1;
+}
+
+/* Button for saving changes */
+.save-button {
+  background: #4caf50; /* צבע ירוק */
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background: #45a049; /* צבע ירוק כהה יותר */
+}

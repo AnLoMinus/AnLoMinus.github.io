@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand {
+  color: #fff;
+}
+
+.offcanvas {
+  background-color: #343a40;
+}
+
+.offcanvas-body {
+  padding-top: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #495057;
+  color: #fff;
+}
+
+.card {
+  margin: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.details {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #00000050;
+}
+
+/* צבעים לקבוצות */
+.health {
+  background-color: #d4edda;
+}
+
+.personal-growth {
+  background-color: #c3e6cb;
+}
+
+.relationships {
+  background-color: #f8d7da;
+}
+
+.spirituality {
+  background-color: #f5c6cb;
+}
+
+.career {
+  background-color: #cce5ff;
+}
+
+.leisure {
+  background-color: #b8daff;
+}
+
+.finance {
+  background-color: #d1ecf1;
+}
+
+.environment {
+  background-color: #bee5eb;
+}
+.card {
+  text-align: right;
+  color: black;
+}
+.card-title {
+  font-weight: 700;
+  font-size: large;
+}

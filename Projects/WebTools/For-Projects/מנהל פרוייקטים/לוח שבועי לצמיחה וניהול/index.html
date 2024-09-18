@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח שבועי לצמיחה וניהול</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            direction: rtl;
+            text-align: right;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4A90E2;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .week-day {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .week-day h2 {
+            background-color: #E2E2E2;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .day-content {
+            display: none;
+            /* Initially hide the content */
+            padding: 20px;
+        }
+
+        .day-part {
+            margin-top: 15px;
+            padding: 10px;
+            border-left: 4px solid #4A90E2;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .day-part h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #4A90E2;
+        }
+
+        .button {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #357ABD;
+        }
+
+        .task-input,
+        .task-priority,
+        .task-date,
+        .task-category {
+            margin-top: 10px;
+            padding: 5px;
+            width: calc(100% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .task-list {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .task-item.completed {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        .task-item button {
+            background-color: transparent;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .week-day h2 {
+                font-size: 1.3em;
+            }
+
+            .day-part h3 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>לוח שבועי לצמיחה וניהול</h1>
+    </header>
+
+    <div class="container">
+        <div class="week-day" id="sunday">
+            <h2 onclick="toggleDay('sunday')">יום ראשון: אור</h2>
+            <div class="day-content">
+                <p><strong>בוקר:</strong> ייעוד והגדרת מטרות לשבוע הקרוב.</p>
+                <p><strong>צהריים:</strong> תכנון שבועי ועבודה על פרויקטים עיקריים.</p>
+                <p><strong>ערב:</strong> הערכת התקדמות והכנה ליום המחר.</p>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('sunday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-sunday"></div>
+            </div>
+        </div>
+
+        <div class="week-day" id="monday">
+            <h2 onclick="toggleDay('monday')">יום שני: רקיע</h2>
+            <div class="day-content">
+                <div class="day-part morning">
+                    <h3>בוקר:</h3>
+                    <p>סקירה כללית: עיין בפרויקטים הנוכחיים ובמטרותיהם. האם יש עדכונים או שינויים נדרשים?</p>
+                    <p>כתיבה: כתוב תוכניות פעולה מסודרות לכל פרויקט. פרט את הצעדים הדרושים, את המשאבים הנדרשים ואת הציר
+                        הזמן.</p>
+                    <p>תעדוף: קבע סדר עדיפויות לצעדים השונים, כך שתוכל להתמקד בדברים החשובים ביותר.</p>
+                </div>
+                <div class="day-part afternoon">
+                    <h3>צהריים:</h3>
+                    <p>שלב ראשון: צור תוכנית מפורטת לכל פרויקט, כולל שלבים טקטיים ספציפיים שנדרשים להשלמת המטרות.</p>
+                    <p>הגדרה ברורה: הגדר את היעדים הטקטיים בצורה ברורה, וודא שהם ניתנים למדידה ושהם תואמים למטרות
+                        הגדולות יותר.</p>
+                    <p>קביעת מועד: קבע מועד סיום לכל שלב טקטי וודא שהצוות מודע לו.</p>
+                </div>
+                <div class="day-part evening">
+                    <h3>ערב:</h3>
+                    <p>אסטרטגיות ניהול: נתח את האסטרטגיות הניהוליות הנוכחיות שלך. האם ישנם שיפורים שניתן לבצע? האם ישנה
+                        דרישה לתכנון מחדש?</p>
+                    <p>תיאום עם שותפים: קבע פגישות עם שותפים ולקוחות כדי לוודא שהתוכניות תואמות לציפיותיהם.</p>
+                    <p>משוב: אסוף משוב מהצוות והשותפים כדי להבין מה עובד ומה לא, ועדכן את האסטרטגיות בהתאם.</p>
+                </div>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('monday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-monday"></div>
+            </div>
+        </div>
+
+        <div class="week-day" id="tuesday">
+            <h2 onclick="toggleDay('tuesday')">יום שלישי: ים ויבשה</h2>
+            <div class="day-content">
+                <p><strong>בוקר:</strong> חלוקה וארגון של משימות יומיומיות.</p>
+                <p><strong>צהריים:</strong> פתרון בעיות והתמודדות עם אתגרים.</p>
+                <p><strong>ערב:</strong> הערכה של תהליך העבודה ושינויים נדרשים.</p>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('tuesday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-tuesday"></div>
+            </div>
+        </div>
+
+        <div class="week-day" id="wednesday">
+            <h2 onclick="toggleDay('wednesday')">יום רביעי: צמחים ועצים</h2>
+            <div class="day-content">
+                <p><strong>בוקר:</strong> פיתוח אישי ולמידה חדשה.</p>
+                <p><strong>צהריים:</strong> השקעה בצמיחה מקצועית וכתיבה יצירתית.</p>
+                <p><strong>ערב:</strong> חיבור עם מקורות השראה ותכנון עתידי.</p>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('wednesday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-wednesday"></div>
+            </div>
+        </div>
+
+        <div class="week-day" id="thursday">
+            <h2 onclick="toggleDay('thursday')">יום חמישי: מאורות</h2>
+            <div class="day-content">
+                <p><strong>בוקר:</strong> ניתוח נתונים והבנה של מגמות.</p>
+                <p><strong>צהריים:</strong> תכנון לטווח ארוך והשגת מטרות.</p>
+                <p><strong>ערב:</strong> מנוחה והתרעננות.</p>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('thursday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-thursday"></div>
+            </div>
+        </div>
+
+        <div class="week-day" id="friday">
+            <h2 onclick="toggleDay('friday')">יום שישי: חיות ובריות</h2>
+            <div class="day-content">
+                <p><strong>בוקר:</strong> עבודה על שיתופי פעולה ופרויקטים קבוצתיים.</p>
+                <p><strong>צהריים:</strong> הערכת המשאבים והתאמה לצרכים.</p>
+                <p><strong>ערב:</strong> יצירת קשרים וחיזוק יחסים אישיים ומקצועיים.</p>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('friday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-friday"></div>
+            </div>
+        </div>
+
+        <div class="week-day" id="saturday">
+            <h2 onclick="toggleDay('saturday')">שבת: מנוחה והתחדשות</h2>
+            <div class="day-content">
+                <p><strong>בוקר:</strong> מנוחה ושיקוף פנימי של השבוע החולף.</p>
+                <p><strong>צהריים:</strong> זמן איכות עם משפחה וחברים.</p>
+                <p><strong>ערב:</strong> תכנון שבוע חדש ותרגול תודה והכרת תודה.</p>
+                <input type="text" class="task-input" placeholder="הוסף משימה">
+                <select class="task-priority">
+                    <option value="">בחר עדיפות</option>
+                    <option value="high">גבוהה</option>
+                    <option value="medium">בינונית</option>
+                    <option value="low">נמוכה</option>
+                </select>
+                <input type="date" class="task-date">
+                <input type="text" class="task-category" placeholder="קטגוריה (עבודה, אישי, וכו')">
+                <button class="button" onclick="addTask('saturday')">הוסף משימה</button>
+                <div class="task-list" id="tasks-saturday"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 לוח שבועי לצמיחה וניהול. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        function toggleDay(day) {
+            const content = document.querySelector(`#${day} .day-content`);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function addTask(day) {
+            const input = document.querySelector(`#${day} .task-input`);
+            const priority = document.querySelector(`#${day} .task-priority`).value;
+            const date = document.querySelector(`#${day} .task-date`).value;
+            const category = document.querySelector(`#${day} .task-category`).value;
+            const taskList = document.querySelector(`#tasks-${day}`);
+            const taskText = input.value.trim();
+
+            if (taskText) {
+                const taskItem = document.createElement('div');
+                taskItem.className = `task-item ${priority}`;
+                taskItem.innerHTML = `
+                    <input type="checkbox" onchange="toggleTask(this)">
+                    <span>${taskText} - עדיפות: ${priority} - תאריך: ${date} - קטגוריה: ${category}</span>
+                    <button onclick="editTask(this)">✏️</button>
+                    <button onclick="deleteTask(this)">🗑️</button>
+                `;
+                taskList.appendChild(taskItem);
+                input.value = ''; // Clear the input field
+                document.querySelector(`#${day} .task-priority`).value = ''; // Clear the priority
+                document.querySelector(`#${day} .task-date`).value = ''; // Clear the date
+                document.querySelector(`#${day} .task-category`).value = ''; // Clear the category
+            } else {
+                alert('אנא הכנס משימה'); // Alert if input is empty
+            }
+        }
+
+        function toggleTask(checkbox) {
+            const taskItem = checkbox.parentElement;
+            taskItem.classList.toggle('completed');
+        }
+
+        function editTask(button) {
+            const taskItem = button.parentElement;
+            const taskText = taskItem.querySelector('span').textContent;
+            const [text, priority, date, category] = taskText.split(' - ');
+
+            const day = taskItem.parentElement.id.split('-')[1];
+            const input = document.querySelector(`#${day} .task-input`);
+            const prioritySelect = document.querySelector(`#${day} .task-priority`);
+            const dateInput = document.querySelector(`#${day} .task-date`);
+            const categoryInput = document.querySelector(`#${day} .task-category`);
+
+            input.value = text;
+            prioritySelect.value = priority.split(': ')[1];
+            dateInput.value = date.split(': ')[1];
+            categoryInput.value = category.split(': ')[1];
+
+            deleteTask(button); // Remove the task to allow re-adding it
+        }
+
+        function deleteTask(button) {
+            const taskItem = button.parentElement;
+            taskItem.remove();
+        }
+    </script>
+</body>
+
+</html>

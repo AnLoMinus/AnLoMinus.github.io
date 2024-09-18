@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שירותי ייעוץ מהיר</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>שירותי ייעוץ מהיר</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#step1">שלב 1</a></li>
+            <li><a href="#step2">שלב 2</a></li>
+            <li><a href="#pricing">מחיר</a></li>
+            <li><a href="#contact">צור קשר</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="section" id="step1">
+            <h2>שלב 1: בחירת תחום הייעוץ</h2>
+            <p>בחר תחום שבו יש לך ידע נרחב ויכולת להעניק עצות מהירות ואפקטיביות:</p>
+            <div class="card">
+                <h3>ייעוץ פיננסי</h3>
+                <p>עזרה בניהול תקציב אישי, השקעות בסיסיות, או תכנון כלכלי.</p>
+            </div>
+            <div class="card">
+                <h3>ייעוץ בקריירה</h3>
+                <p>עזרה בכתיבת קורות חיים, הכנה לראיונות עבודה, או הדרכה לניהול קריירה.</p>
+            </div>
+            <div class="card">
+                <h3>ייעוץ טכנולוגי</h3>
+                <p>עזרה בהתקנה והגדרה של תוכנות, פתרון בעיות מחשוב, או ייעוץ על רכישות טכנולוגיות.</p>
+            </div>
+        </div>
+
+        <div class="section" id="step2">
+            <h2>שלב 2: יצירת הצעה לשירות</h2>
+            <p>תבנה הצעה קונקרטית לשירותי ייעוץ מהיר:</p>
+            <div class="card">
+                <h3>הצעה בסיסית</h3>
+                <p>ייעוץ של 15-30 דקות בנושאים ספציפיים.</p>
+            </div>
+            <div class="card">
+                <h3>הצעה מורחבת</h3>
+                <p>ייעוץ של שעה אחת במבנה של שיחה אחת או מספר שיחות קצרות.</p>
+            </div>
+        </div>
+
+        <div class="pricing" id="pricing">
+            <h3>מחיר</h3>
+            <p>קבע תעריף סביר למיקרו-ייעוץ, למשל 50-100 ש"ח לפגישה קצרה.</p>
+            <button>צור קשר</button>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; 2024 שירותי ייעוץ מהיר. כל הזכויות שמורות.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

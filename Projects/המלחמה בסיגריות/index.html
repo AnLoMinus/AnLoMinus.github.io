@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>הפסקת עישון - הארגון למלחמה בעישון</title>
     <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="../../css/Fresh.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -37,7 +38,11 @@
             <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
             <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
             <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
-            <button onclick="calculateFinancialSavings()">מחשבון כלכלי</button>
+
+            <!-- כפתור מחשבון לחיסכון בכסף -->
+            <h2>חשב את החיסכון שלך</h2>
+            <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
+
         </div>
 
         <!-- סיפורי הצלחה -->
@@ -111,6 +116,10 @@
     </div>
 
     <footer>
+        <section>
+            <iframe src="../../footer.html" frameborder="0"
+                style="width: 80%; border-radius: 18px; opacity: 1;"></iframe>
+        </section>
         <p>© 2024 הארגון למלחמה בעישון</p>
     </footer>
 

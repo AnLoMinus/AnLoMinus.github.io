@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול מצוות יום-יום</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>מערכת ניהול מצוות יום-יום</h1>
+        <nav>
+            <ul>
+                <li><a href="#prayer-management">ניהול תפילות</a></li>
+                <li><a href="#learning-experience">חוויות למידה</a></li>
+                <li><a href="#command-tracking">מעקב אחר קיום מצוות</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="prayer-management">
+            <h2>ניהול תפילות</h2>
+            <form id="prayer-form">
+                <label for="user-name">שם משתמש:</label>
+                <input type="text" id="user-name" name="user-name" required>
+
+                <label for="prayer-time">שעת תפילה:</label>
+                <input type="time" id="prayer-time" name="prayer-time">
+
+                <button type="submit">שמור שעת תפילה</button>
+            </form>
+            <div id="prayer-schedule">
+                <h3>לוח תפילות אישי:</h3>
+                <ul id="prayer-list"></ul>
+            </div>
+        </section>
+        <section id="learning-experience">
+            <h2>חוויות למידה מותאמות אישית</h2>
+            <button id="generate-content">הצג תכנים לימודיים</button>
+            <div id="learning-content">
+                <h3>תוכן לימודי:</h3>
+                <ul id="content-list"></ul>
+            </div>
+        </section>
+        <section id="command-tracking">
+            <h2>מעקב אחר קיום מצוות</h2>
+            <button id="generate-report">צור דוח מצוות</button>
+            <div id="report">
+                <h3>דוח קיום מצוות:</h3>
+                <p id="report-content">הדוח יופיע כאן...</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 מערכת ניהול מצוות יום-יום</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

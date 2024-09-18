@@ -1,0 +1,426 @@
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 20px;
+        direction: rtl;
+        color: #333;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        /* background-color: #007bff; */
+        color: white;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5em;
+    }
+
+    header p {
+        margin: 10px 0 0;
+        font-size: 1.2em;
+    }
+
+    /* רשת 2x2 */
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* עיצוב מקטעים */
+    .grid-item {
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccd1d9;
+        border-radius: 8px;
+        font-size: 1em;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    #copyButton,
+    #clearButton,
+    #whatsappButton {
+        background-color: #007bff;
+        margin-top: 10px;
+    }
+
+    #whatsappButton {
+        background-color: #25D366;
+    }
+
+    #clearButton {
+        background-color: #dc3545;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f1f1f1;
+    }
+
+    #total {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: right;
+        font-size: 1.2em;
+    }
+
+    .alert {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1em;
+        color: #888;
+    }
+
+    /* רספונסיביות למכשירים קטנים */
+    @media screen and (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול רשימת קניות</title>
+    <link rel="stylesheet" href="../../../0-css/Fresh.css">
+</head>
+
+<body>
+
+    <!-- כותרת לאתר -->
+    <header>
+        <h1>אפליקציה לניהול רשימת קניות</h1>
+        <p>נהל בקלות את רשימת הקניות שלך וחשב הנחות</p>
+    </header>
+
+    <!-- רשת המקטעים -->
+    <div class="grid-container">
+        <!-- מקטע הוספת פריטים -->
+        <div class="grid-item" id="itemSection">
+            <h2>הוספת פריט</h2>
+            <div id="alert" class="alert">אנא מלא את כל השדות לפני הוספה.</div>
+
+            <select id="categoryInput" onchange="populateItems()">
+                <option value="">בחר קטגוריה</option>
+                <option value="ירקות">ירקות</option>
+                <option value="פירות">פירות</option>
+                <option value="בשרים">בשרים</option>
+                <option value="דגים">דגים</option>
+                <option value="מוצרי חלב">מוצרי חלב</option>
+                <option value="מוצרי אפייה">מוצרי אפייה</option>
+                <option value="מוצרים קפואים">מוצרים קפואים</option>
+                <option value="מוצרים יבשים">מוצרים יבשים</option>
+                <option value="משקאות">משקאות</option>
+                <option value="חטיפים וממתקים">חטיפים וממתקים</option>
+                <option value="מוצרי ניקוי">מוצרי ניקוי</option>
+                <option value="טואלטיקה">טואלטיקה</option>
+                <option value="מוצרי תינוקות">מוצרי תינוקות</option>
+            </select>
+
+            <select id="itemInput">
+                <option value="">בחר פריט</option>
+            </select>
+
+            <input type="number" id="priceInput" placeholder="הכנס מחיר" min="0" step="0.01">
+            <input type="number" id="quantityInput" placeholder="כמות" min="1" value="1">
+            <button onclick="addItem()">הוסף פריט</button>
+        </div>
+
+        <!-- מקטע חיפוש והנחה -->
+        <div class="grid-item" id="discountSection">
+            <h2>חיפוש והנחה</h2>
+            <input type="text" id="searchInput" placeholder="חפש מוצר" oninput="searchItem()">
+            <input type="number" id="discountInput" placeholder="אחוז הנחה" min="0" max="100">
+            <button onclick="applyDiscount()">החל הנחה</button>
+        </div>
+
+        <!-- מקטע רשימת קניות -->
+        <div class="grid-item" id="shoppingSection">
+            <h2>רשימת קניות</h2>
+            <table id="shoppingTable">
+                <thead>
+                    <tr>
+                        <th>קטגוריה</th>
+                        <th>מוצר</th>
+                        <th>מחיר ליחידה (₪)</th>
+                        <th>כמות</th>
+                        <th>סכום כולל (₪)</th>
+                        <th>מחק</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- מקטע סיכום והעתקה -->
+        <div class="grid-item" id="summarySection">
+            <h2>סיכום</h2>
+            <div id="total">סכום כולל: ₪0.00</div>
+            <button id="copyButton" onclick="copyInvoice()">העתק חשבונית</button>
+            <button id="whatsappButton" onclick="sendWhatsApp()">שלח בוואטסאפ</button>
+            <button id="clearButton" onclick="clearAll()">נקה הכל</button>
+        </div>
+    </div>
+
+    <!-- פוטר -->
+    <footer>
+        <p>&copy; 2024 ניהול רשימת קניות. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let totalAmount = 0;
+
+        function populateItems() {
+            const category = document.getElementById('categoryInput').value;
+            const itemInput = document.getElementById('itemInput');
+            itemInput.innerHTML = '<option value="">בחר פריט</option>';
+
+            const items = {
+                "ירקות": [
+                    "עגבנייה", "מלפפון", "גזר", "בצל", "שום", "פלפל אדום", "פלפל ירוק",
+                    "תפוח אדמה", "בטטה", "קישוא", "חסה", "כרוב", "ברוקולי",
+                    "כרובית", "פטריות", "שומר", "גמבה", "סלק", "תרד"
+                ],
+                "פירות": [
+                    "תפוח", "בננה", "תפוז", "קלמנטינה", "אפרסק", "אגס",
+                    "ענבים", "אננס", "תותים", "רימון", "מנגו", "אבטיח",
+                    "מלון", "קיווי", "שזיף", "פאפאיה", "פומלה", "תמרים"
+                ],
+                "בשרים": [
+                    "עוף", "בקר", "כבש", "חזה עוף", "שוקיים", "כנפיים",
+                    "סטייק", "שניצל", "קציצות", "טחון בקר", "נקניקיות",
+                    "בשר טחון", "פרגיות", "סינטה", "אנטריקוט", "אסאדו"
+                ],
+                "דגים": [
+                    "סלמון", "טונה", "דג ים", "בורי", "ברמונדי", "דניס",
+                    "לוקוס", "מוסר", "אמנון", "סרדינים", "פילה דג", "קרפיון",
+                    "דג קוד", "סלמון מעושן", "מקרל"
+                ],
+                "מוצרי חלב": [
+                    "חלב", "חמאה", "יוגורט", "שמנת מתוקה", "שמנת חמוצה",
+                    "גבינת קוטג'", "גבינה לבנה", "גבינת צהובה", "גבינת פטה",
+                    "גבינת ריקוטה", "קצפת", "קפיר", "גבינת גאודה", "גבינת ברי"
+                ],
+                "מוצרי אפייה": [
+                    "לחם", "חלה", "לחמניות", "פיתות", "טורטיות", "קרקרים",
+                    "עוגות", "עוגיות", "בייגלה", "קרואסון", "מאפה חמאה",
+                    "בריוש", "בצק עלים", "בצק פיצה", "לחם שיפון", "לחם מלא"
+                ],
+                "מוצרים קפואים": [
+                    "פיצה קפואה", "שניצל קפוא", "המבורגר קפוא", "ירקות קפואים",
+                    "צ'יפס קפוא", "פלאפל קפוא", "בצק עלים קפוא", "מאפים קפואים",
+                    "פירות קפואים", "דגים קפואים", "גלידה", "ארטיקים", "סורבה"
+                ],
+                "מוצרים יבשים": [
+                    "אורז", "פסטה", "קוסקוס", "חומוס יבש", "עדשים", "שקדים",
+                    "אגוזי מלך", "קשיו", "פיסטוקים", "גרעינים", "קמח",
+                    "סוכר", "שיבולת שועל", "תבלינים", "קטניות", "חומוס משומר"
+                ],
+                "משקאות": [
+                    "מים מינרליים", "מיץ תפוזים", "יין", "בירה", "וודקה",
+                    "קולה", "ספרייט", "מיץ ענבים", "תה קר", "מיץ טבעי",
+                    "קפה", "תה", "שוקו", "משקאות אנרגיה", "סיידר תפוחים"
+                ],
+                "חטיפים וממתקים": [
+                    "ביסלי", "במבה", "שוקולד", "עוגיות", "סוכריות", "חטיפי גרנולה",
+                    "חטיפי אנרגיה", "קרקרים", "דובונים", "גומי", "חטיפי שוקולד",
+                    "טופי", "אגוזים מצופים", "מרשמלו", "שוקולד מריר", "חטיפי תמרים"
+                ],
+                "מוצרי ניקוי": [
+                    "סבון כלים", "מטליות", "מרכך כביסה", "אבקת כביסה", "מסיר שומנים",
+                    "נייר סופג", "מגבונים לחים", "מטליות ניקוי", "שקיות אשפה",
+                    "נוזל ניקוי רצפות", "חומרי ניקוי חלונות", "סבון ידיים",
+                    "כפפות חד פעמיות", "נוזל ניקוי אסלות", "חומרי ניקוי רב שימושיים"
+                ],
+                "טואלטיקה": [
+                    "משחת שיניים", "מברשות שיניים", "מגבונים", "סבון גוף",
+                    "שמפו", "מרכך שיער", "תחבושות היגייניות", "דאודורנט",
+                    "נייר טואלט", "תחליב לחות", "קרם ידיים", "ג'ל רחצה",
+                    "מכונת גילוח", "קרם שיער", "משחת גילוח"
+                ],
+                "מוצרי תינוקות": [
+                    "טיטולים", "מגבונים לתינוקות", "בקבוקים", "תחליפי חלב",
+                    "מוצצים", "שמפו לתינוק", "קרם החתלה", "כפפות לתינוקות",
+                    "גרביים לתינוקות", "מדחום", "סבון עדין לתינוקות"
+                ]
+            };
+
+
+            if (category && items[category]) {
+                items[category].forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item;
+                    option.text = item;
+                    itemInput.appendChild(option);
+                });
+            }
+        }
+
+        function addItem() {
+            const category = document.getElementById('categoryInput').value;
+            const item = document.getElementById('itemInput').value;
+            const price = parseFloat(document.getElementById('priceInput').value);
+            const quantity = parseInt(document.getElementById('quantityInput').value);
+
+            if (!category || !item || isNaN(price) || isNaN(quantity)) {
+                document.getElementById('alert').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('alert').style.display = 'none';
+
+            const table = document.getElementById('shoppingTable').querySelector('tbody');
+            const row = table.insertRow();
+            row.insertCell(0).textContent = category;
+            row.insertCell(1).textContent = item;
+            row.insertCell(2).textContent = price.toFixed(2);
+            row.insertCell(3).textContent = quantity;
+            const totalPrice = (price * quantity).toFixed(2);
+            row.insertCell(4).textContent = totalPrice;
+            totalAmount += parseFloat(totalPrice);
+
+            const deleteCell = row.insertCell(5);
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'מחק';
+            deleteButton.onclick = () => {
+                totalAmount -= parseFloat(totalPrice);
+                row.remove();
+                updateTotal();
+            };
+            deleteCell.appendChild(deleteButton);
+
+            updateTotal();
+        }
+
+        function updateTotal() {
+            document.getElementById('total').textContent = `סכום כולל: ₪${totalAmount.toFixed(2)}`;
+        }
+
+        function applyDiscount() {
+            const discount = parseFloat(document.getElementById('discountInput').value);
+            if (!isNaN(discount) && discount > 0 && discount <= 100) {
+                const discountAmount = totalAmount * (discount / 100);
+                const newTotal = totalAmount - discountAmount;
+                document.getElementById('total').textContent = `סכום כולל אחרי הנחה: ₪${newTotal.toFixed(2)}`;
+            } else {
+                alert("הזן אחוז הנחה תקין בין 0 ל-100.");
+            }
+        }
+
+        function copyInvoice() {
+            let textToCopy = "רשימת קניות:\n";
+            const rows = document.querySelectorAll("#shoppingTable tbody tr");
+            rows.forEach(row => {
+                const columns = row.querySelectorAll("td");
+                textToCopy += `${columns[1].textContent}: ₪${columns[2].textContent} x ${columns[3].textContent} = ₪${columns[4].textContent}\n`;
+            });
+            textToCopy += document.getElementById("total").textContent;
+            navigator.clipboard.writeText(textToCopy);
+            alert("החשבונית הועתקה!");
+        }
+
+        function sendWhatsApp() {
+            let textToSend = "רשימת קניות:\n";
+            const rows = document.querySelectorAll("#shoppingTable tbody tr");
+            rows.forEach(row => {
+                const columns = row.querySelectorAll("td");
+                textToSend += `${columns[1].textContent}: ₪${columns[2].textContent} x ${columns[3].textContent} = ₪${columns[4].textContent}\n`;
+            });
+            textToSend += document.getElementById("total").textContent;
+            const whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(textToSend)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function clearAll() {
+            totalAmount = 0;
+            document.querySelector("#shoppingTable tbody").innerHTML = "";
+            updateTotal();
+        }
+
+        function searchItem() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll("#shoppingTable tbody tr");
+            rows.forEach(row => {
+                const item = row.querySelectorAll("td")[1].textContent.toLowerCase();
+                if (item.includes(searchTerm)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

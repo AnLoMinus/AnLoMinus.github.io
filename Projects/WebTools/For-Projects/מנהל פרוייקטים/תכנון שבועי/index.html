@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול מטרות שבועיות</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+    <script></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>ניהול מטרות שבועיות</h1>
+    </header>
+    <main>
+        <section id="goals">
+            <h2>הגדרת מטרות עיקריות</h2>
+            <form id="goal-form">
+                <label for="goal-type">בחר סוג מטרה:</label>
+                <select id="goal-type">
+                    <option value="personal">אישיות</option>
+                    <option value="professional">מקצועיות</option>
+                    <option value="health">בריאות</option>
+                </select>
+                <label for="goal-content">תוכן המטרה:</label>
+                <input type="text" id="goal-content" placeholder="הזן את תוכן המטרה">
+                <button type="submit">הוסף מטרה</button>
+            </form>
+            <h3>מטרות אישיות</h3>
+            <ul id="personal-list"></ul>
+            <h3>מטרות מקצועיות</h3>
+            <ul id="professional-list"></ul>
+            <h3>מטרות בריאותיות</h3>
+            <ul id="health-list"></ul>
+        </section>
+
+        <section id="daily-plans">
+            <h2>תכנון פעולות יומיומיות</h2>
+            <div id="daily-plan"></div>
+        </section>
+
+        <section id="tracking-tools">
+            <h2>כלים למעקב</h2>
+            <ul>
+                <li>יומן או אפליקציה: השתמש ביומן או אפליקציה לניהול משימות.</li>
+                <li>הערכה יומית: קבע זמן בסוף כל יום להערכה.</li>
+            </ul>
+        </section>
+
+        <section id="smart-goals">
+            <h2>הגדרת יעדים SMART</h2>
+            <ul>
+                <li>
+                    <h3>S - Specific (ספציפי)</h3>
+                    <p>היעד שלך צריך להיות ברור ומדויק. עליך לדעת בדיוק מה אתה רוצה להשיג, למה זה חשוב, ומי מעורב
+                        בתהליך.</p>
+                    <div class="example">
+                        <p><strong>דוגמה:</strong> במקום לכתוב "לשפר את הבריאות שלי", קבע מטרה ספציפית כמו "להתאמן 3
+                            פעמים בשבוע ולשתות 2 ליטר מים ביום".</p>
+                    </div>
+                </li>
+                <li>
+                    <h3>M - Measurable (מדוד)</h3>
+                    <p>על היעד להיות מדוד כך שתוכל לעקוב אחר ההתקדמות שלך. עליך לדעת מתי הצלחת להשיג את היעד ומה
+                        השיפורים הדרושים.</p>
+                    <div class="example">
+                        <p><strong>דוגמה:</strong> למדוד את ההתקדמות שלך לפי מספר הפעמים שבהן התאמנת השבוע או לפי כמות
+                            המים ששתיתם ביום.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3>A - Achievable (בר ביצוע)</h3>
+                    <p>ודא שהיעד שלך בר ביצוע בתנאים הנוכחיים שלך. האם יש לך את המשאבים, הידע, והיכולת להצליח בהשגת
+                        היעד?</p>
+                    <div class="example">
+                        <p><strong>דוגמה:</strong> אם אתה חדש בתחום הכושר, יעד כמו "להריץ מרתון בתוך חודש" עשוי להיות
+                            שאפתני מדי. יעד בר ביצוע יכול להיות "להשלים 30 דקות של ריצה 3 פעמים בשבוע".</p>
+                    </div>
+                </li>
+                <li>
+                    <h3>R - Relevant (רלוונטי)</h3>
+                    <p>היעד שלך צריך להיות רלוונטי לך ולמטרותיך הכלליות. ודא שהמטרה תורמת למטרות האישיות או המקצועיות
+                        שלך.</p>
+                    <div class="example">
+                        <p><strong>דוגמה:</strong> אם אתה רוצה לשפר את הבריאות שלך לפני קיץ, יעד כמו "להשקיע זמן באימוני
+                            כוח" הוא רלוונטי ומסייע להשגת היעד הכללי של שיפור הבריאות.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3>T - Time-bound (מוגבלת בזמן)</h3>
+                    <p>קבע זמן מוגבל להשגת היעד. הגבלת זמן עוזרת למקד את המאמצים ומספקת תחושת דחיפות.</p>
+                    <div class="example">
+                        <p><strong>דוגמה:</strong> "להתאמן 3 פעמים בשבוע למשך חודש" מספקת מועד סיום ברור ומאפשרת לך
+                            להעריך את ההתקדמות שלך בסוף התקופה.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 כל הזכויות שמורות</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
