@@ -2,379 +2,460 @@
 <html lang="he" dir="rtl">
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <meta charset="UTF-8">
-    <title>חיים בריאים ומאוזנים</title>
+    <meta name="version" content="1.0.0">
+    <meta name="author" content="AnLoMinus">
+    <meta property="og:title" content="NextLife - איזון בחיים">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NextLife מציע כלים לניהול איזון חיים בכל תחום, כולל בריאות, משפחה, עבודה, פנאי, כספים, התפתחות אישית ורוחניות.">
+    <meta name="keywords" content="איזון בחיים, בריאות, משפחה, עבודה, פנאי, כספים, התפתחות אישית, רוחניות, ניהול זמן">
+    <meta property="og:description"
+        content="NextLife מציע כלים לניהול איזון חיים בכל תחום, כולל בריאות, משפחה, עבודה, פנאי, כספים, התפתחות אישית ורוחניות.">
+    <meta property="og:type" content="website">
+    <!-- <meta property="og:url" content="http://yourwebsite.com"> -->
+    <!-- <meta property="og:image" content="http://yourwebsite.com/image.jpg"> -->
+    <title>NextLife - איזון בחיים</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <style>
+        .instructions {
+            background-color: #f0f8ff;
+            /* צבע רקע נעים */
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .progress {
+            margin: 20px 0;
+        }
+
+        .progress-container {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            height: 25px;
+            width: 100%;
+        }
+
+        .progress-bar {
+            background-color: #76c7c0;
+            /* צבע ההתקדמות */
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.5s;
+        }
+    </style>
 
 </head>
 
 <body>
-    <!-- partial:index.partial.html -->
-    <html lang="he">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            /* עיצוב כללי */
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #1a1a1d;
-                color: #fff;
-                direction: rtl;
-                padding: 1%;
-            }
-
-            /* עיצוב כותרת */
-            header {
-                background: linear-gradient(45deg, #3b82f6, #1f2937);
-                padding: 15px;
-                text-align: center;
-                font-size: 1.8rem;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                animation: electric 3s ease-in-out infinite;
-                color: #fff;
-            }
-
-            @keyframes electric {
-
-                0%,
-                100% {
-                    background-position: 0% 50%;
-                }
-
-                50% {
-                    background-position: 100% 50%;
-                }
-            }
-
-            /* קרוסלה לתפריט העליון */
-            .carousel-container {
-                display: flex;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding: 20px 0;
-                background-color: #333;
-            }
-
-            .carousel-item {
-                display: inline-block;
-                width: 200px;
-                padding: 10px;
-                margin-right: 20px;
-                background-color: #444;
-                border-radius: 8px;
-                text-align: center;
-                cursor: pointer;
-                transition: background-color 0.3s ease, transform 0.3s ease;
-            }
-
-            .carousel-item:hover {
-                background-color: #ff9800;
-                transform: scale(1.1);
-            }
-
-            .carousel-item a {
-                color: #fff;
-                text-decoration: none;
-            }
-
-            .carousel-item span {
-                margin-right: 8px;
-            }
-
-            /* עיצוב הכותרת של הצ'אט */
-            .chat-container {
-                margin: 1% auto;
-                max-width: 100%;
-                border-radius: 18px;
-            }
-
-            .accordion {
-                background-color: #444;
-                color: #fff;
-                cursor: pointer;
-                padding: 18px;
-                width: 100%;
-                border: none;
-                text-align: center;
-                outline: none;
-                font-size: 1.2rem;
-                transition: background-color 0.3s ease;
-                margin-top: 10px;
-                border-radius: 8px;
-            }
-
-            .accordion:hover {
-                background-color: #555;
-            }
-
-            .panel {
-                padding: 0 18px;
-                background-color: #282828;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                margin-top: 10px;
-                border-radius: 8px;
-            }
-
-            .accordion.active+.panel {
-                max-height: 500px;
-            }
-
-            /* עיצוב של ה-iframe */
-            iframe {
-                width: 100%;
-                height: 500px;
-                border: none;
-            }
-
-            /* עיצוב מותאם לקטגוריות */
-            .category-health {
-                background-color: #4caf50;
-            }
-
-            .category-family {
-                background-color: #ff9800;
-            }
-
-            .category-work {
-                background-color: #2196f3;
-            }
-
-            .category-leisure {
-                background-color: #9c27b0;
-            }
-
-            .category-finance {
-                background-color: #ff5722;
-            }
-
-            .category-personal_growth {
-                background-color: #607d8b;
-            }
-
-            .category-community {
-                background-color: #3f51b5;
-            }
-
-            .category-spirituality {
-                background-color: #8bc34a;
-            }
-
-            /* עיצוב קונטיינרים חולפים */
-            .content-container {
-                display: none;
-                padding: 20px;
-                background-color: #333;
-                border-radius: 8px;
-                margin-top: 10px;
-            }
-
-            .show {
-                display: block;
-            }
-
-            /* עיצוב הקרדיטים */
-            footer {
-                margin-top: 30px;
-                padding: 10px;
-                text-align: center;
-                background-color: #222;
-                color: #ccc;
-                font-size: 0.9rem;
-            }
-
-            footer a {
-                color: #ff9800;
-                text-decoration: none;
-                margin: 0 10px;
-            }
-
-            footer a:hover {
-                text-decoration: underline;
-            }
-        </style>
-        <style>
-            .card {
-                margin-bottom: 20px;
-                background: black;
-            }
-
-            .card-body h5 {
-                font-size: 1.25rem;
-            }
-        </style>
-        <script>
-            // פונקציה לפתיחת האקורדיון
-            document.addEventListener("DOMContentLoaded", function () {
-                var accordions = document.querySelectorAll(".accordion");
-                accordions.forEach(function (accordion) {
-                    accordion.addEventListener("click", function () {
-                        this.classList.toggle("active");
-                        var panel = this.nextElementSibling;
-                        if (panel.style.maxHeight) {
-                            panel.style.maxHeight = null;
-                        } else {
-                            panel.style.maxHeight = panel.scrollHeight + "px";
-                        }
-                    });
-                });
-
-                // גלילה אוטומטית לקרוסלה
-                setInterval(function () {
-                    document.querySelector('.carousel-container').scrollBy({ left: 200, behavior: 'smooth' });
-                }, 3000);
-
-                // הצגת התוכן על פי הקטגוריה
-                var items = document.querySelectorAll('.carousel-item');
-                items.forEach(function (item) {
-                    item.addEventListener('click', function () {
-                        var category = this.classList[1];
-                        document.querySelectorAll('.content-container').forEach(function (container) {
-                            container.classList.remove('show');
-                            if (container.classList.contains(category)) {
-                                container.classList.add('show');
-                            }
-                        });
-                    });
-                });
-            });
-        </script>
-    </head>
-
-    <body>
-
-        <header>
-            <h1>חיים בריאים ומאוזנים</h1>
-        </header>
-
-        <!-- קרוסלה לתפריט העליון -->
-        <div class="carousel-container" style="display: none;">
-            <div class="carousel-item category-health"><a href="health-wellbeing.html"><span>🩺</span> בריאות
-                    ורווחה <span>🩺</span></a></div>
-            <div class="carousel-item category-family"><a href="family-relationships.html"><span>👨‍👩‍👧‍👦</span>
-                    משפחה ויחסים <span>👨‍👩‍👧‍👦</span></a></div>
-            <div class="carousel-item category-work"><a href="work-career.html"><span>💼</span> עבודה וקריירה
-                    <span>💼</span></a>
-            </div>
-            <div class="carousel-item category-leisure"><a href="leisure-entertainment.html"><span>🎉</span> פנאי
-                    ובילוי <span>🎉</span></a></div>
-            <div class="carousel-item category-finance"><a href="finance-management.html"><span>💰</span> כספים וניהול
-                    פיננסי <span>💰</span></a></div>
-            <div class="carousel-item category-personal_growth"><a href="personal-development.html"><span>📈</span>
-                    התפתחות אישית <span>📈</span></a></div>
-            <div class="carousel-item category-community"><a href="environment-community.html"><span>🌍</span> סביבה
-                    וקהילה <span>🌍</span></a></div>
-            <div class="carousel-item category-spirituality"><a href="spirituality-meaning.html"><span>🧘‍♂️</span>
-                    רוחניות ומשמעות <span>🧘‍♂️</span></a></div>
-        </div>
-
-        <div class="chat-container" style="display: none;">
-            <!-- כותרת השיחה מופיעה למעלה -->
-            <button class="accordion">AnLoMinus</button>
-            <div class="panel">
-                <!-- Iframe עם השיחה עצמה -->
-                <iframe src="https://anlominus.github.io/1.html" title="Anlominus-GitHub" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div class="" id="base-2-line">
-            <div class="chat-container category-health">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-health">🩺 בריאות ורווחה 🩺</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="health-wellbeing.html" title="Anlominus-CodePen" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="chat-container category-family">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-family">👨‍👩‍👧‍👦 משפחה ויחסים 👨‍👩‍👧‍👦</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="family-relationships.html" title="AnLoMinus-Git" loading="lazy"></iframe>
-                </div>
+    <header>
+        <nav>
+            <div>
+                <h1>NextLife</h1>
             </div>
 
-            <div class="chat-container category-community">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-community">🌍 סביבה וקהילה 🌍</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="environment-community.html" title="Anlominus-CodePen" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="chat-container category-spirituality">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-spirituality">🧘‍♂️ רוחניות ומשמעות 🧘‍♂️</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="spirituality-meaning.html" title="AnLoMinus-Git" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="chat-container category-work">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-work">💼 עבודה וקריירה 💼</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="work-career.html" title="Anlominus-CodePen" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="chat-container category-leisure">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-leisure">🎉 פנאי ובילוי 🎉</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="leisure-entertainment.html" title="AnLoMinus-Git" loading="lazy"></iframe>
-                </div>
+            <div class="nav-container">
+                <ul class="nav-icons">
+                    <li>
+                        <a href="#health" data-theme="health" data-content="בריאות ורווחה"
+                            onclick="showSection('health')">
+                            <i class="fas fa-heartbeat" aria-label="בריאות ורווחה" role="img"></i>
+                            <span>⚕️ בריאות ורווחה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#family" data-theme="family" data-content="משפחה ויחסים">
+                            <i class="fas fa-users"></i>
+                            <span>👨‍👩‍👦 משפחה ויחסים</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#work" data-theme="work" data-content="עבודה וקריירה">
+                            <i class="fas fa-briefcase"></i>
+                            <span>💼 עבודה וקריירה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#leisure" data-theme="leisure" data-content="פנאי ובילוי">
+                            <i class="fas fa-palette"></i>
+                            <span>🎨 פנאי ובילוי</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#finance" data-theme="finance" data-content="כספים וניהול פיננסי">
+                            <i class="fas fa-wallet"></i>
+                            <span>💳 כספים וניהול פיננסי</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#personal" data-theme="personal" data-content="התפתחות אישית">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>📚 התפתחות אישית</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#community" data-theme="community" data-content="סביבה וקהילה">
+                            <i class="fas fa-globe"></i>
+                            <span>🌱 סביבה וקהילה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#spirituality" data-theme="spirituality" data-content="רוחניות ומשמעות">
+                            <i class="fas fa-praying-hands"></i>
+                            <span>🕊️ רוחניות ומשמעות</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <div class="chat-container category-finance">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-finance">💰 כספים וניהול פיננסי 💰</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="finance-management.html" title="Anlominus-CodePen" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="chat-container category-personal_growth">
-                <!-- כותרת השיחה מופיעה למעלה -->
-                <button class="accordion category-personal_growth">📈 התפתחות אישית 📈</button>
-                <div class="panel">
-                    <!-- Iframe עם השיחה עצמה -->
-                    <iframe src="personal-development.html" title="AnLoMinus-Git" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
+        </nav>
+    </header>
+
+    <div class="instructions">
+        <h2>הנחיות שימוש</h2>
+        <p>בחר קטגוריה מהתפריט למעלה כדי להתחיל.
+            לאחר מכן תוכל לנהל את מטרותיך ופעילויותיך בכל תחום.</p>
+        <p>כדי לחפש תוכן, השתמש בשורת החיפוש למטה.</p>
+    </div>
 
 
-        <!-- קרדיטים -->
-        <footer>
-            <p>פותח ע"י: לאון יעקובוב ושותפיו, OpenAI 🤝</p>
-            <p>גירסה 1.3</p>
-            <p>
-                <a href="https://x.com/anLoMinusX" target="_blank">X</a> |
-                <a href="https://www.linkedin.com/in/anlominus/" target="_blank">linkedin</a> |
-                <a href="https://www.facebook.com/AnLoMinusX/" target="_blank">facebook</a> |
-                <a href="https://www.instagram.com/AnLoMinusX/" target="_blank">Instagram</a> |
-                <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank">WhatsApp</a> |
-                <a href="https://codepen.io/AnLoMinus" target="_blank">CodePen</a> |
-                <a href="https://github.com/AnLoMinus" target="_blank">GitHub</a> |
-                <a href="https://chat.openai.com/auth/login" target="_blank">ChatGPT</a>
-            </p>
-        </footer>
+    <!-- אזור תוכן מתחלף -->
+    <div class="dynamic-content" id="dynamic-content">
+        <h2>ברוך הבא לNexiLife!</h2>
+        <p>בחר קטגוריה מהתפריט כדי להתחיל.</p>
+    </div>
 
-    </body>
-
-    </html>
-    <!-- partial -->
+    <!-- שורת חיפוש -->
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="חפש...">
+    </div>
 
 </body>
+
+<section id="life-sections">
+    <div class="section health">
+        <i class="fas fa-heartbeat" aria-label="בריאות ורווחה"></i>
+        <h2>בריאות ורווחה ⚕️</h2>
+        <p>מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית 🏃, תזונה 🥗, דפוסי שינה 💤 ותהליכי
+            מיינדפולנס 🧘‍♀️.</p>
+        <button onclick="openModal('health')">פתח מעקב בריאות</button><br>
+        <div class="progress" data-category="health">
+            <h2>תצוגת התקדמות בבריאות ורווחה</h2>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 70%;" title="70% הושגו"></div>
+            </div>
+            <p>הושגו 7 מתוך 10 מטרות בבריאות ורווחה.</p>
+        </div>
+    </div>
+    <div class="section family">
+        <i class="fas fa-users"></i>
+        <h2>משפחה ויחסים 👨‍👩‍👦</h2>
+        <p>שמור על איזון בין עבודה לחיים על ידי תכנון זמן עם משפחה וחברים, ומעקב אחר איכות הקשרים עם כלים להרהור אישי
+            💞.</p>
+        <button onclick="openModal('family')">פתח מתכנן משפחתי</button>
+
+        <div class="progress" data-category="family">
+            <h2>תצוגת התקדמות במשפחה ויחסים</h2>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 50%;" title="50% הושגו"></div>
+            </div>
+            <p>הושגו 5 מתוך 10 מטרות במשפחה ויחסים.</p>
+        </div>
+    </div>
+    <div class="section work">
+        <i class="fas fa-briefcase"></i>
+        <h2>עבודה וקריירה 💼</h2>
+        <p>קבע מטרות מקצועיות, עקוב אחרי התקדמותך 📊 ושפר את האיזון בין העבודה והחיים. NexiLife עוזרת לך לגדול בקריירה
+            מבלי לפגוע בתחומי חיים אחרים 🎯.</p>
+        <button onclick="openModal('work')">פתח מטרות קריירה</button>
+    </div>
+    <div class="section leisure">
+        <i class="fas fa-palette"></i>
+        <h2>פנאי ובילוי 🎨</h2>
+        <p>נהל את תחביביך 🎸, חופשותיך 🏖️ ופעילויות חברתיות 👯‍♂️, תוך הבטחה שיהיה לך מספיק זמן לפעילויות שממלאות אותך
+            באנרגיה 🔋.</p>
+        <button onclick="openModal('leisure')">פתח ניהול תחביבים</button>
+    </div>
+    <div class="section finance">
+        <i class="fas fa-wallet"></i>
+        <h2>כספים וניהול פיננסי 💳</h2>
+        <p>ניהול תקציב 💸, מעקב אחרי הוצאות וקביעת יעדים פיננסיים כמו חיסכון לעתיד או הקטנת חובות 📉.</p>
+        <button onclick="openModal('finance')">פתח ניהול תקציב</button>
+    </div>
+    <div class="section personal-development">
+        <i class="fas fa-graduation-cap"></i>
+        <h2>התפתחות אישית 📚</h2>
+        <p>צמיחה אישית באמצעות קביעת מטרות, מעקב אחר התקדמות בלמידת מיומנויות חדשות ✍️, מדיטציה 🧘 והרהור פנימי 🚀.</p>
+        <button onclick="openModal('personal-development')">פתח מעקב מיומנויות</button>
+    </div>
+    <div class="section community">
+        <i class="fas fa-globe"></i>
+        <h2>סביבה וקהילה 🌱</h2>
+        <p>קבל תזכורות על מעורבות קהילתית 👥, התנדבות 🤝, ומעורבות בקיימות ♻️, כדי לשמור על חיבור קרוב לקהילה ולעולם
+            סביבך.</p>
+        <button onclick="openModal('community')">פתח מעורבות קהילתית</button>
+    </div>
+    <div class="section spirituality">
+        <i class="fas fa-dove"></i>
+        <h2>רוחניות ומשמעות 🕊️</h2>
+        <p>חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים, תרגולים דתיים 🙏 או מסעות רוחניים 🛤️.</p>
+        <button onclick="openModal('spirituality')">פתח יומן רוחני</button>
+    </div>
+
+    <!-- מודל -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-body"></p>
+        </div>
+    </div>
+
+</section>
+
+<footer></footer>
+<div class="footer-content">
+    <h2>NexiLife - איזון בחיים</h2>
+    <p>עוזר לך לנהל את כל היבטי החיים שלך בצורה מאורגנת ואפקטיבית.</p>
+
+    <div class="status-bar">
+        <div class="status-item health">
+            <span>בריאות: <strong>80%</strong></span>
+        </div>
+        <div class="status-item family">
+            <span>משפחה: <strong>75%</strong></span>
+        </div>
+        <div class="status-item work">
+            <span>עבודה: <strong>90%</strong></span>
+        </div>
+        <div class="status-item leisure">
+            <span>פנאי: <strong>60%</strong></span>
+        </div>
+        <div class="status-item finance">
+            <span>כספים: <strong>70%</strong></span>
+        </div>
+        <div class="status-item personal-development">
+            <span>התפתחות אישית: <strong>85%</strong></span>
+        </div>
+        <div class="status-item community">
+            <span>קהילה: <strong>65%</strong></span>
+        </div>
+        <div class="status-item spirituality">
+            <span>רוחניות: <strong>90%</strong></span>
+        </div>
+    </div>
+
+
+    <div class="marquee">
+        <div class="marquee-content">
+            <span class="status">🏃‍♂️ סיים את תוכנית האימון השבועית שלך</span>
+            <span class="status">📅 קבע פגישה עם בני משפחה</span>
+            <span class="status">📈 עדכן את תקציב החודש</span>
+            <span class="status">🎨 השלם פרויקט יצירתי בחופשה</span>
+        </div>
+    </div>
+
+
+    <div class="footer-links">
+        <div class="footer-link-item">
+            <i class="fas fa-heartbeat"></i>
+            <a href="#health">בריאות ורווחה</a>
+        </div>
+        <div class="footer-link-item">
+            <i class="fas fa-users"></i>
+            <a href="#family">משפחה ויחסים</a>
+        </div>
+        <div class="footer-link-item">
+            <i class="fas fa-briefcase"></i>
+            <a href="#work">עבודה וקריירה</a>
+        </div>
+        <div class="footer-link-item">
+            <i class="fas fa-sun"></i>
+            <a href="#leisure">פנאי ובילוי</a>
+        </div>
+    </div>
+
+    <button class="expand-btn">ראה עוד</button>
+
+    <div class="expanded-links" style="display: none;">
+        <h3>משאבים שימושיים</h3>
+        <div class="resource-grid">
+            <div class="resource-item">
+                <i class="fas fa-book"></i>
+                <p>מאמרים על בריאות</p>
+            </div>
+            <div class="resource-item">
+                <i class="fas fa-comments"></i>
+                <p>פורום משפחתי</p>
+            </div>
+            <div class="resource-item">
+                <i class="fas fa-chart-line"></i>
+                <p>כלים לניהול כספים</p>
+            </div>
+            <div class="resource-item">
+                <i class="fas fa-cogs"></i>
+                <p>טיפים להתפתחות אישית</p>
+            </div>
+        </div>
+        <ul>
+            <li><a href="#about">עלינו</a></li>
+            <li><a href="#contact">צור קשר</a></li>
+            <li><a href="#privacy">מדיניות פרטיות</a></li>
+            <li><a href="#terms">תנאי שימוש</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-quote">
+        <p>“חיים מאוזנים הם חיים מאושרים.”</p>
+        <cite>- אינסוף אפשרויות</cite>
+    </div>
+</div>
+<div class="footer-bottom">
+    <p>&copy; 2024 NexiLife. כל הזכויות שמורות.</p>
+    <div class="social-media">
+        <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="טוויטר"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="לינקדאין"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</div>
+</footer>
+
+
+<script>
+    const expandBtn = document.querySelector('.expand-btn');
+    const expandedLinks = document.querySelector('.expanded-links');
+
+    expandBtn.addEventListener('click', () => {
+        expandedLinks.style.display = expandedLinks.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+
+
+<script>
+    function openModal(section) {
+        let title = '';
+        let body = '';
+
+        switch (section) {
+            case 'health':
+                title = 'מעקב בריאות';
+                body = 'פותחים את מעקב הבריאות!';
+                break;
+            case 'family':
+                title = 'מתכנן משפחתי';
+                body = 'פותחים את המתכנן המשפחתי!';
+                break;
+            case 'work':
+                title = 'מטרות קריירה';
+                body = 'פותחים את מטרות הקריירה!';
+                break;
+            case 'leisure':
+                title = 'ניהול תחביבים';
+                body = 'פותחים את ניהול התחביבים!';
+                break;
+            case 'finance':
+                title = 'ניהול תקציב';
+                body = 'פותחים את ניהול התקציב!';
+                break;
+            case 'personal-development':
+                title = 'מעקב מיומנויות';
+                body = 'פותחים את מעקב המיומנויות!';
+                break;
+            case 'community':
+                title = 'מעורבות קהילתית';
+                body = 'פותחים את המעורבות הקהילתית!';
+                break;
+            case 'spirituality':
+                title = 'יומן רוחני';
+                body = 'פותחים את היומן הרוחני!';
+                break;
+        }
+
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-body').innerText = body;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+        if (event.target == document.getElementById('modal')) {
+            closeModal();
+        }
+    }
+</script>
+
+<script>
+    const themes = {
+        health: { backgroundColor: '#ffebee', textColor: '#ff5722' },
+        family: { backgroundColor: '#e3f2fd', textColor: '#2196F3' },
+        work: { backgroundColor: '#fffde7', textColor: '#FFC107' },
+        leisure: { backgroundColor: '#f3e5f5', textColor: '#9C27B0' },
+        finance: { backgroundColor: '#e8f5e9', textColor: '#4CAF50' },
+        personal: { backgroundColor: '#fce4ec', textColor: '#E91E63' },
+        community: { backgroundColor: '#e3f2fd', textColor: '#3F51B5' },
+        spirituality: { backgroundColor: '#e0f7fa', textColor: '#00BCD4' }
+    };
+
+    document.querySelectorAll('.nav-icons li a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // למנוע מעבר לקטגוריה
+
+            const theme = this.getAttribute('data-theme');
+            const themeColors = themes[theme];
+
+            document.body.style.backgroundColor = themeColors.backgroundColor;
+            document.body.style.color = themeColors.textColor;
+
+            // עדכון התוכן הדינמי
+            const contentText = this.getAttribute('data-content');
+            document.getElementById('dynamic-content').innerHTML = `<h2>${contentText}</h2><p>תוכן נוסף עבור ${contentText}.</p>`;
+        });
+    });
+
+</script>
+
+<script>
+    document.querySelectorAll('.nav-icons li a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = e.target.closest('a').getAttribute('data-theme');
+            const content = e.target.closest('a').getAttribute('data-content');
+
+            document.getElementById('dynamic-content').innerHTML = `
+            <h2>${content}</h2>
+            <p>כאן תוכל לנהל את ${content.toLowerCase()} שלך.</p>
+        `;
+        });
+    });
+</script>
+
+<script>
+    document.getElementById('search').addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        document.querySelectorAll('.section').forEach(section => {
+            const text = section.innerText.toLowerCase();
+            section.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    });
+</script>
+
+<script>
+    function updateProgress(category, percentage) {
+        const progressBar = document.querySelector(`.progress-bar[data-category="${category}"]`);
+        if (progressBar) {
+            progressBar.style.width = `${percentage}%`;
+            progressBar.setAttribute("title", `${percentage}% הושגו`);
+        }
+    }
+
+</script>
 
 </html>
