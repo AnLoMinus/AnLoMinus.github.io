@@ -1,0 +1,156 @@
+/* הגדרת עיצוב בסיסי */
+body {
+  direction: rtl;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: #cfcfcf;
+}
+
+header {
+  background-color: #282c34;
+  color: #61dafb;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 2px solid #61dafb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  padding: 2em;
+}
+
+section {
+  margin-bottom: 2em;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  padding: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  color: #61dafb;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s, border 0.3s;
+}
+
+li:hover {
+  background: #444;
+  border-color: #61dafb;
+}
+
+button {
+  background-color: #61dafb;
+  color: #1e1e1e;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 0.5em;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #4db9ff;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #3a8cc1;
+}
+
+.edit-button {
+  background-color: #f4c20d;
+  color: #1e1e1e;
+}
+
+.edit-button:hover {
+  background-color: #e2b007;
+}
+
+.delete-button {
+  background-color: #ff4f4f;
+  color: #1e1e1e;
+}
+
+.delete-button:hover {
+  background-color: #e03d3d;
+}
+
+footer {
+  background-color: #282c34;
+  color: #61dafb;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#smart-goals {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#smart-goals h2 {
+  color: #61dafb;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+#smart-goals ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#smart-goals li {
+  background: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  transition: background 0.3s, border 0.3s;
+}
+
+#smart-goals li:hover {
+  background: #444;
+  border-color: #61dafb;
+}
+
+#smart-goals .example {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+
+#smart-goals .example p {
+  margin: 0;
+  padding: 0.5em;
+  background-color: #2a2a2a;
+  border-left: 3px solid #61dafb;
+}

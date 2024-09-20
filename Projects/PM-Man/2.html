@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול משימות פרויקטים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:disabled {
+            background-color: #aaa;
+        }
+
+        button.save {
+            background-color: #007bff;
+        }
+
+        button.load {
+            background-color: #ffc107;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .task-info {
+            margin-bottom: 10px;
+        }
+
+        .task-info strong {
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>ניהול משימות לפרויקט</h1>
+
+        <div class="input-group">
+            <label for="taskName">שם משימה:</label>
+            <input type="text" id="taskName" placeholder="הכנס שם משימה">
+        </div>
+
+        <div class="input-group">
+            <label for="taskCategory">קטגוריה:</label>
+            <input type="text" id="taskCategory" placeholder="הכנס קטגוריית משימה (למשל: עיצוב, פיתוח)">
+        </div>
+
+        <div class="input-group">
+            <label for="taskPriority">עדיפות:</label>
+            <select id="taskPriority">
+                <option value="גבוהה">גבוהה</option>
+                <option value="בינונית">בינונית</option>
+                <option value="נמוכה">נמוכה</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="taskStatus">סטטוס:</label>
+            <select id="taskStatus">
+                <option value="להתחיל">להתחיל</option>
+                <option value="בעבודה">בעבודה</option>
+                <option value="הושלם">הושלם</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="taskDueDate">תאריך יעד:</label>
+            <input type="date" id="taskDueDate">
+        </div>
+
+        <button onclick="addTask()">הוסף משימה</button>
+
+        <h2>משימות קיימות</h2>
+        <ul id="taskList"></ul>
+
+        <button class="save" onclick="saveToFile()">שמור לקובץ JSON</button>
+        <button class="load" onclick="loadFromFile()">טען מקובץ JSON</button>
+    </div>
+
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const taskName = document.getElementById('taskName').value;
+            const taskCategory = document.getElementById('taskCategory').value;
+            const taskPriority = document.getElementById('taskPriority').value;
+            const taskStatus = document.getElementById('taskStatus').value;
+            const taskDueDate = document.getElementById('taskDueDate').value;
+
+            if (taskName === "" || taskCategory === "" || taskPriority === "" || taskStatus === "" || taskDueDate === "") {
+                alert("יש למלא את כל השדות!");
+                return;
+            }
+
+            const newTask = {
+                name: taskName,
+                category: taskCategory,
+                priority: taskPriority,
+                status: taskStatus,
+                dueDate: taskDueDate
+            };
+
+            tasks.push(newTask);
+            renderTasks();
+
+            // איפוס השדות
+            document.getElementById('taskName').value = "";
+            document.getElementById('taskCategory').value = "";
+            document.getElementById('taskPriority').value = "גבוהה";
+            document.getElementById('taskStatus').value = "להתחיל";
+            document.getElementById('taskDueDate').value = "";
+        }
+
+        function renderTasks() {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = "";
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div class="task-info"><strong>שם:</strong> ${task.name}</div>
+                    <div class="task-info"><strong>קטגוריה:</strong> ${task.category}</div>
+                    <div class="task-info"><strong>עדיפות:</strong> ${task.priority}</div>
+                    <div class="task-info"><strong>סטטוס:</strong> ${task.status}</div>
+                    <div class="task-info"><strong>תאריך יעד:</strong> ${task.dueDate}</div>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        function saveToFile() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tasks));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "tasks.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        function loadFromFile() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = event => {
+                    const json = event.target.result;
+                    tasks = JSON.parse(json);
+                    renderTasks();
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+    </script>
+
+</body>
+
+</html>

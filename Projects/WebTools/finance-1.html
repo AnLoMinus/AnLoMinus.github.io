@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>פלטפורמת ניהול פיננסי</title>
+    <!-- קישורים ל-Bootstrap ו-FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* עיצוב מותאם אישית */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .card-body {
+            background-color: #ffffff;
+        }
+
+        .fa {
+            color: #6c757d;
+            font-size: 2em;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .financial-summary {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .financial-expense {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .container {
+            padding-bottom: 100px;
+        }
+
+        .accordion-button {
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-button:hover {
+            background-color: #28a745;
+        }
+
+        /* שני אקורדיונים בשורה */
+        .accordion-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .accordion-item {
+            flex: 0 0 calc(50% - 10px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- תוכן עיקרי -->
+    <div class="container mt-5">
+        <!-- אקורדיון סיכום פיננסי והוצאות חודשיות -->
+        <div class="accordion-row">
+            <div class="accordion row" id="financialAccordion">
+                <!-- סיכום פיננסי -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            סיכום פיננסי
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#financialAccordion">
+                        <div class="accordion-body">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    סיכום פיננסי
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="fas fa-wallet fa-3x"></i>
+                                    <p id="total-balance" class="financial-summary mt-3">₪0</p>
+                                    <p>יתרה כוללת</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- הוצאות חודשיות -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            הוצאות חודשיות
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                        data-bs-parent="#financialAccordion">
+                        <div class="accordion-body">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    הוצאות חודשיות
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="fas fa-money-bill-wave fa-3x"></i>
+                                    <p id="total-expenses" class="financial-expense mt-3">₪0</p>
+                                    <p>הוצאות החודש</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- הוסף הכנסה והוסף הוצאה -->
+            <div class="accordion" id="financialAccordion2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                            הוספת הכנסות והוצאות
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+                        data-bs-parent="#financialAccordion2">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            הוסף הכנסה
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label for="income-amount" class="form-label">סכום הכנסה</label>
+                                                <input type="number" id="income-amount" class="form-control"
+                                                    placeholder="₪0">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="income-date" class="form-label">תאריך הכנסה</label>
+                                                <input type="datetime-local" id="income-date" class="form-control">
+                                            </div>
+                                            <button onclick="addIncome()" class="btn btn-success w-100">הוסף
+                                                הכנסה</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            הוסף הוצאה
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label for="expense-name" class="form-label">שם הוצאה</label>
+                                                <input type="text" id="expense-name" class="form-control"
+                                                    placeholder="שם הוצאה">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="expense-amount" class="form-label">סכום הוצאה</label>
+                                                <input type="number" id="expense-amount-1"
+                                                    class="form-control expense-input" placeholder="₪0">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="expense-date" class="form-label">תאריך הוצאה</label>
+                                                <input type="datetime-local" id="expense-date" class="form-control">
+                                            </div>
+                                            <button onclick="addExpense()" class="btn btn-danger w-100 mb-3">הוסף
+                                                הוצאה</button>
+                                            <button onclick="addExpenseField()" class="btn btn-warning w-100">הוסף שדה
+                                                הוצאה</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- היסטוריית עו"ש -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                            היסטוריית עובר ושב
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+                        data-bs-parent="#financialAccordion2">
+                        <div class="accordion-body">
+                            <ul id="transaction-history" class="list-group history-list">
+                                <!-- היסטוריית הפעולות תופיע כאן -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- כותרת תחתונה -->
+    <footer>
+        <p>© 2024 כל הזכויות שמורות - ניהול פיננסי</p>
+    </footer>
+
+    <!-- קישורים ל-JavaScript של Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- פונקציות JavaScript להוספת הכנסות והוצאות -->
+    <script>
+        let totalIncome = 0;
+        let totalExpenses = 0;
+        let expenseFieldCount = 1; // מונה לשדות ההוצאה
+
+        function updateBalance() {
+            const balance = totalIncome - totalExpenses;
+            document.getElementById('total-balance').innerText = `₪${balance.toLocaleString()}`;
+        }
+
+        function addTransactionToHistory(type, amount, name = '', date = '') {
+            const transactionHistory = document.getElementById('transaction-history');
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.textContent = `${type}: ₪${amount.toLocaleString()} ${name ? `(${name})` : ''} ${date ? `תאריך: ${date}` : ''}`;
+            transactionHistory.appendChild(listItem);
+        }
+
+        function addIncome() {
+            const incomeAmount = parseFloat(document.getElementById('income-amount').value);
+            const incomeDate = document.getElementById('income-date').value;
+            if (!isNaN(incomeAmount) && incomeAmount > 0 && incomeDate) {
+                totalIncome += incomeAmount;
+                updateBalance();
+                addTransactionToHistory('הכנסה', incomeAmount, '', incomeDate);
+                document.getElementById('income-amount').value = '';
+                document.getElementById('income-date').value = '';
+                alert("הכנסה נוספה בהצלחה!"); // הודעת הצלחה
+            } else {
+                alert("אנא וודא שכל השדות מולאו כראוי."); // הודעת שגיאה
+            }
+        }
+
+
+        function addExpense() {
+            // לולאה שמחשבת את כל סכומי ההוצאות
+            const expenseInputs = document.querySelectorAll('.expense-input');
+            let newExpenses = 0;
+            const expenseName = document.getElementById('expense-name').value;
+            const expenseDate = document.getElementById('expense-date').value;
+
+            expenseInputs.forEach(function (input) {
+                const expenseAmount = parseFloat(input.value);
+                if (!isNaN(expenseAmount) && expenseAmount > 0) {
+                    newExpenses += expenseAmount;
+                    addTransactionToHistory('הוצאה', expenseAmount, expenseName, expenseDate); // הוספת הוצאה להיסטוריית הפעולות
+                    input.value = ''; // ניקוי השדות לאחר החישוב
+                }
+            });
+
+            totalExpenses += newExpenses;
+            document.getElementById('total-expenses').innerText = `₪${totalExpenses.toLocaleString()}`;
+            updateBalance();
+        }
+
+        function addExpenseField() {
+            expenseFieldCount++; // עדכון המונה
+            const expenseContainer = document.getElementById('expense-container');
+            const newExpenseField = `
+        <div class="mb-3">
+            <label for="expense-amount-${expenseFieldCount}" class="form-label">סכום הוצאה נוסף</label>
+            <input type="number" id="expense-amount-${expenseFieldCount}" class="form-control expense-input" placeholder="₪0">
+        </div>
+    `;
+            expenseContainer.insertAdjacentHTML('beforeend', newExpenseField); // הוספת שדה ההוצאה החדש
+        }
+
+    </script>
+</body>
+
+</html>

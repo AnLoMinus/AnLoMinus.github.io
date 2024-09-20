@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול פרויקטים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:disabled {
+            background-color: #aaa;
+        }
+
+        button.save {
+            background-color: #007bff;
+        }
+
+        button.load {
+            background-color: #ffc107;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .project-info {
+            margin-bottom: 10px;
+        }
+
+        .project-info strong {
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>ניהול פרויקטים</h1>
+
+        <div class="input-group">
+            <label for="projectName">שם פרויקט:</label>
+            <input type="text" id="projectName" placeholder="הכנס שם פרויקט">
+        </div>
+
+        <div class="input-group">
+            <label for="projectDescription">תיאור פרויקט:</label>
+            <textarea id="projectDescription" rows="3" placeholder="הכנס תיאור פרויקט"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="projectStartDate">תאריך התחלה:</label>
+            <input type="date" id="projectStartDate">
+        </div>
+
+        <div class="input-group">
+            <label for="projectEndDate">תאריך סיום מתוכנן:</label>
+            <input type="date" id="projectEndDate">
+        </div>
+
+        <div class="input-group">
+            <label for="projectStatus">סטטוס פרויקט:</label>
+            <input type="text" id="projectStatus" placeholder="לדוגמה: בהתחלה, באמצע, הושלם">
+        </div>
+
+        <div class="input-group">
+            <label for="projectProgress">התקדמות (%):</label>
+            <input type="number" id="projectProgress" placeholder="הכנס אחוזי התקדמות">
+        </div>
+
+        <button onclick="addProject()">הוסף פרויקט</button>
+
+        <h2>פרויקטים קיימים</h2>
+        <ul id="projectList"></ul>
+
+        <button class="save" onclick="saveToFile()">שמור לקובץ JSON</button>
+        <button class="load" onclick="loadFromFile()">טען מקובץ JSON</button>
+    </div>
+
+    <script>
+        let projects = [];
+
+        function addProject() {
+            const projectName = document.getElementById('projectName').value;
+            const projectDescription = document.getElementById('projectDescription').value;
+            const projectStartDate = document.getElementById('projectStartDate').value;
+            const projectEndDate = document.getElementById('projectEndDate').value;
+            const projectStatus = document.getElementById('projectStatus').value;
+            const projectProgress = document.getElementById('projectProgress').value;
+
+            if (projectName === "" || projectDescription === "" || projectStartDate === "" || projectEndDate === "" || projectStatus === "" || projectProgress === "") {
+                alert("יש למלא את כל השדות!");
+                return;
+            }
+
+            const newProject = {
+                name: projectName,
+                description: projectDescription,
+                startDate: projectStartDate,
+                endDate: projectEndDate,
+                status: projectStatus,
+                progress: projectProgress
+            };
+
+            projects.push(newProject);
+            renderProjects();
+
+            // איפוס השדות
+            document.getElementById('projectName').value = "";
+            document.getElementById('projectDescription').value = "";
+            document.getElementById('projectStartDate').value = "";
+            document.getElementById('projectEndDate').value = "";
+            document.getElementById('projectStatus').value = "";
+            document.getElementById('projectProgress').value = "";
+        }
+
+        function renderProjects() {
+            const projectList = document.getElementById('projectList');
+            projectList.innerHTML = "";
+
+            projects.forEach((project, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div class="project-info"><strong>שם:</strong> ${project.name}</div>
+                    <div class="project-info"><strong>תיאור:</strong> ${project.description}</div>
+                    <div class="project-info"><strong>תאריך התחלה:</strong> ${project.startDate}</div>
+                    <div class="project-info"><strong>תאריך סיום מתוכנן:</strong> ${project.endDate}</div>
+                    <div class="project-info"><strong>סטטוס:</strong> ${project.status}</div>
+                    <div class="project-info"><strong>התקדמות:</strong> ${project.progress}%</div>
+                `;
+                projectList.appendChild(li);
+            });
+        }
+
+        function saveToFile() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projects));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "projects.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        function loadFromFile() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = event => {
+                    const json = event.target.result;
+                    projects = JSON.parse(json);
+                    renderProjects();
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+    </script>
+
+</body>
+
+</html>

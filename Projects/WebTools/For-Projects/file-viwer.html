@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תצוגת קבצים בתיקייה</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #file-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #00796b;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 2px solid #00796b;
+            background-color: #b2dfdb;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        #summary {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #004d40;
+        }
+
+        .table-container {
+            overflow: auto;
+            max-height: 500px;
+            /* Adjust this value as needed */
+            border: 1px solid #00796b;
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #00796b;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #00796b;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        .file-name {
+            font-size: 18px;
+            color: #00796b;
+        }
+
+        .file-details {
+            font-size: 14px;
+            color: #004d40;
+        }
+
+        .file-type {
+            font-size: 14px;
+            color: #004d40;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="file-container">
+        <h1>תצוגת קבצים בתיקייה</h1>
+        <input type="file" id="file-input" multiple webkitdirectory mozdirectory msdirectory odirectory>
+        <div id="summary"></div>
+        <div class="table-container">
+            <table id="file-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">שם קובץ</th>
+                        <th onclick="sortTable(1)">גודל</th>
+                        <th onclick="sortTable(2)">סוג</th>
+                    </tr>
+                </thead>
+                <tbody id="file-list"></tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('file-input');
+            const fileList = document.getElementById('file-list');
+            const summary = document.getElementById('summary');
+
+            fileInput.addEventListener('change', (event) => {
+                const files = event.target.files;
+                fileList.innerHTML = '';
+                let totalSize = 0;
+                const fileTypes = {};
+
+                Array.from(files).forEach(file => {
+                    totalSize += file.size;
+
+                    // Determine file type based on extension
+                    const fileType = file.name.split('.').pop().toUpperCase();
+                    if (!fileTypes[fileType]) {
+                        fileTypes[fileType] = 0;
+                    }
+                    fileTypes[fileType]++;
+
+                    const row = document.createElement('tr');
+
+                    // Create file name cell
+                    const fileNameCell = document.createElement('td');
+                    fileNameCell.textContent = file.name;
+                    fileNameCell.classList.add('file-name');
+                    row.appendChild(fileNameCell);
+
+                    // Create file size cell
+                    const fileSizeCell = document.createElement('td');
+                    const fileSize = (file.size / 1024).toFixed(2) + ' KB';
+                    fileSizeCell.textContent = fileSize;
+                    fileSizeCell.classList.add('file-details');
+                    row.appendChild(fileSizeCell);
+
+                    // Create file type cell
+                    const fileTypeCell = document.createElement('td');
+                    fileTypeCell.textContent = fileType;
+                    fileTypeCell.classList.add('file-type');
+                    row.appendChild(fileTypeCell);
+
+                    fileList.appendChild(row);
+                });
+
+                // Update summary
+                const fileTypeSummary = Object.keys(fileTypes).map(type => `${type}: ${fileTypes[type]}`).join(', ');
+                const totalSizeFormatted = (totalSize / (1024 * 1024)).toFixed(2) + ' MB';
+                summary.textContent = `סה"כ קבצים: ${files.length}, גודל כולל: ${totalSizeFormatted}, סוגים: ${fileTypeSummary}`;
+            });
+        });
+
+        function sortTable(n) {
+            const table = document.getElementById("file-table");
+            let rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+            let switchable = true;
+
+            // Set the sorting direction to ascending:
+            dir = "asc";
+            switching = true;
+
+            // Make a loop that will continue until no switching has been done:
+            while (switching) {
+                // Start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+
+                // Loop through all table rows (except the first, which contains table headers):
+                for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching:
+                    shouldSwitch = false;
+
+                    // Get the two elements you want to compare, one from current row and one from the next:
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                    // Check if the two rows should switch place:
+                    if (dir === "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            // If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir === "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            // If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    // If a switch has been marked, make the switch and mark that a switch has been done:
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    // Each time a switch is done, increase this count by 1:
+                    switchCount++;
+                } else {
+                    // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again:
+                    if (switchCount === 0 && dir === "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

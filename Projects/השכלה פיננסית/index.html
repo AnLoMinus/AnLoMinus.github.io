@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השכלה פיננסית</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        label {
+            flex: 1;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        button {
+            margin: 20px 5px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* עיצוב מקטע ההסברים */
+        .content-section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .content-section ul {
+            margin-top: 10px;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>תוכנית השכלה פיננסית</h1>
+    <ul id="lessonList">
+        <li><label>הבסיס: כסף ומה עושים איתו</label><input type="checkbox" data-lesson="1"></li>
+        <li><label>ניהול תקציב</label><input type="checkbox" data-lesson="2"></li>
+        <li><label>בנקים וחסכונות</label><input type="checkbox" data-lesson="3"></li>
+        <li><label>הלוואות וחובות</label><input type="checkbox" data-lesson="4"></li>
+        <li><label>השקעות</label><input type="checkbox" data-lesson="5"></li>
+        <li><label>סיכונים וניהול סיכונים</label><input type="checkbox" data-lesson="6"></li>
+        <li><label>פנסיה והכנה לעתיד</label><input type="checkbox" data-lesson="7"></li>
+        <li><label>מיסים</label><input type="checkbox" data-lesson="8"></li>
+        <li><label>צרכנות נבונה</label><input type="checkbox" data-lesson="9"></li>
+        <li><label>התנהלות כספית עצמאית</label><input type="checkbox" data-lesson="10"></li>
+    </ul>
+
+    <!-- מקטע ההסבר -->
+    <div class="content-section" id="lesson1Content">
+        <h2>הבסיס: כסף ומה עושים איתו</h2>
+        <p><strong>מה זה כסף?</strong><br>
+            כסף הוא אמצעי שבעזרתו קונים דברים כמו אוכל, בגדים ומשחקים. אפשר להרוויח כסף בעבודה, ואפשר לחסוך אותו או
+            להוציא אותו.</p>
+
+        <p><strong>הכנסה והוצאה</strong></p>
+        <ul>
+            <li><strong>הכנסה:</strong> זה כל הכסף שמקבלים – למשל, ממכירת דברים, מעבודה או מתנות.</li>
+            <li><strong>הוצאה:</strong> זה כל הכסף שמוציאים – למשל, כשקונים ממתקים או בגדים.</li>
+        </ul>
+
+        <p><strong>חיסכון</strong><br>
+            חיסכון זה אומר לשים בצד חלק מהכסף ולא להוציא אותו, כדי שיהיה לנו כסף למשהו חשוב בעתיד (כמו טיול או משחק
+            יקר).</p>
+    </div>
+
+    <button id="saveBtn">שמור התקדמות</button>
+    <button id="loadBtn">טען התקדמות</button>
+
+    <script>
+        // טוען את המצב מקובץ JSON
+        document.getElementById('loadBtn').addEventListener('click', function () {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const data = JSON.parse(e.target.result);
+                    loadProgress(data);
+                };
+                reader.readAsText(file);
+            });
+            input.click();
+        });
+
+        // שומר את המצב לקובץ JSON
+        document.getElementById('saveBtn').addEventListener('click', function () {
+            const progress = getProgress();
+            const blob = new Blob([JSON.stringify(progress, null, 2)], { type: 'application/json' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'progress.json';
+            link.click();
+        });
+
+        // מקבל את מצב התקדמות השיעורים
+        function getProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const progress = {};
+            checkboxes.forEach(checkbox => {
+                progress[checkbox.dataset.lesson] = checkbox.checked;
+            });
+            return progress;
+        }
+
+        // טוען את מצב ההתקדמות מקובץ JSON
+        function loadProgress(data) {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                const lesson = checkbox.dataset.lesson;
+                checkbox.checked = data[lesson] || false;
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בחירת שירותי בניית חנות דיגיטלית</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9fb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            direction: rtl;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow-y: auto;
+            max-height: 90vh;
+            border: 1px solid #e5e5e5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6a1b9a;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #6a1b9a;
+            font-size: 20px;
+        }
+
+        .service-section {
+            background-color: #f2f0f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #e0d9e6;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #b88c47;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 1.5em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .checkbox-container {
+            margin-bottom: 15px;
+        }
+
+        .checkbox-container label {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5e1286;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 5px;
+            color: #b88c47;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shopping-cart icon"></i>בחירת שירותים לחנות הדיגיטלית</h1>
+
+        <p>
+            בחר את השירותים שתרצה להוסיף לחנות שלך. אנחנו מציעים מגוון פתרונות לבניית חנות דיגיטלית, קידום עסקי, תוכניות
+            שותפים ועוד. סמן את האפשרויות שמתאימות לצרכים שלך ונשמח לחזור אליך.
+        </p>
+
+        <div class="section-title"><i class="fas fa-check-circle icon"></i>שירותים מוצעים:</div>
+
+        <!-- שירותים מוצעים - תיבות סימון -->
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="customCoupons" value="שוברים/כרטיסי הנחה מותאמים אישית">
+                <label for="customCoupons">שוברים/כרטיסי הנחה מותאמים אישית - תשלום לפי אחוזי מכירה</label>
+            </div>
+            <p>הצעת כרטיסי הנחה מותאמים אישית ללקוחות, כאשר התשלום מתבצע לפי אחוז מכל עסקה שמתבצעת דרך הכרטיסים.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="promotionPackages" value="חבילות קידום + אתר">
+                <label for="promotionPackages">חבילות קידום + אתר - הנחות לשירותים מתמשכים</label>
+            </div>
+            <p>חבילה הכוללת בניית אתר ושירותי קידום (אורגני/ממומן), עם הנחה לשירותים מתמשכים בשנה הראשונה או תשלום לפי
+                אחוזי הכנסות מהאתר.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="discountCards" value="שוברי הנחה דיגיטליים למועדון לקוחות">
+                <label for="discountCards">שוברי הנחה דיגיטליים למועדון לקוחות</label>
+            </div>
+            <p>הקמת מערכת מועדון לקוחות עם כרטיסי הנחה דיגיטליים ללקוחות חוזרים, עם תשלום לפי אחוז מהכנסות ממימוש
+                השוברים.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="successModel" value="מודל אחוזי הצלחה">
+                <label for="successModel">מודל אחוזי הצלחה</label>
+            </div>
+            <p>בניית האתר ללא עלות ראשונית, כאשר תשלום מתבצע לפי אחוז מהרווחים שהחנות מייצרת במהלך השנה הראשונה.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="referrals" value="שותפות על בסיס הפניות">
+                <label for="referrals">שותפות על בסיס הפניות</label>
+            </div>
+            <p>הפצת שוברים ללקוחות פוטנציאליים, כאשר אתה מרוויח אחוזים על כל עסקה שמבוצעת דרך הפניות אלה.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="giftCards" value="מערכת כרטיסי מתנה דיגיטליים">
+                <label for="giftCards">מערכת כרטיסי מתנה דיגיטליים</label>
+            </div>
+            <p>הקמת מערכת לרכישת כרטיסי מתנה דיגיטליים, כאשר התשלום מתבצע לפי אחוזים מהמכירות של הכרטיסים.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="affiliateProgram" value="תוכנית שותפים באתר העסק">
+                <label for="affiliateProgram">תוכנית שותפים באתר העסק</label>
+            </div>
+            <p>הקמת תוכנית שותפים באתר שבו לקוחות יוכלו להפיץ את העסק ולהרוויח אחוזים. אתה מרוויח אחוזים על ניהול
+                התוכנית.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="basePackages" value="חבילות בסיס ותוספות בהנחה">
+                <label for="basePackages">חבילות בסיס ותוספות בהנחה</label>
+            </div>
+            <p>חבילות בסיס לבניית האתר, עם אפשרות להוסיף פונקציות מתקדמות כמו ניהול מלאי, אינטגרציה עם מערכת סליקה, או
+                שיווק באימייל עם הנחות לתוספות.</p>
+        </div>
+
+        <div class="section-title"><i class="fas fa-user icon"></i>פרטים אישיים:</div>
+
+        <form id="contactForm">
+            <label for="businessName">שם העסק:</label>
+            <input type="text" id="businessName" placeholder="הכנס שם העסק שלך" required>
+
+            <label for="ownerName">שם בעל העסק:</label>
+            <input type="text" id="ownerName" placeholder="הכנס שם מלא" required>
+
+            <label for="phone">טלפון:</label>
+            <input type="tel" id="phone" placeholder="הכנס מספר טלפון" required>
+
+            <label for="email">אימייל:</label>
+            <input type="email" id="email" placeholder="הכנס כתובת אימייל" required>
+
+            <button type="button" onclick="sendWhatsApp()">שלח ל-WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        function sendWhatsApp() {
+            var businessName = document.getElementById('businessName').value;
+            var ownerName = document.getElementById('ownerName').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+
+            var selectedServices = [];
+            if (document.getElementById('customCoupons').checked) {
+                selectedServices.push('שוברים/כרטיסי הנחה מותאמים אישית');
+            }
+            if (document.getElementById('promotionPackages').checked) {
+                selectedServices.push('חבילות קידום + אתר');
+            }
+            if (document.getElementById('discountCards').checked) {
+                selectedServices.push('שוברי הנחה דיגיטליים למועדון לקוחות');
+            }
+            if (document.getElementById('successModel').checked) {
+                selectedServices.push('מודל אחוזי הצלחה');
+            }
+            if (document.getElementById('referrals').checked) {
+                selectedServices.push('שותפות על בסיס הפניות');
+            }
+            if (document.getElementById('giftCards').checked) {
+                selectedServices.push('מערכת כרטיסי מתנה דיגיטליים');
+            }
+            if (document.getElementById('affiliateProgram').checked) {
+                selectedServices.push('תוכנית שותפים באתר העסק');
+            }
+            if (document.getElementById('basePackages').checked) {
+                selectedServices.push('חבילות בסיס ותוספות בהנחה');
+            }
+
+            var servicesMessage = selectedServices.length > 0 ? selectedServices.join(', ') : 'לא נבחרו שירותים';
+
+            var message = `לקוח חדש מעוניין בשירותים:%0A` +
+                `שם העסק: ${businessName}%0A` +
+                `שם בעל העסק: ${ownerName}%0A` +
+                `טלפון: ${phone}%0A` +
+                `אימייל: ${email}%0A` +
+                `שירותים נבחרים: ${servicesMessage}`;
+
+            var whatsappUrl = `https://wa.me/972543285967?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+
+</html>

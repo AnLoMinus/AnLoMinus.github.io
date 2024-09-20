@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - לוח מחוונים מתקדם</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>לוח מחוונים</h1>
+        <nav>
+            <a href="#">פרויקטים</a>
+            <a href="#">משימות</a>
+            <a href="#">התראות</a>
+            <a href="#">משתמשים</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>פרויקטים</h2>
+            <input type="text" id="projectName" placeholder="שם פרויקט">
+            <button id="addProjectButton">הוסף פרויקט</button>
+            <button id="editProjectButton">ערוך פרויקט</button>
+            <button id="deleteProjectButton">מחק פרויקט</button>
+            <div id="projectList" class="list"></div>
+        </section>
+        <section>
+            <h2>משימות</h2>
+            <input type="text" id="taskName" placeholder="שם משימה">
+            <button id="addTaskButton">הוסף משימה</button>
+            <button id="markTaskCompleteButton">סמן כמשימה הושלמה</button>
+            <button id="deleteTaskButton">מחק משימה</button>
+            <div id="taskList" class="list"></div>
+        </section>
+        <section>
+            <h2>התראות</h2>
+            <input type="text" id="notificationText" placeholder="טקסט התראה">
+            <button id="addNotificationButton">הוסף התראה</button>
+            <button id="editNotificationButton">ערוך התראה</button>
+            <button id="deleteNotificationButton">מחק התראה</button>
+            <div id="notificationList" class="list"></div>
+        </section>
+        <section>
+            <h2>משתמשים</h2>
+            <input type="text" id="userName" placeholder="שם משתמש">
+            <button id="addUserButton">הוסף משתמש</button>
+            <button id="editUserButton">ערוך משתמש</button>
+            <button id="deleteUserButton">מחק משתמש</button>
+            <div id="userList" class="list"></div>
+        </section>
+        <section>
+            <h2>סטטיסטיקות</h2>
+            <canvas id="taskChart"></canvas>
+            <button id="refreshChartButton">רענן תרשים</button>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

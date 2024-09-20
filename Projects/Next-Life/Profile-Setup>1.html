@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexiLife - יצירת פרופיל אישי</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* הגדרות כלליות */
+        body {
+            direction: rtl;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        form:hover {
+            transform: scale(1.02);
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            background-color: #007bff;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            transition: background-color 0.3s;
+        }
+
+        .form-group:hover {
+            background-color: #f9f9f9;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .summary h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        .summary p {
+            margin: 10px 0;
+        }
+
+        #progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        #progress-bar {
+            height: 10px;
+            background-color: #28a745;
+            width: 0;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+
+        /* סגנון עבור תיבות סימון */
+        .checkbox-group {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="profile-setup">
+        <h2>NexiLife – ברוכים הבאים לדור הבא של ניהול החיים 🌍</h2>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="health-priority">תחום 1: בריאות ורווחה ⚕️</label>
+                <p>מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית, תזונה ודפוסי שינה.</p>
+                <input type="text" id="health" name="health" placeholder="מה חשוב לך בבריאות ורווחה?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="healthGoals" value="פעילות גופנית"> פעילות גופנית</label>
+                    <label><input type="checkbox" name="healthGoals" value="תזונה נכונה"> תזונה נכונה</label>
+                    <label><input type="checkbox" name="healthGoals" value="שינה מספקת"> שינה מספקת</label>
+                    <label><input type="checkbox" name="healthGoals" value="מיינדפולנס"> מיינדפולנס</label>
+                    <label><input type="checkbox" name="healthGoals" value="בדיקות רפואיות קבועות"> בדיקות רפואיות
+                        קבועות</label>
+                    <label><input type="checkbox" name="healthGoals" value="התמודדות עם מתחים"> התמודדות עם
+                        מתחים</label>
+                </div>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="family">תחום 2: משפחה ויחסים 👨‍👩‍👦</label>
+                <p>שמור על איזון בין עבודה לחיים על ידי תכנון זמן עם משפחה וחברים.</p>
+                <input type="text" id="family" name="family" placeholder="מה חשוב לך במשפחה?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="familyGoals" value="זמן עם משפחה"> זמן עם משפחה</label>
+                    <label><input type="checkbox" name="familyGoals" value="איכות הקשרים"> איכות הקשרים</label>
+                    <label><input type="checkbox" name="familyGoals" value="פעילויות משותפות"> פעילויות משותפות</label>
+                    <label><input type="checkbox" name="familyGoals" value="תמיכה רגשית"> תמיכה רגשית</label>
+                    <label><input type="checkbox" name="familyGoals" value="בילויים משפחתיים"> בילויים משפחתיים</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="work">תחום 3: עבודה וקריירה 💼</label>
+                <p>קבע מטרות מקצועיות, עקוב אחרי התקדמותך ושפר את האיזון בין העבודה והחיים.</p>
+                <input type="text" id="work" name="work" placeholder="מה חשוב לך בעבודה?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="workGoals" value="מטרות מקצועיות"> מטרות מקצועיות</label>
+                    <label><input type="checkbox" name="workGoals" value="איזון עבודה-חיים"> איזון עבודה-חיים</label>
+                    <label><input type="checkbox" name="workGoals" value="השתלמויות מקצועיות"> השתלמויות
+                        מקצועיות</label>
+                    <label><input type="checkbox" name="workGoals" value="התקדמות מקצועית"> התקדמות מקצועית</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="leisure">תחום 4: פנאי ובילוי 🎨</label>
+                <p>נהל את תחביביך, חופשותיך ופעילויות חברתיות.</p>
+                <input type="text" id="leisure" name="leisure" placeholder="מה חשוב לך בפנאי?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="leisureGoals" value="תחביבים"> תחביבים</label>
+                    <label><input type="checkbox" name="leisureGoals" value="חופשות"> חופשות</label>
+                    <label><input type="checkbox" name="leisureGoals" value="מפגשים עם חברים"> מפגשים עם חברים</label>
+                    <label><input type="checkbox" name="leisureGoals" value="סדנאות יצירה"> סדנאות יצירה</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="finance">תחום 5: כספים וניהול פיננסי 💳</label>
+                <p>ניהול תקציב, מעקב אחרי הוצאות וקביעת יעדים פיננסיים.</p>
+                <input type="text" id="finance" name="finance" placeholder="מה חשוב לך בכספים?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="financeGoals" value="ניהול תקציב"> ניהול תקציב</label>
+                    <label><input type="checkbox" name="financeGoals" value="חיסכון"> חיסכון</label>
+                    <label><input type="checkbox" name="financeGoals" value="השקעות"> השקעות</label>
+                    <label><input type="checkbox" name="financeGoals" value="תכנון פנסיוני"> תכנון פנסיוני</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="personal-development">תחום 6: התפתחות אישית 📚</label>
+                <p>צמיחה אישית באמצעות קביעת מטרות ומעקב אחר התקדמות.</p>
+                <input type="text" id="personal-development" name="personal-development"
+                    placeholder="מה חשוב לך בהתפתחות אישית?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="personalGoals" value="למידת מיומנויות"> למידת מיומנויות</label>
+                    <label><input type="checkbox" name="personalGoals" value="מדיטציה"> מדיטציה</label>
+                    <label><input type="checkbox" name="personalGoals" value="קריאה"> קריאה</label>
+                    <label><input type="checkbox" name="personalGoals" value="קורסים מקוונים"> קורסים מקוונים</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="environment">תחום 7: סביבה וקהילה 🌱</label>
+                <p>קבל תזכורות על מעורבות קהילתית וקהילה.</p>
+                <input type="text" id="environment" name="environment" placeholder="מה חשוב לך בקהילה?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="environmentGoals" value="מעורבות קהילתית"> מעורבות
+                        קהילתית</label>
+                    <label><input type="checkbox" name="environmentGoals" value="קיימות"> קיימות</label>
+                    <label><input type="checkbox" name="environmentGoals" value="עזרה לזולת"> עזרה לזולת</label>
+                    <label><input type="checkbox" name="environmentGoals" value="שיפור האזור שלי"> שיפור האזור
+                        שלי</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+            </div>
+
+            <div class="form-group hidden">
+                <label for="spirituality">תחום 8: רוחניות ומשמעות 🕊️</label>
+                <p>חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים.</p>
+                <input type="text" id="spirituality" name="spirituality" placeholder="מה חשוב לך ברוחניות?" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="spiritualityGoals" value="הרבה למחשבה"> הרבה למחשבה</label>
+                    <label><input type="checkbox" name="spiritualityGoals" value="תרגולים דתיים"> תרגולים דתיים</label>
+                    <label><input type="checkbox" name="spiritualityGoals" value="פיתוח רוחני"> פיתוח רוחני</label>
+                    <label><input type="checkbox" name="spiritualityGoals" value="השתתפות בטקסים"> השתתפות
+                        בטקסים</label>
+                </div>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">סיכום</button>
+            </div>
+        </form>
+
+
+        <div id="summary" class="summary hidden">
+            <h3>סיכום המטרות שלך</h3>
+            <div id="summary-content"></div>
+            <button id="edit-button">עריכה מחדש</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formGroups = document.querySelectorAll('.form-group');
+            let currentGroupIndex = 0;
+            const progressBar = document.getElementById('progress-bar');
+
+            const updateProgressBar = () => {
+                const progress = ((currentGroupIndex + 1) / formGroups.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            };
+
+            const showNextGroup = () => {
+                const input = formGroups[currentGroupIndex].querySelector('input');
+                if (input && !input.value) {
+                    alert('אנא מלא את השדה לפני המעבר לשלב הבא.');
+                    return;
+                }
+                formGroups[currentGroupIndex].classList.add('hidden');
+                currentGroupIndex++;
+                if (currentGroupIndex < formGroups.length) {
+                    showCurrentGroup();
+                } else {
+                    showSummary();
+                }
+            };
+
+            const showSummary = () => {
+                const summary = document.getElementById('summary');
+                const summaryContent = document.getElementById('summary-content');
+
+                summaryContent.innerHTML = '';
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input');
+                    if (input) {
+                        summaryContent.innerHTML += `<strong>${group.querySelector('label').innerText}</strong>: ${input.value}<br>`;
+                    }
+                });
+                summary.classList.remove('hidden');
+            };
+
+            const showCurrentGroup = () => {
+                formGroups.forEach(group => group.classList.add('hidden'));
+                formGroups[currentGroupIndex].classList.remove('hidden');
+                updateProgressBar();
+            };
+
+            document.querySelectorAll('.next-button').forEach(button => {
+                button.addEventListener('click', showNextGroup);
+            });
+
+            document.querySelectorAll('.back-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    formGroups[currentGroupIndex].classList.add('hidden');
+                    currentGroupIndex--;
+                    showCurrentGroup();
+                });
+            });
+
+            document.getElementById('edit-button').addEventListener('click', () => {
+                currentGroupIndex = 0;
+                showCurrentGroup();
+                document.getElementById('summary').classList.add('hidden');
+            });
+
+            showCurrentGroup();
+        });
+    </script>
+
+</body>
+
+</html>

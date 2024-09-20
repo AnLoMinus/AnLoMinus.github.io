@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יומן מלכות - סיכום יום</title>
+    <style>
+        /* עיצוב כללי */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #00796b;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Lato', sans-serif;
+            position: relative;
+            padding-left: 40px;
+            margin: 0;
+        }
+
+        h1::before,
+        h2::before {
+            content: url('icon.png');
+            /* החלף באייקון מתאים */
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+        }
+
+        /* כרטיסים עם צללים */
+        section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* כפתורים */
+        .btn,
+        .tab-button {
+            display: inline-block;
+            text-align: center;
+            background-color: #2196f3;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover,
+        .tab-button:hover {
+            background-color: #1976d2;
+        }
+
+        /* שדות הטופס */
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="date"]:focus,
+        textarea:focus {
+            border-color: #009688;
+            box-shadow: 0 0 8px rgba(0, 150, 136, 0.3);
+        }
+
+        /* טבלאות */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #009688;
+            color: white;
+        }
+
+        /* ניווט קרוסלה */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* היסטוריה */
+        #historyList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #historyList li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #historyList li:hover {
+            background-color: #eeeeee;
+        }
+
+        /* טאב סגנון */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button.active {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>יומן מלכות: סיכום יום</h1>
+        <p>סיכום היום שלך בצורה נוחה ומסודרת</p>
+    </header>
+
+    <main>
+        <!-- טאב בר לעבור בין התצוגות -->
+        <nav class="tabs">
+            <button id="summaryTab" class="tab-button">סיכום יומי</button>
+            <button id="historyTab" class="tab-button">היסטוריה</button>
+        </nav>
+
+        <!-- תיבה להיסטוריה -->
+        <section id="historyContent" class="tab-content">
+            <h2>היסטוריה</h2>
+            <p>בחר יום כדי לראות את הסיכום שלו:</p>
+            <ul id="historyList" class="history-list">
+                <!-- פריטים יתווספו כאן באמצעות JavaScript -->
+            </ul>
+            <div id="summaryDetail" class="summary-detail">
+                <!-- פרטי הסיכום יוצגו כאן לאחר בחירה -->
+            </div>
+        </section>
+
+        <!-- תיבה לסיכום יומי -->
+        <section id="summaryContent" class="tab-content">
+            <h2>טופס סיכום יומי</h2>
+            <p>מלא את הטופס כדי לתעד את היום שלך</p>
+
+            <!-- טופס הסיכום עם שדות קלט -->
+            <form id="dailySummaryForm">
+                <label for="date">תאריך:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="achievements">הישגים של היום:</label>
+                <textarea id="achievements" name="achievements" rows="4"
+                    placeholder="כתוב את ההישגים שלך להיום"></textarea>
+
+                <label for="challenges">אתגרים:</label>
+                <textarea id="challenges" name="challenges" rows="4" placeholder="אילו אתגרים פגשת היום?"></textarea>
+
+                <label for="improvements">דרכים לשיפור מחר:</label>
+                <textarea id="improvements" name="improvements" rows="4" placeholder="מה תוכל לשפר מחר?"></textarea>
+
+                <label for="tasks">משימות ליום הבא:</label>
+                <textarea id="tasks" name="tasks" rows="4" placeholder="רשום את המשימות שלך ליום הבא"></textarea>
+
+                <button type="button" id="saveButton" class="btn">שמור סיכום</button>
+                <button type="button" id="loadButton" class="btn">טען היסטוריה</button>
+                <button type="button" id="saveAsJsonButton" class="btn">שמור כקובץ JSON</button>
+
+            </form>
+        </section>
+    </main>
+
+    <a href="#" class="btn back-to-top">חזור למעלה</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('dailySummaryForm');
+            const historyList = document.getElementById('historyList');
+            const saveButton = document.getElementById('saveButton');
+            const loadButton = document.getElementById('loadButton');
+            const saveAsJsonButton = document.getElementById('saveAsJsonButton');
+            const uploadJsonButton = document.getElementById('uploadJsonButton');
+            const fileInput = document.getElementById('fileInput');
+            const historyTab = document.getElementById('historyTab');
+            const summaryTab = document.getElementById('summaryTab');
+
+            // Helper function to save data to local storage
+            function saveData() {
+                const date = document.getElementById('date').value;
+                const achievements = document.getElementById('achievements').value;
+                const challenges = document.getElementById('challenges').value;
+                const improvements = document.getElementById('improvements').value;
+                const tasks = document.getElementById('tasks').value;
+
+                if (!date) {
+                    alert('אנא הזן תאריך.');
+                    return;
+                }
+
+                const summary = {
+                    date,
+                    achievements,
+                    challenges,
+                    improvements,
+                    tasks
+                };
+
+                let history = JSON.parse(localStorage.getItem('summaryHistory')) || [];
+                history = history.filter(item => item.date !== date);
+                history.push(summary);
+                localStorage.setItem('summaryHistory', JSON.stringify(history));
+
+                alert('סיכום יום נשמר בהצלחה!');
+                form.reset();
+            }
+
+            // Helper function to load data from local storage
+            function loadData() {
+                const history = JSON.parse(localStorage.getItem('summaryHistory')) || [];
+                historyList.innerHTML = '';
+
+                if (history.length === 0) {
+                    historyList.innerHTML = '<li>אין נתונים לשמירה.</li>';
+                    return;
+                }
+
+                history.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `תאריך: ${item.date}`;
+                    listItem.addEventListener('click', () => showSummary(item));
+                    historyList.appendChild(listItem);
+                });
+            }
+
+            // Display detailed summary on click
+            function showSummary(item) {
+                const summaryContent = `
+        <h3>סיכום יום - ${item.date}</h3>
+        <p><strong>הישגים:</strong> ${item.achievements}</p>
+        <p><strong>אתגרים:</strong> ${item.challenges}</p>
+        <p><strong>דרכים לשיפור מחר:</strong> ${item.improvements}</p>
+        <p><strong>משימות ליום הבא:</strong> ${item.tasks}</p>
+        `;
+                document.getElementById('summaryDetail').innerHTML = summaryContent;
+                document.getElementById('summaryDetail').style.display = 'block';
+            }
+
+            // Helper function to save data as JSON file
+            function saveAsJson() {
+                const history = JSON.parse(localStorage.getItem('summaryHistory')) || [];
+                if (history.length === 0) {
+                    alert('אין נתונים לשמירה.');
+                    return;
+                }
+
+                const blob = new Blob([JSON.stringify(history, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'summaryHistory.json';
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+
+            // Helper function to handle file upload
+            function handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        localStorage.setItem('summaryHistory', JSON.stringify(data));
+                        loadData();
+                    } catch (error) {
+                        alert('קובץ JSON לא תקין.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+
+            // Event listeners
+            saveButton.addEventListener('click', saveData);
+            loadButton.addEventListener('click', loadData);
+            saveAsJsonButton.addEventListener('click', saveAsJson);
+            fileInput.addEventListener('change', handleFileUpload);
+
+            // Show the summary or history tab based on the selected tab
+            function showTab(tab) {
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.querySelector(`#${tab}`).style.display = 'block';
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+                document.getElementById(tab.replace('Content', 'Tab')).classList.add('active');
+            }
+
+            summaryTab.addEventListener('click', () => showTab('summaryContent'));
+            historyTab.addEventListener('click', () => showTab('historyContent'));
+
+            // Initialize
+            showTab('summaryContent');
+        });
+
+    </script>
+</body>
+
+</html>

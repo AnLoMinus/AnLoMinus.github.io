@@ -1,0 +1,10 @@
+{
+  "links": [
+    {
+      "title": "OpenAI GPT",
+      "description": "מודל שפה רב עוצמה המיועד ליצירת טקסט, סינתזת מידע, ושיחה טבעית.",
+      "url": "https://openai.com/gpt",
+      "category": "יצירת תוכן"
+    }
+  ]
+}

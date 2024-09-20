@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* styles.css */
+
+        /* הגדרות כלליות */
+        body {
+            direction: rtl;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* סגנון כותרת הטופס */
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* סגנון עבור הטופס */
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* סגנון עבור תיבות קלט */
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* סגנון עבור תוויות */
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* סגנון עבור כפתור */
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* סגנון עבור כפתור חזרה */
+        .back-button {
+            background-color: #007bff;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* סגנון עבור קבוצות */
+        .form-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* צבעים לקבוצות שונות */
+        .group-health {
+            background-color: #e9f7ef;
+        }
+
+        .group-family {
+            background-color: #e7f3fe;
+        }
+
+        .group-work {
+            background-color: #fff3cd;
+        }
+
+        .group-leisure {
+            background-color: #f8d7da;
+        }
+
+        .group-finance {
+            background-color: #d1ecf1;
+        }
+
+        .group-personal-development {
+            background-color: #f5f5f5;
+        }
+
+        .group-community {
+            background-color: #d4edda;
+        }
+
+        .group-spirituality {
+            background-color: #fce7fd;
+        }
+
+        /* סגנון לסקטוריות */
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <style>
+        /* סגנון עבור קבוצות */
+        .form-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* צבעים לקבוצות שונות */
+        .group-health {
+            background-color: green;
+        }
+
+        .group-family {
+            background-color: blue;
+        }
+
+        .group-work {
+            background-color: #fff3cd;
+        }
+
+        .group-leisure {
+            background-color: #f8d7da;
+        }
+
+        .group-finance {
+            background-color: #d1ecf1;
+        }
+
+        .group-personal-development {
+            background-color: #f5f5f5;
+        }
+
+        .group-community {
+            background-color: #d4edda;
+        }
+
+        .group-spirituality {
+            background-color: #fce7fd;
+        }
+
+        /* סגנון עבור בר ההתקדמות */
+        #progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        #progress-bar {
+            height: 10px;
+            background-color: #28a745;
+            width: 0;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+
+        /* סגנון עבור תצוגת סיכום */
+        .summary {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section id="profile-setup">
+        <h2>יצירת פרופיל אישי</h2>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <form id="profile-form">
+            <div class="form-group">
+                <div>
+                    <label for="health-priority">מה העדיפות שלך בתחום הבריאות?</label>
+                    <select id="health-priority" name="health-priority">
+                        <option value="ספורט">ספורט</option>
+                        <option value="תזונה">תזונה</option>
+                        <option value="נפש">נפש</option>
+                    </select>
+                </div><label for="health">מה חשוב לך בבריאות ורווחה? (כמו תזונה, כושר, מיינדפולנס)</label>
+                <input type="text" id="health" name="health" required>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <div>
+                    <label for="health-priority">מה העדיפות שלך בתחום הבריאות?</label>
+                    <select id="health-priority" name="health-priority">
+                        <option value="ספורט">ספורט</option>
+                        <option value="תזונה">תזונה</option>
+                        <option value="נפש">נפש</option>
+                    </select>
+                </div>
+                <label for="health-goals">איזה מטרות בריאות יש לך? (כמו ירידה במשקל, יותר פעילות גופנית)</label>
+                <input type="text" id="health-goals" name="health-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="family">איך אתה רוצה לנהל את זמן המשפחה שלך? (כמו פעילויות משותפות, טיולים)</label>
+                <input type="text" id="family" name="family" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="relationship-goals">איזה מטרות יש לך בשמירה על קשרים עם משפחה וחברים?</label>
+                <input type="text" id="relationship-goals" name="relationship-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="work">מה המטרות שלך בעבודה ובקריירה? (כמו קידום, למידה של כישורים חדשים)</label>
+                <input type="text" id="work" name="work" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="work-life-balance">איך אתה מתכנן לשמור על איזון בין עבודה לחיים פרטיים?</label>
+                <input type="text" id="work-life-balance" name="work-life-balance" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="leisure">מה התחביבים שלך ומה אתה רוצה לעשות בזמנך הפנוי?</label>
+                <input type="text" id="leisure" name="leisure" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="leisure-goals">איזה מטרות יש לך בתחומים של פנאי ובילוי?</label>
+                <input type="text" id="leisure-goals" name="leisure-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="finance">מה המטרות שלך בניהול כספים? (כמו חיסכון, השקעות)</label>
+                <input type="text" id="finance" name="finance" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="financial-goals">איזה מטרות פיננסיות אתה רוצה להשיג בטווח הקצר והארוך?</label>
+                <input type="text" id="financial-goals" name="financial-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="personal-development">מהם תחומי ההתפתחות האישית שאתה מעוניין להתמקד בהם?</label>
+                <input type="text" id="personal-development" name="personal-development" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="development-goals">איזה מטרות יש לך בהתפתחות אישית? (כמו לימוד כישורים חדשים, חינוך
+                    עצמי)</label>
+                <input type="text" id="development-goals" name="development-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="community">איך אתה רוצה להיות מעורב בקהילה שלך?</label>
+                <input type="text" id="community" name="community" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="community-goals">איזה מטרות יש לך בתחום המעורבות החברתית?</label>
+                <input type="text" id="community-goals" name="community-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="spirituality">מה חשוב לך ברוחניות ובחיפוש משמעות?</label>
+                <input type="text" id="spirituality" name="spirituality" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+            <div class="form-group hidden">
+                <label for="spirituality-goals">איזה מטרות יש לך בתחום הרוחניות?</label>
+                <input type="text" id="spirituality-goals" name="spirituality-goals" required>
+                <button type="button" class="back-button">חזרה</button>
+                <button type="button" class="next-button">הבא</button>
+
+            </div>
+        </form>
+    </section>
+
+    <section id="profile-setup"">
+        <form id=" profile-form">
+
+        <!-- שיתוף והחלפה -->
+        <div>
+            <label for="sharing-progress">האם אתה מעוניין לשתף את ההתקדמות שלך עם אחרים?</label>
+            <select id="sharing-progress" name="sharing-progress">
+                <option value="כן">כן</option>
+                <option value="לא">לא</option>
+            </select>
+        </div>
+
+        <!-- העדפות להודעות והתראות -->
+        <div>
+            <label for="notification-type">איזה סוג של התראות אתה מעדיף?</label>
+            <select id="notification-type" name="notification-type">
+                <option value="יומי">יומי</option>
+                <option value="שבועי">שבועי</option>
+                <option value="חודשי">חודשי</option>
+            </select>
+        </div>
+
+        <!-- מדידה והערכה -->
+        <div>
+            <label for="tracking-tools">איזה כלים או מדדים אתה מעדיף למעקב אחרי התקדמותך?</label>
+            <select id="tracking-tools" name="tracking-tools">
+                <option value="אפליקציות">אפליקציות</option>
+                <option value="מחברות">מחברות</option>
+                <option value="גרפים">גרפים</option>
+            </select>
+        </div>
+
+        <button type="submit">שמור פרופיל</button>
+        </form>
+    </section>
+
+    <script>document.addEventListener('DOMContentLoaded', () => {
+            const formGroups = document.querySelectorAll('.form-group');
+            let currentGroupIndex = 0;
+
+            const showNextGroup = () => {
+                if (currentGroupIndex < formGroups.length) {
+                    formGroups[currentGroupIndex].classList.add('hidden');
+                    currentGroupIndex++;
+                    if (currentGroupIndex < formGroups.length) {
+                        formGroups[currentGroupIndex].classList.remove('hidden');
+                        formGroups[currentGroupIndex].querySelector('input').focus();
+                    }
+                }
+            };
+
+            formGroups.forEach((group, index) => {
+                group.querySelector('.next-button').addEventListener('click', showNextGroup);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formGroups = document.querySelectorAll('.form-group');
+            const progressBar = document.getElementById('progress-bar');
+            let currentGroupIndex = 0;
+
+            const updateProgressBar = () => {
+                const progressPercentage = ((currentGroupIndex + 1) / formGroups.length) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+            };
+
+            const showNextGroup = () => {
+                const currentGroup = formGroups[currentGroupIndex];
+                const inputField = currentGroup.querySelector('input');
+
+                if (!inputField.value) {
+                    alert('נא למלא את השדה לפני המעבר לשאלה הבאה.');
+                    return;
+                }
+
+                currentGroup.classList.add('hidden');
+                currentGroupIndex++;
+
+                if (currentGroupIndex < formGroups.length) {
+                    formGroups[currentGroupIndex].classList.remove('hidden');
+                    formGroups[currentGroupIndex].querySelector('input').focus();
+                    updateProgressBar();
+                } else {
+                    displaySummary();
+                }
+            };
+
+            const showPreviousGroup = () => {
+                if (currentGroupIndex > 0) {
+                    formGroups[currentGroupIndex].classList.add('hidden');
+                    currentGroupIndex--;
+                    formGroups[currentGroupIndex].classList.remove('hidden');
+                    formGroups[currentGroupIndex].querySelector('input').focus();
+                    updateProgressBar();
+                }
+            };
+
+            const displaySummary = () => {
+                document.querySelector('.summary').style.display = 'block';
+                document.querySelector('#profile-form').style.display = 'none';
+            };
+
+            formGroups.forEach((group) => {
+                group.querySelector('.next-button').addEventListener('click', showNextGroup);
+                group.querySelector('.back-button').addEventListener('click', showPreviousGroup);
+            });
+
+            updateProgressBar(); // עדכון בר ההתקדמות בתחילת העמוד
+        });
+    </script>
+</body>
+
+</html>

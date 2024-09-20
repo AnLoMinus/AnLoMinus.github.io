@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול פרויקטים ומשימות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project,
+        .tasks {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label,
+        input,
+        textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: right;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:disabled {
+            background-color: #ccc;
+        }
+
+        .project-list,
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .project-item,
+        .task-item {
+            background-color: #e9ecef;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>ניהול פרויקטים ומשימות</h1>
+
+    <div class="container">
+        <!-- Project Section -->
+        <div class="project">
+            <h2>הוספת פרויקט חדש</h2>
+            <label for="project-name">שם הפרויקט:</label>
+            <input type="text" id="project-name">
+            <label for="project-description">תיאור הפרויקט:</label>
+            <textarea id="project-description"></textarea>
+            <button class="btn" onclick="addProject()">הוסף פרויקט</button>
+
+            <h3>רשימת פרויקטים:</h3>
+            <ul class="project-list" id="project-list"></ul>
+        </div>
+
+        <!-- Task Section -->
+        <div class="tasks hidden" id="task-section">
+            <h2>הוספת משימות עבור: <span id="current-project"></span></h2>
+            <label for="task-name">שם המשימה:</label>
+            <input type="text" id="task-name">
+            <label for="task-priority">עדיפות (גבוהה, בינונית, נמוכה):</label>
+            <input type="text" id="task-priority">
+            <button class="btn" onclick="addTask()">הוסף משימה</button>
+
+            <h3>רשימת משימות:</h3>
+            <ul class="task-list" id="task-list"></ul>
+
+            <button class="btn" onclick="saveToFile()">שמור פרויקטים ל-JSON</button>
+            <input type="file" accept=".json" onchange="loadFromFile(event)">
+        </div>
+    </div>
+
+    <script>
+        let projects = [];
+        let currentProjectIndex = null;
+
+        function addProject() {
+            const projectName = document.getElementById('project-name').value;
+            const projectDescription = document.getElementById('project-description').value;
+
+            if (projectName.trim() !== '') {
+                const project = {
+                    name: projectName,
+                    description: projectDescription,
+                    tasks: []
+                };
+                projects.push(project);
+                document.getElementById('project-name').value = '';
+                document.getElementById('project-description').value = '';
+                renderProjects();
+            }
+        }
+
+        function renderProjects() {
+            const projectList = document.getElementById('project-list');
+            projectList.innerHTML = '';
+            projects.forEach((project, index) => {
+                const li = document.createElement('li');
+                li.classList.add('project-item');
+                li.innerHTML = `
+                    <div class="flex">
+                        <span>${project.name}</span>
+                        <button class="btn" onclick="selectProject(${index})">ניהול משימות</button>
+                    </div>
+                    <p>${project.description}</p>
+                `;
+                projectList.appendChild(li);
+            });
+        }
+
+        function selectProject(index) {
+            currentProjectIndex = index;
+            document.getElementById('task-section').classList.remove('hidden');
+            document.getElementById('current-project').innerText = projects[index].name;
+            renderTasks();
+        }
+
+        function addTask() {
+            const taskName = document.getElementById('task-name').value;
+            const taskPriority = document.getElementById('task-priority').value;
+
+            if (taskName.trim() !== '') {
+                const task = {
+                    name: taskName,
+                    priority: taskPriority,
+                    completed: false
+                };
+                projects[currentProjectIndex].tasks.push(task);
+                document.getElementById('task-name').value = '';
+                document.getElementById('task-priority').value = '';
+                renderTasks();
+            }
+        }
+
+        function renderTasks() {
+            const taskList = document.getElementById('task-list');
+            taskList.innerHTML = '';
+            projects[currentProjectIndex].tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.classList.add('task-item');
+                li.innerHTML = `
+                    <div class="flex">
+                        <span>${task.name} - עדיפות: ${task.priority}</span>
+                        <button class="btn" onclick="toggleTaskCompletion(${index})">
+                            ${task.completed ? 'בטל סיום' : 'סיים'}
+                        </button>
+                    </div>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        function toggleTaskCompletion(taskIndex) {
+            const task = projects[currentProjectIndex].tasks[taskIndex];
+            task.completed = !task.completed;
+            renderTasks();
+        }
+
+        // Save projects to JSON file
+        function saveToFile() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projects));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "projects.json");
+            document.body.appendChild(downloadAnchorNode); // required for Firefox
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        // Load projects from JSON file
+        function loadFromFile(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const json = JSON.parse(event.target.result);
+                projects = json;
+                renderProjects();
+                document.getElementById('task-section').classList.add('hidden');
+            };
+            reader.readAsText(file);
+        }
+    </script>
+
+</body>
+
+</html>

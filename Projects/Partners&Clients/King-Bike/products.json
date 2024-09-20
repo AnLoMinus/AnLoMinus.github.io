@@ -1,0 +1,27 @@
+{
+  "categories": [
+    { "type": "bike", "name": "אופניים" },
+    { "type": "scooter", "name": "קורקינטים" },
+    { "type": "accessory", "name": "אביזרים" }
+  ],
+  "products": [
+    {
+      "name": "אופניים יד שנייה",
+      "description": "אופניים מצוינים במצב מעולה",
+      "image": "bike1.jpg",
+      "type": "bike"
+    },
+    {
+      "name": "קורקינט חשמלי",
+      "description": "קורקינט חזק ומתקדם",
+      "image": "scooter1.jpg",
+      "type": "scooter"
+    },
+    {
+      "name": "קסדה",
+      "description": "קסדה בטיחותית ואיכותית",
+      "image": "helmet.jpg",
+      "type": "accessory"
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+<div class="color-scheme">
+    <style>
+        .color-scheme {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .color-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .color-btn:hover {
+            background-color: #45a049;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color, #f0f0f0);
+            color: var(--text-color, #333);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: var(--header-color, #4CAF50);
+            padding: 20px;
+            color: white;
+        }
+
+        /* Text content */
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Ensuring images and other elements fit within the screen */
+        img,
+        iframe,
+        video,
+        .content-box {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #life-sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            max-width: 1200px;
+        }
+
+        .section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* Custom colors for categories */
+        .health {
+            border-top: 4px solid var(--health-color, #ff5722);
+        }
+
+        .family {
+            border-top: 4px solid var(--family-color, #2196F3);
+        }
+
+        .work {
+            border-top: 4px solid var(--work-color, #FFC107);
+        }
+
+        .leisure {
+            border-top: 4px solid var(--leisure-color, #9C27B0);
+        }
+
+        .finance {
+            border-top: 4px solid var(--finance-color, #4CAF50);
+        }
+
+        .personal-development {
+            border-top: 4px solid var(--personal-development-color, #E91E63);
+        }
+
+        .community {
+            border-top: 4px solid var(--community-color, #3F51B5);
+        }
+
+        .spirituality {
+            border-top: 4px solid var(--spirituality-color, #00BCD4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #life-sections {
+                flex-direction: column;
+            }
+
+            .section {
+                width: 100%;
+            }
+        }
+
+        /* Navigation Menu with Icons */
+        .nav-icons {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            justify-items: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 20px;
+        }
+
+        .nav-icons li {
+            position: relative;
+            text-align: center;
+        }
+
+        .nav-icons li a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icons li a i {
+            font-size: 36px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        /* Animation effect on hover */
+        .nav-icons li a i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-icons li a:hover i {
+            transform: scale(1.2);
+            color: #FFD700;
+        }
+
+        .nav-icons li a span {
+            opacity: 0;
+            font-size: 16px;
+            margin-top: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 70px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        /* Hover effect for showing the text */
+        .nav-icons li a:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .nav-icons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .nav-icons li a i {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+        }
+
+        /* Small screens with scrollable icons */
+        @media (max-width: 480px) {
+            .nav-container {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .nav-icons {
+                grid-template-columns: repeat(8, 1fr);
+                display: inline-flex;
+            }
+
+            .nav-icons li {
+                flex: 0 0 auto;
+                margin-right: 15px;
+            }
+
+            .nav-icons li a i {
+                font-size: 24px;
+            }
+
+            .nav-icons li a span {
+                top: 50px;
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            /* Text content scaling */
+            h1,
+            h2,
+            h3,
+            p {
+                font-size: 90%;
+            }
+        }
+
+        /* Variables for color schemes */
+        :root {
+            --bg-color: #f0f0f0;
+            --text-color: #333;
+            --header-color: #4CAF50;
+            --health-color: #ff5722;
+            --family-color: #2196F3;
+            --work-color: #FFC107;
+            --leisure-color: #9C27B0;
+            --finance-color: #4CAF50;
+            --personal-development-color: #E91E63;
+            --community-color: #3F51B5;
+            --spirituality-color: #00BCD4;
+        }
+
+        /* Dark theme */
+        .dark {
+            --bg-color: #333;
+            --text-color: #f0f0f0;
+            --header-color: #555;
+        }
+
+        /* Light theme */
+        .light {
+            --bg-color: #ffffff;
+            --text-color: #000;
+            --header-color: #4CAF50;
+        }
+    </style>
+    <button class="color-btn" data-color="default">ברירת מחדל</button>
+    <button class="color-btn" data-color="dark">כהה</button>
+    <button class="color-btn" data-color="light">בהיר</button>
+    <script>
+        const buttons = document.querySelectorAll('.color-btn');
+        const body = document.body;
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const colorScheme = button.getAttribute('data-color');
+
+                if (colorScheme === 'dark') {
+                    body.classList.remove('default', 'light');
+                    body.classList.add('dark');
+                } else if (colorScheme === 'light') {
+                    body.classList.remove('default', 'dark');
+                    body.classList.add('light');
+                } else {
+                    body.classList.remove('dark', 'light');
+                    body.classList.add('default');
+                }
+            });
+        });
+    </script>
+
+</div>

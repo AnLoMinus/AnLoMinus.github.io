@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexiLife - איזון בחיים</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+        }
+
+        /* Text content */
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Ensuring images and other elements fit within the screen */
+        img,
+        iframe,
+        video,
+        .content-box {
+            max-width: 100%;
+            /* מתאמים רוחב התוכן לגודל המסך */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #life-sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            max-width: 1200px;
+        }
+
+
+        .section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* צבעים מותאמים אישית לכל קטגוריה */
+        .health {
+            border-top: 4px solid #ff5722;
+        }
+
+        .family {
+            border-top: 4px solid #2196F3;
+        }
+
+        .work {
+            border-top: 4px solid #FFC107;
+        }
+
+        .leisure {
+            border-top: 4px solid #9C27B0;
+        }
+
+        .finance {
+            border-top: 4px solid #4CAF50;
+        }
+
+        .personal-development {
+            border-top: 4px solid #E91E63;
+        }
+
+        .community {
+            border-top: 4px solid #3F51B5;
+        }
+
+        .spirituality {
+            border-top: 4px solid #00BCD4;
+        }
+
+        /* שיפור רספונסיבי */
+        @media (max-width: 768px) {
+            #life-sections {
+                flex-direction: column;
+            }
+
+            .section {
+                width: 100%;
+            }
+        }
+
+        /* Navigation Menu with Icons */
+        .nav-icons {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            /* 8 אייקונים במסך גדול */
+            justify-items: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 20px;
+            /* רווח בין האייקונים */
+        }
+
+        .nav-icons li {
+            position: relative;
+            text-align: center;
+        }
+
+        .nav-icons li a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icons li a i {
+            font-size: 36px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .nav-icons li a span {
+            opacity: 0;
+            font-size: 16px;
+            margin-top: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 70px;
+            white-space: nowrap;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        /* Hover effect for showing the text */
+        .nav-icons li a:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .nav-icons {
+                grid-template-columns: repeat(4, 1fr);
+                /* מסך בינוני - 4 אייקונים בשורה */
+            }
+
+            .nav-icons li a i {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 15px;
+                /* הקטנת רווחים במסכים קטנים */
+            }
+        }
+
+        /* Small screens with scrollable icons */
+        @media (max-width: 480px) {
+            .nav-container {
+                overflow-x: auto;
+                /* גלילה אופקית למסכים קטנים */
+                white-space: nowrap;
+                /* מאפשר פריסה שורה אחת אופקית */
+            }
+
+            .nav-icons {
+                grid-template-columns: repeat(8, 1fr);
+                /* פריסה על שורה אחת */
+                display: inline-flex;
+                /* מציג את האייקונים ברצף אחד ארוך */
+            }
+
+            .nav-icons li {
+                flex: 0 0 auto;
+                margin-right: 15px;
+            }
+
+            .nav-icons li a i {
+                font-size: 24px;
+                /* גודל קטן למסכים קטנים */
+            }
+
+            .nav-icons li a span {
+                top: 50px;
+                /* התאמת מיקום הטקסט */
+            }
+
+            .section {
+                padding: 10px;
+                /* הקטנת רווחים נוספים במסכים קטנים מאוד */
+            }
+
+            /* Text content scaling */
+            h1,
+            h2,
+            h3,
+            p {
+                font-size: 90%;
+                /* שינוי גודל הפונט */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>NexiLife</h1>
+                <h1>NexiLife - ניהול החיים שלך בקלות 🌍</h1>
+            </div>
+
+            <div class="nav-container">
+                <ul class="nav-icons">
+                    <li>
+                        <a href="#health">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>⚕️ בריאות ורווחה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#family">
+                            <i class="fas fa-users"></i>
+                            <span>👨‍👩‍👦 משפחה ויחסים</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#work">
+                            <i class="fas fa-briefcase"></i>
+                            <span>💼 עבודה וקריירה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#leisure">
+                            <i class="fas fa-palette"></i>
+                            <span>🎨 פנאי ובילוי</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#finance">
+                            <i class="fas fa-wallet"></i>
+                            <span>💳 כספים וניהול פיננסי</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#personal">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>📚 התפתחות אישית</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#community">
+                            <i class="fas fa-globe"></i>
+                            <span>🌱 סביבה וקהילה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#spirituality">
+                            <i class="fas fa-praying-hands"></i>
+                            <span>🕊️ רוחניות ומשמעות</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+
+
+    <section id="life-sections">
+        <div class="section health">
+            <i class="fas fa-heartbeat"></i>
+            <h2>בריאות ורווחה</h2>
+            <p>מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית, תזונה, דפוסי שינה ותהליכי
+                מיינדפולנס.</p>
+        </div>
+        <div class="section family">
+            <i class="fas fa-users"></i>
+            <h2>משפחה ויחסים</h2>
+            <p>שמור על איזון בין עבודה לחיים אישיים, תכנן זמן עם משפחה וחברים, ומעקב אחר איכות הקשרים עם כלים
+                להרהור
+                אישי.</p>
+        </div>
+        <div class="section work">
+            <i class="fas fa-briefcase"></i>
+            <h2>עבודה וקריירה</h2>
+            <p>קבע מטרות מקצועיות, עקוב אחרי ההתקדמות שלך ושפר את האיזון בין עבודה לחיים.</p>
+        </div>
+        <div class="section leisure">
+            <i class="fas fa-palette"></i>
+            <h2>פנאי ובילוי</h2>
+            <p>נהל את תחביביך, חופשותיך ופעילויות חברתיות, ותוודא שיהיה לך זמן לפעילויות שממלאות אותך באנרגיה.
+            </p>
+        </div>
+        <div class="section finance">
+            <i class="fas fa-wallet"></i>
+            <h2>כספים וניהול פיננסי</h2>
+            <p>ניהול תקציב, מעקב אחר הוצאות, וקביעת יעדים פיננסיים כמו חיסכון לעתיד או הקטנת חובות.</p>
+        </div>
+        <div class="section personal-development">
+            <i class="fas fa-graduation-cap"></i>
+            <h2>התפתחות אישית</h2>
+            <p>צמיחה אישית על ידי קביעת מטרות, מעקב אחר התקדמות בלמידת מיומנויות חדשות, מדיטציה והרהור פנימי.
+            </p>
+        </div>
+        <div class="section community">
+            <i class="fas fa-globe"></i>
+            <h2>סביבה וקהילה</h2>
+            <p>קבל תזכורות למעורבות קהילתית, התנדבות, וקיימות כדי לשמור על חיבור לעולם סביבך.</p>
+        </div>
+        <div class="section spirituality">
+            <i class="fas fa-dove"></i>
+            <h2>רוחניות ומשמעות</h2>
+            <p>חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים, תרגולים דתיים או מסעות רוחניים.
+            </p>
+        </div>
+
+        </div>
+</body>
+
+</html>
+
+<section>
+    <header>
+        <h1>NexiLife - ניהול החיים שלך בקלות 🌍</h1>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>גישה הוליסטית לחיים 🛠️</h2>
+            <p>NexiLife נועדה לאלו ששואפים ליותר. היא לא רק עוסקת בניהול מטלות יומיות – אלא ביצירת איזון ⚖️ בכל תחומי
+                החיים, תוך שימוש בטכנולוגיות מתקדמות לניטור ושיפור ההרגלים, ההחלטות והשגרה שלך.</p>
+        </section>
+
+        <section class="section">
+            <h2>שמונה תחומי חיים עיקריים בניטור 📋</h2>
+            <ul>
+                <li><span>בריאות ורווחה ⚕️:</span> מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית
+                    🏃, תזונה 🥗, דפוסי שינה 💤 ותהליכי מיינדפולנס 🧘‍♀️.</li>
+                <li><span>משפחה ויחסים 👨‍👩‍👦:</span> שמור על איזון בין עבודה לחיים על ידי תכנון זמן עם משפחה וחברים,
+                    ומעקב אחר איכות הקשרים עם כלים להרהור אישי 💞.</li>
+                <li><span>עבודה וקריירה 💼:</span> קבע מטרות מקצועיות, עקוב אחרי התקדמותך 📊 ושפר את האיזון בין העבודה
+                    והחיים. NexiLife עוזרת לך לגדול בקריירה מבלי לפגוע בתחומי חיים אחרים 🎯.</li>
+                <li><span>פנאי ובילוי 🎨:</span> נהל את תחביביך 🎸, חופשותיך 🏖️ ופעילויות חברתיות 👯‍♂️, תוך הבטחה
+                    שיהיה לך מספיק זמן לפעילויות שממלאות אותך באנרגיה 🔋.</li>
+                <li><span>כספים וניהול פיננסי 💳:</span> ניהול תקציב 💸, מעקב אחרי הוצאות וקביעת יעדים פיננסיים כמו
+                    חיסכון לעתיד או הקטנת חובות 📉.</li>
+                <li><span>התפתחות אישית 📚:</span> צמיחה אישית באמצעות קביעת מטרות, מעקב אחר התקדמות בלמידת מיומנויות
+                    חדשות ✍️, מדיטציה 🧘 והרהור פנימי 🚀.</li>
+                <li><span>סביבה וקהילה 🌱:</span> קבל תזכורות על מעורבות קהילתית 👥, התנדבות 🤝, ומעורבות בקיימות ♻️,
+                    כדי לשמור על חיבור קרוב לקהילה ולעולם סביבך.</li>
+                <li><span>רוחניות ומשמעות 🕊️:</span> חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים,
+                    תרגולים דתיים 🙏 או מסעות רוחניים 🛤️.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>סנכרון ותובנות ברמה חדשה 🔄</h2>
+            <p>NexiLife נועדה לסנכרן את כל התחומים הללו לחוויה חלקה אחת 🧩. בעזרת אינטגרציה עם המכשירים 📱 והשגרה היומית
+                שלך, NexiLife עוקבת אחר ההרגלים שלך ומספקת תובנות ישימות 💡. האפליקציה משתמשת באלגוריתמים חכמים לניתוח
+                נתונים 🔍, ומציעה המלצות מותאמות אישית שיעזרו לך לקבל החלטות טובות יותר 🧠, להשיג את מטרותיך מהר יותר
+                ולהישאר מאוזן בכל התחומים 🎯.</p>
+        </section>
+
+        <section class="section">
+            <h2>עתיד חכם ומאוזן יותר 🎉</h2>
+            <p>NexiLife היא הכלי האולטימטיבי לכל מי שמחפש חיים עם יותר כוונה ואיזון 🌟. בין אם מדובר בהגברת
+                הפרודוקטיביות 💪, שיפור הרווחה 🧘‍♂️ או פשוט מציאת יותר שמחה ברגעים היומיומיים 🌅, NexiLife כאן כדי
+                להנחות אותך 🛤️.</p>
+        </section>
+    </div>
+</section>

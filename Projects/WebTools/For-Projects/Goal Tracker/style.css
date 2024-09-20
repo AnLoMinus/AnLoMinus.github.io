@@ -1,0 +1,93 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    direction: rtl; /* Right-to-left direction */
+}
+
+header {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    border-bottom: 2px solid #00acc1;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background: #2c2c2c;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    height: 100px;
+    margin: 5px 0 15px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #3c3c3c;
+    color: #e0e0e0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0097a7;
+}
+
+/* Additional Styles */
+header, main, section {
+    border: 1px solid #444;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+button:focus {
+    outline: none;
+}
+
+textarea:focus, button:focus {
+    border: 1px solid #00acc1;
+    box-shadow: 0 0 5px rgba(0, 172, 193, 0.5);
+}
+
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap');

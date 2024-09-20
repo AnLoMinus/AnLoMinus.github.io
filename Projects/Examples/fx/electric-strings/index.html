@@ -1,0 +1,738 @@
+<body>
+
+  <style>
+    /* קונטיינר של האתר */
+    .content-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* כותרת */
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* תפריט ניווט */
+    nav {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(50, 50, 50, 0.5);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: aliceblue;
+      text-decoration: none;
+    }
+
+    /* תוכן מרכזי */
+    main {
+      flex-grow: 1;
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    /* פוטר */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      opacity: 1;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: rgb(30, 30, 30);
+      color: aliceblue;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0.5;
+    }
+  </style>
+
+  <!-- הקונטיינר של האתר -->
+  <div class="content-container">
+    <!-- כותרת -->
+    <header>
+      <h1>כותרת האתר</h1>
+    </header>
+
+    <!-- תפריט ניווט -->
+    <nav>
+      <ul>
+        <li><a href="#">בית</a></li>
+        <li><a href="#">אודות</a></li>
+        <li><a href="#">שירותים</a></li>
+        <li><a href="#">צור קשר</a></li>
+      </ul>
+    </nav>
+
+    <!-- תוכן מרכזי -->
+    <main>
+      <p>כאן יופיע תוכן כלשהו</p>
+    </main>
+
+    <!-- פוטר -->
+    <footer>
+      <p>פוטר - © 2024</p>
+    </footer>
+  </div>
+
+  <!-- קנבס של האנימציה -->
+  <canvas id="canvas"></canvas>
+
+  <script>
+    window.requestAnimFrame = function () {
+      return (
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+          window.setTimeout(callback, 1000 / 60);
+        }
+      );
+    };
+
+    function initCanvas() {
+      let canvas = document.getElementById("canvas"),
+        c = canvas.getContext("2d"),
+        w = (canvas.width = window.innerWidth),
+        h = (canvas.height = window.innerHeight);
+
+      c.fillStyle = "rgba(30,30,30,1)";
+      c.fillRect(0, 0, w, h);
+
+      return { c, canvas };
+    }
+
+    window.onload = function () {
+      const { c, canvas } = initCanvas();
+      let w = canvas.width, h = canvas.height;
+
+      let mouse = { x: false, y: false };
+      let last_mouse = {};
+      let tentacles = [];
+      const numTentacles = 500;
+      let target = { x: w / 2, y: h / 2 }, lastTarget = {};
+
+      function dist(p1x, p1y, p2x, p2y) {
+        return Math.sqrt(Math.pow(p2x - p1x, 2) + Math.pow(p2y - p1y, 2));
+      }
+
+      class Segment {
+        constructor(parent, length, angle, isFirst) {
+          this.length = length;
+          this.angle = angle;
+          this.isFirst = isFirst;
+          this.pos = isFirst ? { x: parent.x, y: parent.y } : { x: parent.nextPos.x, y: parent.nextPos.y };
+          this.nextPos = {
+            x: this.pos.x + this.length * Math.cos(this.angle),
+            y: this.pos.y + this.length * Math.sin(this.angle),
+          };
+        }
+
+        update(targetPos) {
+          this.angle = Math.atan2(targetPos.y - this.pos.y, targetPos.x - this.pos.x);
+          this.pos.x = targetPos.x + this.length * Math.cos(this.angle - Math.PI);
+          this.pos.y = targetPos.y + this.length * Math.sin(this.angle - Math.PI);
+          this.nextPos.x = this.pos.x + this.length * Math.cos(this.angle);
+          this.nextPos.y = this.pos.y + this.length * Math.sin(this.angle);
+        }
+
+        fallback(lastPos) {
+          this.pos = { ...lastPos };
+          this.nextPos.x = this.pos.x + this.length * Math.cos(this.angle);
+          this.nextPos.y = this.pos.y + this.length * Math.sin(this.angle);
+        }
+
+        show() {
+          c.lineTo(this.nextPos.x, this.nextPos.y);
+        }
+      }
+
+      class Tentacle {
+        constructor(x, y, length, segmentsCount) {
+          this.x = x;
+          this.y = y;
+          this.length = length;
+          this.segments = [new Segment(this, length / segmentsCount, 0, true)];
+          for (let i = 1; i < segmentsCount; i++) {
+            this.segments.push(new Segment(this.segments[i - 1], length / segmentsCount, 0, false));
+          }
+        }
+
+        move(target, lastTarget) {
+          let angle = Math.atan2(target.y - this.y, target.x - this.x);
+          let distance = dist(lastTarget.x, lastTarget.y, target.x, target.y) + 5;
+
+          let t = {
+            x: target.x - 0.8 * distance * Math.cos(angle),
+            y: target.y - 0.8 * distance * Math.sin(angle),
+          };
+
+          this.segments[this.segments.length - 1].update(t);
+
+          for (let i = this.segments.length - 2; i >= 0; i--) {
+            this.segments[i].update(this.segments[i + 1].pos);
+          }
+        }
+
+        show(target) {
+          if (dist(this.x, this.y, target.x, target.y) <= this.length) {
+            c.globalCompositeOperation = "lighter";
+            c.beginPath();
+            c.lineTo(this.x, this.y);
+
+            for (let i = 0; i < this.segments.length; i++) {
+              this.segments[i].show();
+            }
+
+            c.strokeStyle = "hsl(210,100%,80%)";
+            c.lineWidth = 1;
+            c.stroke();
+            c.globalCompositeOperation = "source-over";
+          }
+        }
+      }
+
+      for (let i = 0; i < numTentacles; i++) {
+        tentacles.push(new Tentacle(Math.random() * w, Math.random() * h, Math.random() * 150 + 50, 30));
+      }
+
+      function draw() {
+        if (mouse.x) {
+          target.x += (mouse.x - target.x) / 10;
+          target.y += (mouse.y - target.y) / 10;
+        }
+
+        c.clearRect(0, 0, w, h);
+
+        for (let i = 0; i < numTentacles; i++) {
+          tentacles[i].move(target, lastTarget);
+          tentacles[i].show(target);
+        }
+
+        lastTarget.x = target.x;
+        lastTarget.y = target.y;
+      }
+
+      canvas.addEventListener("mousemove", (e) => {
+        mouse.x = e.pageX;
+        mouse.y = e.pageY;
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        mouse.x = false;
+        mouse.y = false;
+      });
+
+      function loop() {
+        requestAnimFrame(loop);
+        draw();
+      }
+
+      window.addEventListener("resize", () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      loop();
+    };
+  </script>
+
+</body>
+
+<body>
+
+  <style>
+    /* קונטיינר של האתר */
+    .content-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      /* שקיפות של 50% */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* כותרת */
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* רקע חצי שקוף */
+    }
+
+    /* תפריט ניווט */
+    nav {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(50, 50, 50, 0.5);
+      /* רקע חצי שקוף */
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: aliceblue;
+      text-decoration: none;
+    }
+
+    /* תוכן מרכזי */
+    main {
+      flex-grow: 1;
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      /* רקע חצי שקוף */
+      color: #fff;
+    }
+
+    /* פוטר */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* רקע חצי שקוף */
+    }
+  </style>
+  <!-- הקונטיינר של האתר -->
+  <div class="content-container">
+    <!-- כותרת -->
+    <header>
+      <h1>כותרת האתר</h1>
+    </header>
+
+    <!-- תפריט ניווט -->
+    <nav>
+      <ul>
+        <li><a href="#">בית</a></li>
+        <li><a href="#">אודות</a></li>
+        <li><a href="#">שירותים</a></li>
+        <li><a href="#">צור קשר</a></li>
+      </ul>
+    </nav>
+
+    <!-- תוכן מרכזי -->
+    <main>
+      <p>כאן יופיע תוכן כלשהו</p>
+    </main>
+
+    <!-- פוטר -->
+    <footer>
+      <p>פוטר - © 2024</p>
+    </footer>
+  </div>
+
+  <!-- קנבס של האנימציה -->
+  <canvas id="canvas"></canvas>
+
+  <script>
+    // קוד האנימציה שלך כאן
+    window.requestAnimFrame = function () {
+      return (
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+          window.setTimeout(callback);
+        }
+      );
+    };
+
+    function init(elemid) {
+      let canvas = document.getElementById(elemid),
+        c = canvas.getContext("2d"),
+        w = (canvas.width = window.innerWidth),
+        h = (canvas.height = window.innerHeight);
+      c.fillStyle = "rgba(30,30,30,1)";
+      c.fillRect(0, 0, w, h);
+      return { c: c, canvas: canvas };
+    }
+
+    window.onload = function () {
+      let c = init("canvas").c,
+        canvas = init("canvas").canvas,
+        w = (canvas.width = window.innerWidth),
+        h = (canvas.height = window.innerHeight),
+        mouse = { x: false, y: false },
+        last_mouse = {};
+
+      // פונקציות האנימציה וההגדרות יישארו כמו שהן...
+      function loop() {
+        window.requestAnimFrame(loop);
+        c.clearRect(0, 0, w, h);
+        // הציור שלך ממשיך כאן
+      }
+
+      window.addEventListener("resize", function () {
+        (w = canvas.width = window.innerWidth),
+          (h = canvas.height = window.innerHeight);
+        loop();
+      });
+
+      loop();
+      setInterval(loop, 1000 / 60);
+    };
+  </script>
+
+</body>
+
+<style>
+  body {
+    opacity: 01;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: rgb(30, 30, 30);
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    /* height: 100%; */
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+
+  h1 {
+    text-align: center;
+    margin: auto;
+    display: flex;
+  }
+</style>
+
+
+
+<h1>hello world</h1>
+
+<!-- partial:index.partial.html -->
+<canvas id="canvas"></canvas>
+
+<!-- partial -->
+<script>
+  window.requestAnimFrame = function () {
+    return (
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function (callback) {
+        window.setTimeout(callback);
+      }
+    );
+  };
+
+  function init(elemid) {
+    let canvas = document.getElementById(elemid),
+      c = canvas.getContext("2d"),
+      w = (canvas.width = window.innerWidth),
+      h = (canvas.height = window.innerHeight);
+    c.fillStyle = "rgba(30,30,30,1)";
+    c.fillRect(0, 0, w, h);
+    return { c: c, canvas: canvas };
+  }
+
+  window.onload = function () {
+    let c = init("canvas").c,
+      canvas = init("canvas").canvas,
+      w = (canvas.width = window.innerWidth),
+      h = (canvas.height = window.innerHeight),
+      mouse = { x: false, y: false },
+      last_mouse = {};
+
+    //initiation
+
+    function dist(p1x, p1y, p2x, p2y) {
+      return Math.sqrt(Math.pow(p2x - p1x, 2) + Math.pow(p2y - p1y, 2));
+    }
+
+    class segment {
+      constructor(parent, l, a, first) {
+        this.first = first;
+        if (first) {
+          this.pos = {
+            x: parent.x,
+            y: parent.y,
+          };
+        } else {
+          this.pos = {
+            x: parent.nextPos.x,
+            y: parent.nextPos.y,
+          };
+        }
+        this.l = l;
+        this.ang = a;
+        this.nextPos = {
+          x: this.pos.x + this.l * Math.cos(this.ang),
+          y: this.pos.y + this.l * Math.sin(this.ang),
+        };
+      }
+      update(t) {
+        this.ang = Math.atan2(t.y - this.pos.y, t.x - this.pos.x);
+        this.pos.x = t.x + this.l * Math.cos(this.ang - Math.PI);
+        this.pos.y = t.y + this.l * Math.sin(this.ang - Math.PI);
+        this.nextPos.x = this.pos.x + this.l * Math.cos(this.ang);
+        this.nextPos.y = this.pos.y + this.l * Math.sin(this.ang);
+      }
+      fallback(t) {
+        this.pos.x = t.x;
+        this.pos.y = t.y;
+        this.nextPos.x = this.pos.x + this.l * Math.cos(this.ang);
+        this.nextPos.y = this.pos.y + this.l * Math.sin(this.ang);
+      }
+      show() {
+        c.lineTo(this.nextPos.x, this.nextPos.y);
+      }
+    }
+
+    class tentacle {
+      constructor(x, y, l, n, a) {
+        this.x = x;
+        this.y = y;
+        this.l = l;
+        this.n = n;
+        this.t = {};
+        this.rand = Math.random();
+        this.segments = [new segment(this, this.l / this.n, 0, true)];
+        for (let i = 1; i < this.n; i++) {
+          this.segments.push(
+            new segment(this.segments[i - 1], this.l / this.n, 0, false)
+          );
+        }
+      }
+      move(last_target, target) {
+        this.angle = Math.atan2(target.y - this.y, target.x - this.x);
+        this.dt = dist(last_target.x, last_target.y, target.x, target.y) + 5;
+        this.t = {
+          x: target.x - 0.8 * this.dt * Math.cos(this.angle),
+          y: target.y - 0.8 * this.dt * Math.sin(this.angle),
+        };
+        //update first segment to follow target
+        if (this.t.x) {
+          this.segments[this.n - 1].update(this.t);
+        } else {
+          this.segments[this.n - 1].update(target);
+        }
+        for (let i = this.n - 2; i >= 0; i--) {
+          //update rest to follow segment in front of current segment
+          this.segments[i].update(this.segments[i + 1].pos);
+        }
+        if (
+          dist(this.x, this.y, target.x, target.y) <=
+          this.l + dist(last_target.x, last_target.y, target.x, target.y)
+        ) {
+          this.segments[0].fallback({ x: this.x, y: this.y });
+          for (let i = 1; i < this.n; i++) {
+            this.segments[i].fallback(this.segments[i - 1].nextPos);
+          }
+        }
+      }
+      show(target) {
+        if (dist(this.x, this.y, target.x, target.y) <= this.l) {
+          c.globalCompositeOperation = "lighter";
+          c.beginPath();
+          c.lineTo(this.x, this.y);
+          for (let i = 0; i < this.n; i++) {
+            this.segments[i].show();
+          }
+          c.strokeStyle =
+            "hsl(" +
+            (this.rand * 60 + 180) +
+            ",100%," +
+            (this.rand * 60 + 25) +
+            "%)";
+          c.lineWidth = this.rand * 2;
+          c.lineCap = "round";
+          c.lineJoin = "round";
+          c.stroke();
+          c.globalCompositeOperation = "source-over";
+        }
+      }
+      show2(target) {
+        c.beginPath();
+        if (dist(this.x, this.y, target.x, target.y) <= this.l) {
+          c.arc(this.x, this.y, 2 * this.rand + 1, 0, 2 * Math.PI);
+          c.fillStyle = "white";
+        } else {
+          c.arc(this.x, this.y, this.rand * 2, 0, 2 * Math.PI);
+          c.fillStyle = "darkcyan";
+        }
+        c.fill();
+      }
+    }
+
+    let maxl = 200,
+      minl = 50,
+      n = 30,
+      numt = 500,
+      tent = [],
+      clicked = false,
+      target = { x: 0, y: 0 },
+      last_target = {},
+      t = 0,
+      q = 10;
+
+    for (let i = 0; i < numt; i++) {
+      tent.push(
+        new tentacle(
+          Math.random() * w,
+          Math.random() * h,
+          Math.random() * (maxl - minl) + minl,
+          n,
+          Math.random() * 2 * Math.PI
+        )
+      );
+    }
+    function draw() {
+      //animation
+      if (mouse.x) {
+        target.errx = mouse.x - target.x;
+        target.erry = mouse.y - target.y;
+      } else {
+        target.errx =
+          w / 2 +
+          ((h / 2 - q) * Math.sqrt(2) * Math.cos(t)) /
+          (Math.pow(Math.sin(t), 2) + 1) -
+          target.x;
+        target.erry =
+          h / 2 +
+          ((h / 2 - q) * Math.sqrt(2) * Math.cos(t) * Math.sin(t)) /
+          (Math.pow(Math.sin(t), 2) + 1) -
+          target.y;
+      }
+
+      target.x += target.errx / 10;
+      target.y += target.erry / 10;
+
+      t += 0.01;
+
+      c.beginPath();
+      c.arc(
+        target.x,
+        target.y,
+        dist(last_target.x, last_target.y, target.x, target.y) + 5,
+        0,
+        2 * Math.PI
+      );
+      c.fillStyle = "hsl(210,100%,80%)";
+      c.fill();
+
+      for (i = 0; i < numt; i++) {
+        tent[i].move(last_target, target);
+        tent[i].show2(target);
+      }
+      for (i = 0; i < numt; i++) {
+        tent[i].show(target);
+      }
+      last_target.x = target.x;
+      last_target.y = target.y;
+    }
+
+    canvas.addEventListener(
+      "mousemove",
+      function (e) {
+        last_mouse.x = mouse.x;
+        last_mouse.y = mouse.y;
+
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+      },
+      false
+    );
+
+    canvas.addEventListener("mouseleave", function (e) {
+      mouse.x = false;
+      mouse.y = false;
+    });
+
+    canvas.addEventListener(
+      "mousedown",
+      function (e) {
+        clicked = true;
+      },
+      false
+    );
+
+    canvas.addEventListener(
+      "mouseup",
+      function (e) {
+        clicked = false;
+      },
+      false
+    );
+
+    function loop() {
+      window.requestAnimFrame(loop);
+      // c.fillStyle="rgba(30,30,30,0.1)";
+      // c.fillRect(0, 0, w, h);
+      c.clearRect(0, 0, w, h);
+      draw();
+    }
+
+    window.addEventListener("resize", function () {
+      (w = canvas.width = window.innerWidth),
+        (h = canvas.height = window.innerHeight);
+      loop();
+    });
+
+    loop();
+    setInterval(loop, 1000 / 60);
+  };
+
+</script>

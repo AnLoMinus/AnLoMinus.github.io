@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexiLife - יצירת פרופיל אישי</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* הגדרות כלליות */
+        body {
+            direction: rtl;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        form:hover {
+            transform: scale(1.02);
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            background-color: #007bff;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            transition: background-color 0.3s;
+        }
+
+        .form-group:hover {
+            background-color: #f9f9f9;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .summary h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        .summary p {
+            margin: 10px 0;
+        }
+
+        #progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        #progress-bar {
+            height: 10px;
+            background-color: #28a745;
+            width: 0;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+
+        /* סגנון עבור תיבות סימון */
+        .checkbox-group {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="profile-setup">
+        <h2>NexiLife – ברוכים הבאים לדור הבא של ניהול החיים 🌍</h2>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <form id="profile-form">
+            <!-- כאן יוכנס תוכן מתוך הקובץ JSON -->
+        </form>
+
+        <div id="summary" class="summary hidden">
+            <h3>סיכום המטרות שלך</h3>
+            <div id="summary-content"></div>
+            <button id="edit-button">עריכה מחדש</button>
+        </div>
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formGroups = document.querySelectorAll('.form-group');
+            let currentGroupIndex = 0;
+            const progressBar = document.getElementById('progress-bar');
+
+            const updateProgressBar = () => {
+                const progress = ((currentGroupIndex + 1) / formGroups.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            };
+
+            const showNextGroup = () => {
+                const input = formGroups[currentGroupIndex].querySelector('input');
+                if (input && !input.value) {
+                    alert('אנא מלא את השדה לפני המעבר לשלב הבא.');
+                    return;
+                }
+                formGroups[currentGroupIndex].classList.add('hidden');
+                currentGroupIndex++;
+                if (currentGroupIndex < formGroups.length) {
+                    showCurrentGroup();
+                } else {
+                    showSummary();
+                }
+            };
+
+            const showSummary = () => {
+                const summary = document.getElementById('summary');
+                const summaryContent = document.getElementById('summary-content');
+
+                summaryContent.innerHTML = '';
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input');
+                    if (input) {
+                        summaryContent.innerHTML += `<strong>${group.querySelector('label').innerText}</strong>: ${input.value}<br>`;
+                    }
+                });
+                summary.classList.remove('hidden');
+            };
+
+            const showCurrentGroup = () => {
+                formGroups.forEach(group => group.classList.add('hidden'));
+                formGroups[currentGroupIndex].classList.remove('hidden');
+                updateProgressBar();
+            };
+
+            document.querySelectorAll('.next-button').forEach(button => {
+                button.addEventListener('click', showNextGroup);
+            });
+
+            document.querySelectorAll('.back-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    formGroups[currentGroupIndex].classList.add('hidden');
+                    currentGroupIndex--;
+                    showCurrentGroup();
+                });
+            });
+
+            document.getElementById('edit-button').addEventListener('click', () => {
+                currentGroupIndex = 0;
+                showCurrentGroup();
+                document.getElementById('summary').classList.add('hidden');
+            });
+
+            showCurrentGroup();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileForm = document.getElementById('profile-form');
+            const progressBar = document.getElementById('progress-bar');
+            let currentGroupIndex = 0;
+
+            fetch('fields.json')
+                .then(response => response.json())
+                .then(data => {
+                    populateFields(data.fields);
+                    showCurrentGroup();
+                })
+                .catch(error => console.error('Error loading JSON:', error));
+
+            const populateFields = (fields) => {
+                fields.forEach((field, index) => {
+                    const formGroup = document.createElement('div');
+                    formGroup.classList.add('form-group');
+                    if (index !== 0) formGroup.classList.add('hidden');
+
+                    formGroup.innerHTML = `
+                    <label for="${field.title}">${field.title} ⚕️</label>
+                    <p>${field.description}</p>
+                    <input type="text" id="${field.title}" name="${field.title}" placeholder="${field.placeholder}" required>
+                    <div class="checkbox-group">
+                        ${field.checkboxes.map(checkbox => `
+                            <label><input type="checkbox" name="${field.title}Goals" value="${checkbox}"> ${checkbox}</label>
+                        `).join('')}
+                    </div>
+                    <button type="button" class="back-button">חזרה</button>
+                    <button type="button" class="next-button">הבא</button>
+                `;
+                    profileForm.appendChild(formGroup);
+                });
+            };
+
+            const showCurrentGroup = () => {
+                const formGroups = document.querySelectorAll('.form-group');
+                formGroups.forEach(group => group.classList.add('hidden'));
+                formGroups[currentGroupIndex].classList.remove('hidden');
+                updateProgressBar();
+            };
+
+            const updateProgressBar = () => {
+                const formGroups = document.querySelectorAll('.form-group');
+                const progress = ((currentGroupIndex + 1) / formGroups.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            };
+
+            const showSummary = () => {
+                const summary = document.getElementById('summary');
+                const summaryContent = document.getElementById('summary-content');
+
+                summaryContent.innerHTML = '';
+                const formGroups = document.querySelectorAll('.form-group');
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input');
+                    if (input) {
+                        summaryContent.innerHTML += `<strong>${group.querySelector('label').innerText}</strong>: ${input.value}<br>`;
+                    }
+                });
+                summary.classList.remove('hidden');
+            };
+
+            document.querySelectorAll('.next-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const formGroups = document.querySelectorAll('.form-group');
+                    if (currentGroupIndex < formGroups.length - 1) {
+                        formGroups[currentGroupIndex].classList.add('hidden');
+                        currentGroupIndex++;
+                        showCurrentGroup();
+                    } else {
+                        showSummary();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.back-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentGroupIndex > 0) {
+                        const formGroups = document.querySelectorAll('.form-group');
+                        formGroups[currentGroupIndex].classList.add('hidden');
+                        currentGroupIndex--;
+                        showCurrentGroup();
+                    }
+                });
+            });
+
+            document.getElementById('edit-button').addEventListener('click', () => {
+                currentGroupIndex = 0;
+                showCurrentGroup();
+                document.getElementById('summary').classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

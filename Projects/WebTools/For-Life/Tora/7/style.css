@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: right;
+    background-color: #e8f5e9; /* צבע ירוק בהיר לייצוג יצירתיות ושלווה */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #004d40; /* צבע כהה ליצירת תחושת עוצמה וקדושה */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #00332b; /* צל קל למראה דרמטי */
+}
+
+header p {
+    font-size: 1.3em;
+    margin: 10px 0 0 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    background-color: #ffffff; /* צבע לבן לרקע נקי */
+    padding: 15px;
+    border-radius: 8px; /* פינות מעוגלות */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* צל עדין */
+}
+
+h2 {
+    color: #00796b; /* צבע ירוק כהה לציון שלמות וקדושה */
+    font-size: 2em;
+    border-bottom: 2px solid #004d40; /* קו תחתון כהה לעיצוב בולט */
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #004d40; /* צבע כהה להדגשת תתי נושאים */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    background-color: #e0f2f1; /* צבע רקע קל לשמירה על קריאות */
+    padding: 10px;
+    border-left: 5px solid #00796b; /* קו צבעוני בצד השמאלי */
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #004d40; /* צבע כהה שמתאים להדר */
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
