@@ -48,6 +48,62 @@
         }
     </style>
 
+    <style>
+        /* הסטייל של המודל */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* הסטייל עבור מסך פרופיל */
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .stat {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .task-input {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -135,47 +191,160 @@
         <h2>בריאות ורווחה ⚕️</h2>
         <p>מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית 🏃, תזונה 🥗, דפוסי שינה 💤 ותהליכי
             מיינדפולנס 🧘‍♀️.</p>
+        <button onclick="openModal('health')">פתח מעקב בריאות</button><br>
+
     </div>
     <div class="section family">
         <i class="fas fa-users"></i>
         <h2>משפחה ויחסים 👨‍👩‍👦</h2>
         <p>שמור על איזון בין עבודה לחיים על ידי תכנון זמן עם משפחה וחברים, ומעקב אחר איכות הקשרים עם כלים להרהור אישי
             💞.</p>
+        <button onclick="openModal('family')">פתח מתכנן משפחתי</button>
     </div>
     <div class="section work">
         <i class="fas fa-briefcase"></i>
         <h2>עבודה וקריירה 💼</h2>
         <p>קבע מטרות מקצועיות, עקוב אחרי התקדמותך 📊 ושפר את האיזון בין העבודה והחיים. NexiLife עוזרת לך לגדול בקריירה
             מבלי לפגוע בתחומי חיים אחרים 🎯.</p>
+        <button onclick="openModal('work')">פתח מטרות קריירה</button>
     </div>
     <div class="section leisure">
         <i class="fas fa-palette"></i>
         <h2>פנאי ובילוי 🎨</h2>
         <p>נהל את תחביביך 🎸, חופשותיך 🏖️ ופעילויות חברתיות 👯‍♂️, תוך הבטחה שיהיה לך מספיק זמן לפעילויות שממלאות אותך
             באנרגיה 🔋.</p>
+        <button onclick="openModal('leisure')">פתח ניהול תחביבים</button>
     </div>
     <div class="section finance">
         <i class="fas fa-wallet"></i>
         <h2>כספים וניהול פיננסי 💳</h2>
         <p>ניהול תקציב 💸, מעקב אחרי הוצאות וקביעת יעדים פיננסיים כמו חיסכון לעתיד או הקטנת חובות 📉.</p>
+        <button onclick="openModal('finance')">פתח ניהול תקציב</button>
     </div>
     <div class="section personal-development">
         <i class="fas fa-graduation-cap"></i>
         <h2>התפתחות אישית 📚</h2>
         <p>צמיחה אישית באמצעות קביעת מטרות, מעקב אחר התקדמות בלמידת מיומנויות חדשות ✍️, מדיטציה 🧘 והרהור פנימי 🚀.</p>
+        <button onclick="openModal('personal-development')">פתח מעקב מיומנויות</button>
     </div>
     <div class="section community">
         <i class="fas fa-globe"></i>
         <h2>סביבה וקהילה 🌱</h2>
         <p>קבל תזכורות על מעורבות קהילתית 👥, התנדבות 🤝, ומעורבות בקיימות ♻️, כדי לשמור על חיבור קרוב לקהילה ולעולם
             סביבך.</p>
+        <button onclick="openModal('community')">פתח מעורבות קהילתית</button>
     </div>
     <div class="section spirituality">
         <i class="fas fa-dove"></i>
         <h2>רוחניות ומשמעות 🕊️</h2>
         <p>חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים, תרגולים דתיים 🙏 או מסעות רוחניים 🛤️.</p>
+        <button onclick="openModal('spirituality')">פתח יומן רוחני</button>
     </div>
+
+    <!-- מודל -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-body"></p>
+        </div>
+    </div>
+
+    <style>
+        /* הסטייל של המודל */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function openModal(section) {
+            let title = '';
+            let body = '';
+
+            switch (section) {
+                case 'health':
+                    title = 'מעקב בריאות';
+                    body = 'פותחים את מעקב הבריאות!';
+                    break;
+                case 'family':
+                    title = 'מתכנן משפחתי';
+                    body = 'פותחים את המתכנן המשפחתי!';
+                    break;
+                case 'work':
+                    title = 'מטרות קריירה';
+                    body = 'פותחים את מטרות הקריירה!';
+                    break;
+                case 'leisure':
+                    title = 'ניהול תחביבים';
+                    body = 'פותחים את ניהול התחביבים!';
+                    break;
+                case 'finance':
+                    title = 'ניהול תקציב';
+                    body = 'פותחים את ניהול התקציב!';
+                    break;
+                case 'personal-development':
+                    title = 'מעקב מיומנויות';
+                    body = 'פותחים את מעקב המיומנויות!';
+                    break;
+                case 'community':
+                    title = 'מעורבות קהילתית';
+                    body = 'פותחים את המעורבות הקהילתית!';
+                    break;
+                case 'spirituality':
+                    title = 'יומן רוחני';
+                    body = 'פותחים את היומן הרוחני!';
+                    break;
+            }
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerText = body;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('modal')) {
+                closeModal();
+            }
+        }
+    </script>
 </section>
+
+
 
 <section>
     <div class="user-area">
@@ -249,5 +418,7 @@
         });
     });
 </script>
+
+
 
 </html>
