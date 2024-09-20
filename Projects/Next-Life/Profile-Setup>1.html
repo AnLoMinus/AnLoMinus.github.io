@@ -286,6 +286,15 @@
                     alert('אנא מלא את השדה לפני המעבר לשלב הבא.');
                     return;
                 }
+
+                // לבדוק אם יש תיבות סימון שהן לא מסומנות
+                const checkboxes = formGroups[currentGroupIndex].querySelectorAll('input[type="checkbox"]');
+                const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                if (!isChecked) {
+                    alert('אנא בחר לפחות אפשרות אחת לפני המעבר לשלב הבא.');
+                    return;
+                }
+
                 formGroups[currentGroupIndex].classList.add('hidden');
                 currentGroupIndex++;
                 if (currentGroupIndex < formGroups.length) {
@@ -301,10 +310,14 @@
 
                 summaryContent.innerHTML = '';
                 formGroups.forEach(group => {
-                    const input = group.querySelector('input');
+                    const input = group.querySelector('input[type="text"]');
+                    const checkboxes = group.querySelectorAll('input[type="checkbox"]:checked');
                     if (input) {
                         summaryContent.innerHTML += `<strong>${group.querySelector('label').innerText}</strong>: ${input.value}<br>`;
                     }
+                    checkboxes.forEach(checkbox => {
+                        summaryContent.innerHTML += `- ${checkbox.value}<br>`;
+                    });
                 });
                 summary.classList.remove('hidden');
             };
@@ -336,6 +349,7 @@
             showCurrentGroup();
         });
     </script>
+
 
 </body>
 
