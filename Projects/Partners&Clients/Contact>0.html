@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./Contact.css">
+    <title>בחירת שירותים לחנות הדיגיטלית</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shopping-cart icon"></i>בחירת שירותים לחנות הדיגיטלית</h1>
+        <p>
+            בחר את השירותים שתרצה להוסיף לחנות שלך. אנחנו מציעים מגוון פתרונות לבניית חנות דיגיטלית, קידום עסקי, תוכניות
+            שותפים ועוד. סמן את האפשרויות שמתאימות לצרכים שלך ונשמח לחזור אליך.
+        </p>
+
+        <div class="section-title"><i class="fas fa-check-circle icon"></i>שירותים מוצעים:</div>
+
+        <div class="scrollable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>שירות</th>
+                        <th>תיאור</th>
+                        <th>בחר</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" onclick="openModal('customCoupons')">שוברים/כרטיסי הנחה מותאמים אישית</a></td>
+                        <td>תשלום לפי אחוזי מכירה.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="customCoupons" value="שוברים/כרטיסי הנחה מותאמים אישית">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('promotionPackages')">חבילות קידום + אתר</a></td>
+                        <td>הנחות לשירותים מתמשכים.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="promotionPackages" value="חבילות קידום + אתר">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('discountCards')">שוברי הנחה דיגיטליים למועדון לקוחות</a>
+                        </td>
+                        <td>תשלום לפי אחוזי הכנסות ממימוש השוברים.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="discountCards" value="שוברי הנחה דיגיטליים למועדון לקוחות">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('successModel')">מודל אחוזי הצלחה</a></td>
+                        <td>תשלום לפי אחוז מהרווחים במהלך השנה הראשונה.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="successModel" value="מודל אחוזי הצלחה">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('referrals')">שותפות על בסיס הפניות</a></td>
+                        <td>מרוויח אחוזים על כל עסקה שמבוצעת דרך הפניות.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="referrals" value="שותפות על בסיס הפניות">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('giftCards')">מערכת כרטיסי מתנה דיגיטליים</a></td>
+                        <td>תשלום לפי אחוזים מהמכירות של הכרטיסים.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="giftCards" value="מערכת כרטיסי מתנה דיגיטליים">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('affiliateProgram')">תוכנית שותפים באתר העסק</a></td>
+                        <td>מרוויח אחוזים על ניהול התוכנית.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="affiliateProgram" value="תוכנית שותפים באתר העסק">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" onclick="openModal('basePackages')">חבילות בסיס ותוספות בהנחה</a></td>
+                        <td>הנחות לתוספות.</td>
+                        <td>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="basePackages" value="חבילות בסיס ותוספות בהנחה">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section-title"><i class="fas fa-question-circle icon"></i>שאלון קצר:</div>
+        <form>
+            <label for="storeGoal">מה המטרה העיקרית של החנות?</label>
+            <input type="text" id="storeGoal" placeholder="למכור מוצרים, לספק שירותים, לשיווק" required>
+
+            <label for="targetAudience">מי קהל היעד שלך?</label>
+            <input type="text" id="targetAudience" placeholder="כגון גיל, תחומי עניין" required>
+
+            <label for="competitors">האם יש מתחרים ישירים?</label>
+            <input type="text" id="competitors" placeholder="ציין מתחרים" required>
+
+            <label for="budget">מהו טווח התקציב שלך?</label>
+            <input type="text" id="budget" placeholder="ציין טווח תקציב" required>
+
+            <label for="launchDate">מתי אתה מתכנן להשיק את החנות?</label>
+            <input type="text" id="launchDate" placeholder="ציין תאריך" required>
+
+            <label for="files">אם יש לך חומרי פרסום, לוגואים או דוגמאות, העלא קבצים:</label>
+            <input type="file" id="files" multiple>
+
+            <label for="meetingOption">האם תרצה לתאם שיחה או פגישה?</label>
+            <input type="text" id="meetingOption" placeholder="כן/לא">
+
+            <label for="shippingDetails">פרטי חברת השילוח (אם רלוונטי):</label>
+            <input type="text" id="shippingDetails" placeholder="ציין פרטים">
+
+        </form>
+        <div class="section-title"><i class="fas fa-user icon"></i>פרטים אישיים:</div>
+
+        <form id="contactForm">
+            <label for="businessName">שם העסק:</label>
+            <input type="text" id="businessName" placeholder="הכנס שם העסק שלך" required>
+
+            <label for="ownerName">שם בעל העסק:</label>
+            <input type="text" id="ownerName" placeholder="הכנס שם מלא" required>
+
+            <label for="phone">טלפון:</label>
+            <input type="tel" id="phone" placeholder="הכנס מספר טלפון" required>
+
+            <label for="email">אימייל:</label>
+            <input type="email" id="email" placeholder="הכנס אימייל" required>
+
+            <label for="additionalComments">הערות נוספות:</label>
+            <input type="text" id="additionalComments" placeholder="הכנס הערות נוספות כאן">
+
+            <button type="button" onclick="submitForm()">שלח</button>
+        </form>
+
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>פרטים נוספים על השירות</h2>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <p>בחר שירות כדי לראות פרטים נוספים.</p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="closeModal()">סגור</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openModal(serviceId) {
+            var modal = document.getElementById("myModal");
+            var modalBody = document.getElementById("modalBody");
+
+            // מידע על השירותים
+            const servicesInfo = {
+                'customCoupons': 'שירות המאפשר ליצור שוברים דיגיטליים מותאמים אישית לכל לקוח, הניתנים למימוש בחנות.',
+                'promotionPackages': 'חבילות קידום כוללות שירותים מותאמים אישית והנחות משמעותיות.',
+                'discountCards': 'שוברי הנחה המיועדים למועדון לקוחות, עם אפשרות למעקב אחרי המימושים.',
+                'successModel': 'מודל המבוסס על אחוזי הצלחה, שבו התשלום מתבצע לפי הצלחות המכירה.',
+                'referrals': 'שירות המאפשר הפניות עם תגמול על מכירות דרך הפניות.',
+                'giftCards': 'מערכת לניהול כרטיסי מתנה דיגיטליים, עם ממשק ניהול ידידותי.',
+                'affiliateProgram': 'תוכנית שותפים המאפשרת ללקוחות להרוויח אחוזים על מכירות המבוצעות דרך קישורים.',
+                'basePackages': 'חבילות בסיס שמציעות הנחות לתוספות ושירותים נוספים.'
+            };
+
+            modalBody.innerHTML = servicesInfo[serviceId] || 'אין מידע נוסף זמין.';
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        function submitForm() {
+            var businessName = document.getElementById('businessName').value;
+            var ownerName = document.getElementById('ownerName').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+            var additionalComments = document.getElementById('additionalComments').value;
+            var selectedServices = [];
+
+            if (document.getElementById('customCoupons').checked) {
+                selectedServices.push('שוברים/כרטיסי הנחה מותאמים אישית');
+            }
+            if (document.getElementById('promotionPackages').checked) {
+                selectedServices.push('חבילות קידום + אתר');
+            }
+            if (document.getElementById('discountCards').checked) {
+                selectedServices.push('שוברי הנחה דיגיטליים למועדון לקוחות');
+            }
+            if (document.getElementById('successModel').checked) {
+                selectedServices.push('מודל אחוזי הצלחה');
+            }
+            if (document.getElementById('referrals').checked) {
+                selectedServices.push('שותפות על בסיס הפניות');
+            }
+            if (document.getElementById('giftCards').checked) {
+                selectedServices.push('מערכת כרטיסי מתנה דיגיטליים');
+            }
+            if (document.getElementById('affiliateProgram').checked) {
+                selectedServices.push('תוכנית שותפים באתר העסק');
+            }
+            if (document.getElementById('basePackages').checked) {
+                selectedServices.push('חבילות בסיס ותוספות בהנחה');
+            }
+
+            var servicesMessage = selectedServices.length > 0 ? selectedServices.join(', ') : 'לא נבחרו שירותים';
+
+            var message = `לקוח חדש מעוניין בשירותים:%0A` +
+                `שם העסק: ${businessName}%0A` +
+                `שם בעל העסק: ${ownerName}%0A` +
+                `טלפון: ${phone}%0A` +
+                `אימייל: ${email}%0A` +
+                `שירותים נבחרים: ${servicesMessage}%0A` +
+                `הערות נוספות: ${additionalComments}`;
+
+            var whatsappUrl = `https://wa.me/972543285967?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+
+</html>

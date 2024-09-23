@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כרטיס עסקי - לאון יעקובוב</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="כרטיס עסקי של לאון יעקובוב. גלו מידע על השירותים, הניסיון המקצועי, והדרכים ליצירת קשר.">
+    <meta name="keywords"
+        content="לאון יעקובוב, כרטיס עסקי, שירותים, ניסיון מקצועי, קשר, ייעוץ, פיתוח, עיצוב, טכנולוגיה, חדשנות">
+    <meta name="author" content="לאון יעקובוב">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- מידע על קשר -->
+    <meta property="business:contact_data:website" content="https://anlominus.github.io">
+    <meta property="business:contact_data:email" content="email@example.com">
+    <meta property="business:contact_data:phone_number" content="+972-54-328-5967">
+
+    <!-- מידע על מיקום -->
+    <meta property="business:contact_data:address" content="בן עמרם">
+    <meta property="business:contact_data:locality" content="חולון">
+    <meta property="business:contact_data:region" content="מרכז">
+    <meta property="business:contact_data:country_name" content="ישראל">
+
+    <!-- מידע נוסף -->
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="כרטיס עסקי - לאון יעקובוב">
+    <meta property="og:description" content="כרטיס עסקי של לאון יעקובוב עם מידע על שירותים ודרכי התקשרות.">
+    <meta property="og:image" content="http://www.example.com/image.jpg">
+    <meta property="og:url" content="https://anlominus.github.io">
+    <meta property="og:type" content="business.business">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="כרטיס עסקי - לאון יעקובוב">
+    <meta name="twitter:description" content="כרטיס עסקי של לאון יעקובוב עם מידע על שירותים ודרכי התקשרות.">
+    <meta name="twitter:image" content="http://www.example.com/image.jpg">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- תוספות ל SEO -->
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="http://www.example.com">
+    <link rel="stylesheet" href="./css/Golden.css">
+    <link rel="stylesheet" href="./css//electric.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/Fresh.css">
+    <link rel="stylesheet" href="./css/business-card.css">
+    <link rel="stylesheet" href="./css/nextlife-button.css">
+    <link rel="stylesheet" href="./css/quit-smoking-button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: right;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        .tab-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tab-button:hover {
+            background-color: #0056b3;
+        }
+
+        .tab {
+            display: none;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .active {
+            display: block;
+        }
+
+        .business-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-icons {
+            margin-top: 20px;
+        }
+
+        .footer-icons a {
+            margin: 0 10px;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        .footer-icons a:hover {
+            color: #0056b3;
+        }
+
+        .arrow {
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 24px;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        .arrow:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: 10px; text-align: right; color: goldenrod;">
+        <p>בס״ד</p>
+    </div>
+
+    <header>
+        <h1>לאון יעקובוב</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="tab-container">
+            <span class="arrow" onclick="changeTab(-1)">&#9664;</span>
+            <button class="tab-button" onclick="openTab('business')">כרטיס עסקי</button>
+            <button class="tab-button" onclick="openTab('nextlife')">Next-Life</button>
+            <button class="tab-button" onclick="openTab('quit')">הגמל מעישון</button>
+            <span class="arrow" onclick="changeTab(1)">&#9654;</span>
+        </div>
+
+        <div id="business" class="tab active">
+            <div class="business-card">
+                <div class="card-header">
+                    <h2>כרטיס עסקי</h2>
+                    <p>מנהל פרויקטים | UX Designer</p>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <i class="icon phone">📞</i>
+                        טלפון: <strong>050-576-4359</strong>
+                    </p>
+                    <p>
+                        <i class="icon email">✉️</i>
+                        אימייל: <strong>leon@example.com</strong>
+                    </p>
+                    <p>
+                        <i class="icon website">🌐</i>
+                        אתר: <strong><a href="https://example.com">example.com</a></strong>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <p>© 2024 כל הזכויות שמורות</p>
+                </div>
+                <a href="./Profiles.html" class="dynamic-button">פרופיל</a>
+            </div>
+        </div>
+
+        <div id="nextlife" class="tab">
+            <h2>Next-Life</h2>
+            <p>מידע על הפרויקט Next-Life.</p>
+            <a href="#" class="nextlife-button">
+                <span class="icon icon1">💡</span>
+                <span class="icon icon2">🔥</span>
+                Next-Life
+            </a>
+        </div>
+
+        <div id="quit" class="tab">
+            <h2>הגמל מעישון</h2>
+            <p>מידע על תוכנית הגמל מעישון.</p>
+            <a href="#" class="quit-smoking-button">
+                <span class="icon icon1">🌟</span>
+                <span class="icon icon2">🔥</span>
+                הגמל מעישון
+            </a>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-icons">
+            <a href="https://x.com/anLoMinusX" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/anlominus/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/AnLoMinusX/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/AnLoMinusX/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank"><i
+                    class="fab fa-whatsapp"></i></a>
+            <a href="https://codepen.io/AnLoMinus" target="_blank"><i class="fab fa-codepen"></i></a>
+            <a href="https://github.com/AnLoMinus" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://chat.openai.com/auth/login" target="_blank"><i class="fas fa-robot"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let currentTabIndex = 0;
+
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const buttons = document.querySelectorAll('.tab-button');
+
+            tabs.forEach((tab, index) => {
+                tab.classList.remove('active');
+                if (tab.id === tabName) {
+                    currentTabIndex = index;
+                }
+            });
+
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function changeTab(direction) {
+            const tabs = document.querySelectorAll('.tab');
+            currentTabIndex += direction;
+
+            if (currentTabIndex < 0) currentTabIndex = tabs.length - 1;
+            if (currentTabIndex >= tabs.length) currentTabIndex = 0;
+
+            openTab(tabs[currentTabIndex].id);
+        }
+    </script>
+
+</body>
+
+</html>

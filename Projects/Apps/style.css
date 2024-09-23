@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  background-color: #4a4a4a;
+  padding: 10px;
+  flex: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.content.active {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  height: calc(100vh - 100px); /* מותאם לגובה התפריט התחתון */
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+  font-size: 2.5rem; /* גודל אייקונים במסכים גדולים */
+}
+
+.icon-box:hover {
+  background-color: #e0e0e0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* מדיה קווריז עבור גדלים שונים */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .icon-box {
+    padding: 60px; /* גובה האייקונים במסכים גדולים */
+    font-size: 3rem; /* גודל אייקונים במסכים גדולים */
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 טורים למסכים בינוניים */
+  }
+  .icon-box {
+    padding: 50px;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 טורים למסכים קטנים */
+  }
+  .icon-box {
+    padding: 40px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 טורים במסכים קטנים */
+  }
+  .icon-box {
+    padding: 20px;
+    font-size: 1.5rem; /* גודל אייקונים במסכים מאוד קטנים */
+  }
+}

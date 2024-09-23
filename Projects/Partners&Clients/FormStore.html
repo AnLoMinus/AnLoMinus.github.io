@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>חוזה שירותי בניית חנות דיגיטלית וקידום עסקי</title>
+    <title>בחירת שירותי בניית חנות דיגיטלית</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,7 +23,7 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             overflow-y: auto;
             max-height: 90vh;
@@ -37,38 +37,11 @@
             margin-bottom: 20px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
+        p {
             color: #555;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            line-height: 1.6;
             font-size: 16px;
-        }
-
-        button {
-            background-color: #6a1b9a;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #5e1286;
+            margin-bottom: 15px;
         }
 
         .section-title {
@@ -87,42 +60,6 @@
             border: 1px solid #e0d9e6;
         }
 
-        .service-section label {
-            font-size: 14px;
-            color: #333;
-        }
-
-        /* איקונים */
-        .icon {
-            display: inline-block;
-            margin-right: 5px;
-            color: #b88c47;
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            color: #bbb;
-            font-size: 14px;
-        }
-
-        /* עיצוב מיוחד לשדות */
-        input[type="number"] {
-            background-color: #f5f4fa;
-        }
-
-        textarea {
-            resize: none;
-            height: 100px;
-        }
-
-        .header-icon {
-            display: inline-block;
-            font-size: 50px;
-            margin-bottom: 20px;
-            color: #b88c47;
-        }
-
-        /* עיצוב כותרת הרשימה */
         ul {
             list-style-type: none;
             padding-left: 0;
@@ -140,72 +77,156 @@
             margin-left: -1em;
             font-size: 1.5em;
         }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .checkbox-container {
+            margin-bottom: 15px;
+        }
+
+        .checkbox-container label {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5e1286;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 5px;
+            color: #b88c47;
+        }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1><i class="fas fa-file-signature header-icon"></i>חוזה שירותי בניית חנות דיגיטלית וקידום עסקי</h1>
-        <form id="contractForm">
-            <div class="service-section">
-                <label for="date"><i class="fas fa-calendar-alt icon"></i>תאריך:</label>
-                <input type="date" id="date" required>
+        <h1><i class="fas fa-shopping-cart icon"></i>בחירת שירותים לחנות הדיגיטלית</h1>
 
-                <label for="businessName"><i class="fas fa-store icon"></i>שם העסק:</label>
-                <input type="text" id="businessName" placeholder="הכנס שם העסק" required>
+        <p>
+            בחר את השירותים שתרצה להוסיף לחנות שלך. אנחנו מציעים מגוון פתרונות לבניית חנות דיגיטלית, קידום עסקי, תוכניות
+            שותפים ועוד. סמן את האפשרויות שמתאימות לצרכים שלך ונשמח לחזור אליך.
+        </p>
 
-                <label for="ownerName"><i class="fas fa-user icon"></i>שם בעל העסק:</label>
-                <input type="text" id="ownerName" placeholder="הכנס שם בעל העסק" required>
+        <div class="section-title"><i class="fas fa-check-circle icon"></i>שירותים מוצעים:</div>
 
-                <label for="phone"><i class="fas fa-phone icon"></i>טלפון:</label>
-                <input type="tel" id="phone" placeholder="הכנס טלפון" required>
-
-                <label for="email"><i class="fas fa-envelope icon"></i>אימייל:</label>
-                <input type="email" id="email" placeholder="הכנס אימייל" required>
+        <!-- שירותים מוצעים - תיבות סימון -->
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="customCoupons" value="שוברים/כרטיסי הנחה מותאמים אישית">
+                <label for="customCoupons">שוברים/כרטיסי הנחה מותאמים אישית - תשלום לפי אחוזי מכירה</label>
             </div>
+            <p>הצעת כרטיסי הנחה מותאמים אישית ללקוחות, כאשר התשלום מתבצע לפי אחוז מכל עסקה שמתבצעת דרך הכרטיסים.</p>
+        </div>
 
-            <div class="section-title"><i class="fas fa-briefcase icon"></i>שירותים מוצעים והצעות מחיר:</div>
-
-            <div class="service-section">
-                <label for="basicSitePrice">בניית אתר חנות דיגיטלית בסיסי - מחיר:</label>
-                <input type="number" id="basicSitePrice" placeholder="הכנס מחיר בשקלים" required>
-
-                <label for="maintenancePrice">חבילת תחזוקה חודשית - מחיר:</label>
-                <input type="number" id="maintenancePrice" placeholder="הכנס מחיר בשקלים" required>
-
-                <label for="maintenanceDiscount">הנחה לשנה הראשונה (%):</label>
-                <input type="number" id="maintenanceDiscount" placeholder="הכנס אחוזי הנחה" required>
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="promotionPackages" value="חבילות קידום + אתר">
+                <label for="promotionPackages">חבילות קידום + אתר - הנחות לשירותים מתמשכים</label>
             </div>
+            <p>חבילה הכוללת בניית אתר ושירותי קידום (אורגני/ממומן), עם הנחה לשירותים מתמשכים בשנה הראשונה או תשלום לפי
+                אחוזי הכנסות מהאתר.</p>
+        </div>
 
-            <div class="service-section">
-                <label for="couponSetupPrice">שוברים דיגיטליים להנחות - מחיר הקמה:</label>
-                <input type="number" id="couponSetupPrice" placeholder="הכנס מחיר בשקלים" required>
-
-                <label for="couponProfit">רווח מצטבר מהשוברים (%):</label>
-                <input type="number" id="couponProfit" placeholder="הכנס אחוזים" required>
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="discountCards" value="שוברי הנחה דיגיטליים למועדון לקוחות">
+                <label for="discountCards">שוברי הנחה דיגיטליים למועדון לקוחות</label>
             </div>
+            <p>הקמת מערכת מועדון לקוחות עם כרטיסי הנחה דיגיטליים ללקוחות חוזרים, עם תשלום לפי אחוז מהכנסות ממימוש
+                השוברים.</p>
+        </div>
 
-            <div class="service-section">
-                <label for="giftCardPrice">שוברי מתנה דיגיטליים - מחיר הקמה:</label>
-                <input type="number" id="giftCardPrice" placeholder="הכנס מחיר בשקלים" required>
-
-                <label for="giftCardProfit">רווח מתמשך מכרטיסי מתנה (%):</label>
-                <input type="number" id="giftCardProfit" placeholder="הכנס אחוזים" required>
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="successModel" value="מודל אחוזי הצלחה">
+                <label for="successModel">מודל אחוזי הצלחה</label>
             </div>
+            <p>בניית האתר ללא עלות ראשונית, כאשר תשלום מתבצע לפי אחוז מהרווחים שהחנות מייצרת במהלך השנה הראשונה.</p>
+        </div>
 
-            <div class="section-title"><i class="fas fa-hand-holding-usd icon"></i>תנאי תשלום:</div>
-
-            <div class="service-section">
-                <label for="advancePayment">מקדמה (₪):</label>
-                <input type="number" id="advancePayment" placeholder="הכנס סכום מקדמה" required>
-
-                <label for="monthlyPayment">תשלומים חודשיים (₪):</label>
-                <input type="number" id="monthlyPayment" placeholder="הכנס סכום חודשי" required>
-
-                <label for="successPercentage">תשלום לפי אחוזי הצלחה (%):</label>
-                <input type="number" id="successPercentage" placeholder="הכנס אחוזי תשלום" required>
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="referrals" value="שותפות על בסיס הפניות">
+                <label for="referrals">שותפות על בסיס הפניות</label>
             </div>
+            <p>הפצת שוברים ללקוחות פוטנציאליים, כאשר אתה מרוויח אחוזים על כל עסקה שמבוצעת דרך הפניות אלה.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="giftCards" value="מערכת כרטיסי מתנה דיגיטליים">
+                <label for="giftCards">מערכת כרטיסי מתנה דיגיטליים</label>
+            </div>
+            <p>הקמת מערכת לרכישת כרטיסי מתנה דיגיטליים, כאשר התשלום מתבצע לפי אחוזים מהמכירות של הכרטיסים.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="affiliateProgram" value="תוכנית שותפים באתר העסק">
+                <label for="affiliateProgram">תוכנית שותפים באתר העסק</label>
+            </div>
+            <p>הקמת תוכנית שותפים באתר שבו לקוחות יוכלו להפיץ את העסק ולהרוויח אחוזים. אתה מרוויח אחוזים על ניהול
+                התוכנית.</p>
+        </div>
+
+        <div class="service-section">
+            <div class="checkbox-container">
+                <input type="checkbox" id="basePackages" value="חבילות בסיס ותוספות בהנחה">
+                <label for="basePackages">חבילות בסיס ותוספות בהנחה</label>
+            </div>
+            <p>חבילות בסיס לבניית האתר, עם אפשרות להוסיף פונקציות מתקדמות כמו ניהול מלאי, אינטגרציה עם מערכת סליקה, או
+                שיווק באימייל עם הנחות לתוספות.</p>
+        </div>
+
+        <div class="section-title"><i class="fas fa-user icon"></i>פרטים אישיים:</div>
+
+        <form id="contactForm">
+            <label for="businessName">שם העסק:</label>
+            <input type="text" id="businessName" placeholder="הכנס שם העסק שלך" required>
+
+            <label for="ownerName">שם בעל העסק:</label>
+            <input type="text" id="ownerName" placeholder="הכנס שם מלא" required>
+
+            <label for="phone">טלפון:</label>
+            <input type="tel" id="phone" placeholder="הכנס מספר טלפון" required>
+
+            <label for="email">אימייל:</label>
+            <input type="email" id="email" placeholder="הכנס כתובת אימייל" required>
 
             <button type="button" onclick="sendWhatsApp()">שלח ל-WhatsApp</button>
         </form>
@@ -213,29 +234,45 @@
 
     <script>
         function sendWhatsApp() {
-            var date = document.getElementById('date').value;
             var businessName = document.getElementById('businessName').value;
             var ownerName = document.getElementById('ownerName').value;
             var phone = document.getElementById('phone').value;
             var email = document.getElementById('email').value;
 
-            var basicSitePrice = document.getElementById('basicSitePrice').value;
-            var maintenancePrice = document.getElementById('maintenancePrice').value;
-            var maintenanceDiscount = document.getElementById('maintenanceDiscount').value;
-            var couponSetupPrice = document.getElementById('couponSetupPrice').value;
-            var couponProfit = document.getElementById('couponProfit').value;
-            var giftCardPrice = document.getElementById('giftCardPrice').value;
-            var giftCardProfit = document.getElementById('giftCardProfit').value;
+            var selectedServices = [];
+            if (document.getElementById('customCoupons').checked) {
+                selectedServices.push('שוברים/כרטיסי הנחה מותאמים אישית');
+            }
+            if (document.getElementById('promotionPackages').checked) {
+                selectedServices.push('חבילות קידום + אתר');
+            }
+            if (document.getElementById('discountCards').checked) {
+                selectedServices.push('שוברי הנחה דיגיטליים למועדון לקוחות');
+            }
+            if (document.getElementById('successModel').checked) {
+                selectedServices.push('מודל אחוזי הצלחה');
+            }
+            if (document.getElementById('referrals').checked) {
+                selectedServices.push('שותפות על בסיס הפניות');
+            }
+            if (document.getElementById('giftCards').checked) {
+                selectedServices.push('מערכת כרטיסי מתנה דיגיטליים');
+            }
+            if (document.getElementById('affiliateProgram').checked) {
+                selectedServices.push('תוכנית שותפים באתר העסק');
+            }
+            if (document.getElementById('basePackages').checked) {
+                selectedServices.push('חבילות בסיס ותוספות בהנחה');
+            }
 
-            var advancePayment = document.getElementById('advancePayment').value;
-            var monthlyPayment = document.getElementById('monthlyPayment').value;
-            var successPercentage = document.getElementById('successPercentage').value;
+            var servicesMessage = selectedServices.length > 0 ? selectedServices.join(', ') : 'לא נבחרו שירותים';
 
-            var message = `תאריך: ${date} %0Aשם העסק: ${businessName} %0Aשם בעל העסק: ${ownerName} %0Aטלפון: ${phone} %0Aאימייל: ${email} %0A` +
-                `בניית אתר בסיסי - מחיר: ₪${basicSitePrice} %0Aתחזוקה חודשית - מחיר: ₪${maintenancePrice} %0Aהנחה לשנה הראשונה: ${maintenanceDiscount}% %0A` +
-                `שוברים דיגיטליים - מחיר הקמה: ₪${couponSetupPrice} %0Aרווח משוברי הנחה: ${couponProfit}% %0A` +
-                `שוברי מתנה דיגיטליים - מחיר הקמה: ₪${giftCardPrice} %0Aרווח מתמשך: ${giftCardProfit}% %0A` +
-                `תנאי תשלום - מקדמה: ₪${advancePayment}, תשלומים חודשיים: ₪${monthlyPayment}, תשלום לפי הצלחה: ${successPercentage}%`;
+            var message = `לקוח חדש מעוניין בשירותים:%0A` +
+                `שם העסק: ${businessName}%0A` +
+                `שם בעל העסק: ${ownerName}%0A` +
+                `טלפון: ${phone}%0A` +
+                `אימייל: ${email}%0A` +
+                `שירותים נבחרים: ${servicesMessage}`;
 
             var whatsappUrl = `https://wa.me/972543285967?text=${message}`;
             window.open(whatsappUrl, '_blank');

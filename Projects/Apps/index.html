@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>גרסה 1.6.0 - פונקציונליות מתקדמת</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="content active" id="home" aria-labelledby="home-heading">
+        <h2 id="home-heading" style="display: none;">ברוכים הבאים לבית!</h2>
+
+        <div class="grid">
+            <div class="icon-box" onclick="openModal('בריאות ורווחה ⚕️', 'מעקב אחרי הבריאות הפיזית והנפשית שלך...')">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+
+            <div class="icon-box" onclick="openModal('משפחה ויחסים 👨‍👩‍👦', 'שמור על איזון בין עבודה לחיים...')">
+                <i class="fas fa-users"></i>
+            </div>
+
+            <div class="icon-box" onclick="openModal('עבודה וקריירה 💼', 'קבע מטרות מקצועיות, עקוב אחרי התקדמותך...')">
+                <i class="fas fa-briefcase"></i>
+            </div>
+
+            <div class="icon-box"
+                onclick="openModal('פנאי ובילוי 🎨', 'נהל את תחביביך, חופשותיך ופעילויות חברתיות...')">
+                <i class="fas fa-paint-brush"></i>
+            </div>
+
+            <div class="icon-box" onclick="openModal('כספים וניהול פיננסי 💳', 'ניהול תקציב, מעקב אחרי הוצאות...')">
+                <i class="fas fa-money-bill"></i>
+            </div>
+
+            <div class="icon-box" onclick="openModal('התפתחות אישית 📚', 'צמיחה אישית באמצעות קביעת מטרות...')">
+                <i class="fas fa-book"></i>
+            </div>
+
+            <div class="icon-box" onclick="openModal('סביבה וקהילה 🌱', 'קבל תזכורות על מעורבות קהילתית...')">
+                <i class="fas fa-tree"></i>
+            </div>
+
+            <div class="icon-box" onclick="openModal('רוחניות ומשמעות 🕊️', 'חקור את המשמעות העמוקה של החיים...')">
+                <i class="fas fa-dove"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- חלון מודאלי -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <div class="footer" role="navigation" aria-label="ניווט תחתון">
+        <div class="footer-icon" onclick="showContent('info')" aria-label="מידע נוסף">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="footer-icon" onclick="showContent('notifications')" aria-label="התראות">
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="footer-icon" onclick="showContent('home')" aria-label="דף הבית">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="footer-icon" onclick="showContent('settings')" aria-label="הגדרות">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="footer-icon" onclick="showContent('profile')" aria-label="פרופיל משתמש">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

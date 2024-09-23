@@ -1,0 +1,124 @@
+.quit-smoking-button {
+  position: relative;
+  display: inline-block;
+  padding: 15px 40px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 69, 0, 0.9),
+    rgba(255, 140, 0, 0.8)
+  );
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.7),
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.quit-smoking-button:hover {
+  background: rgba(255, 0, 0, 1);
+  transform: scale(1.1) rotate(1deg);
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.8),
+    inset 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: pulse 1.2s infinite;
+  /* אפקט פולס */
+  color: #fff;
+}
+
+.quit-smoking-button:hover::before,
+.quit-smoking-button:hover::after {
+  animation: wave 0.6s infinite;
+  /* אפקט גלי */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wave {
+  0% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.quit-smoking-button::before,
+.quit-smoking-button::after {
+  position: absolute;
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+  /* להסתיר מאחורי הכפתור */
+}
+
+.quit-smoking-button::before {
+  content: "🚭";
+  top: -15px;
+  left: -10px;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+.quit-smoking-button::after {
+  content: "💪";
+  bottom: -15px;
+  right: -10px;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+/* אפקטים נוספים */
+.quit-smoking-button:active {
+  transform: scale(0.95);
+  /* הכפתור מתכווץ בלחיצה */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* אפקטים של כוכבים */
+.quit-smoking-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2) 20%,
+      transparent 20%
+    )
+    center/15% 15%;
+  animation: twinkle 1.5s infinite;
+  z-index: -2;
+  /* מאחורי הכפתור */
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+}

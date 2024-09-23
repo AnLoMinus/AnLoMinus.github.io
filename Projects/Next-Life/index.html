@@ -19,7 +19,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/btn.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <!-- <link rel="stylesheet" href="./../../css/nextlife-button.css"> -->
+    <link rel="stylesheet" ">
     <style>
         .instructions {
             background-color: #f0f8ff;
@@ -54,65 +57,63 @@
 <body>
     <header>
         <nav>
-            <div>
-                <h1>NextLife</h1>
-            </div>
+            <h2>Next-Life</h2>
+            <div class=" nav-container">
+    <ul class="nav-icons">
+        <li>
+            <a class="nextlife-button health" href="#health" data-theme="health" data-content="בריאות ורווחה"
+                onclick="showSection('health')">
+                <i class="fas fa-heartbeat" aria-label="בריאות ורווחה" role="img"></i>
+                <span>⚕️ בריאות ורווחה</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button family " href="#family" data-theme="family" data-content="משפחה ויחסים">
+                <i class="fas fa-users"></i>
+                <span>👨‍👩‍👦 משפחה ויחסים</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button work" href="#work" data-theme="work" data-content="עבודה וקריירה">
+                <i class="fas fa-briefcase"></i>
+                <span>💼 עבודה וקריירה</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button leisure" href="#leisure" data-theme="leisure" data-content="פנאי ובילוי">
+                <i class="fas fa-palette"></i>
+                <span>🎨 פנאי ובילוי</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button finance" href="#finance" data-theme="finance" data-content="כספים וניהול פיננסי">
+                <i class="fas fa-wallet"></i>
+                <span>💳 כספים וניהול פיננסי</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button personal" href="#personal" data-theme="personal" data-content="התפתחות אישית">
+                <i class="fas fa-user-graduate"></i>
+                <span>📚 התפתחות אישית</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button community" href="#community" data-theme="community" data-content="סביבה וקהילה">
+                <i class="fas fa-globe"></i>
+                <span>🌱 סביבה וקהילה</span>
+            </a>
+        </li>
+        <li>
+            <a class="nextlife-button spirituality" href="#spirituality" data-theme="spirituality"
+                data-content="רוחניות ומשמעות">
+                <i class="fas fa-praying-hands"></i>
+                <span>🕊️ רוחניות ומשמעות</span>
+            </a>
+        </li>
+    </ul>
+    </div>
 
-            <div class="nav-container">
-                <ul class="nav-icons">
-                    <li>
-                        <a href="#health" data-theme="health" data-content="בריאות ורווחה"
-                            onclick="showSection('health')">
-                            <i class="fas fa-heartbeat" aria-label="בריאות ורווחה" role="img"></i>
-                            <span>⚕️ בריאות ורווחה</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#family" data-theme="family" data-content="משפחה ויחסים">
-                            <i class="fas fa-users"></i>
-                            <span>👨‍👩‍👦 משפחה ויחסים</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#work" data-theme="work" data-content="עבודה וקריירה">
-                            <i class="fas fa-briefcase"></i>
-                            <span>💼 עבודה וקריירה</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#leisure" data-theme="leisure" data-content="פנאי ובילוי">
-                            <i class="fas fa-palette"></i>
-                            <span>🎨 פנאי ובילוי</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#finance" data-theme="finance" data-content="כספים וניהול פיננסי">
-                            <i class="fas fa-wallet"></i>
-                            <span>💳 כספים וניהול פיננסי</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#personal" data-theme="personal" data-content="התפתחות אישית">
-                            <i class="fas fa-user-graduate"></i>
-                            <span>📚 התפתחות אישית</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#community" data-theme="community" data-content="סביבה וקהילה">
-                            <i class="fas fa-globe"></i>
-                            <span>🌱 סביבה וקהילה</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#spirituality" data-theme="spirituality" data-content="רוחניות ומשמעות">
-                            <i class="fas fa-praying-hands"></i>
-                            <span>🕊️ רוחניות ומשמעות</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
+    </nav>
     </header>
 
     <div class="instructions">
@@ -121,7 +122,6 @@
             לאחר מכן תוכל לנהל את מטרותיך ופעילויותיך בכל תחום.</p>
         <p>כדי לחפש תוכן, השתמש בשורת החיפוש למטה.</p>
     </div>
-
 
     <!-- אזור תוכן מתחלף -->
     <div class="dynamic-content" id="dynamic-content">
@@ -133,329 +133,368 @@
     <div class="search-bar">
         <input type="text" id="search" placeholder="חפש...">
     </div>
+    </body>
 
-</body>
-
-<section id="life-sections">
-    <div class="section health">
-        <i class="fas fa-heartbeat" aria-label="בריאות ורווחה"></i>
-        <h2>בריאות ורווחה ⚕️</h2>
-        <p>מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית 🏃, תזונה 🥗, דפוסי שינה 💤 ותהליכי
-            מיינדפולנס 🧘‍♀️.</p>
-        <button onclick="openModal('health')">פתח מעקב בריאות</button><br>
-        <div class="progress" data-category="health">
-            <h2>תצוגת התקדמות בבריאות ורווחה</h2>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 70%;" title="70% הושגו"></div>
+    <section id="life-sections">
+        <div class="section health">
+            <i class="fas fa-heartbeat" aria-label="בריאות ורווחה"></i>
+            <h2>בריאות ורווחה ⚕️</h2>
+            <p>מעקב אחרי הבריאות הפיזית והנפשית שלך עם כלים למעקב אחרי פעילות גופנית 🏃, תזונה 🥗, דפוסי שינה 💤 ותהליכי
+                מיינדפולנס 🧘‍♀️.</p>
+            <div id="health" class="tab">
+                <div class="business-card">
+                    <div class="background-animation"></div>
+                    <h2>בריאות ורווחה</h2>
+                    <p>בריאות היא האוצר היקר ביותר שלנו! 🌱</p>
+                    <p>תוכנית לניהול הבריאות הפיזית והנפשית שלך.</p>
+                    <h3>מה אנחנו מציעים?</h3>
+                    <ul style="text-align: right;">
+                        <li><strong>מעקב בריאותי ⚕️:</strong> התעדכן על מצב הבריאות שלך.</li>
+                        <li><strong>תמיכה נפשית 🧠:</strong> תמיכה וייעוץ מקצועי.</li>
+                        <li><strong>פעילויות גופניות 🏃:</strong> תוכניות אימון מותאמות אישית.</li>
+                    </ul>
+                    <p>📅 התחל את הדרך שלך לבריאות טובה יותר עוד היום!</p>
+                    <button class="contact-button" onclick="alert('ליצירת קשר!')">💬 צור קשר</button>
+                </div>
             </div>
-            <p>הושגו 7 מתוך 10 מטרות בבריאות ורווחה.</p>
-        </div>
-    </div>
-    <div class="section family">
-        <i class="fas fa-users"></i>
-        <h2>משפחה ויחסים 👨‍👩‍👦</h2>
-        <p>שמור על איזון בין עבודה לחיים על ידי תכנון זמן עם משפחה וחברים, ומעקב אחר איכות הקשרים עם כלים להרהור אישי
-            💞.</p>
-        <button onclick="openModal('family')">פתח מתכנן משפחתי</button>
 
-        <div class="progress" data-category="family">
-            <h2>תצוגת התקדמות במשפחה ויחסים</h2>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 50%;" title="50% הושגו"></div>
+            <button onclick="openModal('health')">פתח מעקב בריאות</button><br>
+            <div class="progress" data-category="health">
+                <h2>תצוגת התקדמות בבריאות ורווחה</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 70%;" title="70% הושגו"></div>
+                </div>
+                <p>הושגו 7 מתוך 10 מטרות בבריאות ורווחה.</p>
             </div>
-            <p>הושגו 5 מתוך 10 מטרות במשפחה ויחסים.</p>
         </div>
-    </div>
-    <div class="section work">
-        <i class="fas fa-briefcase"></i>
-        <h2>עבודה וקריירה 💼</h2>
-        <p>קבע מטרות מקצועיות, עקוב אחרי התקדמותך 📊 ושפר את האיזון בין העבודה והחיים. NexiLife עוזרת לך לגדול בקריירה
-            מבלי לפגוע בתחומי חיים אחרים 🎯.</p>
-        <button onclick="openModal('work')">פתח מטרות קריירה</button>
-    </div>
-    <div class="section leisure">
-        <i class="fas fa-palette"></i>
-        <h2>פנאי ובילוי 🎨</h2>
-        <p>נהל את תחביביך 🎸, חופשותיך 🏖️ ופעילויות חברתיות 👯‍♂️, תוך הבטחה שיהיה לך מספיק זמן לפעילויות שממלאות אותך
-            באנרגיה 🔋.</p>
-        <button onclick="openModal('leisure')">פתח ניהול תחביבים</button>
-    </div>
-    <div class="section finance">
-        <i class="fas fa-wallet"></i>
-        <h2>כספים וניהול פיננסי 💳</h2>
-        <p>ניהול תקציב 💸, מעקב אחרי הוצאות וקביעת יעדים פיננסיים כמו חיסכון לעתיד או הקטנת חובות 📉.</p>
-        <button onclick="openModal('finance')">פתח ניהול תקציב</button>
-    </div>
-    <div class="section personal-development">
-        <i class="fas fa-graduation-cap"></i>
-        <h2>התפתחות אישית 📚</h2>
-        <p>צמיחה אישית באמצעות קביעת מטרות, מעקב אחר התקדמות בלמידת מיומנויות חדשות ✍️, מדיטציה 🧘 והרהור פנימי 🚀.</p>
-        <button onclick="openModal('personal-development')">פתח מעקב מיומנויות</button>
-    </div>
-    <div class="section community">
-        <i class="fas fa-globe"></i>
-        <h2>סביבה וקהילה 🌱</h2>
-        <p>קבל תזכורות על מעורבות קהילתית 👥, התנדבות 🤝, ומעורבות בקיימות ♻️, כדי לשמור על חיבור קרוב לקהילה ולעולם
-            סביבך.</p>
-        <button onclick="openModal('community')">פתח מעורבות קהילתית</button>
-    </div>
-    <div class="section spirituality">
-        <i class="fas fa-dove"></i>
-        <h2>רוחניות ומשמעות 🕊️</h2>
-        <p>חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים, תרגולים דתיים 🙏 או מסעות רוחניים 🛤️.</p>
-        <button onclick="openModal('spirituality')">פתח יומן רוחני</button>
-    </div>
-
-    <!-- מודל -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p id="modal-body"></p>
-        </div>
-    </div>
-
-</section>
-
-<footer></footer>
-<div class="footer-content">
-    <h2>NexiLife - איזון בחיים</h2>
-    <p>עוזר לך לנהל את כל היבטי החיים שלך בצורה מאורגנת ואפקטיבית.</p>
-
-    <div class="status-bar">
-        <div class="status-item health">
-            <span>בריאות: <strong>80%</strong></span>
-        </div>
-        <div class="status-item family">
-            <span>משפחה: <strong>75%</strong></span>
-        </div>
-        <div class="status-item work">
-            <span>עבודה: <strong>90%</strong></span>
-        </div>
-        <div class="status-item leisure">
-            <span>פנאי: <strong>60%</strong></span>
-        </div>
-        <div class="status-item finance">
-            <span>כספים: <strong>70%</strong></span>
-        </div>
-        <div class="status-item personal-development">
-            <span>התפתחות אישית: <strong>85%</strong></span>
-        </div>
-        <div class="status-item community">
-            <span>קהילה: <strong>65%</strong></span>
-        </div>
-        <div class="status-item spirituality">
-            <span>רוחניות: <strong>90%</strong></span>
-        </div>
-    </div>
-
-
-    <div class="marquee">
-        <div class="marquee-content">
-            <span class="status">🏃‍♂️ סיים את תוכנית האימון השבועית שלך</span>
-            <span class="status">📅 קבע פגישה עם בני משפחה</span>
-            <span class="status">📈 עדכן את תקציב החודש</span>
-            <span class="status">🎨 השלם פרויקט יצירתי בחופשה</span>
-        </div>
-    </div>
-
-
-    <div class="footer-links">
-        <div class="footer-link-item">
-            <i class="fas fa-heartbeat"></i>
-            <a href="#health">בריאות ורווחה</a>
-        </div>
-        <div class="footer-link-item">
+        <div class="section family">
             <i class="fas fa-users"></i>
-            <a href="#family">משפחה ויחסים</a>
+            <h2>משפחה ויחסים 👨‍👩‍👦</h2>
+            <p>שמור על איזון בין עבודה לחיים על ידי תכנון זמן עם משפחה וחברים, ומעקב אחר איכות הקשרים עם כלים להרהור
+                אישי
+                💞.</p>
+            <button onclick="openModal('family')">פתח מתכנן משפחתי</button>
+
+            <div class="progress" data-category="family">
+                <h2>תצוגת התקדמות במשפחה ויחסים</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 50%;" title="50% הושגו"></div>
+                </div>
+                <p>הושגו 5 מתוך 10 מטרות במשפחה ויחסים.</p>
+            </div>
         </div>
-        <div class="footer-link-item">
+        <div class="section work">
             <i class="fas fa-briefcase"></i>
-            <a href="#work">עבודה וקריירה</a>
+            <h2>עבודה וקריירה 💼</h2>
+            <p>קבע מטרות מקצועיות, עקוב אחרי התקדמותך 📊 ושפר את האיזון בין העבודה והחיים. NexiLife עוזרת לך לגדול
+                בקריירה
+                מבלי לפגוע בתחומי חיים אחרים 🎯.</p>
+            <button onclick="openModal('work')">פתח מטרות קריירה</button>
         </div>
-        <div class="footer-link-item">
-            <i class="fas fa-sun"></i>
-            <a href="#leisure">פנאי ובילוי</a>
+        <div class="section leisure">
+            <i class="fas fa-palette"></i>
+            <h2>פנאי ובילוי 🎨</h2>
+            <p>נהל את תחביביך 🎸, חופשותיך 🏖️ ופעילויות חברתיות 👯‍♂️, תוך הבטחה שיהיה לך מספיק זמן לפעילויות שממלאות
+                אותך
+                באנרגיה 🔋.</p>
+            <button onclick="openModal('leisure')">פתח ניהול תחביבים</button>
+        </div>
+        <div class="section finance">
+            <i class="fas fa-wallet"></i>
+            <h2>כספים וניהול פיננסי 💳</h2>
+            <p>ניהול תקציב 💸, מעקב אחרי הוצאות וקביעת יעדים פיננסיים כמו חיסכון לעתיד או הקטנת חובות 📉.</p>
+            <div id="finance" class="tab">
+                <div class="business-card">
+                    <div class="background-animation"></div>
+                    <h2>כספים וניהול פיננסי</h2>
+                    <p>שמור על שליטה על הכסף שלך! 💰</p>
+                    <p>תוכניות לניהול תקציב ועקביות בהוצאות.</p>
+                    <h3>כלים שימושיים:</h3>
+                    <ul style="text-align: right;">
+                        <li><strong>מעקב הוצאות 📊:</strong> עקוב אחרי הוצאותיך בצורה פשוטה.</li>
+                        <li><strong>תכנון תקציב 📝:</strong> עזור לעצמך לנהל את ההוצאות החודשיות.</li>
+                        <li><strong>ייעוץ פיננסי 📈:</strong> קבל תובנות מקצועיות כדי להשיג את מטרותיך.</li>
+                    </ul>
+                    <p>📅 הצעד הראשון לעתיד פיננסי בטוח מתחיל כאן!</p>
+                    <button class="contact-button" onclick="alert('ליצירת קשר!')">💬 צור קשר</button>
+                </div>
+            </div>
+
+            <button onclick="openModal('finance')">פתח ניהול תקציב</button>
+        </div>
+        <div class="section personal-development">
+            <i class="fas fa-graduation-cap"></i>
+            <h2>התפתחות אישית 📚</h2>
+            <p>צמיחה אישית באמצעות קביעת מטרות, מעקב אחר התקדמות בלמידת מיומנויות חדשות ✍️, מדיטציה 🧘 והרהור פנימי 🚀.
+            </p>
+            <button onclick="openModal('personal-development')">פתח מעקב מיומנויות</button>
+        </div>
+        <div class="section community">
+            <i class="fas fa-globe"></i>
+            <h2>סביבה וקהילה 🌱</h2>
+            <p>קבל תזכורות על מעורבות קהילתית 👥, התנדבות 🤝, ומעורבות בקיימות ♻️, כדי לשמור על חיבור קרוב לקהילה ולעולם
+                סביבך.</p>
+            <button onclick="openModal('community')">פתח מעורבות קהילתית</button>
+        </div>
+        <div class="section spirituality">
+            <i class="fas fa-dove"></i>
+            <h2>רוחניות ומשמעות 🕊️</h2>
+            <p>חקור את המשמעות העמוקה של החיים עם מקום אישי להרהורים פילוסופיים, תרגולים דתיים 🙏 או מסעות רוחניים 🛤️.
+            </p>
+            <button onclick="openModal('spirituality')">פתח יומן רוחני</button>
+        </div>
+
+        <!-- מודל -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-body"></p>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="footer-content">
+        <h2>NexiLife - איזון בחיים</h2>
+        <p>עוזר לך לנהל את כל היבטי החיים שלך בצורה מאורגנת ואפקטיבית.</p>
+
+        <div class="status-bar">
+            <div class="status-item health">
+                <span>בריאות: <strong>80%</strong></span>
+            </div>
+            <div class="status-item family">
+                <span>משפחה: <strong>75%</strong></span>
+            </div>
+            <div class="status-item work">
+                <span>עבודה: <strong>90%</strong></span>
+            </div>
+            <div class="status-item leisure">
+                <span>פנאי: <strong>60%</strong></span>
+            </div>
+            <div class="status-item finance">
+                <span>כספים: <strong>70%</strong></span>
+            </div>
+            <div class="status-item personal-development">
+                <span>התפתחות אישית: <strong>85%</strong></span>
+            </div>
+            <div class="status-item community">
+                <span>קהילה: <strong>65%</strong></span>
+            </div>
+            <div class="status-item spirituality">
+                <span>רוחניות: <strong>90%</strong></span>
+            </div>
+        </div>
+
+
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="status">🏃‍♂️ סיים את תוכנית האימון השבועית שלך</span>
+                <span class="status">📅 קבע פגישה עם בני משפחה</span>
+                <span class="status">📈 עדכן את תקציב החודש</span>
+                <span class="status">🎨 השלם פרויקט יצירתי בחופשה</span>
+            </div>
+        </div>
+
+
+        <div class="footer-links">
+            <div class="footer-link-item">
+                <i class="fas fa-heartbeat"></i>
+                <a href="#health">בריאות ורווחה</a>
+            </div>
+            <div class="footer-link-item">
+                <i class="fas fa-users"></i>
+                <a href="#family">משפחה ויחסים</a>
+            </div>
+            <div class="footer-link-item">
+                <i class="fas fa-briefcase"></i>
+                <a href="#work">עבודה וקריירה</a>
+            </div>
+            <div class="footer-link-item">
+                <i class="fas fa-sun"></i>
+                <a href="#leisure">פנאי ובילוי</a>
+            </div>
+        </div>
+
+        <button class="expand-btn">ראה עוד</button>
+
+        <div class="expanded-links" style="display: none;">
+            <h3>משאבים שימושיים</h3>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <i class="fas fa-book"></i>
+                    <p>מאמרים על בריאות</p>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-comments"></i>
+                    <p>פורום משפחתי</p>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chart-line"></i>
+                    <p>כלים לניהול כספים</p>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-cogs"></i>
+                    <p>טיפים להתפתחות אישית</p>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#about">עלינו</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+                <li><a href="#privacy">מדיניות פרטיות</a></li>
+                <li><a href="#terms">תנאי שימוש</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-quote">
+            <p>“חיים מאוזנים הם חיים מאושרים.”</p>
+            <cite>- אינסוף אפשרויות</cite>
         </div>
     </div>
 
-    <button class="expand-btn">ראה עוד</button>
-
-    <div class="expanded-links" style="display: none;">
-        <h3>משאבים שימושיים</h3>
-        <div class="resource-grid">
-            <div class="resource-item">
-                <i class="fas fa-book"></i>
-                <p>מאמרים על בריאות</p>
-            </div>
-            <div class="resource-item">
-                <i class="fas fa-comments"></i>
-                <p>פורום משפחתי</p>
-            </div>
-            <div class="resource-item">
-                <i class="fas fa-chart-line"></i>
-                <p>כלים לניהול כספים</p>
-            </div>
-            <div class="resource-item">
-                <i class="fas fa-cogs"></i>
-                <p>טיפים להתפתחות אישית</p>
-            </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 NexiLife. כל הזכויות שמורות.</p>
+        <div class="social-media">
+            <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="טוויטר"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="לינקדאין"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <ul>
-            <li><a href="#about">עלינו</a></li>
-            <li><a href="#contact">צור קשר</a></li>
-            <li><a href="#privacy">מדיניות פרטיות</a></li>
-            <li><a href="#terms">תנאי שימוש</a></li>
-        </ul>
     </div>
 
-    <div class="footer-quote">
-        <p>“חיים מאוזנים הם חיים מאושרים.”</p>
-        <cite>- אינסוף אפשרויות</cite>
-    </div>
-</div>
-<div class="footer-bottom">
-    <p>&copy; 2024 NexiLife. כל הזכויות שמורות.</p>
-    <div class="social-media">
-        <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="טוויטר"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="לינקדאין"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-</div>
-</footer>
+    </footer>
 
 
-<script>
-    const expandBtn = document.querySelector('.expand-btn');
-    const expandedLinks = document.querySelector('.expanded-links');
+    <script>
+        const expandBtn = document.querySelector('.expand-btn');
+        const expandedLinks = document.querySelector('.expanded-links');
 
-    expandBtn.addEventListener('click', () => {
-        expandedLinks.style.display = expandedLinks.style.display === 'none' ? 'block' : 'none';
-    });
-</script>
-
-
-<script>
-    function openModal(section) {
-        let title = '';
-        let body = '';
-
-        switch (section) {
-            case 'health':
-                title = 'מעקב בריאות';
-                body = 'פותחים את מעקב הבריאות!';
-                break;
-            case 'family':
-                title = 'מתכנן משפחתי';
-                body = 'פותחים את המתכנן המשפחתי!';
-                break;
-            case 'work':
-                title = 'מטרות קריירה';
-                body = 'פותחים את מטרות הקריירה!';
-                break;
-            case 'leisure':
-                title = 'ניהול תחביבים';
-                body = 'פותחים את ניהול התחביבים!';
-                break;
-            case 'finance':
-                title = 'ניהול תקציב';
-                body = 'פותחים את ניהול התקציב!';
-                break;
-            case 'personal-development':
-                title = 'מעקב מיומנויות';
-                body = 'פותחים את מעקב המיומנויות!';
-                break;
-            case 'community':
-                title = 'מעורבות קהילתית';
-                body = 'פותחים את המעורבות הקהילתית!';
-                break;
-            case 'spirituality':
-                title = 'יומן רוחני';
-                body = 'פותחים את היומן הרוחני!';
-                break;
-        }
-
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-body').innerText = body;
-        document.getElementById('modal').style.display = 'block';
-    }
-
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
-
-    window.onclick = function (event) {
-        if (event.target == document.getElementById('modal')) {
-            closeModal();
-        }
-    }
-</script>
-
-<script>
-    const themes = {
-        health: { backgroundColor: '#ffebee', textColor: '#ff5722' },
-        family: { backgroundColor: '#e3f2fd', textColor: '#2196F3' },
-        work: { backgroundColor: '#fffde7', textColor: '#FFC107' },
-        leisure: { backgroundColor: '#f3e5f5', textColor: '#9C27B0' },
-        finance: { backgroundColor: '#e8f5e9', textColor: '#4CAF50' },
-        personal: { backgroundColor: '#fce4ec', textColor: '#E91E63' },
-        community: { backgroundColor: '#e3f2fd', textColor: '#3F51B5' },
-        spirituality: { backgroundColor: '#e0f7fa', textColor: '#00BCD4' }
-    };
-
-    document.querySelectorAll('.nav-icons li a').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault(); // למנוע מעבר לקטגוריה
-
-            const theme = this.getAttribute('data-theme');
-            const themeColors = themes[theme];
-
-            document.body.style.backgroundColor = themeColors.backgroundColor;
-            document.body.style.color = themeColors.textColor;
-
-            // עדכון התוכן הדינמי
-            const contentText = this.getAttribute('data-content');
-            document.getElementById('dynamic-content').innerHTML = `<h2>${contentText}</h2><p>תוכן נוסף עבור ${contentText}.</p>`;
+        expandBtn.addEventListener('click', () => {
+            expandedLinks.style.display = expandedLinks.style.display === 'none' ? 'block' : 'none';
         });
-    });
+    </script>
 
-</script>
 
-<script>
-    document.querySelectorAll('.nav-icons li a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const category = e.target.closest('a').getAttribute('data-theme');
-            const content = e.target.closest('a').getAttribute('data-content');
+    <script>
+        function openModal(section) {
+            let title = '';
+            let body = '';
 
-            document.getElementById('dynamic-content').innerHTML = `
+            switch (section) {
+                case 'health':
+                    title = 'מעקב בריאות';
+                    body = 'פותחים את מעקב הבריאות!';
+                    break;
+                case 'family':
+                    title = 'מתכנן משפחתי';
+                    body = 'פותחים את המתכנן המשפחתי!';
+                    break;
+                case 'work':
+                    title = 'מטרות קריירה';
+                    body = 'פותחים את מטרות הקריירה!';
+                    break;
+                case 'leisure':
+                    title = 'ניהול תחביבים';
+                    body = 'פותחים את ניהול התחביבים!';
+                    break;
+                case 'finance':
+                    title = 'ניהול תקציב';
+                    body = 'פותחים את ניהול התקציב!';
+                    break;
+                case 'personal-development':
+                    title = 'מעקב מיומנויות';
+                    body = 'פותחים את מעקב המיומנויות!';
+                    break;
+                case 'community':
+                    title = 'מעורבות קהילתית';
+                    body = 'פותחים את המעורבות הקהילתית!';
+                    break;
+                case 'spirituality':
+                    title = 'יומן רוחני';
+                    body = 'פותחים את היומן הרוחני!';
+                    break;
+            }
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerText = body;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('modal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+    <script>
+        const themes = {
+            health: { backgroundColor: '#ffebee', textColor: '#ff5722' },
+            family: { backgroundColor: '#e3f2fd', textColor: '#2196F3' },
+            work: { backgroundColor: '#fffde7', textColor: '#FFC107' },
+            leisure: { backgroundColor: '#f3e5f5', textColor: '#9C27B0' },
+            finance: { backgroundColor: '#e8f5e9', textColor: '#4CAF50' },
+            personal: { backgroundColor: '#fce4ec', textColor: '#E91E63' },
+            community: { backgroundColor: '#e3f2fd', textColor: '#3F51B5' },
+            spirituality: { backgroundColor: '#e0f7fa', textColor: '#00BCD4' }
+        };
+
+        document.querySelectorAll('.nav-icons li a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // למנוע מעבר לקטגוריה
+
+                const theme = this.getAttribute('data-theme');
+                const themeColors = themes[theme];
+
+                document.body.style.backgroundColor = themeColors.backgroundColor;
+                document.body.style.color = themeColors.textColor;
+
+                // עדכון התוכן הדינמי
+                const contentText = this.getAttribute('data-content');
+                document.getElementById('dynamic-content').innerHTML = `<h2>${contentText}</h2><p>תוכן נוסף עבור ${contentText}.</p>`;
+            });
+        });
+
+    </script>
+
+    <script>
+        document.querySelectorAll('.nav-icons li a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = e.target.closest('a').getAttribute('data-theme');
+                const content = e.target.closest('a').getAttribute('data-content');
+
+                document.getElementById('dynamic-content').innerHTML = `
             <h2>${content}</h2>
             <p>כאן תוכל לנהל את ${content.toLowerCase()} שלך.</p>
         `;
+            });
         });
-    });
-</script>
+    </script>
 
-<script>
-    document.getElementById('search').addEventListener('input', function () {
-        const query = this.value.toLowerCase();
-        document.querySelectorAll('.section').forEach(section => {
-            const text = section.innerText.toLowerCase();
-            section.style.display = text.includes(query) ? 'block' : 'none';
+    <script>
+        document.getElementById('search').addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll('.section').forEach(section => {
+                const text = section.innerText.toLowerCase();
+                section.style.display = text.includes(query) ? 'block' : 'none';
+            });
         });
-    });
-</script>
+    </script>
 
-<script>
-    function updateProgress(category, percentage) {
-        const progressBar = document.querySelector(`.progress-bar[data-category="${category}"]`);
-        if (progressBar) {
-            progressBar.style.width = `${percentage}%`;
-            progressBar.setAttribute("title", `${percentage}% הושגו`);
+    <script>
+        function updateProgress(category, percentage) {
+            const progressBar = document.querySelector(`.progress-bar[data-category="${category}"]`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+                progressBar.setAttribute("title", `${percentage}% הושגו`);
+            }
         }
-    }
 
-</script>
+    </script>
 
 </html>

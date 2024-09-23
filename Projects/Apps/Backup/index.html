@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף נחיתה עם תפריט תחתון</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content {
+            display: none;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            /* ריווח אחיד בין האייקונים */
+            align-items: center;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px 0;
+            flex-wrap: nowrap;
+            /* מונע שבירה לשורות במסכים קטנים */
+        }
+
+        .footer-icon {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .footer-icon i {
+            font-size: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .footer-icon i {
+                font-size: 20px;
+                /* הקטנת גודל האייקונים במסכים קטנים */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content active" id="home">
+        <h2>ברוכים הבאים לבית!</h2>
+        <p>כאן תמצא את כל המידע שקשור לאפליקציה שלנו.</p>
+    </div>
+    <div class="content" id="profile">
+        <h2>פרופיל משתמש</h2>
+        <p>פרטים על המשתמש שלך.</p>
+    </div>
+    <div class="content" id="settings">
+        <h2>הגדרות</h2>
+        <p>כאן תוכל לשנות את ההגדרות שלך.</p>
+    </div>
+    <div class="content" id="notifications">
+        <h2>התראות</h2>
+        <p>כל ההתראות האחרונות שלך.</p>
+    </div>
+    <div class="content" id="info">
+        <h2>מידע נוסף</h2>
+        <p>כל מה שצריך לדעת על האפליקציה.</p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-icon" onclick="showContent('info')"><i class="fas fa-info-circle"></i></div>
+        <div class="footer-icon" onclick="showContent('notifications')"><i class="fas fa-bell"></i></div>
+        <div class="footer-icon" onclick="showContent('home')"><i class="fas fa-home"></i></div>
+        <div class="footer-icon" onclick="showContent('settings')"><i class="fas fa-cog"></i></div>
+        <div class="footer-icon" onclick="showContent('profile')"><i class="fas fa-user"></i></div>
+    </div>
+
+    <script>
+        function showContent(section) {
+            // Hide all content sections
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(section).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -6,6 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>דף ראשי</title>
     <link rel="stylesheet" href="./css/Golden.css">
+    <link rel="stylesheet" href="./css/quit-smoking-button.css">
+    <style>
+        footer {
+            background-color: rgba(255, 255, 255, 0.5);
+            /* צבע רקע שקוף מעט */
+            direction: rtl;
+            color: var(--text-color);
+            text-align: center;
+            font-size: 1em;
+            /* גודל פונט אחיד ונוח לקריאה */
+            margin-top: 30px;
+            /* מרווח גדול יותר מעל הפוטר */
+            /* border-radius: 18px; */
+            padding: 15px 20px;
+            /* ריווח פנימי נוח יותר */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* צל עדין למראה יותר מודרני */
+            backdrop-filter: blur(5px);
+            /* טשטוש רקע מאחורי הפוטר */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* מסגרת שקופה למראה מעודן */
+            transition: background-color 0.3s ease;
+            /* אפקט מעבר חלק */
+        }
+
+        footer:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* שינוי צבע בהובר */
+        }
+
+        footer p {
+            margin: 5px 0;
+            /* ריווח בין הפסקאות בפוטר */
+            line-height: 1.6;
+            /* גובה שורה מוגבר לקריאות */
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            /* ריווח מוגדל בין האייקונים */
+            margin-bottom: 10px;
+        }
+
+        .footer-icons a {
+            color: var(--text-color);
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            /* אנימציה חלקה גם לצבע וגם לתזוזה */
+        }
+
+        .footer-icons a:hover {
+            color: goldenrod;
+            /* שינוי צבע בהובר */
+            transform: scale(1.1);
+            /* הגדלה קלה בהובר */
+        }
+
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* רווח שווה בין האייקונים */
+            margin-bottom: 10px;
+        }
+
+        .footer-icons a {
+            color: var(--text-color);
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .footer-icons a:hover {
+            color: goldenrod;
+            /* צבע משתנה בהובר */
+        }
+
+        /* עיצוב רספונסיבי */
+        @media (max-width: 768px) {
+            .footer-icons {
+                gap: 15px;
+            }
+
+            .footer-icons a {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-icons {
+                flex-wrap: wrap;
+                /* כאשר אין מספיק מקום, האייקונים יתחילו בשורה חדשה */
+                gap: 10px;
+            }
+
+            .footer-icons a {
+                font-size: 18px;
+            }
+        }
+    </style>
 
     <style>
         body {
@@ -156,112 +258,13 @@
             transition: 0.4s ease-in-out;
         }
     </style>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
 <body>
-    <style>
-        footer {
-            background-color: rgba(255, 255, 255, 0.5);
-            /* צבע רקע שקוף מעט */
-            direction: rtl;
-            color: var(--text-color);
-            text-align: center;
-            font-size: 1em;
-            /* גודל פונט אחיד ונוח לקריאה */
-            margin-top: 30px;
-            /* מרווח גדול יותר מעל הפוטר */
-            /* border-radius: 18px; */
-            padding: 15px 20px;
-            /* ריווח פנימי נוח יותר */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            /* צל עדין למראה יותר מודרני */
-            backdrop-filter: blur(5px);
-            /* טשטוש רקע מאחורי הפוטר */
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            /* מסגרת שקופה למראה מעודן */
-            transition: background-color 0.3s ease;
-            /* אפקט מעבר חלק */
-        }
 
-        footer:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-            /* שינוי צבע בהובר */
-        }
-
-        footer p {
-            margin: 5px 0;
-            /* ריווח בין הפסקאות בפוטר */
-            line-height: 1.6;
-            /* גובה שורה מוגבר לקריאות */
-        }
-
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            /* ריווח מוגדל בין האייקונים */
-            margin-bottom: 10px;
-        }
-
-        .footer-icons a {
-            color: var(--text-color);
-            font-size: 24px;
-            transition: color 0.3s, transform 0.3s;
-            /* אנימציה חלקה גם לצבע וגם לתזוזה */
-        }
-
-        .footer-icons a:hover {
-            color: goldenrod;
-            /* שינוי צבע בהובר */
-            transform: scale(1.1);
-            /* הגדלה קלה בהובר */
-        }
-
-
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            /* רווח שווה בין האייקונים */
-            margin-bottom: 10px;
-        }
-
-        .footer-icons a {
-            color: var(--text-color);
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .footer-icons a:hover {
-            color: goldenrod;
-            /* צבע משתנה בהובר */
-        }
-
-        /* עיצוב רספונסיבי */
-        @media (max-width: 768px) {
-            .footer-icons {
-                gap: 15px;
-            }
-
-            .footer-icons a {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .footer-icons {
-                flex-wrap: wrap;
-                /* כאשר אין מספיק מקום, האייקונים יתחילו בשורה חדשה */
-                gap: 10px;
-            }
-
-            .footer-icons a {
-                font-size: 18px;
-            }
-        }
-    </style>
     <!-- בס"ד טקסט -->
     <div style="margin: 10px; text-align: right; color: goldenrod;">
         <p>בס״ד</p>
@@ -274,11 +277,293 @@
 
     <!-- תוכן ראשי -->
     <div class="main-content">
-        <div class="button-container">
-            <a href="./Projects/Next-Life/" class="nextlife-button">Next-Life</a>
-            <a href="./Profiles.html" class="dynamic-button">פרופיל</a>
-            <a href="./Dashboard.html" class="glass-button">לוח בקרה</a>
+
+        <div id="business" class="tab ">
+            <div class="business-card"
+                style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); padding: 20px; background: #f9f9f9; max-width: 400px; margin: auto;">
+                <div class="background-animation" style="opacity: 0.1;"></div>
+                <h2 style="text-align: right; color: #333; font-family: 'Arial', sans-serif;">לאון יעקובוב<span><button
+                            class="contact-button" onclick="openModal()"
+                            style="margin-top: 10px; background: #4CAF50; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">💬
+                            צור קשר</button></span></h2>
+
+                <div class="contact-info" style="text-align: center;">
+                    <p class="icon" style="font-size: 1.1em;">📞 טלפון: <strong>054-328-5967</strong></p>
+                    <p class="icon" style="font-size: 1.1em;">📧 אימייל: <a
+                            href="mailto:leon@example.com">leon@example.com</a></p>
+                    <p class="icon" style="font-size: 1.1em;">🌐 אתר אישי: <a href="https://anlominus.github.io"
+                            target="_blank">anlominus.github.io</a></p>
+                </div>
+
+                <h3 style="text-align: right; color: #777;">📋 איזון בכל תחומי החיים שלך!</h3>
+
+                <div class="button-container">
+                    <a href="./Projects/Next-Life/" class="nextlife-button">Next-Life</a>
+                    <a href="./Projects/Fresh-Life/" class="stop-smoking-button">Fresh-Life</a>
+                    <style>
+                        .quit-smoking-button {
+                            position: relative;
+                            display: inline-block;
+                            padding: 15px 40px;
+                            font-weight: bold;
+                            color: #ffffff;
+                            background: linear-gradient(135deg,
+                                    rgba(255, 69, 0, 0.9),
+                                    rgba(255, 140, 0, 0.8));
+                            border-radius: 25px;
+                            border: 2px solid rgba(255, 255, 255, 0.7);
+                            backdrop-filter: blur(10px);
+                            text-decoration: none;
+                            transition: background 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
+                            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.7),
+                                inset 0 0 15px rgba(255, 255, 255, 0.5);
+                            font-size: 20px;
+                            overflow: hidden;
+                        }
+
+                        .quit-smoking-button:hover {
+                            background: rgba(255, 0, 0, 1);
+                            transform: scale(1.1) rotate(1deg);
+                            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.8),
+                                inset 0 0 20px rgba(255, 255, 255, 0.5);
+                            animation: pulse 1.2s infinite;
+                            /* אפקט פולס */
+                            color: #fff;
+                        }
+
+                        .quit-smoking-button:hover::before,
+                        .quit-smoking-button:hover::after {
+                            animation: wave 0.6s infinite;
+                            /* אפקט גלי */
+                        }
+
+                        @keyframes pulse {
+                            0% {
+                                transform: scale(1);
+                            }
+
+                            50% {
+                                transform: scale(1.05);
+                            }
+
+                            100% {
+                                transform: scale(1);
+                            }
+                        }
+
+                        @keyframes wave {
+                            0% {
+                                opacity: 0.7;
+                            }
+
+                            100% {
+                                opacity: 1;
+                            }
+                        }
+
+                        .quit-smoking-button::before,
+                        .quit-smoking-button::after {
+                            position: absolute;
+                            font-size: 60px;
+                            color: rgba(255, 255, 255, 0.5);
+                            transition: all 0.4s ease-in-out;
+                            z-index: -1;
+                            /* להסתיר מאחורי הכפתור */
+                        }
+
+                        .quit-smoking-button::before {
+                            content: "🚭";
+                            top: -15px;
+                            left: -10px;
+                            transform: rotate(10deg);
+                            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+                        }
+
+                        .quit-smoking-button::after {
+                            content: "💪";
+                            bottom: -15px;
+                            right: -10px;
+                            transform: rotate(-10deg);
+                            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+                        }
+
+                        /* אפקטים נוספים */
+                        .quit-smoking-button:active {
+                            transform: scale(0.95);
+                            /* הכפתור מתכווץ בלחיצה */
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                        }
+
+                        /* אפקטים של כוכבים */
+                        .quit-smoking-button::after {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            background: radial-gradient(circle,
+                                    rgba(255, 255, 255, 0.2) 20%,
+                                    transparent 20%) center/15% 15%;
+                            animation: twinkle 1.5s infinite;
+                            z-index: -2;
+                            /* מאחורי הכפתור */
+                        }
+
+                        @keyframes twinkle {
+
+                            0%,
+                            100% {
+                                background-position: 0% 0%;
+                            }
+
+                            50% {
+                                background-position: 100% 100%;
+                            }
+                        }
+                    </style>
+
+                </div>
+
+                <div class="icon-container"
+                    style="text-align: right; display: flex; justify-content: space-around; flex-wrap: wrap; margin: 10px 0;">
+                    <div class="icon-item"
+                        onclick="showPopup('ניהול בריאות ורווחה', 'מתן טיפים על אורח חיים בריא, תזונה נכונה ופעילות גופנית.')"
+                        style="cursor: pointer; margin: 10px;">
+                        🌱
+                    </div>
+                    <div class="icon-item"
+                        onclick="showPopup('חיזוק קשרים משפחתיים וחברתיים', 'יצירת סדנאות לתקשורת אפקטיבית ובניית מערכות יחסים טובות.')"
+                        style="cursor: pointer; margin: 10px;">
+                        👨‍👩‍👧‍👦
+                    </div>
+                    <div class="icon-item"
+                        onclick="showPopup('פיתוח קריירה ותחושת הצלחה', 'ליווי אישי ופיתוח תוכניות קריירה מותאמות אישית.')"
+                        style="cursor: pointer; margin: 10px;">
+                        💼
+                    </div>
+                    <div class="icon-item"
+                        onclick="showPopup('ניהול פיננסי וחיסכון', 'סדנאות על ניהול תקציב, השקעות וחיסכון לעתיד.')"
+                        style="cursor: pointer; margin: 10px;">
+                        💰
+                    </div>
+                    <div class="icon-item"
+                        onclick="showPopup('התפתחות אישית ולמידה מתמשכת', 'ניהול קורסים וסדנאות לשיפור עצמי ולמידה מתקדמת.')"
+                        style="cursor: pointer; margin: 10px;">
+                        📖
+                    </div>
+                    <div class="icon-item"
+                        onclick="showPopup('מאבק בעישון', 'הקמת פרויקטים לקידום מודעות והדרכה להפסקת עישון.')"
+                        style="cursor: pointer; margin: 10px;">
+                        🚭
+                    </div>
+                    <div class="icon-item"
+                        onclick="showPopup('קהילה וסביבה', 'פיתוח פרויקטים חברתיים לשיפור הקהילה שלנו.')"
+                        style="cursor: pointer; margin: 10px;">
+                        🌍
+                    </div>
+                </div>
+
+
+
+                <h3 style="text-align: right; color: #333;">🌐 רשתות חברתיות:</h3>
+                <div class="social-icons"
+                    style="text-align: center; display: flex; justify-content: space-between; flex-wrap: wrap; margin: 10px 0;">
+                    <a href="https://x.com/anLoMinusX" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/anlominus/" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/AnLoMinusX/" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/AnLoMinusX/" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://codepen.io/AnLoMinus" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-codepen"></i></a>
+                    <a href="https://github.com/AnLoMinus" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-github"></i></a>
+                    <a href="https://chat.openai.com/auth/login" target="_blank"
+                        style="flex: 1; text-align: center; margin: 5px;"><i class="fas fa-robot"></i></a>
+                </div>
+
+                <footer style="text-align: right; margin-top: 20px; font-size: 0.9em; color: #999;">
+                    &copy; 2024 לאון יעקובוב - כל הזכויות שמורות
+                </footer>
+            </div>
+
+            <!-- Modal for Contact Form -->
+            <div id="contactModal"
+                style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+                <div
+                    style="background: white; border-radius: 10px; padding: 20px; max-width: 900px; width: 80%; overflow-y: auto; max-height: 90vh; border: 1px solid #e5e5e5;">
+                    <h3 style="text-align: right;">בחירת שירותי בניית חנות דיגיטלית</h3>
+                    <p style="text-align: right;">
+                        בחר את השירותים שתרצה להוסיף לחנות שלך. אנחנו מציעים מגוון פתרונות לבניית חנות דיגיטלית, קידום
+                        עסקי, תוכניות שותפים ועוד. סמן את האפשרויות שמתאימות לצרכים שלך ונשמח לחזור אליך.
+                    </p>
+
+                    <div class="section-title"
+                        style="font-weight: bold; margin-top: 25px; margin-bottom: 10px; color: #6a1b9a; font-size: 20px;">
+                        שירותים מוצעים:
+                    </div>
+
+                    <div class="service-section"
+                        style="background-color: #f2f0f5; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #e0d9e6;">
+                        <div class="checkbox-container" style="margin-bottom: 15px;">
+                            <input type="checkbox" id="customCoupons" value="שוברים/כרטיסי הנחה מותאמים אישית">
+                            <label for="customCoupons">שוברים/כרטיסי הנחה מותאמים אישית - תשלום לפי אחוזי מכירה</label>
+                        </div>
+                        <p>הצעת כרטיסי הנחה מותאמים אישית ללקוחות, כאשר התשלום מתבצע לפי אחוז מכל עסקה שמתבצעת דרך
+                            הכרטיסים.</p>
+                    </div>
+
+                    <!-- הוסף כאן עוד שירותים כמו שצריך -->
+
+                    <div class="section-title"
+                        style="font-weight: bold; margin-top: 25px; margin-bottom: 10px; color: #6a1b9a; font-size: 20px;">
+                        פרטים אישיים:
+                    </div>
+
+                    <form id="contactForm" onsubmit="submitForm(event)" style="text-align: right;">
+                        <label for="businessName">שם העסק:</label>
+                        <input type="text" id="businessName" placeholder="הכנס שם העסק שלך" required
+                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+
+                        <label for="ownerName">שם בעל העסק:</label>
+                        <input type="text" id="ownerName" placeholder="הכנס שם מלא" required
+                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+
+                        <label for="phone">טלפון:</label>
+                        <input type="tel" id="phone" placeholder="הכנס מספר טלפון" required
+                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+
+                        <label for="email">אימייל:</label>
+                        <input type="email" id="email" placeholder="הכנס כתובת אימייל" required
+                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+
+                        <button type="button" onclick="sendWhatsApp()"
+                            style="background: #6a1b9a; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; width: 100%;">שלח
+                            ל-WhatsApp</button>
+                        <button type="button" onclick="closeModal()"
+                            style="background: #f44336; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; width: 100%;">סגור</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Popup for Icon Descriptions -->
+            <div id="popup"
+                style="display:none; position:fixed; top:50%; left:50%; transform: translate(-50%, -50%); background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 1000;">
+                <h3 id="popup-title" style="text-align: right;"></h3>
+                <p id="popup-description" style="text-align: right;"></p>
+                <button onclick="closePopup()"
+                    style="background: #f44336; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">סגור</button>
+            </div>
         </div>
+
+        <!-- <a href="./Profiles.html" class="dynamic-button">פרופיל</a> -->
+        <!-- <a href="./Dashboard.html" class="glass-button">לוח בקרה</a> -->
     </div>
 
     <!-- פוטר -->
@@ -296,7 +581,6 @@
             <a href="https://chat.openai.com/auth/login" target="_blank"><i class="fas fa-robot"></i></a>
         </div>
         <p>פותח ע"י: לאון יעקובוב ושותפיו, OpenAI 🤝</p>
-        <p>18-09-2024</p>
     </footer>
 
 </body>
