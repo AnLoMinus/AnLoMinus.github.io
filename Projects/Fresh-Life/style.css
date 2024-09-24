@@ -2,16 +2,18 @@ body {
   font-family: Arial, sans-serif;
   background-color: #e9ecef;
   color: #333;
-  margin: 0;
-  padding: 0;
+  /* margin: 0; */
+  /* padding: 0; */
   direction: rtl;
 }
 
 header {
+  padding: 7px;
+  border: 3px solid #4a4a4a75;
+  border-radius: 18px;
   background-color: #d9534f;
   color: white;
   text-align: center;
-  padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -21,9 +23,8 @@ header h1 {
 }
 
 .quote-bar {
-  background-color: #f0ad4e;
+  background-color: #4a4a4a9e;
   color: #fff;
-  padding: 15px;
   text-align: center;
   font-size: 1.5em;
   border-radius: 8px;
@@ -32,7 +33,6 @@ header h1 {
 }
 
 .content {
-  padding: 20px;
   text-align: center;
 }
 
@@ -117,10 +117,12 @@ button:hover {
 
 footer {
   background-color: #d9534f;
-  color: white;
-  text-align: center;
   padding: 10px;
+  border: 10px solid #4a4a4a;
+  border-radius: 18px;
+  /* color: white; */
+  /* text-align: center; */
   /* position: fixed; */
-  width: 100%;
-  bottom: 0;
+  /* width: 100%; */
+  /* bottom: 0; */
 }

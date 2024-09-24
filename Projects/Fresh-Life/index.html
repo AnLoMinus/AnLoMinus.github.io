@@ -8,11 +8,331 @@
     <link rel="stylesheet" href="./style.css">
     <!-- <link rel="stylesheet" href="../../css/Fresh.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Style for Header Content */
+        .header-content {
+
+            background-color: #4a4a4a67;
+            /* צבע אדום אזהרה */
+            color: white;
+            /* padding: 20px; */
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header-text p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .header-content p:nth-child(2) {
+            font-weight: bold;
+        }
+    </style>
+
+    <style>
+        .quote-bar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: #4a4a4a 1px solid;
+            width: 100%;
+            padding: 1%;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* עיצוב לבר החיזוקים */
+        #positive-bar {
+            background-color: #d1f7c4;
+            color: #2f7a2d;
+        }
+
+        /* עיצוב לבר האזהרות */
+        #warning-bar {
+            background-color: #ffd3d3;
+            color: #b70000;
+        }
+
+        section {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
+
+
+    <style>
+        footer {
+            /* background-color: rgba(255, 255, 255, 0.5); */
+            /* צבע רקע שקוף מעט */
+            direction: rtl;
+            /* color: var(--text-color); */
+            text-align: center;
+            font-size: 1em;
+            /* גודל פונט אחיד ונוח לקריאה */
+            /* margin-top: 30px; */
+            /* מרווח גדול יותר מעל הפוטר */
+            /* border-radius: 18px; */
+            /* padding: 15px 20px; */
+            /* ריווח פנימי נוח יותר */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* צל עדין למראה יותר מודרני */
+            backdrop-filter: blur(5px);
+            /* טשטוש רקע מאחורי הפוטר */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* מסגרת שקופה למראה מעודן */
+            transition: background-color 0.3s ease;
+            /* אפקט מעבר חלק */
+        }
+
+        footer:hover {
+            /* background-color: rgba(255, 255, 255, 0.8); */
+            /* שינוי צבע בהובר */
+        }
+
+        footer p {
+            margin: 5px 0;
+            /* ריווח בין הפסקאות בפוטר */
+            line-height: 1.6;
+            /* גובה שורה מוגבר לקריאות */
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            /* gap: 25px; */
+            /* ריווח מוגדל בין האייקונים */
+            /* margin-bottom: 10px; */
+        }
+
+        .footer-icons a {
+            color: var(--text-color);
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            /* אנימציה חלקה גם לצבע וגם לתזוזה */
+        }
+
+        .footer-icons a:hover {
+            color: goldenrod;
+            /* שינוי צבע בהובר */
+            transform: scale(1.1);
+            /* הגדלה קלה בהובר */
+        }
+
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            /* gap: 20px; */
+            /* רווח שווה בין האייקונים */
+            /* margin-bottom: 10px; */
+        }
+
+        .footer-icons a {
+            color: var(--text-color);
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .footer-icons a:hover {
+            color: goldenrod;
+            /* צבע משתנה בהובר */
+        }
+
+        /* עיצוב רספונסיבי */
+        @media (max-width: 768px) {
+            .footer-icons {
+                gap: 15px;
+            }
+
+            .footer-icons a {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-icons {
+                flex-wrap: wrap;
+                /* כאשר אין מספיק מקום, האייקונים יתחילו בשורה חדשה */
+                /* gap: 10px; */
+            }
+
+            .footer-icons a {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+    <style>
+        .container {
+            flex-direction: column;
+            /* padding: 100px; */
+        }
+
+        .quote-row {
+            border: 2px solid;
+            /* הוספת גבול */
+            border-radius: 8px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quote {
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* צבעים לכל קטגוריה */
+        #quote-row-0 {
+            background-color: #FFABAB;
+            color: #B10C0C;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #FF6B6B;
+        }
+
+        #quote-row-1 {
+            background-color: #FFC3A0;
+            color: #B76B00;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #FF8E5B;
+        }
+
+        #quote-row-2 {
+            background-color: #FFDDC1;
+            color: #B77B00;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #FFB75B;
+        }
+
+        #quote-row-3 {
+            background-color: #FFEDCC;
+            color: #A6A300;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #FFBF6B;
+        }
+
+        #quote-row-4 {
+            background-color: #D4E157;
+            color: #387C12;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #A4C639;
+        }
+
+        #quote-row-5 {
+            background-color: #A7D3F0;
+            color: #0073A2;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #4BAFDE;
+        }
+
+        #quote-row-6 {
+            background-color: #B39DDB;
+            color: #6200B3;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #9A7DCE;
+        }
+
+        #quote-row-7 {
+            background-color: #80CBC4;
+            color: #00695C;
+            /* צבע טקסט קוגניטיבי */
+            border-color: #4DB6AC;
+        }
+    </style>
+
+
 </head>
 
 <body>
-
     <header>
+        <div class="">
+            <!-- Language Switcher Section -->
+            <div class="custom-translate">
+                <div id="google_translate_element"></div>
+            </div>
+
+            <style>
+                /* Style for Custom Language Switcher */
+                .custom-translate {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+                    padding: 10px;
+                    background-color: rgba(255, 255, 198, 0.488);
+                    border-radius: 18px;
+                    border: 2px solid #0000006c;
+                    width: 100%;
+                    margin: 10px;
+                    left: 50px;
+                    right: 50px;
+                }
+
+                .custom-translate select {
+                    background-color: #f7f7f7;
+                    /* רקע בהיר לכפתור */
+                    color: #333;
+                    /* צבע טקסט כהה */
+                    border: 2px solid #d9534f;
+                    /* מסגרת בצבע אדום אזהרה */
+                    border-radius: 8px;
+                    padding: 10px 20px;
+                    font-size: 1.1em;
+                    cursor: pointer;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+
+                .custom-translate select:hover {
+                    background-color: #d9534f;
+                    /* רקע אדום בהרחפת העכבר */
+                    color: white;
+                    /* טקסט לבן */
+                }
+
+                .custom-translate select option {
+                    padding: 10px;
+                }
+
+                .custom-translate::before {
+                    content: "🌐 Select Language:";
+                    font-size: 1.2em;
+                    margin-right: 15px;
+                    align-self: center;
+                    color: #333;
+                }
+            </style>
+
+            <!-- Google Translate Script -->
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'he',
+                        includedLanguages: 'en,he,ar,zh-CN,ru', /* שפות: אנגלית, ערבית, סינית פשוטה, רוסית */
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                        autoDisplay: false
+                    }, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript"
+                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        </div>
+
         <h1>🚭 הארגון למלחמה בעישון 🚭</h1>
         <!-- Section: Header Content with Style -->
         <section class="header-content">
@@ -23,538 +343,413 @@
                     אלינו במאבק 💪 - יחד, נוכל לנצח את ההתמכרות ולהפוך את הבריאות שלכם לעדיפות עליונה! ❤️</p>
             </div>
             <p>מתחילים את הדרך לחיים בריאים</p>
+
         </section>
+
     </header>
     <section>
 
-        <style>
-            /* Style for Header Content */
-            .header-content {
 
-                background-color: #4a4a4a67;
-                /* צבע אדום אזהרה */
-                color: white;
-                padding: 20px;
-                text-align: center;
-                border-radius: 10px;
-                margin-bottom: 20px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            }
 
-            .header-text h1 {
-                font-size: 2.5em;
-                margin-bottom: 10px;
-            }
+        <div class="content">
 
-            .header-text p {
-                font-size: 1.2em;
-                margin: 10px 0;
-                line-height: 1.5;
-            }
+            <!-- רווח כנגו הפסד -->
+            <div class="volunteers-section">
+                <h2><i class="fa-solid"></i>ציטוטים מחזקים ואזהרות על עישון</h2>
+                <div class="video-container">
+                    <section>
+                        <div id="positive-bar" class="quote-bar">ציטוט מחזק...</div>
+                        <div class="quote-bar" id="quoteBar">
+                            "הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה."
+                        </div>
+                        <div id="warning-bar" class="quote-bar">ציטוט אזהרה על עישון...</div>
 
-            .header-content p:nth-child(2) {
-                font-weight: bold;
-            }
-        </style>
+                        <script>
+                            // ציטוטים מחזקים
+                            const positiveQuotes = [
+                                "🚭 כל יום שעובר בלי סיגריה הוא צעד נוסף לחיים בריאים יותר!",
+                                "💪 אתה חזק יותר מהתשוקה לעשן!",
+                                "🌿 חיים ללא עישון הם חיים מלאים בבריאות וחיוניות.",
+                                "🌬️ קח נשימה עמוקה של אוויר נקי - כך החיים צריכים להרגיש!",
+                                "✨ זה לא רק על הפסקת עישון, זה על חירות!",
+                                "🚭 כל סיגריה שאתה לא מדליק מאריכה את חייך בעוד רגעים חשובים. ⏳",
+                                "💪 הבחירה שלך להפסיק לעשן היא הבחירה שלך להמשיך לחיות. 🌟",
+                                "❤️ הפסקת עישון זה לא רק להציל את הבריאות שלך, זה להציל את חייך. 🌈",
+                                "🎯 החיים שלך שווים יותר ממה שיכול להציע סיגריה. ✨",
+                                "💰 לכל סיגריה יש תג מחיר - הבריאות שלך. 🩺",
+                                "🎮 החיים הם לא משחק, אל תתן לעשן להיות המנצח. 🏆",
+                                "🚬 סיגריות לא משפרות לך את החיים, הן רק גונבות אותם לאט לאט. ⏳",
+                                "⏰ כל סיגריה שנשרפת גונבת ממך זמן יקר של החיים. ⌛",
+                                "🚭 העשן שאתה שואף לא עושה לך טובה, הוא רק מחבל בבריאות שלך. 🚫",
+                                "🛑 הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה. 🌟",
+                                "🌿 תחיה את החיים שאתה רוצה, לא את אלו שהעשן כופה עליך. 🌟",
+                                "🌈 כל יום שאתה לא מעשן הוא יום נוסף של חיים בריאים ומאושרים. 💖",
+                                "💫 הפסקת עישון היא הדרך להחזיר לעצמך את הבריאות ואת האושר. 🎉",
+                                "🎉 כל צעד שאתה עושה לעבר הפסקת עישון הוא ניצחון אישי. 🏅",
+                                "🌟 כל שעה ללא סיגריה היא ניצחון על התלות וההרגלים המזיקים. ⏳",
+                                "🔄 חזור לחיים מלאים ומאושרים - הפסק לעשן היום! 🚀",
+                                "💪 רק אתה יכול להחליט להפסיק - קח את השליטה על חייך. 🎯",
+                                "🚭 עישון הוא לא פתרון, הוא רק מספק בעיות נוספות. 🛑",
+                                "🎯 בחר בחיים ללא סיגריות - הדרך להצלחה מתחילה עכשיו. 🌟",
+                                "💡 ההשקעה בהפסקת עישון היא השקעה בעתיד בריא ומאושר יותר. 🌈"
+                            ];
+
+
+                            // ציטוטים מפחידים על עישון
+                            const warningQuotes = [
+                                "⚠️ עישון גורם לסרטן הריאות - שמור על החיים שלך! 🫁",
+                                "🚬 הסיגריות מכילות מעל 70 חומרים מסרטנים! ☠️",
+                                "⏳ כל סיגריה שאתה מעשן מקצרת את חייך בכ-11 דקות! 🕒",
+                                "❤️ עישון פוגע בלב ובמערכת הדם ומעלה סיכון להתקף לב. 💔",
+                                "🚫 אל תיתן לעשן להשתלט על חייך - הפסק עכשיו! 💨",
+                                "⚠️ עישון מוביל להתדרדרות מהירה של הבריאות הכללית שלך. 💥",
+                                "🧠 עישון עלול לגרום לשבץ מוחי ולהפחית את איכות החיים. 🚫",
+                                "🔄 כל סיגריה גונבת ממך רגעים של אושר ובריאות. ❌",
+                                "🛑 העשן שאתה שואף מכיל רעלים הרסניים לגוף שלך. 💀",
+                                "⚡️ כל שאיפה מקצרת את המסע שלך לעתיד בריא ומאושר. 🚷",
+                                "👶 עישון ליד ילדים עלול לגרום להם לבעיות נשימה. 😷",
+                                "👁️ עישון מגביר את הסיכון להתפתחות עיוורון. 👁️‍🗨️",
+                                "💀 עישון מעלה את הסיכון למחלות קטלניות כמו סרטן ומחלות לב. 💣",
+                                "🧓 עישון מאיץ את תהליך ההזדקנות וגורם לעור להיראות עייף וקמול. 🧴",
+                                "🫀 עישון מכפיל את הסיכון לבעיות לב וכלי דם. 🩸",
+                                "💉 עישון מגביר את הסיכון לסכרת מסוג 2 ולסיבוכים נלווים. 🧬",
+                                "⚕️ תן לגוף שלך את ההזדמנות להתאושש - הפסק לעשן היום! ⏳",
+                                "💸 עישון לא רק פוגע בבריאות שלך, הוא גם יקר! 💰",
+                                "🎯 עישון משפיע לרעה על כל חלק בגופך, החל מהריאות ועד לתאי הדם. ⚠️",
+                                "🚭 כל סיגריה שאתה לא מעשן היא צעד לעבר חיים ארוכים יותר. 🛤️",
+                                "🌬️ הריאות שלך לא בנויות להתמודד עם עשן רעיל כל יום. 🫁",
+                                "🛡️ ההפסקה לעשן היום היא הדרך הטובה ביותר להגן על הבריאות שלך בעתיד. ⏳",
+                                "🧑‍⚕️ רופאים מזהירים: עישון הוא הגורם המרכזי למחלות כרוניות. ⚕️",
+                                "🫁 עישון עלול לגרום לנפחת ריאות - מחלה כרונית שמקשה על הנשימה. 💨",
+                                "💡 כל סיגריה היא נזק בלתי הפיך לריאות שלך. ❌",
+                                "⚠️ עישון במהלך ההריון פוגע בעובר ומסכן את חיי התינוק. 👶",
+                                "🚭 עישון לא שווה את הנזק הבריאותי שהוא גורם - תשמור על עצמך! 🛑",
+                                "💊 העישון מגביר את הסיכון למחלות נשימה כרוניות כמו ברונכיטיס. 🩺",
+                                "❗️ עישון מגביר את הסיכון לבעיות חניכיים ואובדן שיניים. 🦷",
+                                "🔬 מחקרים מראים: כל סיגריה מפחיתה את היכולת של הגוף להחלים מפציעות ומחלות. 📉",
+                                "⚕️ הפסקת עישון היא הצעד הראשון להרגשה טובה יותר בכל יום. 🌅",
+                                "💀 הסיגריות משאירות בגופך רעלים שלא נעלמים. 🚬",
+                                "⚡️ עישון גורם לירידה ברמת האנרגיה ובתפקוד היומיומי. ⬇️",
+                                "🧬 עישון פוגע במערכת החיסונית ומגביר את הסיכון לזיהומים. 🦠",
+                                "🌍 עישון מזיק לא רק לך, אלא גם לסביבה. ♻️",
+                                "🔥 סיגריות יכולות לגרום לשריפות קטלניות - היזהר! 🚒",
+                                "🌿 עישון פוגע בכוח הפוריות ומקטין את הסיכויים להרות. 👶",
+                                "🫁 כל סיגריה גובה מחיר מהיכולת שלך לנשום בחופשיות. ❌",
+                                "🔔 עישון פסיבי מסכן את כל האנשים סביבך. 👨‍👩‍👦",
+                                "🎯 כל שאיפה מקרבת אותך למחלות כרוניות ולבעיות בריאות. 🚷",
+                                "🚭 ההחלטה להפסיק לעשן היא ההחלטה להמשיך לחיות! ✨",
+                                "💔 עישון מגביר את הסיכון לאירועים קרדיווסקולריים מסכני חיים. 🫀",
+                                "⏳ כל דקה נוספת של עישון מקצרת את החיים שלך. ⌛",
+                                "🧠 העישון פוגע בתפקוד המוחי ומגביר את הסיכון לדמנציה. 🧓",
+                                "🦠 עישון מגביר את החשיפה לזיהומים חמורים במערכת הנשימה. 😷",
+                                "🌪️ עישון עלול לפגוע גם בחושים כמו טעם וריח. 👃👅",
+                                "⚠️ אל תיתן לסיגריות להיות המנהיג של החיים שלך - הפסק לעשן! 🚫",
+                                "💉 כל סיגריה מקטינה את יכולת הגוף להחלים ממחלות ופציעות. 🧬",
+                                "💡 הפסקת עישון יכולה להציל את החיים שלך ואת חיי הסובבים אותך. 🛡️",
+                                "🚭 עישון הוא הרגל מסוכן שמביא רק לנזקים בריאותיים. ❌",
+                                "⚕️ כל הפסקת עישון מקרבת אותך לחיים ארוכים ובריאים יותר. 🌟"
+                            ];
+
+
+                            let positiveIndex = 0;
+                            let warningIndex = 0;
+
+                            function changeQuote() {
+                                // עדכון ציטוטי החיזוקים
+                                document.getElementById("positive-bar").innerText = positiveQuotes[positiveIndex];
+                                positiveIndex = (positiveIndex + 1) % positiveQuotes.length;
+
+                                // עדכון ציטוטי האזהרות
+                                document.getElementById("warning-bar").innerText = warningQuotes[warningIndex];
+                                warningIndex = (warningIndex + 1) % warningQuotes.length;
+                            }
+
+                            // שינוי ציטוט כל 5 שניות
+                            setInterval(changeQuote, 10000);
+
+                            // אתחול הציטוטים בהתחלה
+                            changeQuote();
+                        </script>
+                    </section>
+
+                </div>
+            </div>
+
+
+            <!-- 8 Bars -->
+            <div class="volunteers-section">
+                <h3>🌟✨ אוצר של ציטוטים להשראה, חוכמה ושינוי בכל תחום בחיים 💖🌈</h3>
+                <div class="section container">
+                    <div class="quote-row" id="quote-row-0">
+                        <p class="quote" id="quote-0"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-1">
+                        <p class="quote" id="quote-1"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-2">
+                        <p class="quote" id="quote-2"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-3">
+                        <p class="quote" id="quote-3"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-4">
+                        <p class="quote" id="quote-4"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-5">
+                        <p class="quote" id="quote-5"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-6">
+                        <p class="quote" id="quote-6"></p>
+                    </div>
+                    <div class="quote-row" id="quote-row-7">
+                        <p class="quote" id="quote-7"></p>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const categories = [
+                                "בריאות ורווחה", "כלכלה וכספים", "יחסים חברתיים",
+                                "התמדה ומחויבות", "רוגע ושלווה", "מראה חיצוני והעצמה אישית",
+                                "חוויות חדשות ואורח חיים", "דוגמה אישית והשפעה על אחרים"
+                            ];
+
+                            const intervalTime = 5000; // זמן בשניות לעדכון הציטוטים
+
+                            const data = {
+                                "בריאות ורווחה": [
+                                    "💖 לבריאות יש מחיר, אך היא לא קנייה סתם 💰💖",
+                                    "🌱 להיות בריא זה לא רק להרגיש טוב, אלא גם לחיות טוב 🌈🌱",
+                                    "🌼 שמירה על הבריאות מתחילה בבחירות יומיומיות 💪🌼",
+                                    "✨ חיים בריאים הם חיים מאושרים 🌟✨",
+                                    "🥦 תזונה נכונה היא הדרך לרווחה נפשית וגופנית 🍏🥦",
+                                    "💧 מים הם מקור החיים, אל תשכח לשתות! 🚰💧",
+                                    "🌞 שמור על איזון בין עבודה למנוחה 🛌🌞",
+                                    "🚴‍♂️ פעילות גופנית היא חיונית לבריאותך! 🏋️‍♀️🚴‍♂️",
+                                    "🌺 כל יום הוא הזדמנות חדשה לעשות שינוי חיובי 🌸🌺",
+                                    "🍵 מדיטציה יכולה לשפר את מצב הרוח שלך 🌌🍵"
+                                ],
+                                "כלכלה וכספים": [
+                                    "📈 חיסכון הוא השקעה בעתיד 💰📈",
+                                    "🪙 כל שקל נחשב! 💵🪙",
+                                    "💼 השקעה נבונה היא הדרך לבנות עתיד בטוח 📊💼",
+                                    "🚀 למדו לתכנן את ההוצאות שלכם 🗓️🚀",
+                                    "💳 ניהול נכון של הכספים יוביל להצלחה כלכלית 💵💳",
+                                    "🤑 אל תבזבזו על דברים שלא משפרים את איכות חייכם 🚫🤑",
+                                    "📊 קחו את הזמן להבין איפה הכסף שלכם נמצא 🕒📊",
+                                    "💸 למד לחסוך כסף בכל חודש, גם אם זה סכום קטן! 📅💸",
+                                    "🔍 בדוק את ההוצאות שלך מדי חודש 💼🔍",
+                                    "💰 השקעה במיומנויות חדשות היא השקעה משתלמת בעתיד 🎓💰"
+                                ],
+                                "יחסים חברתיים": [
+                                    "🤝 חברים טובים הם נכס יקר ערך ❤️🤝",
+                                    "❤️ אהבה וחברות הם מהות החיים 🌷❤️",
+                                    "✨ תקשורת פתוחה היא המפתח ליחסים טובים 🔑✨",
+                                    "🌟 תן מעצמך לחברים שלך, זה מחזיר פי כמה 💞🌟",
+                                    "🌈 כל יום הוא הזדמנות לייצר זיכרונות חדשים 🥳🌈",
+                                    "🤗 הבעת הערכה יכולה לחזק את הקשרים החברתיים שלך 💖🤗",
+                                    "🎉 חוויות משותפות יוצרות קשרים חזקים יותר 🌻🎉",
+                                    "🌹 תן לאנשים שלך את המרחב שהם צריכים ❤️🌹",
+                                    "👫 חברות היא לא רק להימצא יחד, אלא גם להבין אחד את השני 🤝👫",
+                                    "💬 דברו בכנות על מה שמפריע לכם, זה חשוב! 🌈💬"
+                                ],
+                                "התמדה ומחויבות": [
+                                    "🏆 ההתמדה היא הדרך להצלחה ✨🏆",
+                                    "👣 כל התקדמות קטנה היא צעד קדימה 🚶‍♂️👣",
+                                    "🔑 מחויבות היא המפתח להגשמת המטרות שלך 🎯🔑",
+                                    "🌟 אל תתן לכישלון לעצור אותך! כל כישלון הוא הזדמנות ללמוד 🌈🌟",
+                                    "✨ התמדה היא כמו נר שמאיר את הדרך שלך 🔥✨",
+                                    "🚀 קח כל יום צעד קטן לעבר המטרה שלך 📅🚀",
+                                    "💪 התמדה מביאה לתוצאות מפתיעות! 🌠💪",
+                                    "🌈 כשיש לך חזון, התמדה היא קלף מנצח! 🃏🌈",
+                                    "📅 עשה תוכנית ועמוד בה, זה יוביל אותך להצלחה! 🏁📅",
+                                    "🏅 כל כישלון הוא רק אבן דרך בדרך להצלחה 🚧🏅"
+                                ],
+                                "רוגע ושלווה": [
+                                    "🌬️ נשימות עמוקות יכולות לשנות את מצב הרוח שלך 🌈🌬️",
+                                    "🌿 קח רגע להתבונן בטבע ולהרגיש את השקט 🌳🌿",
+                                    "💖 רוגע הוא המפתח לאושר פנימי 🌼💖",
+                                    "🌊 מים זורמים יכולים להרגיע את הנשמה 🌊🌈",
+                                    "🧘‍♀️ מדיטציה היא דרך מצוינת למצוא שלווה 🧘‍♂️✨",
+                                    "🌅 השמש זורחת בכל יום, קח רגע להעריך זאת 🌞🌅",
+                                    "💤 שינה איכותית היא קריטית לרוגע שלך 🌙💤",
+                                    "🕊️ חיים ללא לחץ הם חיים מאושרים 💕🕊️",
+                                    "🌻 תן לעצמך זמן למנוחה ולרוגע 💖🌻",
+                                    "🧘‍♂️ תרגול יוגה יכול לשפר את בריאותך הפיזית והנפשית 🧘‍♀️🌈"
+                                ],
+                                "מראה חיצוני והעצמה אישית": [
+                                    "🌟 אתה ייחודי ומיוחד! ✨🌟",
+                                    "🔥 האמון בעצמך הוא מה שהופך אותך ליפה ❤️🔥",
+                                    "💄 כל אחת יכולה להרגיש יפה מבפנים ומבחוץ 🌹💄",
+                                    "💪 התמדה בפעילות גופנית משפרת את המראה שלך 🌞💪",
+                                    "🎉 שינויים קטנים יכולים להביא לשינויים גדולים! 🌼🎉",
+                                    "🌈 תאהב את עצמך, כי אתה ראוי לאהבה 💖🌈",
+                                    "👗 השקעה במראה שלך יכולה לשפר את הביטחון שלך 💃👗",
+                                    "💅 טיפוח עצמי הוא דרך נפלאה לחזק את הדימוי העצמי 🌷💅",
+                                    "🌻 יופי פנימי הוא מה שעושה אותך מיוחד 🌸🌻",
+                                    "💖 כל צעד לעבר טיפוח עצמי הוא צעד נכון! 🌼💖"
+                                ],
+                                "חוויות חדשות ואורח חיים": [
+                                    "🌍 נסיעות מגדלות את הנפש 🌏🌍",
+                                    "🌅 לנסות דברים חדשים פותח אופקים חדשים 🏞️🌅",
+                                    "✈️ כל טיול הוא חוויה חדשה שמלמדת אותנו 💫✈️",
+                                    "🥘 תנסה לטעום מטעמים חדשים! 🍣🥘",
+                                    "🎨 חיים מלאים בחוויות הם חיים מלאים במשמעות 🌈🎨",
+                                    "🚴‍♀️ תנסה ספורט חדש, זה יכול לשנות לך את החיים! 🏄‍♂️🚴‍♀️",
+                                    "💫 חוויות חדשות מעשירות את חיינו 🌟💫",
+                                    "🌌 אל תפחד להיות מחוץ לאזור הנוחות שלך 🚀🌌",
+                                    "🌈 תתנסה במשהו שלא עשית קודם! 🎉🌈",
+                                    "🍀 גלה מקומות חדשים, הם יכולים להפתיע אותך! 🌍🍀"
+                                ],
+                                "דוגמה אישית והשפעה על אחרים": [
+                                    "💡 ההשראה שלך יכולה לשנות חיים 🌟💡",
+                                    "💪 ההשפעה שלך היא הכוח שלך 🌈💪",
+                                    "🌍 תראה לעולם איך ניתן לחיות באור 🌞🌍",
+                                    "✨ חיה את החיים שאתה רוצה לראות אחרים חיים 💖✨",
+                                    "❤️ השפעתך יכולה ליצור שינוי חיובי בחיים של אחרים 🌼❤️",
+                                    "📢 דבר בשפת האמת שלך, היא מעוררת השראה! 🌟📢",
+                                    "🤝 דוגמה אישית היא דרך טובה להנחיל ערכים 💖🤝",
+                                    "🔑 להיות דוגמה חיובית עוזרת לאחרים להתקדם 🔑✨",
+                                    "🌈 כל פעולה חיובית קטנה משפיעה על הסביבה שלך 🌻🌈",
+                                    "🚀 התחל להיות הדוגמה שאתה רוצה לראות בעולם! 💪🚀"
+                                ]
+                            };
+
+
+                            function getRandomQuote(category) {
+                                const quotes = data[category];
+                                const randomIndex = Math.floor(Math.random() * quotes.length);
+                                return quotes[randomIndex];
+                            }
+
+                            function updateQuotes() {
+                                categories.forEach((category, index) => {
+                                    const quoteElement = document.getElementById(`quote-${index}`);
+                                    const newQuote = getRandomQuote(category);
+                                    quoteElement.textContent = newQuote;
+                                });
+                            }
+
+                            // עדכון הציטוטים בהתחלה
+                            updateQuotes();
+                            // החלפת ציטוטים בכל כמה שניות
+                            setInterval(updateQuotes, intervalTime);
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <!-- סרטונים -->
+            <div class="video-section" style="display: none;">
+                <h2><i class="fa-solid fa-video"></i> סדרת סרטונים להפסיק לעשן</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- מחשבוני בריאות -->
+            <div class="health-tools">
+                <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
+                <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
+                <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
+
+                <!-- כפתור מחשבון לחיסכון בכסף -->
+                <h2>חשב את החיסכון שלך</h2>
+                <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
+
+            </div>
+
+            <!-- סיפורי הצלחה -->
+            <div class="success-stories">
+                <h2><i class="fa-solid fa-star"></i> סיפורי הצלחה</h2>
+                <p>אנשים אמיתיים שהצליחו להפסיק לעשן משתפים את הדרך שלהם.</p>
+                <div class="story">
+                    <i class="fa-solid fa-user"></i>
+                    <p><strong>ליאור, בן 35:</strong> "החלטתי שזה הזמן לקחת אחריות על הבריאות שלי."</p>
+                </div>
+                <div class="story">
+                    <i class="fa-solid fa-user"></i>
+                    <p><strong>מאיה, בת 28:</strong> "זה לא היה קל, אבל כל יום ללא סיגריה הוא ניצחון אישי."</p>
+                </div>
+            </div>
+
+            <!-- טיימר גמילה חי -->
+            <div class="support-tools">
+                <h2><i class="fa-solid fa-hourglass-half"></i> כמה זמן עבר מאז שהפסקת לעשן?</h2>
+                <div class="timer" id="quitTimer">
+                    לא התחלת עדיין? החלט עכשיו!
+                </div>
+            </div>
+
+            <!-- קהילה ושאלות -->
+            <div class="community-section">
+                <h2><i class="fa-solid fa-comments"></i> פורום שאלות ותשובות</h2>
+                <p>שאל שאלות, קבל תמיכה, ושתף את התקדמותך עם אנשים אחרים.</p>
+                <button onclick="joinCommunity()">הצטרף לפורום</button>
+            </div>
+
+            <!-- טכניקות הרפיה ומיינדפולנס -->
+            <div class="mindfulness-tools">
+                <h2><i class="fa-solid fa-balance-scale"></i> טכניקות הרפיה</h2>
+                <p>תתחיל לחיות את החיים הבריאים שמגיעים לך עם טכניקות הרפיה עוצמתיות.</p>
+                <button onclick="playMeditation()">מדיטציה להרגעה</button>
+                <button onclick="startBreathingExercise()">תרגילי נשימה</button>
+            </div>
+
+            <!-- מערכת תרומות -->
+            <div class="donations-section">
+                <h2><i class="fa-solid fa-donate"></i> תמוך בארגון</h2>
+                <p>תרום עכשיו ותעזור במאבק נגד עישון. כל תרומה משפיעה!</p>
+                <button onclick="donate()">תרום עכשיו</button>
+            </div>
+
+            <!-- ניהול קמפיינים -->
+            <div class="campaigns-section">
+                <h2><i class="fa-solid fa-bullhorn"></i> ניהול קמפיינים</h2>
+                <p>התעדכן בקמפיינים הנוכחיים שלנו ובתוצאותיהם.</p>
+                <ul>
+                    <li>קמפיין 1 - בתהליך</li>
+                    <li>קמפיין 2 - הושלם</li>
+                </ul>
+            </div>
+
+            <!-- התנדבות -->
+            <div class="volunteers-section">
+                <h2><i class="fa-solid fa-handshake"></i> הצטרף כמתנדב</h2>
+                <p>רוצה לעזור במאבק נגד העישון? הצטרף אלינו כמתנדב וקבל משימות ותמיכה.</p>
+                <button onclick="joinVolunteers()">הצטרף כמתנדב</button>
+            </div>
+
+            <!-- משוב ופידבק -->
+            <div class="feedback-section">
+                <h2><i class="fa-solid fa-envelope"></i> משוב משתמשים</h2>
+                <p>שתף אותנו בחוויות שלך ובמשוב על האתר שלנו. דעתך חשובה לנו!</p>
+                <button onclick="submitFeedback()">שלח משוב</button>
+            </div>
+
+        </div>
+
+        <footer>
+            <link rel="stylesheet" href="./css/bootstrap.css">
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            <div class="footer-icons">
+                <a href="https://x.com/anLoMinusX" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/anlominus/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/AnLoMinusX/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/AnLoMinusX/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="https://codepen.io/AnLoMinus" target="_blank"><i class="fab fa-codepen"></i></a>
+                <a href="https://github.com/AnLoMinus" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://chat.openai.com/auth/login" target="_blank"><i class="fas fa-robot"></i></a>
+            </div>
+            <!-- <p>פותח ע"י: לאון יעקובוב ושותפיו, OpenAI 🤝</p> -->
+            <p>© 2024 הארגון למלחמה בעישון</p>
+        </footer>
 
     </section>
-    <div class="quote-bar" id="quoteBar">
-        "הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה."
-    </div>
-
-    <div class="content">
-
-        <!-- רווח כנגו הפסד -->
-        <div class="volunteers-section">
-            <h2><i class="fa-solid"></i>ציטוטים מחזקים ואזהרות על עישון</h2>
-            <div class="video-container">
-                <section>
-                    <style>
-                        .quote-bar {
-                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                            border: #4a4a4a 1px solid;
-                            width: 100%;
-                            padding: 1%;
-                            margin-bottom: 10px;
-                            text-align: center;
-                            font-size: 18px;
-                            font-weight: bold;
-                            border-radius: 10px;
-                            transition: background-color 0.3s ease-in-out;
-                        }
-
-                        /* עיצוב לבר החיזוקים */
-                        #positive-bar {
-                            background-color: #d1f7c4;
-                            color: #2f7a2d;
-                        }
-
-                        /* עיצוב לבר האזהרות */
-                        #warning-bar {
-                            background-color: #ffd3d3;
-                            color: #b70000;
-                        }
-
-                        section {
-                            margin-left: 0;
-                            margin-right: 0;
-                        }
-                    </style>
-                    <div id="positive-bar" class="quote-bar">ציטוט מחזק...</div>
-                    <div id="warning-bar" class="quote-bar">ציטוט אזהרה על עישון...</div>
-
-                    <script>
-                        // ציטוטים מחזקים
-                        const positiveQuotes = [
-                            "🚭 כל יום שעובר בלי סיגריה הוא צעד נוסף לחיים בריאים יותר!",
-                            "💪 אתה חזק יותר מהתשוקה לעשן!",
-                            "🌿 חיים ללא עישון הם חיים מלאים בבריאות וחיוניות.",
-                            "🌬️ קח נשימה עמוקה של אוויר נקי - כך החיים צריכים להרגיש!",
-                            "✨ זה לא רק על הפסקת עישון, זה על חירות!",
-                            "🚭 כל סיגריה שאתה לא מדליק מאריכה את חייך בעוד רגעים חשובים. ⏳",
-                            "💪 הבחירה שלך להפסיק לעשן היא הבחירה שלך להמשיך לחיות. 🌟",
-                            "❤️ הפסקת עישון זה לא רק להציל את הבריאות שלך, זה להציל את חייך. 🌈",
-                            "🎯 החיים שלך שווים יותר ממה שיכול להציע סיגריה. ✨",
-                            "💰 לכל סיגריה יש תג מחיר - הבריאות שלך. 🩺",
-                            "🎮 החיים הם לא משחק, אל תתן לעשן להיות המנצח. 🏆",
-                            "🚬 סיגריות לא משפרות לך את החיים, הן רק גונבות אותם לאט לאט. ⏳",
-                            "⏰ כל סיגריה שנשרפת גונבת ממך זמן יקר של החיים. ⌛",
-                            "🚭 העשן שאתה שואף לא עושה לך טובה, הוא רק מחבל בבריאות שלך. 🚫",
-                            "🛑 הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה. 🌟",
-                            "🌿 תחיה את החיים שאתה רוצה, לא את אלו שהעשן כופה עליך. 🌟",
-                            "🌈 כל יום שאתה לא מעשן הוא יום נוסף של חיים בריאים ומאושרים. 💖",
-                            "💫 הפסקת עישון היא הדרך להחזיר לעצמך את הבריאות ואת האושר. 🎉",
-                            "🎉 כל צעד שאתה עושה לעבר הפסקת עישון הוא ניצחון אישי. 🏅",
-                            "🌟 כל שעה ללא סיגריה היא ניצחון על התלות וההרגלים המזיקים. ⏳",
-                            "🔄 חזור לחיים מלאים ומאושרים - הפסק לעשן היום! 🚀",
-                            "💪 רק אתה יכול להחליט להפסיק - קח את השליטה על חייך. 🎯",
-                            "🚭 עישון הוא לא פתרון, הוא רק מספק בעיות נוספות. 🛑",
-                            "🎯 בחר בחיים ללא סיגריות - הדרך להצלחה מתחילה עכשיו. 🌟",
-                            "💡 ההשקעה בהפסקת עישון היא השקעה בעתיד בריא ומאושר יותר. 🌈"
-                        ];
-
-
-                        // ציטוטים מפחידים על עישון
-                        const warningQuotes = [
-                            "⚠️ עישון גורם לסרטן הריאות - שמור על החיים שלך! 🫁",
-                            "🚬 הסיגריות מכילות מעל 70 חומרים מסרטנים! ☠️",
-                            "⏳ כל סיגריה שאתה מעשן מקצרת את חייך בכ-11 דקות! 🕒",
-                            "❤️ עישון פוגע בלב ובמערכת הדם ומעלה סיכון להתקף לב. 💔",
-                            "🚫 אל תיתן לעשן להשתלט על חייך - הפסק עכשיו! 💨",
-                            "⚠️ עישון מוביל להתדרדרות מהירה של הבריאות הכללית שלך. 💥",
-                            "🧠 עישון עלול לגרום לשבץ מוחי ולהפחית את איכות החיים. 🚫",
-                            "🔄 כל סיגריה גונבת ממך רגעים של אושר ובריאות. ❌",
-                            "🛑 העשן שאתה שואף מכיל רעלים הרסניים לגוף שלך. 💀",
-                            "⚡️ כל שאיפה מקצרת את המסע שלך לעתיד בריא ומאושר. 🚷",
-                            "👶 עישון ליד ילדים עלול לגרום להם לבעיות נשימה. 😷",
-                            "👁️ עישון מגביר את הסיכון להתפתחות עיוורון. 👁️‍🗨️",
-                            "💀 עישון מעלה את הסיכון למחלות קטלניות כמו סרטן ומחלות לב. 💣",
-                            "🧓 עישון מאיץ את תהליך ההזדקנות וגורם לעור להיראות עייף וקמול. 🧴",
-                            "🫀 עישון מכפיל את הסיכון לבעיות לב וכלי דם. 🩸",
-                            "💉 עישון מגביר את הסיכון לסכרת מסוג 2 ולסיבוכים נלווים. 🧬",
-                            "⚕️ תן לגוף שלך את ההזדמנות להתאושש - הפסק לעשן היום! ⏳",
-                            "💸 עישון לא רק פוגע בבריאות שלך, הוא גם יקר! 💰",
-                            "🎯 עישון משפיע לרעה על כל חלק בגופך, החל מהריאות ועד לתאי הדם. ⚠️",
-                            "🚭 כל סיגריה שאתה לא מעשן היא צעד לעבר חיים ארוכים יותר. 🛤️",
-                            "🌬️ הריאות שלך לא בנויות להתמודד עם עשן רעיל כל יום. 🫁",
-                            "🛡️ ההפסקה לעשן היום היא הדרך הטובה ביותר להגן על הבריאות שלך בעתיד. ⏳",
-                            "🧑‍⚕️ רופאים מזהירים: עישון הוא הגורם המרכזי למחלות כרוניות. ⚕️",
-                            "🫁 עישון עלול לגרום לנפחת ריאות - מחלה כרונית שמקשה על הנשימה. 💨",
-                            "💡 כל סיגריה היא נזק בלתי הפיך לריאות שלך. ❌",
-                            "⚠️ עישון במהלך ההריון פוגע בעובר ומסכן את חיי התינוק. 👶",
-                            "🚭 עישון לא שווה את הנזק הבריאותי שהוא גורם - תשמור על עצמך! 🛑",
-                            "💊 העישון מגביר את הסיכון למחלות נשימה כרוניות כמו ברונכיטיס. 🩺",
-                            "❗️ עישון מגביר את הסיכון לבעיות חניכיים ואובדן שיניים. 🦷",
-                            "🔬 מחקרים מראים: כל סיגריה מפחיתה את היכולת של הגוף להחלים מפציעות ומחלות. 📉",
-                            "⚕️ הפסקת עישון היא הצעד הראשון להרגשה טובה יותר בכל יום. 🌅",
-                            "💀 הסיגריות משאירות בגופך רעלים שלא נעלמים. 🚬",
-                            "⚡️ עישון גורם לירידה ברמת האנרגיה ובתפקוד היומיומי. ⬇️",
-                            "🧬 עישון פוגע במערכת החיסונית ומגביר את הסיכון לזיהומים. 🦠",
-                            "🌍 עישון מזיק לא רק לך, אלא גם לסביבה. ♻️",
-                            "🔥 סיגריות יכולות לגרום לשריפות קטלניות - היזהר! 🚒",
-                            "🌿 עישון פוגע בכוח הפוריות ומקטין את הסיכויים להרות. 👶",
-                            "🫁 כל סיגריה גובה מחיר מהיכולת שלך לנשום בחופשיות. ❌",
-                            "🔔 עישון פסיבי מסכן את כל האנשים סביבך. 👨‍👩‍👦",
-                            "🎯 כל שאיפה מקרבת אותך למחלות כרוניות ולבעיות בריאות. 🚷",
-                            "🚭 ההחלטה להפסיק לעשן היא ההחלטה להמשיך לחיות! ✨",
-                            "💔 עישון מגביר את הסיכון לאירועים קרדיווסקולריים מסכני חיים. 🫀",
-                            "⏳ כל דקה נוספת של עישון מקצרת את החיים שלך. ⌛",
-                            "🧠 העישון פוגע בתפקוד המוחי ומגביר את הסיכון לדמנציה. 🧓",
-                            "🦠 עישון מגביר את החשיפה לזיהומים חמורים במערכת הנשימה. 😷",
-                            "🌪️ עישון עלול לפגוע גם בחושים כמו טעם וריח. 👃👅",
-                            "⚠️ אל תיתן לסיגריות להיות המנהיג של החיים שלך - הפסק לעשן! 🚫",
-                            "💉 כל סיגריה מקטינה את יכולת הגוף להחלים ממחלות ופציעות. 🧬",
-                            "💡 הפסקת עישון יכולה להציל את החיים שלך ואת חיי הסובבים אותך. 🛡️",
-                            "🚭 עישון הוא הרגל מסוכן שמביא רק לנזקים בריאותיים. ❌",
-                            "⚕️ כל הפסקת עישון מקרבת אותך לחיים ארוכים ובריאים יותר. 🌟"
-                        ];
-
-
-                        let positiveIndex = 0;
-                        let warningIndex = 0;
-
-                        function changeQuote() {
-                            // עדכון ציטוטי החיזוקים
-                            document.getElementById("positive-bar").innerText = positiveQuotes[positiveIndex];
-                            positiveIndex = (positiveIndex + 1) % positiveQuotes.length;
-
-                            // עדכון ציטוטי האזהרות
-                            document.getElementById("warning-bar").innerText = warningQuotes[warningIndex];
-                            warningIndex = (warningIndex + 1) % warningQuotes.length;
-                        }
-
-                        // שינוי ציטוט כל 5 שניות
-                        setInterval(changeQuote, 10000);
-
-                        // אתחול הציטוטים בהתחלה
-                        changeQuote();
-                    </script>
-                </section>
-
-            </div>
-        </div>
-
-
-        <!-- 8 Bars -->
-        <div class="volunteers-section">
-            <h3>🌟✨ אוצר של ציטוטים להשראה, חוכמה ושינוי בכל תחום בחיים 💖🌈</h3>
-            <div class="section container">
-                <style>
-                    .container {
-                        flex-direction: column;
-                        /* padding: 100px; */
-                    }
-
-                    .quote-row {
-                        border: 2px solid;
-                        /* הוספת גבול */
-                        border-radius: 8px;
-                        padding: 5px;
-                        display: flex;
-                        align-items: center;
-                    }
-
-                    .quote {
-                        font-size: 16px;
-                        margin: 0;
-                        text-align: center;
-                        flex: 1;
-                    }
-
-                    /* צבעים לכל קטגוריה */
-                    #quote-row-0 {
-                        background-color: #FFABAB;
-                        color: #B10C0C;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #FF6B6B;
-                    }
-
-                    #quote-row-1 {
-                        background-color: #FFC3A0;
-                        color: #B76B00;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #FF8E5B;
-                    }
-
-                    #quote-row-2 {
-                        background-color: #FFDDC1;
-                        color: #B77B00;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #FFB75B;
-                    }
-
-                    #quote-row-3 {
-                        background-color: #FFEDCC;
-                        color: #A6A300;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #FFBF6B;
-                    }
-
-                    #quote-row-4 {
-                        background-color: #D4E157;
-                        color: #387C12;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #A4C639;
-                    }
-
-                    #quote-row-5 {
-                        background-color: #A7D3F0;
-                        color: #0073A2;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #4BAFDE;
-                    }
-
-                    #quote-row-6 {
-                        background-color: #B39DDB;
-                        color: #6200B3;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #9A7DCE;
-                    }
-
-                    #quote-row-7 {
-                        background-color: #80CBC4;
-                        color: #00695C;
-                        /* צבע טקסט קוגניטיבי */
-                        border-color: #4DB6AC;
-                    }
-                </style>
-                <div class="quote-row" id="quote-row-0">
-                    <p class="quote" id="quote-0"></p>
-                </div>
-                <div class="quote-row" id="quote-row-1">
-                    <p class="quote" id="quote-1"></p>
-                </div>
-                <div class="quote-row" id="quote-row-2">
-                    <p class="quote" id="quote-2"></p>
-                </div>
-                <div class="quote-row" id="quote-row-3">
-                    <p class="quote" id="quote-3"></p>
-                </div>
-                <div class="quote-row" id="quote-row-4">
-                    <p class="quote" id="quote-4"></p>
-                </div>
-                <div class="quote-row" id="quote-row-5">
-                    <p class="quote" id="quote-5"></p>
-                </div>
-                <div class="quote-row" id="quote-row-6">
-                    <p class="quote" id="quote-6"></p>
-                </div>
-                <div class="quote-row" id="quote-row-7">
-                    <p class="quote" id="quote-7"></p>
-                </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const categories = [
-                            "בריאות ורווחה", "כלכלה וכספים", "יחסים חברתיים",
-                            "התמדה ומחויבות", "רוגע ושלווה", "מראה חיצוני והעצמה אישית",
-                            "חוויות חדשות ואורח חיים", "דוגמה אישית והשפעה על אחרים"
-                        ];
-
-                        const intervalTime = 5000; // זמן בשניות לעדכון הציטוטים
-
-                        const data = {
-                            "בריאות ורווחה": [
-                                "💖 לבריאות יש מחיר, אך היא לא קנייה סתם 💰💖",
-                                "🌱 להיות בריא זה לא רק להרגיש טוב, אלא גם לחיות טוב 🌈🌱",
-                                "🌼 שמירה על הבריאות מתחילה בבחירות יומיומיות 💪🌼",
-                                "✨ חיים בריאים הם חיים מאושרים 🌟✨",
-                                "🥦 תזונה נכונה היא הדרך לרווחה נפשית וגופנית 🍏🥦",
-                                "💧 מים הם מקור החיים, אל תשכח לשתות! 🚰💧",
-                                "🌞 שמור על איזון בין עבודה למנוחה 🛌🌞",
-                                "🚴‍♂️ פעילות גופנית היא חיונית לבריאותך! 🏋️‍♀️🚴‍♂️",
-                                "🌺 כל יום הוא הזדמנות חדשה לעשות שינוי חיובי 🌸🌺",
-                                "🍵 מדיטציה יכולה לשפר את מצב הרוח שלך 🌌🍵"
-                            ],
-                            "כלכלה וכספים": [
-                                "📈 חיסכון הוא השקעה בעתיד 💰📈",
-                                "🪙 כל שקל נחשב! 💵🪙",
-                                "💼 השקעה נבונה היא הדרך לבנות עתיד בטוח 📊💼",
-                                "🚀 למדו לתכנן את ההוצאות שלכם 🗓️🚀",
-                                "💳 ניהול נכון של הכספים יוביל להצלחה כלכלית 💵💳",
-                                "🤑 אל תבזבזו על דברים שלא משפרים את איכות חייכם 🚫🤑",
-                                "📊 קחו את הזמן להבין איפה הכסף שלכם נמצא 🕒📊",
-                                "💸 למד לחסוך כסף בכל חודש, גם אם זה סכום קטן! 📅💸",
-                                "🔍 בדוק את ההוצאות שלך מדי חודש 💼🔍",
-                                "💰 השקעה במיומנויות חדשות היא השקעה משתלמת בעתיד 🎓💰"
-                            ],
-                            "יחסים חברתיים": [
-                                "🤝 חברים טובים הם נכס יקר ערך ❤️🤝",
-                                "❤️ אהבה וחברות הם מהות החיים 🌷❤️",
-                                "✨ תקשורת פתוחה היא המפתח ליחסים טובים 🔑✨",
-                                "🌟 תן מעצמך לחברים שלך, זה מחזיר פי כמה 💞🌟",
-                                "🌈 כל יום הוא הזדמנות לייצר זיכרונות חדשים 🥳🌈",
-                                "🤗 הבעת הערכה יכולה לחזק את הקשרים החברתיים שלך 💖🤗",
-                                "🎉 חוויות משותפות יוצרות קשרים חזקים יותר 🌻🎉",
-                                "🌹 תן לאנשים שלך את המרחב שהם צריכים ❤️🌹",
-                                "👫 חברות היא לא רק להימצא יחד, אלא גם להבין אחד את השני 🤝👫",
-                                "💬 דברו בכנות על מה שמפריע לכם, זה חשוב! 🌈💬"
-                            ],
-                            "התמדה ומחויבות": [
-                                "🏆 ההתמדה היא הדרך להצלחה ✨🏆",
-                                "👣 כל התקדמות קטנה היא צעד קדימה 🚶‍♂️👣",
-                                "🔑 מחויבות היא המפתח להגשמת המטרות שלך 🎯🔑",
-                                "🌟 אל תתן לכישלון לעצור אותך! כל כישלון הוא הזדמנות ללמוד 🌈🌟",
-                                "✨ התמדה היא כמו נר שמאיר את הדרך שלך 🔥✨",
-                                "🚀 קח כל יום צעד קטן לעבר המטרה שלך 📅🚀",
-                                "💪 התמדה מביאה לתוצאות מפתיעות! 🌠💪",
-                                "🌈 כשיש לך חזון, התמדה היא קלף מנצח! 🃏🌈",
-                                "📅 עשה תוכנית ועמוד בה, זה יוביל אותך להצלחה! 🏁📅",
-                                "🏅 כל כישלון הוא רק אבן דרך בדרך להצלחה 🚧🏅"
-                            ],
-                            "רוגע ושלווה": [
-                                "🌬️ נשימות עמוקות יכולות לשנות את מצב הרוח שלך 🌈🌬️",
-                                "🌿 קח רגע להתבונן בטבע ולהרגיש את השקט 🌳🌿",
-                                "💖 רוגע הוא המפתח לאושר פנימי 🌼💖",
-                                "🌊 מים זורמים יכולים להרגיע את הנשמה 🌊🌈",
-                                "🧘‍♀️ מדיטציה היא דרך מצוינת למצוא שלווה 🧘‍♂️✨",
-                                "🌅 השמש זורחת בכל יום, קח רגע להעריך זאת 🌞🌅",
-                                "💤 שינה איכותית היא קריטית לרוגע שלך 🌙💤",
-                                "🕊️ חיים ללא לחץ הם חיים מאושרים 💕🕊️",
-                                "🌻 תן לעצמך זמן למנוחה ולרוגע 💖🌻",
-                                "🧘‍♂️ תרגול יוגה יכול לשפר את בריאותך הפיזית והנפשית 🧘‍♀️🌈"
-                            ],
-                            "מראה חיצוני והעצמה אישית": [
-                                "🌟 אתה ייחודי ומיוחד! ✨🌟",
-                                "🔥 האמון בעצמך הוא מה שהופך אותך ליפה ❤️🔥",
-                                "💄 כל אחת יכולה להרגיש יפה מבפנים ומבחוץ 🌹💄",
-                                "💪 התמדה בפעילות גופנית משפרת את המראה שלך 🌞💪",
-                                "🎉 שינויים קטנים יכולים להביא לשינויים גדולים! 🌼🎉",
-                                "🌈 תאהב את עצמך, כי אתה ראוי לאהבה 💖🌈",
-                                "👗 השקעה במראה שלך יכולה לשפר את הביטחון שלך 💃👗",
-                                "💅 טיפוח עצמי הוא דרך נפלאה לחזק את הדימוי העצמי 🌷💅",
-                                "🌻 יופי פנימי הוא מה שעושה אותך מיוחד 🌸🌻",
-                                "💖 כל צעד לעבר טיפוח עצמי הוא צעד נכון! 🌼💖"
-                            ],
-                            "חוויות חדשות ואורח חיים": [
-                                "🌍 נסיעות מגדלות את הנפש 🌏🌍",
-                                "🌅 לנסות דברים חדשים פותח אופקים חדשים 🏞️🌅",
-                                "✈️ כל טיול הוא חוויה חדשה שמלמדת אותנו 💫✈️",
-                                "🥘 תנסה לטעום מטעמים חדשים! 🍣🥘",
-                                "🎨 חיים מלאים בחוויות הם חיים מלאים במשמעות 🌈🎨",
-                                "🚴‍♀️ תנסה ספורט חדש, זה יכול לשנות לך את החיים! 🏄‍♂️🚴‍♀️",
-                                "💫 חוויות חדשות מעשירות את חיינו 🌟💫",
-                                "🌌 אל תפחד להיות מחוץ לאזור הנוחות שלך 🚀🌌",
-                                "🌈 תתנסה במשהו שלא עשית קודם! 🎉🌈",
-                                "🍀 גלה מקומות חדשים, הם יכולים להפתיע אותך! 🌍🍀"
-                            ],
-                            "דוגמה אישית והשפעה על אחרים": [
-                                "💡 ההשראה שלך יכולה לשנות חיים 🌟💡",
-                                "💪 ההשפעה שלך היא הכוח שלך 🌈💪",
-                                "🌍 תראה לעולם איך ניתן לחיות באור 🌞🌍",
-                                "✨ חיה את החיים שאתה רוצה לראות אחרים חיים 💖✨",
-                                "❤️ השפעתך יכולה ליצור שינוי חיובי בחיים של אחרים 🌼❤️",
-                                "📢 דבר בשפת האמת שלך, היא מעוררת השראה! 🌟📢",
-                                "🤝 דוגמה אישית היא דרך טובה להנחיל ערכים 💖🤝",
-                                "🔑 להיות דוגמה חיובית עוזרת לאחרים להתקדם 🔑✨",
-                                "🌈 כל פעולה חיובית קטנה משפיעה על הסביבה שלך 🌻🌈",
-                                "🚀 התחל להיות הדוגמה שאתה רוצה לראות בעולם! 💪🚀"
-                            ]
-                        };
-
-
-                        function getRandomQuote(category) {
-                            const quotes = data[category];
-                            const randomIndex = Math.floor(Math.random() * quotes.length);
-                            return quotes[randomIndex];
-                        }
-
-                        function updateQuotes() {
-                            categories.forEach((category, index) => {
-                                const quoteElement = document.getElementById(`quote-${index}`);
-                                const newQuote = getRandomQuote(category);
-                                quoteElement.textContent = newQuote;
-                            });
-                        }
-
-                        // עדכון הציטוטים בהתחלה
-                        updateQuotes();
-                        // החלפת ציטוטים בכל כמה שניות
-                        setInterval(updateQuotes, intervalTime);
-                    });
-                </script>
-            </div>
-        </div>
-
-        <!-- סרטונים -->
-        <div class="video-section" style="display: none;">
-            <h2><i class="fa-solid fa-video"></i> סדרת סרטונים להפסיק לעשן</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- מחשבוני בריאות -->
-        <div class="health-tools">
-            <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
-            <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
-            <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
-
-            <!-- כפתור מחשבון לחיסכון בכסף -->
-            <h2>חשב את החיסכון שלך</h2>
-            <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
-
-        </div>
-
-        <!-- סיפורי הצלחה -->
-        <div class="success-stories">
-            <h2><i class="fa-solid fa-star"></i> סיפורי הצלחה</h2>
-            <p>אנשים אמיתיים שהצליחו להפסיק לעשן משתפים את הדרך שלהם.</p>
-            <div class="story">
-                <i class="fa-solid fa-user"></i>
-                <p><strong>ליאור, בן 35:</strong> "החלטתי שזה הזמן לקחת אחריות על הבריאות שלי."</p>
-            </div>
-            <div class="story">
-                <i class="fa-solid fa-user"></i>
-                <p><strong>מאיה, בת 28:</strong> "זה לא היה קל, אבל כל יום ללא סיגריה הוא ניצחון אישי."</p>
-            </div>
-        </div>
-
-        <!-- טיימר גמילה חי -->
-        <div class="support-tools">
-            <h2><i class="fa-solid fa-hourglass-half"></i> כמה זמן עבר מאז שהפסקת לעשן?</h2>
-            <div class="timer" id="quitTimer">
-                לא התחלת עדיין? החלט עכשיו!
-            </div>
-        </div>
-
-        <!-- קהילה ושאלות -->
-        <div class="community-section">
-            <h2><i class="fa-solid fa-comments"></i> פורום שאלות ותשובות</h2>
-            <p>שאל שאלות, קבל תמיכה, ושתף את התקדמותך עם אנשים אחרים.</p>
-            <button onclick="joinCommunity()">הצטרף לפורום</button>
-        </div>
-
-        <!-- טכניקות הרפיה ומיינדפולנס -->
-        <div class="mindfulness-tools">
-            <h2><i class="fa-solid fa-balance-scale"></i> טכניקות הרפיה</h2>
-            <p>תתחיל לחיות את החיים הבריאים שמגיעים לך עם טכניקות הרפיה עוצמתיות.</p>
-            <button onclick="playMeditation()">מדיטציה להרגעה</button>
-            <button onclick="startBreathingExercise()">תרגילי נשימה</button>
-        </div>
-
-        <!-- מערכת תרומות -->
-        <div class="donations-section">
-            <h2><i class="fa-solid fa-donate"></i> תמוך בארגון</h2>
-            <p>תרום עכשיו ותעזור במאבק נגד עישון. כל תרומה משפיעה!</p>
-            <button onclick="donate()">תרום עכשיו</button>
-        </div>
-
-        <!-- ניהול קמפיינים -->
-        <div class="campaigns-section">
-            <h2><i class="fa-solid fa-bullhorn"></i> ניהול קמפיינים</h2>
-            <p>התעדכן בקמפיינים הנוכחיים שלנו ובתוצאותיהם.</p>
-            <ul>
-                <li>קמפיין 1 - בתהליך</li>
-                <li>קמפיין 2 - הושלם</li>
-            </ul>
-        </div>
-
-        <!-- התנדבות -->
-        <div class="volunteers-section">
-            <h2><i class="fa-solid fa-handshake"></i> הצטרף כמתנדב</h2>
-            <p>רוצה לעזור במאבק נגד העישון? הצטרף אלינו כמתנדב וקבל משימות ותמיכה.</p>
-            <button onclick="joinVolunteers()">הצטרף כמתנדב</button>
-        </div>
-
-        <!-- משוב ופידבק -->
-        <div class="feedback-section">
-            <h2><i class="fa-solid fa-envelope"></i> משוב משתמשים</h2>
-            <p>שתף אותנו בחוויות שלך ובמשוב על האתר שלנו. דעתך חשובה לנו!</p>
-            <button onclick="submitFeedback()">שלח משוב</button>
-        </div>
-
-    </div>
-
-    <footer>
-        <section>
-            <iframe src="../../footer.html" frameborder="0"
-                style="width: 80%; border-radius: 18px; opacity: 1;"></iframe>
-        </section>
-        <p>© 2024 הארגון למלחמה בעישון</p>
-    </footer>
 
     <script src="./script.js"></script>
 
