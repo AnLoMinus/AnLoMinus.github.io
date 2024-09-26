@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        html,
+        body,
+        section {
+            background-color: #a0514f;
+            ;
+        }
+
         /* Style for Header Content */
         .header-content {
 
@@ -172,72 +179,81 @@
                 font-size: 18px;
             }
         }
+
+        00 .card {
+            background-color: #ffffffc9;
+            border: 3px solid #000f;
+
+        }
     </style>
 
 
 </head>
 
 <body>
-
-    <header>
-        <div class="">
-            <!-- Language Switcher Section -->
-            <div class="custom-translate">
-                <div id="google_translate_element"></div>
-            </div>
-
-            <style>
-                /* Style for Custom Language Switcher */
-                .custom-translate {
-                    display: flex;
-                    justify-content: center;
-                    /* margin-top: 20px; */
-                    padding: 5px;
-                    background-color: rgba(255, 255, 198, 0.488);
-                    border-radius: 18px;
-                    border: 2px solid #0000006c;
-                    /* width: 100%; */
-                    /* margin: 10px; */
-                    left: 50px;
-                    right: 50px;
-                }
-            </style>
-
-            <!-- Google Translate Script -->
-            <script type="text/javascript">
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'he',
-                        includedLanguages: 'en,he,ar,zh-CN,ru', /* שפות: אנגלית, ערבית, סינית פשוטה, רוסית */
-                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                        autoDisplay: false
-                    }, 'google_translate_element');
-                }
-            </script>
-            <script type="text/javascript"
-                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-        </div>
-
-        <h1>🚭 הארגון למלחמה בעישון 🚭</h1>
-        <!-- Section: Header Content with Style -->
-        <section class="header-content">
-            <div class="header-text">
-                <p>הארגון שלנו פועל מתוך שליחות להוביל שינוי אמיתי בחיים של אלו שמתמודדים עם התמכרות לעישון. אנו מאמינים
-                    שכל אחד ואחת יכולים לחיות חיים בריאים 🌱, נקיים מעשן 🍃 ומלאים באיכות חיים 🌟.</p>
-                <p>באתר תוכלו למצוא מידע מקצועי 📚, טיפים מעשיים 🛠️, כלים ותמיכה רגשית 🤝 במסע להפסקת עישון. הצטרפו
-                    אלינו במאבק 💪 - יחד, נוכל לנצח את ההתמכרות ולהפוך את הבריאות שלכם לעדיפות עליונה! ❤️</p>
-            </div>
-            <p>מתחילים את הדרך לחיים בריאים</p>
-
-        </section>
-    </header>
-
     <section>
-
         <div class="content">
-
             <div class="container">
+                <!-- שורה 1: תיבה אחת תופסת 100% -->
+                <div class="row">
+                    <div class="card full-width">
+                        <header>
+                            <!-- Language Switcher Section -->
+                            <div class="custom-translate">
+                                <div id="google_translate_element"></div>
+                            </div>
+
+                            <style>
+                                /* Style for Custom Language Switcher */
+                                .custom-translate {
+                                    display: flex;
+                                    justify-content: center;
+                                    /* margin-top: 20px; */
+                                    padding: 5px;
+                                    background-color: rgba(255, 255, 198, 0.488);
+                                    border-radius: 18px;
+                                    border: 2px solid #0000006c;
+                                    /* width: 100%; */
+                                    /* margin: 10px; */
+                                    left: 50px;
+                                    right: 50px;
+                                }
+                            </style>
+
+                            <!-- Google Translate Script -->
+                            <script type="text/javascript">
+                                function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement({
+                                        pageLanguage: 'he',
+                                        includedLanguages: 'en,he,ar,zh-CN,ru', /* שפות: אנגלית, ערבית, סינית פשוטה, רוסית */
+                                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                                        autoDisplay: false
+                                    }, 'google_translate_element');
+                                }
+                            </script>
+                            <script type="text/javascript"
+                                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+                            <h1>🚭 הארגון למלחמה בעישון 🚭</h1>
+                            <!-- Section: Header Content with Style -->
+                            <section class="header-content">
+                                <div class="header-text">
+                                    <p>הארגון שלנו פועל מתוך שליחות להוביל שינוי אמיתי בחיים של אלו שמתמודדים עם התמכרות
+                                        לעישון. אנו מאמינים
+                                        שכל אחד ואחת יכולים לחיות חיים בריאים 🌱, נקיים מעשן 🍃 ומלאים באיכות חיים 🌟.
+                                    </p>
+                                    <p>באתר תוכלו למצוא מידע מקצועי 📚, טיפים מעשיים 🛠️, כלים ותמיכה רגשית 🤝 במסע
+                                        להפסקת עישון. הצטרפו
+                                        אלינו במאבק 💪 - יחד, נוכל לנצח את ההתמכרות ולהפוך את הבריאות שלכם לעדיפות
+                                        עליונה! ❤️</p>
+                                </div>
+                                <p>מתחילים את הדרך לחיים בריאים</p>
+
+                            </section>
+                        </header>
+                    </div>
+                </div>
 
                 <!-- שורה 2: 50% ו-50% -->
                 <div class="row">
@@ -373,121 +389,111 @@
                     </div>
                 </div>
 
+
+                <!-- שורה 4: 4 כרטיסים ב-25% -->
+                <div class="row">
+                    <div class="card quarter-width">
+                        <!-- מחשבוני בריאות -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
+                            <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
+                            <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
+
+                            <!-- כפתור מחשבון לחיסכון בכסף -->
+                            <h2>חשב את החיסכון שלך</h2>
+                            <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
+
+                        </div>
+                    </div>
+                    <div class="card quarter-width">
+                        <!-- סיפורי הצלחה -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-star"></i> סיפורי הצלחה</h2>
+                            <p>אנשים אמיתיים שהצליחו להפסיק לעשן משתפים את הדרך שלהם.</p>
+                            <div class="story">
+                                <i class="fa-solid fa-user"></i>
+                                <p><strong>ליאור, בן 35:</strong> "החלטתי שזה הזמן לקחת אחריות על הבריאות שלי."</p>
+                            </div>
+                            <div class="story">
+                                <i class="fa-solid fa-user"></i>
+                                <p><strong>מאיה, בת 28:</strong> "זה לא היה קל, אבל כל יום ללא סיגריה הוא ניצחון אישי."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card quarter-width">
+                        <!-- טיימר גמילה חי -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-hourglass-half"></i> כמה זמן עבר מאז שהפסקת לעשן?</h2>
+                            <div class="timer" id="quitTimer">
+                                לא התחלת עדיין? החלט עכשיו!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card quarter-width">
+                        <!-- קהילה ושאלות -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-comments"></i> פורום שאלות ותשובות</h2>
+                            <p>שאל שאלות, קבל תמיכה, ושתף את התקדמותך עם אנשים אחרים.</p>
+                            <button onclick="joinCommunity()">הצטרף לפורום</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- שורה 4: 4 כרטיסים ב-25% -->
+                <div class="row">
+                    <div class="card quarter-width">
+                        <!-- טכניקות הרפיה ומיינדפולנס -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-balance-scale"></i> טכניקות הרפיה</h2>
+                            <p>תתחיל לחיות את החיים הבריאים שמגיעים לך עם טכניקות הרפיה עוצמתיות.</p>
+                            <button onclick="playMeditation()">מדיטציה להרגעה</button>
+                            <button onclick="startBreathingExercise()">תרגילי נשימה</button>
+                        </div>
+                    </div>
+                    <div class="card quarter-width">
+                        <!-- מערכת תרומות -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-donate"></i> תמוך בארגון</h2>
+                            <p>תרום עכשיו ותעזור במאבק נגד עישון. כל תרומה משפיעה!</p>
+                            <button onclick="donate()">תרום עכשיו</button>
+                        </div>
+                    </div>
+                    <div class="card quarter-width">
+                        <!-- ניהול קמפיינים -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-bullhorn"></i> ניהול קמפיינים</h2>
+                            <p>התעדכן בקמפיינים הנוכחיים שלנו ובתוצאותיהם.</p>
+                            <ul>
+                                <li>קמפיין 1 - בתהליך</li>
+                                <li>קמפיין 2 - הושלם</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card quarter-width">
+                        <!-- התנדבות -->
+                        <div class="">
+                            <h2><i class="fa-solid fa-handshake"></i> הצטרף כמתנדב</h2>
+                            <p>רוצה לעזור במאבק נגד העישון? הצטרף אלינו כמתנדב וקבל משימות ותמיכה.</p>
+                            <button onclick="joinVolunteers()">הצטרף כמתנדב</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- שורה 1: תיבה אחת תופסת 100% -->
                 <div class="row">
                     <div class="card full-width">
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="card full-width">
-                    <!-- רווח כנגו הפסד -->
-
-
-                </div>
-            </div>
-
-            <!-- שורה 4: 4 כרטיסים ב-25% -->
-            <div class="row">
-                <div class="card quarter-width">
-                    <!-- מחשבוני בריאות -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
-                        <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
-                        <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
-
-                        <!-- כפתור מחשבון לחיסכון בכסף -->
-                        <h2>חשב את החיסכון שלך</h2>
-                        <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
-
-                    </div>
-                </div>
-                <div class="card quarter-width">
-                    <!-- סיפורי הצלחה -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-star"></i> סיפורי הצלחה</h2>
-                        <p>אנשים אמיתיים שהצליחו להפסיק לעשן משתפים את הדרך שלהם.</p>
-                        <div class="story">
-                            <i class="fa-solid fa-user"></i>
-                            <p><strong>ליאור, בן 35:</strong> "החלטתי שזה הזמן לקחת אחריות על הבריאות שלי."</p>
-                        </div>
-                        <div class="story">
-                            <i class="fa-solid fa-user"></i>
-                            <p><strong>מאיה, בת 28:</strong> "זה לא היה קל, אבל כל יום ללא סיגריה הוא ניצחון אישי."</p>
+                        <!-- משוב ופידבק -->
+                        <div class="feedback-section">
+                            <h2><i class="fa-solid fa-envelope"></i> משוב משתמשים</h2>
+                            <p>שתף אותנו בחוויות שלך ובמשוב על האתר שלנו. דעתך חשובה לנו!</p>
+                            <button onclick="submitFeedback()">שלח משוב</button>
                         </div>
                     </div>
                 </div>
-                <div class="card quarter-width">
-                    <!-- טיימר גמילה חי -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-hourglass-half"></i> כמה זמן עבר מאז שהפסקת לעשן?</h2>
-                        <div class="timer" id="quitTimer">
-                            לא התחלת עדיין? החלט עכשיו!
-                        </div>
-                    </div>
-                </div>
-                <div class="card quarter-width">
-                    <!-- קהילה ושאלות -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-comments"></i> פורום שאלות ותשובות</h2>
-                        <p>שאל שאלות, קבל תמיכה, ושתף את התקדמותך עם אנשים אחרים.</p>
-                        <button onclick="joinCommunity()">הצטרף לפורום</button>
-                    </div>
-                </div>
+
             </div>
 
-            <!-- שורה 4: 4 כרטיסים ב-25% -->
-            <div class="row">
-                <div class="card quarter-width">
-                    <!-- טכניקות הרפיה ומיינדפולנס -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-balance-scale"></i> טכניקות הרפיה</h2>
-                        <p>תתחיל לחיות את החיים הבריאים שמגיעים לך עם טכניקות הרפיה עוצמתיות.</p>
-                        <button onclick="playMeditation()">מדיטציה להרגעה</button>
-                        <button onclick="startBreathingExercise()">תרגילי נשימה</button>
-                    </div>
-                </div>
-                <div class="card quarter-width">
-                    <!-- מערכת תרומות -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-donate"></i> תמוך בארגון</h2>
-                        <p>תרום עכשיו ותעזור במאבק נגד עישון. כל תרומה משפיעה!</p>
-                        <button onclick="donate()">תרום עכשיו</button>
-                    </div>
-                </div>
-                <div class="card quarter-width">
-                    <!-- ניהול קמפיינים -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-bullhorn"></i> ניהול קמפיינים</h2>
-                        <p>התעדכן בקמפיינים הנוכחיים שלנו ובתוצאותיהם.</p>
-                        <ul>
-                            <li>קמפיין 1 - בתהליך</li>
-                            <li>קמפיין 2 - הושלם</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card quarter-width">
-                    <!-- התנדבות -->
-                    <div class="">
-                        <h2><i class="fa-solid fa-handshake"></i> הצטרף כמתנדב</h2>
-                        <p>רוצה לעזור במאבק נגד העישון? הצטרף אלינו כמתנדב וקבל משימות ותמיכה.</p>
-                        <button onclick="joinVolunteers()">הצטרף כמתנדב</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- שורה 1: תיבה אחת תופסת 100% -->
-            <div class="row">
-                <div class="card full-width">
-                    <!-- משוב ופידבק -->
-                    <div class="feedback-section">
-                        <h2><i class="fa-solid fa-envelope"></i> משוב משתמשים</h2>
-                        <p>שתף אותנו בחוויות שלך ובמשוב על האתר שלנו. דעתך חשובה לנו!</p>
-                        <button onclick="submitFeedback()">שלח משוב</button>
-                    </div>
-                </div>
-            </div>
 
 
         </div>
