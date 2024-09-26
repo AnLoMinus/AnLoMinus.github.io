@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תפריט המבורגר עם תיבה רחבה ושתי תיבות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            flex-direction: column;
+        }
+
+        nav ul li {
+            margin: 10px 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            background-color: #555;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .show-menu {
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .row .box {
+            width: 48%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .row .box {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            nav ul {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Header</h1>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰ תפריט</div>
+        <ul id="menu">
+            <li><a href="#">בית</a></li>
+            <li><a href="#">שירותים</a></li>
+            <li><a href="#">אודות</a></li>
+            <li><a href="#">צור קשר</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="box">תיבה רחבה</div>
+        <div class="row">
+            <div class="box">תיבה 1</div>
+            <div class="box">תיבה 2</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show-menu');
+        }
+    </script>
+
+</body>
+
+</html>

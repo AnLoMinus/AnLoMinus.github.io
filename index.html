@@ -5,109 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>דף ראשי</title>
-    <link rel="stylesheet" href="./css/Golden.css">
+    <!-- <link rel="stylesheet" href="./css/Golden.css"> -->
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/quit-smoking-button.css">
-    <style>
-        footer {
-            background-color: rgba(255, 255, 255, 0.5);
-            /* צבע רקע שקוף מעט */
-            direction: rtl;
-            color: var(--text-color);
-            text-align: center;
-            font-size: 1em;
-            /* גודל פונט אחיד ונוח לקריאה */
-            margin-top: 30px;
-            /* מרווח גדול יותר מעל הפוטר */
-            /* border-radius: 18px; */
-            padding: 15px 20px;
-            /* ריווח פנימי נוח יותר */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            /* צל עדין למראה יותר מודרני */
-            backdrop-filter: blur(5px);
-            /* טשטוש רקע מאחורי הפוטר */
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            /* מסגרת שקופה למראה מעודן */
-            transition: background-color 0.3s ease;
-            /* אפקט מעבר חלק */
-        }
+    <link rel="stylesheet" href="./css/nextlife-button.css">
+    <link rel="stylesheet" href="./css/Grids.css">
 
-        footer:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-            /* שינוי צבע בהובר */
-        }
-
-        footer p {
-            margin: 5px 0;
-            /* ריווח בין הפסקאות בפוטר */
-            line-height: 1.6;
-            /* גובה שורה מוגבר לקריאות */
-        }
-
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            /* ריווח מוגדל בין האייקונים */
-            margin-bottom: 10px;
-        }
-
-        .footer-icons a {
-            color: var(--text-color);
-            font-size: 24px;
-            transition: color 0.3s, transform 0.3s;
-            /* אנימציה חלקה גם לצבע וגם לתזוזה */
-        }
-
-        .footer-icons a:hover {
-            color: goldenrod;
-            /* שינוי צבע בהובר */
-            transform: scale(1.1);
-            /* הגדלה קלה בהובר */
-        }
-
-
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            /* רווח שווה בין האייקונים */
-            margin-bottom: 10px;
-        }
-
-        .footer-icons a {
-            color: var(--text-color);
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .footer-icons a:hover {
-            color: goldenrod;
-            /* צבע משתנה בהובר */
-        }
-
-        /* עיצוב רספונסיבי */
-        @media (max-width: 768px) {
-            .footer-icons {
-                gap: 15px;
-            }
-
-            .footer-icons a {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .footer-icons {
-                flex-wrap: wrap;
-                /* כאשר אין מספיק מקום, האייקונים יתחילו בשורה חדשה */
-                gap: 10px;
-            }
-
-            .footer-icons a {
-                font-size: 18px;
-            }
-        }
-    </style>
 
     <style>
         body {
@@ -129,9 +32,6 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .main-content {
-            padding: 50px;
-        }
 
         h1 {
             margin: 0;
@@ -265,323 +165,464 @@
 
 <body>
 
+
+
     <!-- בס"ד טקסט -->
     <div style="margin: 10px; text-align: right; color: goldenrod;">
         <p>בס״ד</p>
     </div>
 
-    <!-- כותרת ראשית -->
-    <header>
-        <h1>לאון יעקובוב</h1>
-    </header>
 
     <!-- תוכן ראשי -->
     <div class="main-content">
 
-        <div id="business" class="tab ">
-            <div class="business-card"
-                style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); padding: 20px; background: #f9f9f9; max-width: 400px; margin: auto;">
-                <div class="background-animation" style="opacity: 0.1;"></div>
-                <h2 style="text-align: right; color: #333; font-family: 'Arial', sans-serif;">לאון יעקובוב<span><button
-                            class="contact-button" onclick="openModal()"
-                            style="margin-top: 10px; background: #4CAF50; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">💬
-                            צור קשר</button></span></h2>
 
-                <div class="contact-info" style="text-align: center;">
-                    <p class="icon" style="font-size: 1.1em;">📞 טלפון: <strong>054-328-5967</strong></p>
-                    <p class="icon" style="font-size: 1.1em;">📧 אימייל: <a
-                            href="mailto:leon@example.com">leon@example.com</a></p>
-                    <p class="icon" style="font-size: 1.1em;">🌐 אתר אישי: <a href="https://anlominus.github.io"
-                            target="_blank">anlominus.github.io</a></p>
-                </div>
+        <div class="container">
+            <!-- שורה 1: תיבה אחת תופסת 100% -->
+            <div class="row">
+                <div class="card full-width">
+                    <div id="lifeQuotesBar" class=" card full-width quote-bar">
+                        <p id="quoteText">💡 המשפט הראשון שלך לחיים יופיע כאן</p>
+                    </div>
 
-                <h3 style="text-align: right; color: #777;">📋 איזון בכל תחומי החיים שלך!</h3>
+                    <!-- 8 Bars -->
+                    <div class="volunteers-section">
 
-                <div class="button-container">
-                    <a href="./Projects/Next-Life/" class="nextlife-button">Next-Life</a>
-                    <a href="./Projects/Fresh-Life/" class="stop-smoking-button">Fresh-Life</a>
-                    <style>
-                        .quit-smoking-button {
-                            position: relative;
-                            display: inline-block;
-                            padding: 15px 40px;
-                            font-weight: bold;
-                            color: #ffffff;
-                            background: linear-gradient(135deg,
-                                    rgba(255, 69, 0, 0.9),
-                                    rgba(255, 140, 0, 0.8));
-                            border-radius: 25px;
-                            border: 2px solid rgba(255, 255, 255, 0.7);
-                            backdrop-filter: blur(10px);
-                            text-decoration: none;
-                            transition: background 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
-                            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.7),
-                                inset 0 0 15px rgba(255, 255, 255, 0.5);
-                            font-size: 20px;
-                            overflow: hidden;
-                        }
-
-                        .quit-smoking-button:hover {
-                            background: rgba(255, 0, 0, 1);
-                            transform: scale(1.1) rotate(1deg);
-                            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.8),
-                                inset 0 0 20px rgba(255, 255, 255, 0.5);
-                            animation: pulse 1.2s infinite;
-                            /* אפקט פולס */
-                            color: #fff;
-                        }
-
-                        .quit-smoking-button:hover::before,
-                        .quit-smoking-button:hover::after {
-                            animation: wave 0.6s infinite;
-                            /* אפקט גלי */
-                        }
-
-                        @keyframes pulse {
-                            0% {
-                                transform: scale(1);
+                        <style>
+                            .container {
+                                flex-direction: column;
+                                /* padding: 100px; */
                             }
 
-                            50% {
-                                transform: scale(1.05);
+                            .quote-row {
+                                border: 2px solid;
+                                /* הוספת גבול */
+                                border-radius: 8px;
+                                padding: 5px;
+                                display: flex;
+                                align-items: center;
                             }
 
-                            100% {
-                                transform: scale(1);
-                            }
-                        }
-
-                        @keyframes wave {
-                            0% {
-                                opacity: 0.7;
+                            .quote {
+                                font-weight: 700;
+                                font-size: 18px;
+                                margin: 0;
+                                text-align: center;
+                                flex: 1;
                             }
 
-                            100% {
-                                opacity: 1;
-                            }
-                        }
-
-                        .quit-smoking-button::before,
-                        .quit-smoking-button::after {
-                            position: absolute;
-                            font-size: 60px;
-                            color: rgba(255, 255, 255, 0.5);
-                            transition: all 0.4s ease-in-out;
-                            z-index: -1;
-                            /* להסתיר מאחורי הכפתור */
-                        }
-
-                        .quit-smoking-button::before {
-                            content: "🚭";
-                            top: -15px;
-                            left: -10px;
-                            transform: rotate(10deg);
-                            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
-                        }
-
-                        .quit-smoking-button::after {
-                            content: "💪";
-                            bottom: -15px;
-                            right: -10px;
-                            transform: rotate(-10deg);
-                            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
-                        }
-
-                        /* אפקטים נוספים */
-                        .quit-smoking-button:active {
-                            transform: scale(0.95);
-                            /* הכפתור מתכווץ בלחיצה */
-                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-                        }
-
-                        /* אפקטים של כוכבים */
-                        .quit-smoking-button::after {
-                            content: "";
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            top: 0;
-                            left: 0;
-                            background: radial-gradient(circle,
-                                    rgba(255, 255, 255, 0.2) 20%,
-                                    transparent 20%) center/15% 15%;
-                            animation: twinkle 1.5s infinite;
-                            z-index: -2;
-                            /* מאחורי הכפתור */
-                        }
-
-                        @keyframes twinkle {
-
-                            0%,
-                            100% {
-                                background-position: 0% 0%;
+                            /* צבעים לכל קטגוריה */
+                            #quote-row-0 {
+                                background-color: #FFABAB;
+                                color: #B10C0C;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #FF6B6B;
                             }
 
-                            50% {
-                                background-position: 100% 100%;
+                            #quote-row-1 {
+                                background-color: #FFC3A0;
+                                color: #B76B00;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #FF8E5B;
                             }
-                        }
-                    </style>
 
-                </div>
+                            #quote-row-2 {
+                                background-color: #FFDDC1;
+                                color: #B77B00;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #FFB75B;
+                            }
 
-                <div class="icon-container"
-                    style="text-align: right; display: flex; justify-content: space-around; flex-wrap: wrap; margin: 10px 0;">
-                    <div class="icon-item"
-                        onclick="showPopup('ניהול בריאות ורווחה', 'מתן טיפים על אורח חיים בריא, תזונה נכונה ופעילות גופנית.')"
-                        style="cursor: pointer; margin: 10px;">
-                        🌱
-                    </div>
-                    <div class="icon-item"
-                        onclick="showPopup('חיזוק קשרים משפחתיים וחברתיים', 'יצירת סדנאות לתקשורת אפקטיבית ובניית מערכות יחסים טובות.')"
-                        style="cursor: pointer; margin: 10px;">
-                        👨‍👩‍👧‍👦
-                    </div>
-                    <div class="icon-item"
-                        onclick="showPopup('פיתוח קריירה ותחושת הצלחה', 'ליווי אישי ופיתוח תוכניות קריירה מותאמות אישית.')"
-                        style="cursor: pointer; margin: 10px;">
-                        💼
-                    </div>
-                    <div class="icon-item"
-                        onclick="showPopup('ניהול פיננסי וחיסכון', 'סדנאות על ניהול תקציב, השקעות וחיסכון לעתיד.')"
-                        style="cursor: pointer; margin: 10px;">
-                        💰
-                    </div>
-                    <div class="icon-item"
-                        onclick="showPopup('התפתחות אישית ולמידה מתמשכת', 'ניהול קורסים וסדנאות לשיפור עצמי ולמידה מתקדמת.')"
-                        style="cursor: pointer; margin: 10px;">
-                        📖
-                    </div>
-                    <div class="icon-item"
-                        onclick="showPopup('מאבק בעישון', 'הקמת פרויקטים לקידום מודעות והדרכה להפסקת עישון.')"
-                        style="cursor: pointer; margin: 10px;">
-                        🚭
-                    </div>
-                    <div class="icon-item"
-                        onclick="showPopup('קהילה וסביבה', 'פיתוח פרויקטים חברתיים לשיפור הקהילה שלנו.')"
-                        style="cursor: pointer; margin: 10px;">
-                        🌍
-                    </div>
-                </div>
+                            #quote-row-3 {
+                                background-color: #FFEDCC;
+                                color: #A6A300;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #FFBF6B;
+                            }
+
+                            #quote-row-4 {
+                                background-color: #D4E157;
+                                color: #387C12;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #A4C639;
+                            }
+
+                            #quote-row-5 {
+                                background-color: #A7D3F0;
+                                color: #0073A2;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #4BAFDE;
+                            }
+
+                            #quote-row-6 {
+                                background-color: #B39DDB;
+                                color: #6200B3;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #9A7DCE;
+                            }
+
+                            #quote-row-7 {
+                                background-color: #80CBC4;
+                                color: #00695C;
+                                /* צבע טקסט קוגניטיבי */
+                                border-color: #4DB6AC;
+                            }
+                        </style>
+                        <h3>🌟✨ אוצר של ציטוטים להשראה, חוכמה ושינוי בכל תחום בחיים 💖🌈</h3>
+                        <div class="section container">
+                            <div class="quote-row" id="quote-row-0">
+                                <p class="quote" id="quote-0"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-1">
+                                <p class="quote" id="quote-1"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-2">
+                                <p class="quote" id="quote-2"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-3">
+                                <p class="quote" id="quote-3"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-4">
+                                <p class="quote" id="quote-4"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-5">
+                                <p class="quote" id="quote-5"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-6">
+                                <p class="quote" id="quote-6"></p>
+                            </div>
+                            <div class="quote-row" id="quote-row-7">
+                                <p class="quote" id="quote-7"></p>
+                            </div>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const categories = [
+                                        "בריאות ורווחה", "כלכלה וכספים", "יחסים חברתיים",
+                                        "התמדה ומחויבות", "רוגע ושלווה", "מראה חיצוני והעצמה אישית",
+                                        "חוויות חדשות ואורח חיים", "דוגמה אישית והשפעה על אחרים"
+                                    ];
+
+                                    const intervalTime = 5000; // זמן בשניות לעדכון הציטוטים
+
+                                    const data = {
+                                        "בריאות ורווחה": [
+                                            "💖 לבריאות יש מחיר, אך היא לא קנייה סתם 💰💖",
+                                            "🌱 להיות בריא זה לא רק להרגיש טוב, אלא גם לחיות טוב 🌈🌱",
+                                            "🌼 שמירה על הבריאות מתחילה בבחירות יומיומיות 💪🌼",
+                                            "✨ חיים בריאים הם חיים מאושרים 🌟✨",
+                                            "🥦 תזונה נכונה היא הדרך לרווחה נפשית וגופנית 🍏🥦",
+                                            "💧 מים הם מקור החיים, אל תשכח לשתות! 🚰💧",
+                                            "🌞 שמור על איזון בין עבודה למנוחה 🛌🌞",
+                                            "🚴‍♂️ פעילות גופנית היא חיונית לבריאותך! 🏋️‍♀️🚴‍♂️",
+                                            "🌺 כל יום הוא הזדמנות חדשה לעשות שינוי חיובי 🌸🌺",
+                                            "🍵 מדיטציה יכולה לשפר את מצב הרוח שלך 🌌🍵"
+                                        ],
+                                        "כלכלה וכספים": [
+                                            "📈 חיסכון הוא השקעה בעתיד 💰📈",
+                                            "🪙 כל שקל נחשב! 💵🪙",
+                                            "💼 השקעה נבונה היא הדרך לבנות עתיד בטוח 📊💼",
+                                            "🚀 למדו לתכנן את ההוצאות שלכם 🗓️🚀",
+                                            "💳 ניהול נכון של הכספים יוביל להצלחה כלכלית 💵💳",
+                                            "🤑 אל תבזבזו על דברים שלא משפרים את איכות חייכם 🚫🤑",
+                                            "📊 קחו את הזמן להבין איפה הכסף שלכם נמצא 🕒📊",
+                                            "💸 למד לחסוך כסף בכל חודש, גם אם זה סכום קטן! 📅💸",
+                                            "🔍 בדוק את ההוצאות שלך מדי חודש 💼🔍",
+                                            "💰 השקעה במיומנויות חדשות היא השקעה משתלמת בעתיד 🎓💰"
+                                        ],
+                                        "יחסים חברתיים": [
+                                            "🤝 חברים טובים הם נכס יקר ערך ❤️🤝",
+                                            "❤️ אהבה וחברות הם מהות החיים 🌷❤️",
+                                            "✨ תקשורת פתוחה היא המפתח ליחסים טובים 🔑✨",
+                                            "🌟 תן מעצמך לחברים שלך, זה מחזיר פי כמה 💞🌟",
+                                            "🌈 כל יום הוא הזדמנות לייצר זיכרונות חדשים 🥳🌈",
+                                            "🤗 הבעת הערכה יכולה לחזק את הקשרים החברתיים שלך 💖🤗",
+                                            "🎉 חוויות משותפות יוצרות קשרים חזקים יותר 🌻🎉",
+                                            "🌹 תן לאנשים שלך את המרחב שהם צריכים ❤️🌹",
+                                            "👫 חברות היא לא רק להימצא יחד, אלא גם להבין אחד את השני 🤝👫",
+                                            "💬 דברו בכנות על מה שמפריע לכם, זה חשוב! 🌈💬"
+                                        ],
+                                        "התמדה ומחויבות": [
+                                            "🏆 ההתמדה היא הדרך להצלחה ✨🏆",
+                                            "👣 כל התקדמות קטנה היא צעד קדימה 🚶‍♂️👣",
+                                            "🔑 מחויבות היא המפתח להגשמת המטרות שלך 🎯🔑",
+                                            "🌟 אל תתן לכישלון לעצור אותך! כל כישלון הוא הזדמנות ללמוד 🌈🌟",
+                                            "✨ התמדה היא כמו נר שמאיר את הדרך שלך 🔥✨",
+                                            "🚀 קח כל יום צעד קטן לעבר המטרה שלך 📅🚀",
+                                            "💪 התמדה מביאה לתוצאות מפתיעות! 🌠💪",
+                                            "🌈 כשיש לך חזון, התמדה היא קלף מנצח! 🃏🌈",
+                                            "📅 עשה תוכנית ועמוד בה, זה יוביל אותך להצלחה! 🏁📅",
+                                            "🏅 כל כישלון הוא רק אבן דרך בדרך להצלחה 🚧🏅"
+                                        ],
+                                        "רוגע ושלווה": [
+                                            "🌬️ נשימות עמוקות יכולות לשנות את מצב הרוח שלך 🌈🌬️",
+                                            "🌿 קח רגע להתבונן בטבע ולהרגיש את השקט 🌳🌿",
+                                            "💖 רוגע הוא המפתח לאושר פנימי 🌼💖",
+                                            "🌊 מים זורמים יכולים להרגיע את הנשמה 🌊🌈",
+                                            "🧘‍♀️ מדיטציה היא דרך מצוינת למצוא שלווה 🧘‍♂️✨",
+                                            "🌅 השמש זורחת בכל יום, קח רגע להעריך זאת 🌞🌅",
+                                            "💤 שינה איכותית היא קריטית לרוגע שלך 🌙💤",
+                                            "🕊️ חיים ללא לחץ הם חיים מאושרים 💕🕊️",
+                                            "🌻 תן לעצמך זמן למנוחה ולרוגע 💖🌻",
+                                            "🧘‍♂️ תרגול יוגה יכול לשפר את בריאותך הפיזית והנפשית 🧘‍♀️🌈"
+                                        ],
+                                        "מראה חיצוני והעצמה אישית": [
+                                            "🌟 אתה ייחודי ומיוחד! ✨🌟",
+                                            "🔥 האמון בעצמך הוא מה שהופך אותך ליפה ❤️🔥",
+                                            "💄 כל אחת יכולה להרגיש יפה מבפנים ומבחוץ 🌹💄",
+                                            "💪 התמדה בפעילות גופנית משפרת את המראה שלך 🌞💪",
+                                            "🎉 שינויים קטנים יכולים להביא לשינויים גדולים! 🌼🎉",
+                                            "🌈 תאהב את עצמך, כי אתה ראוי לאהבה 💖🌈",
+                                            "👗 השקעה במראה שלך יכולה לשפר את הביטחון שלך 💃👗",
+                                            "💅 טיפוח עצמי הוא דרך נפלאה לחזק את הדימוי העצמי 🌷💅",
+                                            "🌻 יופי פנימי הוא מה שעושה אותך מיוחד 🌸🌻",
+                                            "💖 כל צעד לעבר טיפוח עצמי הוא צעד נכון! 🌼💖"
+                                        ],
+                                        "חוויות חדשות ואורח חיים": [
+                                            "🌍 נסיעות מגדלות את הנפש 🌏🌍",
+                                            "🌅 לנסות דברים חדשים פותח אופקים חדשים 🏞️🌅",
+                                            "✈️ כל טיול הוא חוויה חדשה שמלמדת אותנו 💫✈️",
+                                            "🥘 תנסה לטעום מטעמים חדשים! 🍣🥘",
+                                            "🎨 חיים מלאים בחוויות הם חיים מלאים במשמעות 🌈🎨",
+                                            "🚴‍♀️ תנסה ספורט חדש, זה יכול לשנות לך את החיים! 🏄‍♂️🚴‍♀️",
+                                            "💫 חוויות חדשות מעשירות את חיינו 🌟💫",
+                                            "🌌 אל תפחד להיות מחוץ לאזור הנוחות שלך 🚀🌌",
+                                            "🌈 תתנסה במשהו שלא עשית קודם! 🎉🌈",
+                                            "🍀 גלה מקומות חדשים, הם יכולים להפתיע אותך! 🌍🍀"
+                                        ],
+                                        "דוגמה אישית והשפעה על אחרים": [
+                                            "💡 ההשראה שלך יכולה לשנות חיים 🌟💡",
+                                            "💪 ההשפעה שלך היא הכוח שלך 🌈💪",
+                                            "🌍 תראה לעולם איך ניתן לחיות באור 🌞🌍",
+                                            "✨ חיה את החיים שאתה רוצה לראות אחרים חיים 💖✨",
+                                            "❤️ השפעתך יכולה ליצור שינוי חיובי בחיים של אחרים 🌼❤️",
+                                            "📢 דבר בשפת האמת שלך, היא מעוררת השראה! 🌟📢",
+                                            "🤝 דוגמה אישית היא דרך טובה להנחיל ערכים 💖🤝",
+                                            "🔑 להיות דוגמה חיובית עוזרת לאחרים להתקדם 🔑✨",
+                                            "🌈 כל פעולה חיובית קטנה משפיעה על הסביבה שלך 🌻🌈",
+                                            "🚀 התחל להיות הדוגמה שאתה רוצה לראות בעולם! 💪🚀"
+                                        ]
+                                    };
 
 
+                                    function getRandomQuote(category) {
+                                        const quotes = data[category];
+                                        const randomIndex = Math.floor(Math.random() * quotes.length);
+                                        return quotes[randomIndex];
+                                    }
 
-                <h3 style="text-align: right; color: #333;">🌐 רשתות חברתיות:</h3>
-                <div class="social-icons"
-                    style="text-align: center; display: flex; justify-content: space-between; flex-wrap: wrap; margin: 10px 0;">
-                    <a href="https://x.com/anLoMinusX" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/anlominus/" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/AnLoMinusX/" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/AnLoMinusX/" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-instagram"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://codepen.io/AnLoMinus" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-codepen"></i></a>
-                    <a href="https://github.com/AnLoMinus" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fab fa-github"></i></a>
-                    <a href="https://chat.openai.com/auth/login" target="_blank"
-                        style="flex: 1; text-align: center; margin: 5px;"><i class="fas fa-robot"></i></a>
-                </div>
+                                    function updateQuotes() {
+                                        categories.forEach((category, index) => {
+                                            const quoteElement = document.getElementById(`quote-${index}`);
+                                            const newQuote = getRandomQuote(category);
+                                            quoteElement.textContent = newQuote;
+                                        });
+                                    }
 
-                <footer style="text-align: right; margin-top: 20px; font-size: 0.9em; color: #999;">
-                    &copy; 2024 לאון יעקובוב - כל הזכויות שמורות
-                </footer>
-            </div>
-
-            <!-- Modal for Contact Form -->
-            <div id="contactModal"
-                style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
-                <div
-                    style="background: white; border-radius: 10px; padding: 20px; max-width: 900px; width: 80%; overflow-y: auto; max-height: 90vh; border: 1px solid #e5e5e5;">
-                    <h3 style="text-align: right;">בחירת שירותי בניית חנות דיגיטלית</h3>
-                    <p style="text-align: right;">
-                        בחר את השירותים שתרצה להוסיף לחנות שלך. אנחנו מציעים מגוון פתרונות לבניית חנות דיגיטלית, קידום
-                        עסקי, תוכניות שותפים ועוד. סמן את האפשרויות שמתאימות לצרכים שלך ונשמח לחזור אליך.
-                    </p>
-
-                    <div class="section-title"
-                        style="font-weight: bold; margin-top: 25px; margin-bottom: 10px; color: #6a1b9a; font-size: 20px;">
-                        שירותים מוצעים:
-                    </div>
-
-                    <div class="service-section"
-                        style="background-color: #f2f0f5; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #e0d9e6;">
-                        <div class="checkbox-container" style="margin-bottom: 15px;">
-                            <input type="checkbox" id="customCoupons" value="שוברים/כרטיסי הנחה מותאמים אישית">
-                            <label for="customCoupons">שוברים/כרטיסי הנחה מותאמים אישית - תשלום לפי אחוזי מכירה</label>
+                                    // עדכון הציטוטים בהתחלה
+                                    updateQuotes();
+                                    // החלפת ציטוטים בכל כמה שניות
+                                    setInterval(updateQuotes, intervalTime);
+                                });
+                            </script>
                         </div>
-                        <p>הצעת כרטיסי הנחה מותאמים אישית ללקוחות, כאשר התשלום מתבצע לפי אחוז מכל עסקה שמתבצעת דרך
-                            הכרטיסים.</p>
                     </div>
+                </div>
+            </div>
+            <!-- כותרת ראשית -->
+            <div class="row">
 
-                    <!-- הוסף כאן עוד שירותים כמו שצריך -->
 
-                    <div class="section-title"
-                        style="font-weight: bold; margin-top: 25px; margin-bottom: 10px; color: #6a1b9a; font-size: 20px;">
-                        פרטים אישיים:
+                <style>
+                    /* עיצוב הבר */
+                    .quote-bar {
+                        width: 100%;
+                        background-color: #f8f4ff73;
+                        /* צבע פסטלי עדין */
+                        border: 2px solid #d1c4e9;
+                        padding: 1px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        /* צל עדין */
+                        text-align: center;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 1.2em;
+                        color: #5e35b1;
+                        overflow: hidden;
+                        font-weight: 700;
+
+                    }
+
+                    /* עיצוב המשפטים */
+                    #quoteText {
+                        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+                        /* אפקט מעבר חלק */
+                        opacity: 1;
+                    }
+
+                    /* כשעוברים משפטים, נותן להם אפקט יציאה והופעה */
+                    .quote-bar.fade-out #quoteText {
+                        opacity: 0;
+                        transform: translateY(10px);
+                        /* אפקט תנועה כלפי מטה */
+                    }
+
+                    .quote-bar.fade-in #quoteText {
+                        opacity: 1;
+                        transform: translateY(0);
+                        /* החזרה למקום המקורי */
+                    }
+                </style>
+
+                <script>
+                    const quotes = [
+                        "💡 *חיים רק פעם אחת, אבל אם עושים את זה נכון, פעם אחת מספיקה.*",
+                        "🔥 *תהיה השינוי שאתה רוצה לראות בעולם.*",
+                        "🌱 *כל יום הוא הזדמנות חדשה.*",
+                        "💪 *הכוח הוא במחשבה חיובית.*",
+                        "🚀 *להציב יעדים גבוהים זה הדרך להגיע להצלחה.*",
+                        "🎯 *ההתמדה מנצחת, גם כשנדמה שהדרך ארוכה.*",
+                        "⚡ *האנרגיה שתשקיע היום, תחזור אליך מחר.*",
+                        "💡 *החלטות קטנות יוצרות שינויים גדולים.*",
+                        "🌟 *היצירתיות היא המפתח להתקדמות בכל תחום בחיים.*",
+                        "✨ *אמונה בעצמך היא החלק הראשון בדרך להצלחה.*",
+                        "🔑 *חיים של איזון הם חיים של איכות.*",
+                        "⏳ *אל תדחה את החלומות שלך, הזמן עובר מהר.*",
+                        "🌈 *לפעמים הדרך הקשה היא הדרך הנכונה.*",
+                        "💼 *קריירה מוצלחת היא תוצאה של עבודה קשה והתמדה.*",
+                        "🤝 *מערכות יחסים חזקות נבנות על אמון וכבוד.*",
+                        "🛠️ *תיקון טעויות הוא חלק מהצמיחה.*",
+                        "🎶 *המוזיקה שלך היא הדרך להרגיש יותר טוב גם בימים קשים.*",
+                        "🚴 *כל יום הוא מסע, תעשה אותו הכי טוב שאפשר.*",
+                        "🔋 *כדי להמשיך קדימה, צריך לפעמים לקחת הפסקה.*"
+                    ];
+
+                    let currentQuoteIndex = 0;
+                    function changeQuote() {
+                        const quoteBar = document.querySelector('.quote-bar');
+                        const quoteText = document.getElementById("quoteText");
+
+                        // אפקט יציאה
+                        quoteBar.classList.add('fade-out');
+
+                        // אחרי 1 שניה, מחליפים את המשפט
+                        setTimeout(() => {
+                            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                            quoteText.innerText = quotes[currentQuoteIndex];
+
+                            // אפקט כניסה
+                            quoteBar.classList.remove('fade-out');
+                            quoteBar.classList.add('fade-in');
+                        }, 1000); // מחכים שניה
+
+                        // אחרי עוד שניה, מורידים את אפקט הכניסה
+                        setTimeout(() => {
+                            quoteBar.classList.remove('fade-in');
+                        }, 2000);
+                    }
+
+                    setInterval(changeQuote, 5000); // משנה משפט כל 5 שניות
+                </script>
+            </div>
+            <!-- שורה 1: תיבה אחת תופסת 100% -->
+            <div class="row" style="display: none;">
+                <div class="card full-width">
+                    <h2>לאון יעקובוב</h2>
+                    <p>שלום לכולם! אתם נמצאים בכרטיס ביקור שלי </p>
+                    <div class="contact-info" style="text-align: center;">
+                        <p class="icon" style="font-size: 1.1em;">📞 טלפון: <strong>054-328-5967</strong></p>
+                        <p class="icon" style="font-size: 1.1em;">📧 אימייל: <a
+                                href="mailto:leon@example.com">leon@example.com</a></p>
+                        <p class="icon" style="font-size: 1.1em;">🌐 אתר אישי: <a href="https://anlominus.github.io"
+                                target="_blank">anlominus.github.io</a></p>
                     </div>
+                </div>
+            </div>
 
-                    <form id="contactForm" onsubmit="submitForm(event)" style="text-align: right;">
-                        <label for="businessName">שם העסק:</label>
-                        <input type="text" id="businessName" placeholder="הכנס שם העסק שלך" required
-                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            <!-- שורה 2: 50% ו-50% -->
+            <div class="row">
+                <div class="card half-width">
+                    <h2>עולם הבא!</h2>
+                    <h3 style=" color: #777;">📋 איזון בכל תחומי החיים שלך!</h3>
+                    <a href="./Projects/Next-Life/" class="nextlife-button">
+                        <span class="icon icon1">💡</span>
+                        <span class="icon icon2">🔥</span>
+                        Next-Life
+                    </a>
 
-                        <label for="ownerName">שם בעל העסק:</label>
-                        <input type="text" id="ownerName" placeholder="הכנס שם מלא" required
-                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div class="card half-width">
+                    <h2>הארגון למלחמה בעישון</h2>
+                    <h3 style=" color: #777;">כלים טיפים ותוכניות הכל בעזרת ה׳ במקום 1.</h3>
+                    <a href="./Projects/Fresh-Life/" class="quit-smoking-button">
+                        <span class="icon icon1">🌟</span>
+                        <span class="icon icon2">🔥</span>
+                        Fresh-Life
+                    </a>
 
-                        <label for="phone">טלפון:</label>
-                        <input type="tel" id="phone" placeholder="הכנס מספר טלפון" required
-                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div class="card half-width">
+                    <h2>הארגון למלחמה בעישון</h2>
+                    <h3 style=" color: #777;">כלים טיפים ותוכניות הכל בעזרת ה׳ במקום 1.</h3>
+                    <a href="./Projects/Fresh-Life/" class="quit-smoking-button">
+                        <span class="icon icon1">🌟</span>
+                        <span class="icon icon2">🔥</span>
+                        Fresh-Life
+                    </a>
 
-                        <label for="email">אימייל:</label>
-                        <input type="email" id="email" placeholder="הכנס כתובת אימייל" required
-                            style="width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div class="card half-width">
+                    <h2>הארגון למלחמה בעישון</h2>
+                    <h3 style=" color: #777;">כלים טיפים ותוכניות הכל בעזרת ה׳ במקום 1.</h3>
+                    <a href="./Projects/Fresh-Life/" class="quit-smoking-button">
+                        <span class="icon icon1">🌟</span>
+                        <span class="icon icon2">🔥</span>
+                        Fresh-Life
+                    </a>
 
-                        <button type="button" onclick="sendWhatsApp()"
-                            style="background: #6a1b9a; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; width: 100%;">שלח
-                            ל-WhatsApp</button>
-                        <button type="button" onclick="closeModal()"
-                            style="background: #f44336; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; width: 100%;">סגור</button>
-                    </form>
                 </div>
             </div>
 
 
-            <!-- Popup for Icon Descriptions -->
-            <div id="popup"
-                style="display:none; position:fixed; top:50%; left:50%; transform: translate(-50%, -50%); background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 1000;">
-                <h3 id="popup-title" style="text-align: right;"></h3>
-                <p id="popup-description" style="text-align: right;"></p>
-                <button onclick="closePopup()"
-                    style="background: #f44336; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">סגור</button>
+
+            <!-- שורה 10: 66% ו-33% -->
+            <div class="row" style="display: none;">
+                <div class="card two-thirds">
+                    <h2>לאון יעקובוב</h2>
+                    <!-- <p>שלום לכולם! אתם נמצאים בכרטיס ביקור שלי </p> -->
+                    <div class="contact-info" style="text-align: center;">
+                        <p class="icon" style="font-size: 1.1em;">📞 טלפון: <strong>054-328-5967</strong></p>
+                        <p class="icon" style="font-size: 1.1em;">📧 אימייל: <a
+                                href="mailto:leon@example.com">leon@example.com</a></p>
+                        <p class="icon" style="font-size: 1.1em;">🌐 אתר אישי: <a href="https://anlominus.github.io"
+                                target="_blank">anlominus.github.io</a></p>
+                    </div>
+                </div>
+                <div class="card third-width">
+                    <h2>תיבה תופסת 33%</h2>
+                    <p>תוכן התיבה שתופסת 33%.</p>
+                </div>
             </div>
+
         </div>
 
-        <!-- <a href="./Profiles.html" class="dynamic-button">פרופיל</a> -->
-        <!-- <a href="./Dashboard.html" class="glass-button">לוח בקרה</a> -->
-    </div>
+        <!-- פוטר -->
+        <!-- <link rel="stylesheet" href="./0-css/style.css"> -->
+        <footer>
+            <!-- <h3 style="text-align: center; color: #ffffff;">🌐 רשתות חברתיות 🌐</h3> -->
+            <div class="footer-icons">
 
-    <!-- פוטר -->
-    <!-- <link rel="stylesheet" href="./0-css/style.css"> -->
-    <footer>
-        <div class="footer-icons">
-            <a href="https://x.com/anLoMinusX" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/anlominus/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.facebook.com/AnLoMinusX/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/AnLoMinusX/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank"><i
-                    class="fab fa-whatsapp"></i></a>
-            <a href="https://codepen.io/AnLoMinus" target="_blank"><i class="fab fa-codepen"></i></a>
-            <a href="https://github.com/AnLoMinus" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://chat.openai.com/auth/login" target="_blank"><i class="fas fa-robot"></i></a>
-        </div>
-        <p>פותח ע"י: לאון יעקובוב ושותפיו, OpenAI 🤝</p>
-    </footer>
+                <a href="https://x.com/anLoMinusX" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/anlominus/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/AnLoMinusX/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/AnLoMinusX/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=972543285967" target="_blank"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="https://codepen.io/AnLoMinus" target="_blank"><i class="fab fa-codepen"></i></a>
+                <a href="https://github.com/AnLoMinus" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://chat.openai.com/auth/login" target="_blank"><i class="fas fa-robot"></i></a>
+            </div>
+            <!-- <p>פותח ע"י: לאון יעקובוב ושותפיו, OpenAI 🤝</p> -->
+        </footer>
 
 </body>
 

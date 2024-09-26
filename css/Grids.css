@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  direction: rtl;
+  /* מימין לשמאל */
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.container {
+  padding: 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  /* לוודא שה-padding לא יוסיף לגובה */
+}
+
+/* עיצוב לכל שורה */
+.full-width {
+  flex: 0 0 100%;
+  /* תופס 100% */
+}
+
+.half-width {
+  flex: 0 0 50%;
+  /* תופס 50% */
+}
+
+.third-width {
+  flex: 0 0 33.33%;
+  /* תופס 33% */
+}
+
+.quarter-width {
+  flex: 0 0 25%;
+  /* תופס 25% */
+}
+
+.two-thirds {
+  flex: 0 0 66.66%;
+  /* תופס 66% */
+}
+
+/* תוספות של רספונסיביות */
+@media (max-width: 768px) {
+  .full-width,
+  .half-width,
+  .third-width,
+  .quarter-width,
+  .two-thirds {
+    flex: 0 0 100%;
+    /* כל כרטיסים בשורה אחת במסכים קטנים */
+  }
+}

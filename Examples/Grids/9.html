@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשת כרטיסים ורטיקלית</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .grid-item {
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">כרטיס מידע 1</div>
+        <div class="grid-item">כרטיס מידע 2</div>
+        <div class="grid-item">כרטיס מידע 3</div>
+        <div class="grid-item">כרטיס מידע 4</div>
+    </div>
+
+</body>
+
+</html>

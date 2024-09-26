@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשת אסימטרית</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 10px;
+        }
+
+        .grid-item {
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .grid-item-large {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">תיבה 1</div>
+        <div class="grid-item grid-item-large">תיבה 2 (כפולה)</div>
+        <div class="grid-item">תיבה 3</div>
+        <div class="grid-item">תיבה 4</div>
+        <div class="grid-item">תיבה 5</div>
+        <div class="grid-item">תיבה 6</div>
+    </div>
+
+</body>
+
+</html>

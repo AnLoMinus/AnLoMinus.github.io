@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשת עם ארבעה כרטיסים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* שתי עמודות */
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+                /* עמודה אחת במסכים קטנים */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>רשת עם ארבעה כרטיסים</h1>
+    </header>
+
+    <nav>
+        <a href="#">דף הבית</a>
+        <a href="#">אודות</a>
+        <a href="#">שירותים</a>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>כרטיס 1</h2>
+            <p>תוכן כרטיס 1.</p>
+        </div>
+        <div class="card">
+            <h2>כרטיס 2</h2>
+            <p>תוכן כרטיס 2.</p>
+        </div>
+        <div class="card">
+            <h2>כרטיס 3</h2>
+            <p>תוכן כרטיס 3.</p>
+        </div>
+        <div class="card">
+            <h2>כרטיס 4</h2>
+            <p>תוכן כרטיס 4.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

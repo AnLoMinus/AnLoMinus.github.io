@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תיבה מרכזית ותיבות מסביבה</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 200px);
+            gap: 10px;
+        }
+
+        .grid-item {
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .grid-item.center {
+            grid-column: 2;
+            grid-row: 2;
+            background-color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(5, 150px);
+            }
+
+            .grid-item.center {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">תיבה 1</div>
+        <div class="grid-item">תיבה 2</div>
+        <div class="grid-item">תיבה 3</div>
+        <div class="grid-item center">תיבה מרכזית</div>
+        <div class="grid-item">תיבה 4</div>
+        <div class="grid-item">תיבה 5</div>
+        <div class="grid-item">תיבה 6</div>
+    </div>
+
+</body>
+
+</html>
