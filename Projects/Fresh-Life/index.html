@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>הפסקת עישון - הארגון למלחמה בעישון</title>
+    <link rel="stylesheet" href="../../css/Grids.css">
     <link rel="stylesheet" href="./style.css">
     <!-- <link rel="stylesheet" href="../../css/Fresh.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -177,6 +178,7 @@
 </head>
 
 <body>
+
     <header>
         <div class="">
             <!-- Language Switcher Section -->
@@ -229,25 +231,26 @@
             <p>מתחילים את הדרך לחיים בריאים</p>
 
         </section>
-
     </header>
+
     <section>
-
-
 
         <div class="content">
 
-            <!-- רווח כנגו הפסד -->
-            <div class="volunteers-section">
-                <h2><i class="fa-solid"></i>ציטוטים מחזקים ואזהרות על עישון</h2>
-                <div class="video-container">
-                    <section>
-                        <div id="positive-bar" class="quote-bar">ציטוט מחזק...</div>
-                        <div class="quote-bar" id="quoteBar">
-                            "הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה."
-                        </div>
-                        <div id="warning-bar" class="quote-bar">ציטוט אזהרה על עישון...</div>
+            <div class="container">
 
+                <!-- שורה 2: 50% ו-50% -->
+                <div class="row">
+                    <div class="card half-width">
+                        <!-- רווח כנגו הפסד -->
+                        <div class="">
+                            <h2><i class="fa-solid"></i>ציטוטים מחזקים ואזהרות על עישון</h2>
+                            <div id="positive-bar" class="quote-bar">ציטוט מחזק...</div>
+                            <div class="quote-bar" id="quoteBar">
+                                "הדרך היחידה להפסיק לעשן היא לא להתחיל מלכתחילה."
+                            </div>
+                            <div id="warning-bar" class="quote-bar">ציטוט אזהרה על עישון...</div>
+                        </div>
                         <script>
                             // ציטוטים מחזקים
                             const positiveQuotes = [
@@ -354,102 +357,138 @@
                             // אתחול הציטוטים בהתחלה
                             changeQuote();
                         </script>
-                    </section>
+
+                    </div>
+                    <div class="card half-width">
+                        <!-- סרטונים -->
+                        <div class="    " style="">
+                            <h2><i class="fa-solid fa-video"></i> סדרת סרטונים להפסיק לעשן</h2>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/example1" frameborder="0"
+                                    allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/example2" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- שורה 1: תיבה אחת תופסת 100% -->
+                <div class="row">
+                    <div class="card full-width">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="card full-width">
+                    <!-- רווח כנגו הפסד -->
+
 
                 </div>
             </div>
 
+            <!-- שורה 4: 4 כרטיסים ב-25% -->
+            <div class="row">
+                <div class="card quarter-width">
+                    <!-- מחשבוני בריאות -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
+                        <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
+                        <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
 
-            <!-- סרטונים -->
-            <div class="video-section" style="display: none;">
-                <h2><i class="fa-solid fa-video"></i> סדרת סרטונים להפסיק לעשן</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen></iframe>
+                        <!-- כפתור מחשבון לחיסכון בכסף -->
+                        <h2>חשב את החיסכון שלך</h2>
+                        <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
+
+                    </div>
+                </div>
+                <div class="card quarter-width">
+                    <!-- סיפורי הצלחה -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-star"></i> סיפורי הצלחה</h2>
+                        <p>אנשים אמיתיים שהצליחו להפסיק לעשן משתפים את הדרך שלהם.</p>
+                        <div class="story">
+                            <i class="fa-solid fa-user"></i>
+                            <p><strong>ליאור, בן 35:</strong> "החלטתי שזה הזמן לקחת אחריות על הבריאות שלי."</p>
+                        </div>
+                        <div class="story">
+                            <i class="fa-solid fa-user"></i>
+                            <p><strong>מאיה, בת 28:</strong> "זה לא היה קל, אבל כל יום ללא סיגריה הוא ניצחון אישי."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card quarter-width">
+                    <!-- טיימר גמילה חי -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-hourglass-half"></i> כמה זמן עבר מאז שהפסקת לעשן?</h2>
+                        <div class="timer" id="quitTimer">
+                            לא התחלת עדיין? החלט עכשיו!
+                        </div>
+                    </div>
+                </div>
+                <div class="card quarter-width">
+                    <!-- קהילה ושאלות -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-comments"></i> פורום שאלות ותשובות</h2>
+                        <p>שאל שאלות, קבל תמיכה, ושתף את התקדמותך עם אנשים אחרים.</p>
+                        <button onclick="joinCommunity()">הצטרף לפורום</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- מחשבוני בריאות -->
-            <div class="health-tools">
-                <h2><i class="fa-solid fa-calculator"></i> כלים לניהול הגמילה שלך</h2>
-                <p>תדע בדיוק כמה זמן תחיה וכמה כסף תחסוך על ידי שימוש במחשבונים שלנו.</p>
-                <button onclick="calculateHealthSavings()">מחשבון בריאות</button>
-
-                <!-- כפתור מחשבון לחיסכון בכסף -->
-                <h2>חשב את החיסכון שלך</h2>
-                <button class="calc-button" onclick="calculateSavings()">לחץ לחישוב</button>
-
-            </div>
-
-            <!-- סיפורי הצלחה -->
-            <div class="success-stories">
-                <h2><i class="fa-solid fa-star"></i> סיפורי הצלחה</h2>
-                <p>אנשים אמיתיים שהצליחו להפסיק לעשן משתפים את הדרך שלהם.</p>
-                <div class="story">
-                    <i class="fa-solid fa-user"></i>
-                    <p><strong>ליאור, בן 35:</strong> "החלטתי שזה הזמן לקחת אחריות על הבריאות שלי."</p>
+            <!-- שורה 4: 4 כרטיסים ב-25% -->
+            <div class="row">
+                <div class="card quarter-width">
+                    <!-- טכניקות הרפיה ומיינדפולנס -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-balance-scale"></i> טכניקות הרפיה</h2>
+                        <p>תתחיל לחיות את החיים הבריאים שמגיעים לך עם טכניקות הרפיה עוצמתיות.</p>
+                        <button onclick="playMeditation()">מדיטציה להרגעה</button>
+                        <button onclick="startBreathingExercise()">תרגילי נשימה</button>
+                    </div>
                 </div>
-                <div class="story">
-                    <i class="fa-solid fa-user"></i>
-                    <p><strong>מאיה, בת 28:</strong> "זה לא היה קל, אבל כל יום ללא סיגריה הוא ניצחון אישי."</p>
+                <div class="card quarter-width">
+                    <!-- מערכת תרומות -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-donate"></i> תמוך בארגון</h2>
+                        <p>תרום עכשיו ותעזור במאבק נגד עישון. כל תרומה משפיעה!</p>
+                        <button onclick="donate()">תרום עכשיו</button>
+                    </div>
+                </div>
+                <div class="card quarter-width">
+                    <!-- ניהול קמפיינים -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-bullhorn"></i> ניהול קמפיינים</h2>
+                        <p>התעדכן בקמפיינים הנוכחיים שלנו ובתוצאותיהם.</p>
+                        <ul>
+                            <li>קמפיין 1 - בתהליך</li>
+                            <li>קמפיין 2 - הושלם</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card quarter-width">
+                    <!-- התנדבות -->
+                    <div class="">
+                        <h2><i class="fa-solid fa-handshake"></i> הצטרף כמתנדב</h2>
+                        <p>רוצה לעזור במאבק נגד העישון? הצטרף אלינו כמתנדב וקבל משימות ותמיכה.</p>
+                        <button onclick="joinVolunteers()">הצטרף כמתנדב</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- טיימר גמילה חי -->
-            <div class="support-tools">
-                <h2><i class="fa-solid fa-hourglass-half"></i> כמה זמן עבר מאז שהפסקת לעשן?</h2>
-                <div class="timer" id="quitTimer">
-                    לא התחלת עדיין? החלט עכשיו!
+            <!-- שורה 1: תיבה אחת תופסת 100% -->
+            <div class="row">
+                <div class="card full-width">
+                    <!-- משוב ופידבק -->
+                    <div class="feedback-section">
+                        <h2><i class="fa-solid fa-envelope"></i> משוב משתמשים</h2>
+                        <p>שתף אותנו בחוויות שלך ובמשוב על האתר שלנו. דעתך חשובה לנו!</p>
+                        <button onclick="submitFeedback()">שלח משוב</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- קהילה ושאלות -->
-            <div class="community-section">
-                <h2><i class="fa-solid fa-comments"></i> פורום שאלות ותשובות</h2>
-                <p>שאל שאלות, קבל תמיכה, ושתף את התקדמותך עם אנשים אחרים.</p>
-                <button onclick="joinCommunity()">הצטרף לפורום</button>
-            </div>
-
-            <!-- טכניקות הרפיה ומיינדפולנס -->
-            <div class="mindfulness-tools">
-                <h2><i class="fa-solid fa-balance-scale"></i> טכניקות הרפיה</h2>
-                <p>תתחיל לחיות את החיים הבריאים שמגיעים לך עם טכניקות הרפיה עוצמתיות.</p>
-                <button onclick="playMeditation()">מדיטציה להרגעה</button>
-                <button onclick="startBreathingExercise()">תרגילי נשימה</button>
-            </div>
-
-            <!-- מערכת תרומות -->
-            <div class="donations-section">
-                <h2><i class="fa-solid fa-donate"></i> תמוך בארגון</h2>
-                <p>תרום עכשיו ותעזור במאבק נגד עישון. כל תרומה משפיעה!</p>
-                <button onclick="donate()">תרום עכשיו</button>
-            </div>
-
-            <!-- ניהול קמפיינים -->
-            <div class="campaigns-section">
-                <h2><i class="fa-solid fa-bullhorn"></i> ניהול קמפיינים</h2>
-                <p>התעדכן בקמפיינים הנוכחיים שלנו ובתוצאותיהם.</p>
-                <ul>
-                    <li>קמפיין 1 - בתהליך</li>
-                    <li>קמפיין 2 - הושלם</li>
-                </ul>
-            </div>
-
-            <!-- התנדבות -->
-            <div class="volunteers-section">
-                <h2><i class="fa-solid fa-handshake"></i> הצטרף כמתנדב</h2>
-                <p>רוצה לעזור במאבק נגד העישון? הצטרף אלינו כמתנדב וקבל משימות ותמיכה.</p>
-                <button onclick="joinVolunteers()">הצטרף כמתנדב</button>
-            </div>
-
-            <!-- משוב ופידבק -->
-            <div class="feedback-section">
-                <h2><i class="fa-solid fa-envelope"></i> משוב משתמשים</h2>
-                <p>שתף אותנו בחוויות שלך ובמשוב על האתר שלנו. דעתך חשובה לנו!</p>
-                <button onclick="submitFeedback()">שלח משוב</button>
-            </div>
 
         </div>
 

@@ -166,7 +166,369 @@
 <body>
 
 
+    <span>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            .accessibility-button {
+                position: fixed;
+                top: 50%;
+                right: 10px;
+                /* מיקום הכפתור מצד ימין */
+                transform: translateY(-50%);
+                background-color: #4a90e2;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 1000;
+                width: 50px;
+                /* רוחב הכפתור */
+                height: 50px;
+                /* גובה הכפתור */
+                display: flex;
+                /* כדי לאפשר ריכוז של האייקון */
+                justify-content: center;
+                /* ריכוז האייקון */
+                align-items: center;
+                /* ריכוז האייקון */
+                font-size: 36px;
+            }
 
+            .accessibility-menu {
+                display: none;
+                position: fixed;
+                top: 50%;
+                right: 70px;
+                /* מיקום התפריט בצד ימין */
+                transform: translateY(-50%);
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                padding: 10px;
+                z-index: 1000;
+                width: 150px;
+                /* רוחב חלון הנגישות */
+                pointer-events: auto;
+                /* מאפשר קליקים על התפריט */
+            }
+
+            .accessibility-icon {
+                font-size: 24px;
+                margin: 10px;
+                cursor: pointer;
+                text-align: center;
+                color: #4a90e2;
+            }
+
+            .icon-row {
+                display: flex;
+                justify-content: space-around;
+            }
+        </style>
+
+        <button class="accessibility-button" onclick="toggleMenu()">
+            <i class="fas fa-wheelchair"></i> <!-- אייקון של נכה בעגלה -->
+        </button>
+
+        <div class="accessibility-menu" id="accessibilityMenu">
+            <div class="icon-row">
+                <div class="accessibility-icon" onclick="increaseFontSize()">
+                    <i class="fas fa-font"></i> <!-- אייקון של הגדלת גופן -->
+                </div>
+                <div class="accessibility-icon" onclick="decreaseFontSize()">
+                    <i class="fas fa-font"></i> <!-- אייקון של הקטנת גופן -->
+                </div>
+            </div>
+            <div class="icon-row">
+                <div class="accessibility-icon" onclick="toggleContrast()">
+                    <i class="fas fa-adjust"></i> <!-- אייקון של ניגודיות גבוהה -->
+                </div>
+                <div class="accessibility-icon" onclick="toggleTextToSpeech()">
+                    <i class="fas fa-volume-up"></i> <!-- אייקון של טקסט לדיבור -->
+                </div>
+            </div>
+            <div class="icon-row">
+                <div class="accessibility-icon" onclick="toggleBackground()">
+                    <i class="fas fa-paint-brush"></i> <!-- אייקון של החלפת רקע -->
+                </div>
+                <div class="accessibility-icon" onclick="increaseLineHeight()">
+                    <i class="fas fa-text-height"></i> <!-- אייקון להגדלת ריווח בין שורות -->
+                </div>
+                <div class="accessibility-icon" onclick="decreaseLineHeight()">
+                    <i class="fas fa-text-height"></i> <!-- אייקון להקטנת ריווח בין שורות -->
+                </div>
+            </div>
+            <div class="icon-row">
+                <div class="accessibility-icon" onclick="increaseLetterSpacing()">
+                    <i class="fas fa-text-width"></i> <!-- אייקון להגדלת ריווח בין תווים -->
+                </div>
+                <div class="accessibility-icon" onclick="decreaseLetterSpacing()">
+                    <i class="fas fa-text-width"></i> <!-- אייקון להקטנת ריווח בין תווים -->
+                </div>
+                <div class="accessibility-icon" onclick="resetAccessibility()">
+                    <i class="fas fa-undo"></i> <!-- אייקון לאיפוס אפשרויות נגישות -->
+                </div>
+            </div>
+            <div class="icon-row">
+                <div class="accessibility-icon" onclick="showHelp()">
+                    <i class="fas fa-question-circle"></i> <!-- אייקון של עזרה -->
+                </div>
+                <div class="accessibility-icon" onclick="toggleAnimations()">
+                    <i class="fas fa-spinner"></i> <!-- אייקון של אנימציות -->
+                </div>
+                <div class="accessibility-icon" onclick="toggleTooltip()">
+                    <i class="fas fa-info-circle"></i> <!-- אייקון של מידע -->
+                </div>
+            </div>
+            <div class="icon-row">
+                <div class="accessibility-icon" onclick="toggleScreenReader()">
+                    <i class="fas fa-comment-dots"></i> <!-- אייקון של קורא מסך -->
+                </div>
+                <div class="accessibility-icon" onclick="increaseScreenReaderSpeed()">
+                    <i class="fas fa-fast-forward"></i> <!-- אייקון להגדלת מהירות קריאה -->
+                </div>
+                <div class="accessibility-icon" onclick="decreaseScreenReaderSpeed()">
+                    <i class="fas fa-fast-backward"></i> <!-- אייקון להקטנת מהירות קריאה -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let lineHeight = 1.5; // ברירת המחדל של ריווח בין שורות
+            let letterSpacing = 1; // ברירת המחדל של ריווח בין תווים
+            let backgroundToggled = false; // משתנה לבדוק אם רקע הוחלף
+            let screenReaderSpeed = 1; // ברירת המחדל של מהירות קריאה
+
+            function toggleMenu() {
+                const menu = document.getElementById('accessibilityMenu');
+
+                if (menu.style.display === 'block') {
+                    menu.style.transition = 'opacity 0.3s ease'; // הגדרת אנימציה
+                    menu.style.opacity = '0'; // שיקול מתון כדי להחביא את התפריט
+                    setTimeout(() => {
+                        menu.style.display = 'none'; // מסתיר את התפריט לאחר האנימציה
+                    }, 300); // 300ms תואם את זמן האנימציה
+                } else {
+                    menu.style.display = 'block'; // מראה את התפריט
+                    setTimeout(() => {
+                        menu.style.transition = 'opacity 0.3s ease'; // הגדרת אנימציה
+                        menu.style.opacity = '1'; // מציג את התפריט עם שקיפות
+                    }, 0); // מוודא שהאנימציה מתבצעת מיד לאחר פתיחת התפריט
+                }
+            }
+
+
+            function increaseFontSize() {
+                const currentSize = window.getComputedStyle(document.body).fontSize; // קבלת הגודל הנוכחי
+                const newSize = parseFloat(currentSize) + 2; // להגדיל את הגופן ב-2 פיקסלים
+                document.body.style.fontSize = newSize + 'px'; // עדכון גודל הגופן
+            }
+
+            function decreaseFontSize() {
+                const currentSize = window.getComputedStyle(document.body).fontSize; // קבלת הגודל הנוכחי
+                const newSize = Math.max(parseFloat(currentSize) - 2, 10); // להקטין את הגופן ב-2 פיקסלים, אבל לא מתחת ל-10 פיקסלים
+                document.body.style.fontSize = newSize + 'px'; // עדכון גודל הגופן
+            }
+
+
+            function toggleContrast() {
+                const body = document.body;
+                body.classList.toggle('high-contrast');
+                if (body.classList.contains('high-contrast')) {
+                    body.style.backgroundColor = 'black';
+                    body.style.color = 'white';
+                } else {
+                    body.style.backgroundColor = 'white';
+                    body.style.color = 'black';
+                }
+            }
+
+            function toggleTextToSpeech() {
+                const text = document.body.innerText; // טקסט להקריא
+                const words = text.split(' '); // פריסת הטקסט למילים
+                let currentIndex = 0; // אינדקס המילה הנוכחית
+
+                // פונקציה לבדוק אם מילה היא עברית
+                function isHebrewWord(word) {
+                    return /[\u0590-\u05FF]/.test(word);
+                }
+
+                // פונקציה לקרוא מילה אחת
+                function readNextWord() {
+                    if (currentIndex < words.length) {
+                        const currentWord = words[currentIndex];
+                        const span = document.createElement('span');
+                        span.style.backgroundColor = 'yellow'; // רקע צהוב
+                        span.innerText = currentWord + ' '; // הוספת רווח לאחר המילה
+                        document.body.innerHTML = document.body.innerHTML.replace(currentWord + ' ', span.outerHTML);
+
+                        const speech = new SpeechSynthesisUtterance(currentWord);
+                        // הגדרת השפה לפי המילה הנוכחית
+                        speech.lang = isHebrewWord(currentWord) ? 'he-IL' : 'en-US';
+
+                        speech.onend = function () {
+                            currentIndex++;
+                            readNextWord(); // לקרוא את המילה הבאה
+                        };
+                        window.speechSynthesis.speak(speech); // השמעת המילה
+                    } else {
+                        // אם אין יותר מילים, משחזר את המצב הקודם
+                        document.body.innerHTML = document.body.innerHTML.replace(/<span style="background-color: yellow;">(.*?)<\/span>/g, '$1');
+                    }
+                }
+
+                // התחלה של הקריאה
+                readNextWord();
+            }
+
+
+            function toggleBackground() {
+                function toggleBackground() {
+                    const body = document.body;
+                    body.style.transition = 'background-color 0.5s ease, color 0.5s ease'; // הגדרת אנימציה
+
+                    if (backgroundToggled) {
+                        body.style.backgroundColor = 'white';
+                        body.style.color = 'black';
+                        backgroundToggled = false;
+                    } else {
+                        body.style.backgroundColor = '#f0f0f0'; // רקע נוסף
+                        body.style.color = '#333'; // צבע טקסט נוסף
+                        backgroundToggled = true;
+                    }
+                }
+                const body = document.body;
+                if (backgroundToggled) {
+                    body.style.backgroundColor = 'white';
+                    body.style.color = 'black';
+                    backgroundToggled = false;
+                } else {
+                    body.style.backgroundColor = '#f0f0f0'; // רקע נוסף
+                    body.style.color = '#333'; // צבע טקסט נוסף
+                    backgroundToggled = true;
+                }
+            }
+
+            function increaseLineHeight() {
+                lineHeight += 0.1;
+                document.body.style.lineHeight = lineHeight;
+            }
+
+            function decreaseLineHeight() {
+                lineHeight = Math.max(1, lineHeight - 0.1); // לא להוריד מתחת ל-1
+                document.body.style.lineHeight = lineHeight;
+            }
+
+            function increaseLetterSpacing() {
+                letterSpacing += 0.1;
+                document.body.style.letterSpacing = letterSpacing + 'px';
+            }
+
+            function decreaseLetterSpacing() {
+                letterSpacing = Math.max(0, letterSpacing - 0.1); // לא להוריד מתחת ל-0
+                document.body.style.letterSpacing = letterSpacing + 'px';
+            }
+
+            function resetAccessibility() {
+                document.body.style.fontSize = 'initial';
+                document.body.style.lineHeight = 'initial';
+                document.body.style.letterSpacing = 'initial';
+                backgroundToggled = false;
+                toggleContrast(); // לאפס ניגודיות אם מופעלת
+            }
+
+            function showHelp() {
+                alert('ההדרכה לא זמינה כעת.');
+            }
+
+            function toggleAnimations() {
+                const body = document.body;
+                body.classList.toggle('disable-animations'); // המרת מצב האנימציות
+
+                // יצירת אלמנט הודעה
+                const message = document.createElement('div');
+                message.style.position = 'fixed';
+                message.style.top = '20px';
+                message.style.right = '20px';
+                message.style.backgroundColor = '#4a90e2';
+                message.style.color = 'white';
+                message.style.padding = '10px';
+                message.style.borderRadius = '5px';
+                message.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                message.style.zIndex = '1000';
+                message.innerText = body.classList.contains('disable-animations') ? 'האנימציות כבויות.' : 'האנימציות מופעלות.';
+
+                // הוספת ההודעה לדף
+                document.body.appendChild(message);
+
+                // הסרת ההודעה אחרי 3 שניות
+                setTimeout(() => {
+                    document.body.removeChild(message);
+                }, 3000);
+            }
+
+
+            function toggleTooltip() {
+                // יצירת אלמנט הודעה
+                const tooltip = document.createElement('div');
+                tooltip.style.position = 'fixed';
+                tooltip.style.top = '20px';
+                tooltip.style.left = '20px';
+                tooltip.style.backgroundColor = '#4a90e2';
+                tooltip.style.color = 'white';
+                tooltip.style.padding = '10px';
+                tooltip.style.borderRadius = '5px';
+                tooltip.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                tooltip.style.zIndex = '1000';
+                tooltip.innerText = 'מידע נוסף זמין כאן.';
+
+                // הוספת ההודעה לדף
+                document.body.appendChild(tooltip);
+
+                // הסרת ההודעה אחרי 3 שניות
+                setTimeout(() => {
+                    document.body.removeChild(tooltip);
+                }, 3000);
+            }
+
+
+            function toggleScreenReader() {
+                // יצירת אלמנט הודעה
+                const message = document.createElement('div');
+                message.style.position = 'fixed';
+                message.style.top = '20px';
+                message.style.left = '20px';
+                message.style.backgroundColor = '#e74c3c';
+                message.style.color = 'white';
+                message.style.padding = '10px';
+                message.style.borderRadius = '5px';
+                message.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                message.style.zIndex = '1000';
+                message.innerText = 'קורא המסך לא זמין כרגע.';
+
+                // הוספת ההודעה לדף
+                document.body.appendChild(message);
+
+                // הסרת ההודעה אחרי 3 שניות
+                setTimeout(() => {
+                    document.body.removeChild(message);
+                }, 3000);
+            }
+
+
+            function increaseScreenReaderSpeed() {
+                screenReaderSpeed += 0.1; // הגדלת מהירות הקריאה
+                alert('מהירות הקריאה הוגדלה ל-' + screenReaderSpeed);
+            }
+
+            function decreaseScreenReaderSpeed() {
+                screenReaderSpeed = Math.max(0.1, screenReaderSpeed - 0.1); // לא להוריד מתחת ל-0.1
+                alert('מהירות הקריאה הוקטנה ל-' + screenReaderSpeed);
+            }
+        </script>
+    </span>
     <!-- בס"ד טקסט -->
     <div style="margin: 10px; text-align: right; color: goldenrod;">
         <p>בס״ד</p>
@@ -551,27 +913,7 @@
 
                 </div>
                 <div class="card half-width">
-                    <h2>הארגון למלחמה בעישון</h2>
-                    <h3 style=" color: #777;">כלים טיפים ותוכניות הכל בעזרת ה׳ במקום 1.</h3>
-                    <a href="./Projects/Fresh-Life/" class="quit-smoking-button">
-                        <span class="icon icon1">🌟</span>
-                        <span class="icon icon2">🔥</span>
-                        Fresh-Life
-                    </a>
-
-                </div>
-                <div class="card half-width">
-                    <h2>הארגון למלחמה בעישון</h2>
-                    <h3 style=" color: #777;">כלים טיפים ותוכניות הכל בעזרת ה׳ במקום 1.</h3>
-                    <a href="./Projects/Fresh-Life/" class="quit-smoking-button">
-                        <span class="icon icon1">🌟</span>
-                        <span class="icon icon2">🔥</span>
-                        Fresh-Life
-                    </a>
-
-                </div>
-                <div class="card half-width">
-                    <h2>הארגון למלחמה בעישון</h2>
+                    <h2>🚭 הארגון למלחמה בעישון 🚭</h2>
                     <h3 style=" color: #777;">כלים טיפים ותוכניות הכל בעזרת ה׳ במקום 1.</h3>
                     <a href="./Projects/Fresh-Life/" class="quit-smoking-button">
                         <span class="icon icon1">🌟</span>
