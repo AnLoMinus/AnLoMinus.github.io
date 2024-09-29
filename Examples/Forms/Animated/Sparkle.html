@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טפסים עם אנימציה למסך מלא</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #282c34;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 80%;
+            height: 80%;
+            box-sizing: border-box;
+            transition: all 0.4s ease;
+        }
+
+        .card {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.8s ease-in-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card h3 {
+            color: #333;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .card.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 999;
+            border-radius: 0;
+            background-color: #f7f7f7;
+        }
+
+        .card.inactive {
+            opacity: 0.3;
+            transform: scale(0.7);
+        }
+
+        .card .sparkle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+            animation: sparkle 1.5s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translateX(-100%) translateY(-100%);
+            }
+
+            50% {
+                transform: translateX(100%) translateY(100%);
+            }
+
+            100% {
+                transform: translateX(-100%) translateY(-100%);
+            }
+        }
+
+        .form-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .card.active .form-content {
+            display: block;
+            opacity: 1;
+        }
+
+        .form-content h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-content input,
+        .form-content textarea {
+            width: 70%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .form-content input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-content input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff5f5f;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #ff4040;
+        }
+
+        @media (max-width: 768px) {
+
+            .form-content input,
+            .form-content textarea {
+                width: 90%;
+            }
+
+            .card.active .form-content h2 {
+                font-size: 22px;
+            }
+
+            .close-btn {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card" id="card1">
+            <h3>פנייה עסקית</h3>
+            <div class="sparkle"></div>
+            <div class="form-content">
+                <button class="close-btn">X</button>
+                <h2>פנייה עסקית</h2>
+                <input type="text" placeholder="שם מלא">
+                <input type="email" placeholder="אימייל">
+                <textarea placeholder="הודעה"></textarea>
+                <input type="submit" value="שלח">
+            </div>
+        </div>
+
+        <div class="card" id="card2">
+            <h3>שירות לקוחות</h3>
+            <div class="sparkle"></div>
+            <div class="form-content">
+                <button class="close-btn">X</button>
+                <h2>שירות לקוחות</h2>
+                <input type="text" placeholder="שם מלא">
+                <input type="email" placeholder="אימייל">
+                <textarea placeholder="הודעה"></textarea>
+                <input type="submit" value="שלח">
+            </div>
+        </div>
+
+        <div class="card" id="card3">
+            <h3>שיתוף פעולה</h3>
+            <div class="sparkle"></div>
+            <div class="form-content">
+                <button class="close-btn">X</button>
+                <h2>שיתוף פעולה</h2>
+                <input type="text" placeholder="שם מלא">
+                <input type="email" placeholder="אימייל">
+                <textarea placeholder="הודעה"></textarea>
+                <input type="submit" value="שלח">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const closeButtons = document.querySelectorAll('.close-btn');
+
+        // פונקציה לפתיחת כרטיס למסך מלא
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => {
+                    if (c !== card) {
+                        c.classList.add('inactive');
+                        c.classList.remove('active');
+                    }
+                });
+                card.classList.toggle('active');
+                card.classList.remove('inactive');
+            });
+        });
+
+        // פונקציה לסגירת הכרטיס בלחיצה על כפתור ה-X
+        closeButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = button.closest('.card');
+                card.classList.remove('active');
+                cards.forEach(c => c.classList.remove('inactive'));
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף נחיתה - התקדמות רעיון</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .step {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .summary {
+            display: none;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .choice {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>מימוש רעיון שלך</h1>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div id="steps">
+            <div class="step" id="step-1">
+                <input type="checkbox" id="check-1"> שלב 1: הגדרת הרעיון
+                <ul>
+                    <li>לפתח אפליקציה ניידת עם React Native</li>
+                </ul>
+            </div>
+            <div class="step hidden" id="step-2">
+                <input type="checkbox" id="check-2"> שלב 2: תכנון הפרויקט
+                <ul>
+                    <li>בחר בין Electron ל-React:</li>
+                    <div class="choice">
+                        <label>
+                            <input type="radio" name="framework" value="Electron"> Electron
+                        </label>
+                        <label>
+                            <input type="radio" name="framework" value="React"> React
+                        </label>
+                    </div>
+                </ul>
+            </div>
+            <div class="step hidden" id="step-3">
+                <input type="checkbox" id="check-3"> שלב 3: פיתוח והטמעה
+                <ul>
+                    <li>פיתוח רכיבים משותפים</li>
+                    <li>חיבור ל-WhatsApp API לניהול משתמשים</li>
+                </ul>
+            </div>
+            <div class="step hidden" id="step-4">
+                <input type="checkbox" id="check-4"> שלב 4: בדיקות ושדרוגים
+                <ul>
+                    <li>בדוק את האפליקציה על פלטפורמות שונות</li>
+                    <li>תכנן שדרוגים לפי בקשות המשתמשים</li>
+                </ul>
+            </div>
+            <div class="step hidden" id="step-5">
+                <input type="checkbox" id="check-5"> שלב 5: השקה
+            </div>
+            <div class="step hidden" id="step-6">
+                <input type="checkbox" id="check-6"> שלב 6: הגדרת סביבת העבודה
+                <div id="environment-setup"></div>
+            </div>
+        </div>
+        <button class="button" id="nextButton">המשך לשלב הבא</button>
+        <div class="summary" id="summary">
+            <h2>סיכום השלבים</h2>
+            <ul id="summaryList"></ul>
+            <p id="completionStatus"></p>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        document.getElementById('nextButton').addEventListener('click', function () {
+            if (currentStep === 2) {
+                const frameworkChoice = document.querySelector('input[name="framework"]:checked');
+                if (!frameworkChoice) {
+                    alert('אנא בחר במסגרת (Electron או React)');
+                    return;
+                }
+                const selectedFramework = frameworkChoice.value;
+                document.getElementById('environment-setup').innerHTML = `
+                    <p>בחרת ב-${selectedFramework}. להלן הצעדים להגדרת סביבת העבודה:</p>
+                    <ul>
+                        <li><a href="${selectedFramework === 'Electron' ? 'https://www.electronjs.org/docs/latest/tutorial/quick-start' : 'https://reactjs.org/docs/getting-started.html'}" target="_blank">לינק למדריך</a></li>
+                        <li>התקן את ${selectedFramework} בהתאם להנחיות במדריך.</li>
+                        <li>הגדר את הפרויקט שלך על פי הצעדים שצוינו.</li>
+                    </ul>
+                `;
+            }
+
+            if (currentStep < totalSteps) {
+                document.getElementById(`step-${currentStep}`).classList.add('hidden');
+                currentStep++;
+                document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+                document.getElementById('progress').style.width = `${(currentStep / totalSteps) * 100}%`;
+            } else {
+                displaySummary();
+            }
+        });
+
+        function displaySummary() {
+            const summaryList = document.getElementById('summaryList');
+            summaryList.innerHTML = ''; // Clear previous summaries
+
+            for (let i = 1; i <= totalSteps; i++) {
+                const checkBox = document.getElementById(`check-${i}`);
+                const listItem = document.createElement('li');
+                listItem.textContent = `שלב ${i}: ${checkBox.checked ? 'הושלם' : 'לא הושלם'}`;
+                summaryList.appendChild(listItem);
+            }
+
+            const completedSteps = Array.from(document.querySelectorAll('input[type="checkbox"]')).filter(cb => cb.checked).length;
+            document.getElementById('completionStatus').textContent = `השלמת התהליך: ${completedSteps} מתוך ${totalSteps} ( ${((completedSteps / totalSteps) * 100).toFixed(0)}% )`;
+            document.getElementById('summary').style.display = 'block';
+            document.getElementById('nextButton').style.display = 'none'; // Hide the button after completion
+        }
+    </script>
+</body>
+
+</html>
