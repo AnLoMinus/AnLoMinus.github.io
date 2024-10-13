@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Machine - Tabbed Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>The Machine - Surveillance & Threat Analysis</h1>
+    </header>
+
+    <!-- תפריט כרטיסיות -->
+    <nav class="tab-menu">
+        <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+        <button class="tab-btn" data-tab="threats">Threats</button>
+        <button class="tab-btn" data-tab="logs">Logs</button>
+        <button class="tab-btn" data-tab="map">Map</button>
+        <button class="tab-btn" data-tab="users">User Management</button>
+    </nav>
+
+    <div class="container">
+        <!-- כרטיסייה: Dashboard -->
+        <div id="dashboard" class="tab-content active">
+            <h2>System Status</h2>
+            <div id="status-container">
+                <span id="system-status">Offline</span>
+                <button id="activate-btn">Activate Machine</button>
+            </div>
+        </div>
+
+        <!-- כרטיסייה: Threats -->
+        <div id="threats" class="tab-content">
+            <h2>Potential Threats Analysis</h2>
+            <div id="threats-container"></div>
+        </div>
+
+        <!-- כרטיסייה: Logs -->
+        <div id="logs" class="tab-content">
+            <h2>System Logs</h2>
+            <div id="logs-container"></div>
+        </div>
+
+        <!-- כרטיסייה: Map -->
+        <div id="map" class="tab-content">
+            <h2>Map Visualization</h2>
+            <div id="map-container">
+                <p>Loading map data...</p>
+            </div>
+        </div>
+
+        <!-- כרטיסייה: User Management -->
+        <div id="users" class="tab-content">
+            <h2>User Management</h2>
+            <div id="users-container"></div>
+            <button id="add-user-btn">Add User</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מקטע עם כרטיסיות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs-container {
+            display: flex;
+            border-bottom: 1px solid #007bff;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #e7f0ff;
+            border: 1px solid #007bff;
+            border-bottom: none;
+            /* ללא גבול בתחתית */
+            margin-right: 5px;
+            border-radius: 8px 8px 0 0;
+            /* פינות עגלגלות עליון */
+        }
+
+        .tab:hover {
+            background-color: #d0e0ff;
+        }
+
+        .tab-content {
+            padding: 20px;
+            border: 1px solid #007bff;
+            border-radius: 0 0 8px 8px;
+            /* פינות עגלגלות תחתון */
+            display: none;
+            /* הסתרת התוכן בהתחלה */
+        }
+
+        .tab-content.active {
+            display: block;
+            /* הצגת התוכן של הכרטיסיה הפעילה */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h2>כרטיסיות</h2>
+        <div class="tabs-container">
+            <div class="tab" onclick="openTab(event, 'tab1')">כרטיסיה 1</div>
+            <div class="tab" onclick="openTab(event, 'tab2')">כרטיסיה 2</div>
+            <div class="tab" onclick="openTab(event, 'tab3')">כרטיסיה 3</div>
+        </div>
+        <div id="tab1" class="tab-content active">
+            <h3>תוכן כרטיסיה 1</h3>
+            <p>זהו התוכן של כרטיסיה 1.</p>
+        </div>
+        <div id="tab2" class="tab-content">
+            <h3>תוכן כרטיסיה 2</h3>
+            <p>זהו התוכן של כרטיסיה 2.</p>
+        </div>
+        <div id="tab3" class="tab-content">
+            <h3>תוכן כרטיסיה 3</h3>
+            <p>זהו התוכן של כרטיסיה 3.</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // להסתיר את כל התוכן של הכרטיסיות
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // להוסיף את הכרטיסיה שנבחרה
+            document.getElementById(tabName).classList.add("active");
+
+            // להוסיף הדגשה לכרטיסיה שנבחרה
+            const tabs = document.getElementsByClassName("tab");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+
+</html>

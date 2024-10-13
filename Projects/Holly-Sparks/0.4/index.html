@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שמירת הברית - ערך יסוד ביהדות</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>שמירת הברית - ערך יסוד ביהדות</h1>
+        <p>העלאת מודעות לסכנות הכרוכות באובדן זרע לבטלה ולשמירה על הברית לפי מסורת יהודית.</p>
+    </header>
+
+    <nav>
+        <a href="#main">עמוד ראשי</a>
+        <a href="#sources">מקורות יהודיים</a>
+        <a href="#articles">מאמרים והדרכות</a>
+        <a href="#books">ספרים מומלצים</a>
+        <a href="#tools">כלים דיגיטליים</a>
+        <a href="#videos">וידאו והסברה</a>
+        <a href="#faq">שאלות ותשובות</a>
+    </nav>
+
+    <!-- מערכת חיפוש פנימית -->
+    <section id="search">
+        <input type="text" id="searchInput" onkeyup="searchContent()" placeholder="חפש באתר..." />
+    </section>
+
+    <section id="main">
+        <h2>מטרת האתר</h2>
+        <p>האתר נועד להעלות מודעות לנושא החשוב של שמירת הברית בעיני היהדות. כאן תמצאו מקורות מהתורה, התלמוד וההלכה, וכן
+            מאמרים והדרכות מעשיות כיצד לשמור על הברית ולהתמודד עם האתגרים הרוחניים והנפשיים הכרוכים בכך.</p>
+    </section>
+
+    <section id="sources">
+        <h2>מקורות יהודיים</h2>
+        <h3>תנ"ך <span class="read-more-btn" onclick="toggleReadMore('tanach')">קרא עוד</span></h3>
+        <ul id="tanach" class="read-more-content">
+            <li>בראשית ל"ח: סיפור יהודה ותמר</li>
+            <li>בראשית ל"ט: סיפור יוסף ואשת פוטיפר</li>
+            <li>ויקרא י"ח: דיני עריות</li>
+        </ul>
+
+        <h3>תלמוד ומדרש <span class="read-more-btn" onclick="toggleReadMore('talmud')">קרא עוד</span></h3>
+        <ul id="talmud" class="read-more-content">
+            <li>נידה י"ג: סוגיות על עוון הוצאת זרע לבטלה</li>
+            <li>שבת מ"א: סוגיות הקשורות לשמירת הברית</li>
+        </ul>
+    </section>
+
+    <section id="articles">
+        <h2>מאמרים והדרכות</h2>
+        <p>כאן תוכלו למצוא מאמרים על ההשפעות הרוחניות והפיזיות של אובדן הברית, וכן כלים מעשיים להתמודדות עם יצרי נפש
+            ולשמירה על קדושה.</p>
+    </section>
+
+    <section id="books">
+        <h2>ספרים מומלצים לקריאה</h2>
+        <ul>
+            <li>"טהרת הקודש" מאת הרב אביגדור מילר</li>
+            <li>"ברית קדש" מאת הרב אהרון רוט</li>
+            <li>"ליקוטי עצות" של רבי נחמן מברסלב</li>
+            <li>"שמירת הברית" מאת הרב דניאל אסולין</li>
+            <li>"קריינא דאיגרתא" של החפץ חיים</li>
+        </ul>
+    </section>
+
+    <section id="tools">
+        <h2>כלים דיגיטליים ופתרונות טכנולוגיים</h2>
+        <p>כלים כמו "נטספרק" ו-"קיווי" לחסימת תכנים בעייתיים ושמירה על קדושה.</p>
+    </section>
+
+    <section id="videos">
+        <h2>וידאו והסברה</h2>
+        <p>סרטונים מאת רבנים המיועדים לעודד שמירת הברית ולהבהיר את חשיבות הנושא מבחינה רוחנית ודתית.</p>
+    </section>
+
+    <section id="faq">
+        <h2>שאלות ותשובות</h2>
+        <p>פורום לשאלות בנושא שמירת הברית, עם תשובות ממקורות רבניים.</p>
+    </section>
+
+    <footer>
+        <p>© 2024 שמירת הברית - כל הזכויות שמורות.</p>
+    </footer>
+
+    <!-- כפתור חזרה לראש העמוד -->
+    <button id="back-to-top" onclick="scrollToTop()">&#8679;</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

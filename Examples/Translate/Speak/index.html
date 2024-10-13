@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קריינות אוטומטית - Auto Narration Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            direction: rtl;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        #speaker-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #FF5722;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            z-index: 1001;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ברוך הבא לאתר שלי!</h1>
+    <p>זהו דף לדוגמה המציג קריינות אוטומטית עם אפשרות לשליטה בעזרת אייקון רמקול. טקסט זה יוקרא באופן אוטומטי בעת טעינת
+        הדף.</p>
+    <p>כדי להשתיק את הקריינות, לחץ על אייקון הרמקול בפינה השמאלית התחתונה. ניתן להפעיל מחדש את הקריינות בלחיצה חוזרת.
+    </p>
+
+    <!-- אייקון רמקול לשליטה בקריינות -->
+    <div id="speaker-icon">🔊</div>
+
+    <!-- קוד JavaScript לקריינות אוטומטית -->
+    <script type="text/javascript">
+        // יצירת משתנים עבור סינתיסייזר הקריינות ומעקב אחרי מצב ההפעלה
+        var synth = window.speechSynthesis;
+        var isSpeaking = false; // מעקב האם הקריינות פועלת כרגע
+
+        // פונקציה לקריינות טקסט
+        function speakText(text) {
+            if (synth.speaking) {
+                synth.cancel(); // הפסקת כל קריינות קודמת
+            }
+
+            var utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'he-IL'; // הגדרת השפה לעברית
+            utterance.pitch = 1; // גובה הקול
+            utterance.rate = 1; // מהירות הדיבור
+
+            synth.speak(utterance); // התחלת הקריינות
+            isSpeaking = true;
+
+            // לאחר סיום הקריינות, עדכן את מצב הדיבור
+            utterance.onend = function () {
+                isSpeaking = false;
+                document.getElementById('speaker-icon').innerHTML = '🔊'; // החזרת האייקון למצב הפעלה
+            };
+        }
+
+        // קריינות אוטומטית בעת טעינת הדף
+        window.onload = function () {
+            var pageText = document.body.innerText; // לוקח את כל הטקסט בדף
+            speakText(pageText); // התחלת קריינות
+        };
+
+        // אייקון רמקול לשליטה
+        document.getElementById('speaker-icon').onclick = function () {
+            if (isSpeaking) {
+                synth.cancel(); // אם הקריינות פועלת, הפסק אותה
+                isSpeaking = false;
+                this.innerHTML = '🔈'; // שינוי האייקון למצב "השתקה"
+            } else {
+                var pageText = document.body.innerText; // לוקח את הטקסט מחדש
+                speakText(pageText); // הפעלת קריינות מחדש
+                this.innerHTML = '🔊'; // שינוי האייקון למצב "הפעלה"
+            }
+        };
+    </script>
+</body>
+
+</html>

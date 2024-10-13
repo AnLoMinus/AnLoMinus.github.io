@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שיר בודד - אתר השירים שלך</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header,
+        footer {
+            background-color: #1a1a1a;
+            color: #00e5ff;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #00e5ff;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #222;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00e5ff, 0 0 40px rgba(0, 229, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px #00e5ff, 0 0 60px rgba(0, 229, 255, 0.4);
+        }
+
+        .song-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .song-header h1 {
+            font-size: 44px;
+            margin-bottom: 10px;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+        }
+
+        .song-meta {
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .song-meta span {
+            margin: 5px 0;
+            padding: 7px 20px;
+            border: 1px solid #00e5ff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px #00e5ff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .song-meta span:hover {
+            background-color: #00e5ff;
+            color: #121212;
+        }
+
+        .song-description {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00e5ff;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .song-description h3 {
+            color: #ff4081;
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 8px rgba(255, 64, 129, 0.6);
+        }
+
+        .song-content {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 30px 0;
+            padding: 20px;
+            background: #1d1d1d;
+            border-radius: 12px;
+            border: 1px solid #ff4081;
+            box-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
+            white-space: pre-line;
+            color: #e0e0e0;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #121212;
+            background-color: #00e5ff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 0 15px;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 229, 255, 0.4);
+        }
+
+        .navigation a:hover {
+            background-color: #ff4081;
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.5);
+        }
+
+        .back-to-category {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .back-to-category a {
+            text-decoration: none;
+            color: #00e5ff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-to-category a:hover {
+            color: #ff4081;
+        }
+
+        @media (max-width: 600px) {
+            .song-meta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .song-content {
+                font-size: 16px;
+            }
+
+            .navigation a {
+                margin: 10px 0;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>אתר השירים שלך</h1>
+    </header>
+    <div class="container">
+        <div class="song-header">
+            <h1>"חלום של לילה"</h1>
+            <div class="song-meta">
+                <span>מאת: <strong>דני כהן</strong></span>
+                <span>תאריך כתיבה: 15 באוגוסט 2022</span>
+                <span>קטגוריה: <a href="#">שירים רומנטיים</a></span>
+                <span>ז'אנר: <strong>רומנטיקה</strong></span>
+                <span>מקצב: <strong>עדין ושקט</strong></span>
+            </div>
+        </div>
+
+        <div class="song-description">
+            <h3>תיאור השיר</h3>
+            <p>השיר "חלום של לילה" נכתב בהשראת חוויה אישית וגעגועים לעבר. הוא מדבר על רגעים קטנים של אהבה והשתקפות של
+                רגשות עמוקים. כל שורה מייצגת חלקיק זיכרון שמחייה את התחושות של התקופה.</p>
+        </div>
+
+        <div class="song-content">
+            <p>
+                חלום של לילה קר,<br>
+                צלילים של רגש נמסים לאט,<br>
+                נגעת בי במבט חודר,<br>
+                ושוב נסחפתי למקום רחוק.<br><br>
+
+                ברקע גלים נשברים,<br>
+                הרוח משחקת עם שיערך,<br>
+                ואני כמו נר קטן,<br>
+                נדלק ונכבה בין כל חלומותייך.<br><br>
+
+                נשארתי שם, בין השורות,<br>
+                לחפש אותך בכל פינה,<br>
+                ובזמן שהעולם שותק,<br>
+                אני כותב לך את כל מה שבפנים.
+            </p>
+        </div>
+
+        <div class="navigation">
+            <a href="#">שיר קודם</a>
+            <a href="#">שיר הבא</a>
+        </div>
+
+        <div class="back-to-category">
+            <a href="#">חזרה לקטגוריה</a>
+        </div>
+    </div>
+    <footer>
+        <p>אתר השירים שלך © 2024</p>
+    </footer>
+</body>
+
+</html>

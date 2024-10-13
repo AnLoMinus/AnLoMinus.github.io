@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת אור ה׳ - גרסה 0.5</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #4B0082;
+            /* סגול */
+            padding: 10px;
+        }
+
+        header {
+            background-color: gold;
+            /* זהב */
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+        }
+
+        input,
+        select {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #4B0082;
+            /* סגול */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e007c;
+            /* כהה יותר */
+        }
+
+        h1,
+        h2 {
+            margin: 10px 0;
+        }
+
+        .feedback {
+            color: green;
+            margin-top: 15px;
+        }
+
+        /* עיצוב נגיש למכשירים קטנים */
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+
+            form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🌟 מערכת אור ה׳ 🌟</h1>
+    </header>
+    <main>
+        <section id="notifications">
+            <h2>🔔 הגדרות התראות</h2>
+            <form id="notificationForm">
+                <label for="email">✉️ אימייל:</label>
+                <input type="email" id="email" placeholder="הכנס אימייל" required>
+
+                <label for="phone">📱 טלפון וואטסאפ:</label>
+                <input type="tel" id="phone" placeholder="הכנס מספר טלפון" required>
+
+                <label for="notificationType">🔔 בחר סוג התראה:</label>
+                <select id="notificationType">
+                    <option value="both">מייל ווואטסאפ</option>
+                    <option value="email">רק מייל</option>
+                    <option value="whatsapp">רק וואטסאפ</option>
+                </select>
+
+                <button type="submit">💾 שמור התראות</button>
+            </form>
+            <p id="feedbackMessage" class="feedback"></p>
+        </section>
+
+        <section id="aiSuggestions">
+            <h2>💡 המלצות אישיות</h2>
+            <div id="suggestionsList"></div>
+            <button id="newSuggestion">🆕 קבל המלצה חדשה</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('notificationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const notificationType = document.getElementById('notificationType').value;
+            const feedbackMessage = document.getElementById('feedbackMessage');
+
+            // שליחת התראות
+            if (notificationType === 'email' || notificationType === 'both') {
+                sendEmailNotification(email, "התראה חדשה", "🕊️ זוהי התראה מהמערכת שלך.");
+            }
+
+            if (notificationType === 'whatsapp' || notificationType === 'both') {
+                sendWhatsAppNotification(phone, "🕊️ זוהי התראה מהמערכת שלך.");
+            }
+
+            feedbackMessage.textContent = "✅ ההתראות נשמרו!";
+        });
+
+        // שליחת אימייל
+        function sendEmailNotification(email, subject, message) {
+            const mailOptions = {
+                to: email,
+                subject: subject,
+                text: message
+            };
+            console.log('Email sent:', mailOptions);
+        }
+
+        // שליחת וואטסאפ
+        function sendWhatsAppNotification(phoneNumber, message) {
+            const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            fetch(url)
+                .then(() => console.log('WhatsApp message sent successfully'))
+                .catch(error => console.error('Error sending WhatsApp message:', error));
+        }
+
+        // המלצות AI
+        const suggestions = [
+            "📖 תפילה יומית לשיפור רוחני.",
+            "💡 לימוד תורה: הקדשת 30 דקות ליום.",
+            "👥 הצטרפות לקבוצת לימוד קהילתית.",
+            "🥗 תכנון ארוחה בריאה לחג."
+        ];
+
+        function generateSuggestions() {
+            const suggestionsList = document.getElementById('suggestionsList');
+            suggestionsList.innerHTML = ""; // נקה את הרשימה
+            suggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('p');
+                suggestionItem.textContent = suggestion;
+                suggestionsList.appendChild(suggestionItem);
+            });
+        }
+
+        generateSuggestions();
+
+        // המלצה חדשה
+        document.getElementById('newSuggestion').addEventListener('click', function () {
+            const newSuggestion = "✨ הוספת רעיון חדש לתכנון השבוע.";
+            const suggestionsList = document.getElementById('suggestionsList');
+            const suggestionItem = document.createElement('p');
+            suggestionItem.textContent = newSuggestion;
+            suggestionsList.appendChild(suggestionItem);
+        });
+
+    </script>
+</body>
+
+</html>

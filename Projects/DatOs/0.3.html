@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניהול חגים - גרסה 0.3</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0e6f6;
+            color: #333;
+            direction: rtl;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 2px solid #e0c3fc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #a35cd6;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .holiday-input {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select {
+            font-size: 1.2rem;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #a35cd6;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #a35cd6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #8b42b5;
+        }
+
+        .holiday-tips {
+            margin-top: 20px;
+            background-color: #f7e8fc;
+            border: 1px solid #e0c3fc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #d4af37;
+        }
+
+        .tip-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tip-list li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>מערכת ניהול חגים 🎉</h1>
+
+        <!-- קלט שם החג -->
+        <div class="holiday-input">
+            <label for="holiday">בחר את החג שלך:</label>
+            <select id="holiday">
+                <option value="פסח">פסח</option>
+                <option value="סוכות">סוכות</option>
+                <option value="חנוכה">חנוכה</option>
+                <option value="ראש השנה">ראש השנה</option>
+            </select>
+        </div>
+
+        <!-- רשימת טיפים -->
+        <div class="holiday-tips">
+            <h2>טיפים לחג <span id="holiday-name"></span>:</h2>
+            <ul class="tip-list">
+            </ul>
+        </div>
+
+        <!-- כפתור שליחה -->
+        <button onclick="submitForm()">שמור תוכניות לחג</button>
+    </div>
+
+    <script>
+        const holidaySelect = document.getElementById("holiday");
+        const holidayNameSpan = document.getElementById("holiday-name");
+
+        holidaySelect.addEventListener("change", function () {
+            holidayNameSpan.textContent = holidaySelect.value;
+            updateTips(holidaySelect.value);
+        });
+
+        function updateTips(holiday) {
+            const tipList = document.querySelector('.tip-list');
+            tipList.innerHTML = '';
+
+            if (holiday === 'פסח') {
+                tipList.innerHTML += '<li><i class="fas fa-broom icon"></i> הניקיון מחמץ אינו רק פיזי – הוא גם רוחני. זמן להתבונן פנימה ולהסיר את ה"פסולת" שצברנו במהלך השנה.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-glass-martini icon"></i> הכינו 4 כוסות יין, כל אחת מהן מסמלת שלב אחר בגאולה. כל כוס היא הזדמנות להתחבר יותר.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-book-open icon"></i> דאגו שההגדה תהיה מוכנה – היא המסע שאנו עוברים מהשעבוד אל החירות.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-leaf icon"></i> זכרו להניח מרור על השולחן – המרירות היא חלק מהדרך לחירות.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-moon icon"></i> תכננו את לילות הסדר בצורה חווייתית – עם שירים, דיונים, ומשחקים לילדים (הסתרת האפיקומן יכולה להיות רגע של אחדות משפחתית).</li>';
+            } else if (holiday === 'סוכות') {
+                tipList.innerHTML += '<li><i class="fas fa-home icon"></i> הסוכה היא הבית הזמני שלנו, שמזכירה לנו את השבריריות והפשטות – השקיעו בה כאילו הייתה בית קבע.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-seedling icon"></i> הכינו את ארבעת המינים – כל מין מסמל סוג אחר של אנשים, ויחד אנו מתאחדים.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-music icon"></i> שירו בסוכה שירים ושמחו בחג – זהו זמן של שמחה טהורה!</li>';
+                tipList.innerHTML += '<li><i class="fas fa-fire icon"></i> אם מזג האוויר מאפשר, הכינו סעודות בחוץ תחת כיפת השמיים והתחברו לטבע.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-cloud-sun icon"></i> נצלו את השהות בסוכה כדי להתבונן על הקשרים החברתיים והמשפחתיים – זהו זמן להתכנסות.</li>';
+            } else if (holiday === 'חנוכה') {
+                tipList.innerHTML += '<li><i class="fas fa-menorah icon"></i> כל נר בחנוכייה מספר סיפור – דאגו שהחנוכייה שלכם תהיה סמל של אור שמאיר לכל בני הבית.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-dreidel icon"></i> סביבונים הם לא רק משחק – הם סמל לניצחון הרוח על החומר. שחקו בהם כחלק מהחוויה המשפחתית.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-oil-can icon"></i> הכינו שמן זית איכותי לנרות – הוא הסמל של ניסי חנוכה ושל אור שממשיך לבעור מעבר לטבע.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-gift icon"></i> תנו מתנות קטנות או מכתבי תודה לילדים ובני המשפחה – חנוכה הוא גם זמן לתת ולשתף בשמחה.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-hands-helping icon"></i> דאגו להאיר לאחרים – זה זמן נהדר לתרום לאנשים שזקוקים לעזרה ולהביא אור לחייהם.</li>';
+            } else if (holiday === 'ראש השנה') {
+                tipList.innerHTML += '<li><i class="fas fa-shofar icon"></i> תקיעת השופר – קול רם שמזכיר לנו את ההתחלות החדשות ואת ההזדמנות להתחלות מחדש.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-apple-alt icon"></i> אכלו תפוח בדבש וסמלו את הכמיהה לשנה מתוקה ומלאת ברכה.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-fish icon"></i> הכינו דג כסמל לברכה ולהצלחה – "שנהיה לראש ולא לזנב".</li>';
+                tipList.innerHTML += '<li><i class="fas fa-scroll icon"></i> רשמו לעצמכם מטרות לשנה החדשה – הכינו תכנון אישי ורוחני לשנה המתחילה.</li>';
+                tipList.innerHTML += '<li><i class="fas fa-heart icon"></i> אל תשכחו להתחבר לתפילות ולהתבוננות פנימית – זה זמן לתיקון ולחזרה פנימית לעומק הנשמה.</li>';
+            }
+
+        }
+
+        function submitForm() {
+            alert("תוכניות החג נשמרו בהצלחה!");
+        }
+    </script>
+</body>
+
+</html>

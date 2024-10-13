@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bots-Hive 0.3 - מערכת ניהול מתקדמת</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Bots-Hive 0.3</h1>
+            <p>מערכת ניהול בוטים משופרת</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <h2>תפריט ראשי</h2>
+            <ul>
+                <li onclick="showSection('dashboard')"><span class="icon">&#x1F4C8;</span> לוח בקרה</li>
+                <li onclick="showSection('bot-list')"><span class="icon">&#x1F916;</span> רשימת בוטים</li>
+                <li onclick="showSection('add-bot')"><span class="icon">&#x2795;</span> הוסף בוט חדש</li>
+                <li onclick="showSection('settings')"><span class="icon">&#9881;</span> הגדרות</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div id="dashboard" class="section">
+                <h2>לוח בקרה</h2>
+                <div id="status-chart" class="chart-container">
+                    <canvas id="botStatusChart"></canvas>
+                </div>
+                <h3>פעילות אחרונה:</h3>
+                <ul id="activity-log">
+                    <!-- פעילויות אחרונות יוזנו כאן -->
+                </ul>
+            </div>
+            <div id="bot-list" class="section" style="display: none;">
+                <h2>רשימת בוטים</h2>
+                <div class="category-group">
+                    <h3 onclick="toggleCategory('marketing')">קטגוריה 1: שיווק דיגיטלי</h3>
+                    <div id="marketing" class="category-content">
+                        <div id="bot-container" class="bot-container">
+                            <!-- כרטיסי הבוטים יוזנו כאן -->
+                        </div>
+                    </div>
+                </div>
+                <!-- קטגוריות נוספות -->
+                <div class="category-group">
+                    <h3 onclick="toggleCategory('sales')">קטגוריה 2: מכירות ופיתוח עסקי</h3>
+                    <div id="sales" class="category-content">
+                        <!-- כאן יוזנו הבוטים של מכירות -->
+                    </div>
+                </div>
+                <!-- חזור על התבנית לקטגוריות נוספות -->
+            </div>
+            <div id="add-bot" class="section" style="display: none;">
+                <h2>הוסף בוט חדש</h2>
+                <form onsubmit="addBot(); return false;">
+                    <label for="bot-name">שם הבוט:</label>
+                    <input type="text" id="bot-name" required><br><br>
+                    <label for="bot-role">תפקיד הבוט:</label>
+                    <input type="text" id="bot-role" required><br><br>
+                    <label for="bot-status">סטטוס ראשוני:</label>
+                    <select id="bot-status">
+                        <option value="inactive">כבוי</option>
+                        <option value="active">פעיל</option>
+                        <option value="pending">בהמתנה</option>
+                    </select><br><br>
+                    <button type="submit" class="start-btn">הוסף בוט</button>
+                </form>
+            </div>
+            <div id="settings" class="section" style="display: none;">
+                <h2>הגדרות מערכת</h2>
+                <p>כאן תוכל להגדיר את כל ההגדרות של Bots-Hive, להוסיף קטגוריות ולהתאים את המערכת לצרכיך.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

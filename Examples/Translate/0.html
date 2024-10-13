@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>בחירת שפה</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        select {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            border: 2px solid #4CAF50;
+        }
+
+        .language-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            margin: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .language-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'he',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        // פונקציה לשינוי השפה בתפריט Google Translate
+        function setLanguage(lang) {
+            var selectField = document.querySelector("select.goog-te-combo");
+            if (selectField) {
+                selectField.value = lang; // שינוי שפת תפריט Google Translate
+                selectField.dispatchEvent(new Event('change')); // שליחת שינוי
+            }
+        }
+
+        // טעינת Google Translate ותמיכה בבחירת שפה
+        function chooseLanguage() {
+            var selectedLang = document.getElementById('language-select').value;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+            // טעינת Google Translate והחלפת שפה
+            setTimeout(function () {
+                setLanguage(selectedLang);
+            }, 1000); // המתנה של שנייה לטעינת התרגום
+        }
+    </script>
+</head>
+
+<body>
+    <!-- אלמנט Google Translate (נסתר בהתחלה) -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- דף בחירת שפה -->
+    <div class="container">
+        <h1>ברוך הבא! בחר את השפה שלך:</h1>
+        <!-- תפריט בחירת שפה נגלל -->
+        <select id="language-select">
+            <option value="he" selected>עברית (ברירת מחדל)</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="ar">العربية</option>
+            <option value="ru">Русский</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="pt">Português</option>
+            <option value="hi">हिन्दी</option>
+            <option value="tr">Türkçe</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <!-- אפשר להוסיף שפות נוספות לפי הצורך -->
+        </select>
+        <br>
+        <button class="language-button" onclick="chooseLanguage()">שנה שפה</button>
+    </div>
+</body>
+
+</html>
