@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לאון יעקובוב</title>
+    <meta name="description"
+        content="כרטיס עסקי של לאון יעקובוב. גלו מידע על השירותים, הניסיון המקצועי, והדרכים ליצירת קשר.">
+    <meta name="keywords"
+        content="לאון יעקובוב, כרטיס עסקי, שירותים, ניסיון מקצועי, קשר, ייעוץ, פיתוח, עיצוב, טכנולוגיה, חדשנות">
+    <meta name="author" content="לאון יעקובוב">
+    <meta property="business:contact_data:website" content="https://anlominus.github.io">
+    <meta property="business:contact_data:email" content="areweleon@gmail.com">
+    <meta property="business:contact_data:phone_number" content="+972-54-328-5967">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* כללי */
+        body {
+            font-family: "Rubik", sans-serif;
+            background: linear-gradient(to right, #1f4037, #99f2c8);
+            background: linear-gradient(rgba(255, 255, 255, 0.5),
+                    rgba(255, 255, 255, 0.5)),
+                url("https://github.com/AnLoMinus/AnLoMinus.github.io/blob/main/AnLoMinus.jpeg?raw=true");
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            color: #ffffff;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body id="particles-js">
+
+
+    <h1>לאון יעקובוב</h1>
+    <div id="form1" class="form-container active">
+        <style>
+            h1 {
+                text-align: center;
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 20px;
+                color: #4f4f4f55;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                position: absolute;
+                animation: fadeInDown 1.2s ease-in-out;
+                z-index: 2;
+            }
+
+            .form-container {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 15px;
+                padding: 44px;
+                width: 100%;
+                max-width: 444px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+                animation: slideUp 4.4s ease-in-out;
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                /* אפקט טשטוש על התוכן */
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+                position: relative;
+            }
+
+            label {
+                display: block;
+                font-weight: 700;
+                font-size: 18px;
+                color: #4a4a4a;
+                display: flex;
+                align-items: center;
+            }
+
+            label i {
+                margin-left: 6px;
+                color: #ffeb3b;
+            }
+
+            .input-field {
+                font-size: 24px;
+                width: 100%;
+                padding: 12px 1px;
+                border-radius: 10px;
+                border: none;
+                color: white;
+                background: #4a4a4aaa;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                font-size: 14px;
+                transition: background 0.3s, box-shadow 0.3s;
+            }
+
+            .input-field:focus {
+                background: #4a4a4a55;
+                box-shadow: 0 0 8px rgba(33, 203, 153, 0.5);
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+
+            .submit-btn {
+                background: linear-gradient(to right, #44ccaadd, #44ffaadd);
+                color: #4a4a4a;
+                padding: 12px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                width: 100%;
+                font-size: 24px;
+                transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            }
+
+            .submit-btn:hover {
+                background: linear-gradient(to right, #44ffaa, #44ff55);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .submit-btn:active {
+                transform: translateY(2px);
+                background: #e64a19;
+                box-shadow: none;
+            }
+
+            /* אפקטי אנימציה */
+            @keyframes fadeInDown {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-50px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes slideUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes moveBackground {
+                0% {
+                    background-position: center top;
+                }
+
+                100% {
+                    background-position: center bottom;
+                }
+            }
+
+            /* רספונסיביות */
+            @media (max-width: 500px) {
+                .form-container {
+                    width: 90%;
+                    padding: 20px;
+                }
+
+                h2 {
+                    font-size: 22px;
+                }
+            }
+        </style>
+
+        <div class="form-group">
+            <label for="service1"><i class="fas fa-cogs"></i> בחר שירות:</label>
+            <select id="service1" class="input-field" onchange="updateSubService(1)">
+                <option value="">בחר שירות</option>
+                <option value="שירות 1 - פיתוח תוכנה בהתאמה אישית">שירות 1 - פיתוח תוכנה בהתאמה אישית</option>
+                <option value="שירות 2 - אוטומציה של תהליכים">שירות 2 - אוטומציה של תהליכים</option>
+                <option value="שירות 3 - תחזוקה ושדרוג">שירות 3 - תחזוקה ושדרוג</option>
+                <option value="שירות 4 - בניית אתרי מסחר אלקטרוני">שירות 4 - בניית אתרי מסחר אלקטרוני</option>
+                <option value="שירות 5 - פיתוח מערכות מידע">שירות 5 - פיתוח מערכות מידע</option>
+                <option value="שירות 6 - אופטימיזציה למנועי חיפוש (SEO)">שירות 6 - אופטימיזציה למנועי חיפוש (SEO)
+                </option>
+                <option value="שירות 7 - פיתוח אפליקציות אינטרנט">שירות 7 - פיתוח אפליקציות אינטרנט</option>
+                <option value="שירות 8 - פיתוח משחקים דיגיטליים">שירות 8 - פיתוח משחקים דיגיטליים</option>
+                <option value="שירות 9 - פתרונות אבטחת מידע">שירות 9 - פתרונות אבטחת מידע</option>
+                <option value="שירות 10 - ניתוח נתונים ודוחות">שירות 10 - ניתוח נתונים ודוחות</option>
+                <option value="שירות 11 - הדרכות וסדנאות טכנולוגיות">שירות 11 - הדרכות וסדנאות טכנולוגיות</option>
+                <option value="שירות 12 - שירותי קונסולטינג בעסקי טכנולוגיה">שירות 12 - שירותי קונסולטינג בעסקי
+                    טכנולוגיה</option>
+                <option value="שירות 13 - עיצוב גרפי">שירות 13 - עיצוב גרפי</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="subService1"><i class="fas fa-cog"></i> בחר תת שירות:</label>
+            <select id="subService1" class="input-field">
+                <option value="">בחר תת שירות</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="name1"><i class="fas fa-user"></i> שם מלא:</label>
+            <input type="text" id="name1" class="input-field" placeholder="שם מלא" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email1"><i class="fas fa-envelope"></i> אימייל:</label>
+            <input type="email" id="email1" class="input-field" placeholder="אימייל" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message1"><i class="fas fa-comment"></i> הודעה:</label>
+            <textarea id="message1" class="input-field" placeholder="הודעה" required></textarea>
+        </div>
+
+        <input type="submit" value="שלח" class="submit-btn" onclick="sendWhatsApp(1)">
+        <script>
+            function updateSubService(serviceNumber) {
+                const selectedValue = document.getElementById(
+                    `service${serviceNumber}`
+                ).value;
+                const subServiceSelect = document.getElementById(
+                    `subService${serviceNumber}`
+                );
+
+                if (selectedValue === "שירות 1 - פיתוח תוכנה בהתאמה אישית") {
+                    subServiceSelect.innerHTML = `
+                <option value="פיתוח אפליקציות">📱 פיתוח אפליקציות (iOS, Android) - ₪5,000</option>
+                <option value="פיתוח אתרים">💻 פיתוח אתרים (React, Angular) - ₪4,000</option>
+                <option value="פיתוח תוכנה מותאמת אישית">🔍 פיתוח תוכנה מותאמת אישית - ₪6,000</option>
+                <option value="שירותי API">🔗 שירותי API - ₪3,000</option>
+                <option value="פתרונות בלוקצ'יין">⛓️ פתרונות בלוקצ'יין - ₪7,000</option>
+                <option value="פיתוח משחקים">🎮 פיתוח משחקים - ₪8,000</option>
+            `;
+                } else if (selectedValue === "שירות 2 - אוטומציה של תהליכים") {
+                    subServiceSelect.innerHTML = `
+                <option value="אוטומציה עסקית">🔄 אוטומציה עסקית (CRM, ERP) - ₪4,000</option>
+                <option value="אוטומציה שיווקית">📈 אוטומציה שיווקית (כלים לניהול קמפיינים) - ₪3,500</option>
+                <option value="אוטומציה של תהליכים ידניים">🤖 אוטומציה של תהליכים ידניים - ₪3,000</option>
+                <option value="כלים לאוטומציה">🛠️ כלים לאוטומציה (Zapier, Integromat) - ₪2,000</option>
+                <option value="אוטומציה של דוחות">📊 אוטומציה של דוחות ומידע - ₪3,500</option>
+            `;
+                } else if (selectedValue === "שירות 3 - תחזוקה ושדרוג") {
+                    subServiceSelect.innerHTML = `
+                <option value="שדרוג מערכת">🔧 שדרוג מערכת (מעליות לגרסה חדשה) - ₪2,500</option>
+                <option value="תחזוקה שוטפת">🛠️ תחזוקה שוטפת (גיבויים, עדכונים) - ₪1,500</option>
+                <option value="שירותי ניטור">📊 שירותי ניטור (בדיקות ביצועים) - ₪3,000</option>
+                <option value="ייעוץ טכנולוגי">💡 ייעוץ טכנולוגי - ₪4,000</option>
+                <option value="שדרוגי אבטחה">🔒 שדרוגי אבטחה - ₪2,500</option>
+            `;
+                } else if (selectedValue === "שירות 4 - בניית אתרי מסחר אלקטרוני") {
+                    subServiceSelect.innerHTML = `
+                <option value="פיתוח חנויות מקוונות">🛒 פיתוח חנויות מקוונות (WooCommerce, Shopify) - ₪5,500</option>
+                <option value="אופטימיזציה של חוויית משתמש">🔍 אופטימיזציה של חוויית משתמש באתרי מסחר - ₪3,500</option>
+                <option value="שירותי תשלום מאובטחים">💳 שירותי תשלום מאובטחים - ₪2,500</option>
+            `;
+                } else if (selectedValue === "שירות 5 - פיתוח מערכות מידע") {
+                    subServiceSelect.innerHTML = `
+                <option value="פתרונות ניהול מידע">📊 פתרונות ניהול מידע (CRM, ERP) - ₪4,500</option>
+                <option value="פיתוח דאטה בייס">🗄️ פיתוח דאטה בייס - ₪3,000</option>
+                <option value="ניתוח מידע">🔍 ניתוח מידע ודוחות - ₪2,500</option>
+            `;
+                } else if (selectedValue === "שירות 6 - אופטימיזציה למנועי חיפוש (SEO)") {
+                    subServiceSelect.innerHTML = `
+                <option value="שיפור דירוג אתרים">🔍 שיפור דירוג אתרים (On-Page, Off-Page) - ₪3,500</option>
+                <option value="תוכן SEO">📝 תוכן SEO (כתיבה מותאמת) - ₪2,500</option>
+                <option value="מחקר מילות מפתח">🔑 מחקר מילות מפתח - ₪2,000</option>
+            `;
+                } else if (selectedValue === "שירות 7 - פיתוח אפליקציות אינטרנט") {
+                    subServiceSelect.innerHTML = `
+                <option value="פיתוח אפליקציות מבוססות דפדפן">🌐 פיתוח אפליקציות מבוססות דפדפן (React, Vue) - ₪4,000</option>
+                <option value="אפליקציות רספונסיביות">📱 אפליקציות רספונסיביות (Mobile-First) - ₪3,500</option>
+                <option value="אפליקציות API">🔗 אפליקציות API - ₪2,500</option>
+            `;
+                } else if (selectedValue === "שירות 8 - פיתוח משחקים דיגיטליים") {
+                    subServiceSelect.innerHTML = `
+                <option value="פיתוח משחקים למובייל">🎮 פיתוח משחקים למובייל (iOS, Android) - ₪6,000</option>
+                <option value="פיתוח משחקים באינטרנט">🌐 פיתוח משחקים באינטרנט (WebGL, Unity) - ₪7,000</option>
+                <option value="עיצוב משחקים">🖌️ עיצוב משחקים - ₪3,500</option>
+            `;
+                } else if (selectedValue === "שירות 9 - פתרונות אבטחת מידע") {
+                    subServiceSelect.innerHTML = `
+                <option value="הגנה על מידע ונתונים">🔒 הגנה על מידע ונתונים - ₪4,000</option>
+                <option value="בדיקות חדירות">🛡️ בדיקות חדירות (Penetration Testing) - ₪3,000</option>
+                <option value="הדרכות אבטחת מידע">📚 הדרכות אבטחת מידע - ₪2,500</option>
+            `;
+                } else if (selectedValue === "שירות 10 - ניתוח נתונים ודוחות") {
+                    subServiceSelect.innerHTML = `
+                <option value="ניתוח נתונים עסקיים">📈 ניתוח נתונים עסקיים - ₪3,500</option>
+                <option value="כלים לניתוח נתונים">🔍 כלים לניתוח נתונים (Tableau, Power BI) - ₪3,000</option>
+                <option value="דוחות מותאמים אישית">📝 דוחות מותאמים אישית - ₪2,500</option>
+            `;
+                } else if (selectedValue === "שירות 11 - הדרכות וסדנאות טכנולוגיות") {
+                    subServiceSelect.innerHTML = `
+                <option value="סדנאות טכנולוגיות">🧑‍🏫 סדנאות טכנולוגיות (Online, Offline) - ₪2,500</option>
+                <option value="הדרכות למערכות מידע">📚 הדרכות למערכות מידע - ₪2,000</option>
+                <option value="תמיכה טכנית">🛠️ תמיכה טכנית - ₪1,500</option>
+            `;
+                } else if (selectedValue === "שירות 12 - שירותי קונסולטינג בעסקי טכנולוגיה") {
+                    subServiceSelect.innerHTML = `
+                <option value="ייעוץ עסקי טכנולוגי">💼 ייעוץ עסקי טכנולוגי - ₪5,000</option>
+                <option value="אסטרטגיה דיגיטלית">🌐 אסטרטגיה דיגיטלית - ₪4,000</option>
+                <option value="ניטור וייעול תהליכים">🔍 ניטור וייעול תהליכים - ₪3,000</option>
+            `;
+                } else if (selectedValue === "שירות 13 - עיצוב גרפי") {
+                    subServiceSelect.innerHTML = `
+                <option value="עיצוב לוגואים">🎨 עיצוב לוגואים - ₪2,000</option>
+                <option value="עיצוב חומרי פרסום">📰 עיצוב חומרי פרסום - ₪2,500</option>
+                <option value="עיצוב גרפי לאינטרנט">💻 עיצוב גרפי לאינטרנט - ₪2,500</option>
+            `;
+                } else {
+                    subServiceSelect.innerHTML = "";
+                }
+            }
+
+            function sendWhatsApp(formNumber) {
+                const name = document.getElementById(`name${formNumber}`).value;
+                const email = document.getElementById(`email${formNumber}`).value;
+                const message = document.getElementById(`message${formNumber}`).value;
+                const service = document.getElementById(`service${formNumber}`).value; // הוסף את השירות
+                const subService = document.getElementById(`subService${formNumber}`).value;
+
+                const whatsappMessage = `שם: ${name}\nאימייל: ${email}\nשירות: ${service}\nתת שירות: ${subService}\nהודעה: ${message}`;
+                const phoneNumber = "972543285967"; // החלף במספר הטלפון שלך
+                const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                    whatsappMessage
+                )}`;
+
+                window.open(whatsappLink, "_blank");
+            }
+
+        </script>
+
+    </div>
+
+    <script src="script.js"></script>
+    <!-- ספריית particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- הגדרת החלקיקים -->
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#4a4a4a"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#4f4f4f"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.7,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 50,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+
+</html>
