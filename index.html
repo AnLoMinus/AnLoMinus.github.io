@@ -1,178 +1,132 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>לאון יעקובוב - קורות חיים 📄</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Pacifico&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <title>Leon Yakubov - Professional Profile</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
 </head>
 
 <body>
-    <nav class="glass-effect">
-        <div class="nav-container">
-            <button class="menu-toggle" aria-label="תפריט" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" role="menu">
-                <li><a href="#summary" role="menuitem"><i class="fas fa-user-circle"></i> סיכום 📝</a></li>
-                <li><a href="#experience" role="menuitem"><i class="fas fa-briefcase"></i> ניסיון 💼</a></li>
-                <li><a href="#education" role="menuitem"><i class="fas fa-graduation-cap"></i> השכלה 🎓</a></li>
-                <li><a href="#skills" role="menuitem"><i class="fas fa-tools"></i> כישורים 🛠️</a></li>
-                <li><a href="#projects" role="menuitem"><i class="fas fa-project-diagram"></i> פרויקטים 🚀</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="שינוי ערכת צבעים">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
-
-    <header class="glass-effect">
-        <div class="header-content">
-            <div class="profile-picture">
-                <img src="1.png" alt="לאון יעקובוב" class="avatar">
-            </div>
-            <h1>לאון יעקובוב 👨‍💻</h1>
-            <p class="tagline">מומחה תקשורת ומדעי המחשב 🚀</p>
-            <p class="version">גרסה 0.8 🆕</p>
-            <div class="contact-info">
-                <a href="https://goo.gl/maps/your-address" target="_blank" class="contact-item">
-                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i> בן עמרם 4, חולון 🏙️
-                </a>
-                <a href="mailto:areweleon@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope" aria-hidden="true"></i> areweleon@gmail.com 📧
-                </a>
-                <a href="tel:+972543285967" class="contact-item">
-                    <i class="fas fa-phone" aria-hidden="true"></i> 054-3285967 📱
-                </a>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/AnLoMinus" target="_blank" class="social-icon"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/anlominus/" target="_blank" class="social-icon"><i
-                        class="fab fa-linkedin"></i></a>
-                <!-- הוסף קישורים נוספים לרשתות חברתיות אם יש -->
-            </div>
-            <div class="cta-buttons">
-                <button id="contact-btn" class="cta-button glass-effect">צור קשר 📞</button>
-                <a href="cv.pdf" download class="cta-button glass-effect">הורד קו"ח 📄</a>
-            </div>
-        </div>
-        <div class="header-background">
-            <div class="particles"></div>
-        </div>
-    </header>
-
-    <main>
-        <section id="summary" class="glass-effect">
-            <h2>📝 סיכום מקצועי</h2>
-            <p>טכנאי ומתקין בעל <strong>ניסיון עשיר של 10+ שנים</strong> בתחום התקשורת 📡 ו-<strong>15+ שנות
-                    ניסיון</strong> במחקר מדעי המחשב 💻. מתמחה בפתרונות טכנולוגיים חכמים 💡 ללקוחות פרטיים ועסקיים, עם
-                <strong>התמחות בהתקנות אינטרנט, טלוויזיה 📺, וטלפוניה ☎️</strong>. מצטיין בזריזות, אחריות, ויכולת
-                <strong>פתרון בעיות מורכבות</strong> 🔧 תוך שמירה על <strong>סטנדרטים גבוהים של שירות</strong> ⭐.
-            </p>
+    <div class="profile-container">
+        <section class="header-section">
+            <h1>
+                <span class="emoji">⚜️</span>
+                Leon Yaakobov
+                <span class="emoji">⚜️</span>
+            </h1>
+            <h2>
+                <span class="emoji">👨‍💻</span>
+                Communication & Computer Science Specialist
+                <span class="emoji">👨‍💻</span>
+            </h2>
+            <p>A dynamic professional with over 15 years of experience in computer science research and 10+ years in
+                communication technologies.</p>
         </section>
 
-        <section id="experience" class="glass-effect">
-            <h2>💼 ניסיון תעסוקתי</h2>
-            <div class="job">
-                <h3><i class="fas fa-network-wired"></i> מתקין בכיר וטכנאי תקשורת</h3>
-                <p class="job-details"><i class="fas fa-building"></i> הוט, חברות קבלנות | <i
-                        class="fas fa-calendar-alt"></i> 2011 - היום</p>
-                <ul>
-                    <li><strong>10+ שנות ניסיון</strong> בהתקנת מערכות תקשורת (אינטרנט, טלוויזיה, טלפוניה) ללקוחות
-                        פרטיים ועסקיים. 🏠🏢</li>
-                    <li>מתמחה ב<strong>פתרון בעיות טכניות בזמן אמת</strong> 🔧 ובניהול פרויקטים טכניים מורכבים עבור
-                        לקוחות עסקיים. 📊</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3><i class="fas fa-laptop-code"></i> חוקר ויוצר בתחום מדעי המחשב</h3>
-                <p class="job-details"><i class="fas fa-user-tie"></i> עצמאי | <i class="fas fa-calendar-alt"></i> 2006
-                    - היום</p>
-                <ul>
-                    <li><strong>15+ שנות ניסיון</strong> במחקר עצמאי, פיתוח תוכנות ומשחקים 🎮 תוך שימוש בטכנולוגיות
-                        מתקדמות. 🚀</li>
-                    <li>מומחה ב<strong>פתרון בעיות טכנולוגיות</strong> מותאמות אישית לצורכי המשתמשים. 🎯</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3><i class="fas fa-shield-alt"></i> שומר/סייר/מחסנאי</h3>
-                <p class="job-details"><i class="fas fa-building"></i> מספר חברות | <i class="fas fa-calendar-alt"></i>
-                    תאריכים</p>
-                <ul>
-                    <li>אחריות על <strong>תפקידי אבטחה ושמירה</strong> במסגרות שונות תוך הקפדה על <strong>תקני
-                            בטיחות</strong> 🚨.</li>
-                    <li>ניהול <strong>מחסנים ומלאי</strong> עם אחריות על קבלת סחורה וסידור המחסן. 📦</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="education" class="glass-effect">
-            <h2>🎓 השכלה והסמכות דיגיטליות</h2>
-            <h3>הסמכות דיגיטליות:</h3>
+        <section class="professional-summary" role="region" aria-labelledby="summary-title">
+            <h3 id="summary-title">📝 Professional Summary:</h3>
+            <p>With a proven track record in providing smart technological solutions for private and business clients, I
+                specialize in:</p>
             <ul>
-                <li><i class="fab fa-github"></i> <strong>GitHub</strong>: <a href="https://github.com/AnLoMinus"
-                        target="_blank">לפרופיל GitHub</a> 💻</li>
-                <li><i class="fab fa-linkedin"></i> <strong>LinkedIn</strong>: <a
-                        href="https://www.linkedin.com/in/anlominus/" target="_blank">לפרופיל LinkedIn</a> 🔗</li>
+                <li tabindex="0" role="listitem">
+                    <span aria-hidden="true">Installing and maintaining internet, TV 📺, and telephony ☎️
+                        systems.</span>
+                    <span class="sr-only">Installing and maintaining internet, TV, and telephony systems.</span>
+                </li>
+                <li tabindex="0" role="listitem">
+                    <span aria-hidden="true">Conducting independent research in computer science and developing
+                        cutting-edge software and games 🎮.</span>
+                    <span class="sr-only">Conducting independent research in computer science and developing
+                        cutting-edge software and games.</span>
+                </li>
+                <li tabindex="0" role="listitem">
+                    <span aria-hidden="true">Delivering complex problem-solving 🔧 with a focus on quality, speed, and
+                        exceptional customer service ⭐.</span>
+                    <span class="sr-only">Delivering complex problem-solving with a focus on quality, speed, and
+                        exceptional customer service.</span>
+                </li>
             </ul>
         </section>
 
-        <section id="skills" class="glass-effect">
-            <h2>🛠 כישורים טכניים</h2>
-            <ul class="skills-list">
-                <li><i class="fas fa-network-wired"></i> <strong>מומחיות בהתקנת תשתיות תקשורת</strong> (אינטרנט,
-                    טלוויזיה, טלפוניה) 📡</li>
-                <li><i class="fas fa-laptop-code"></i> <strong>ידע רחב</strong> במדעי המחשב, פיתוח תוכנות ומשחקים 🎮
-                </li>
-                <li><i class="fas fa-tools"></i> <strong>יכולת פתרון בעיות מורכבות</strong> בשטח ובתחום הדיגיטלי 🔧</li>
-                <li><i class="fas fa-brain"></i> <strong>כישורי למידה עצמית גבוהים</strong> ושימוש בכלים מתקדמים 🛠</li>
-                <li><i class="fas fa-users"></i> <strong>שירותיות ואחריות</strong> גבוהה מול לקוחות פרטיים ועסקיים 🤝
-                </li>
+        <section class="experience">
+            <h3>💂‍♂️ Security Guard / Warehouse Manager: Various Companies</h3>
+            <ul>
+                <li>Managed security and safety operations 🚨.</li>
+                <li>Handled inventory and logistics with precision and accountability 📦.</li>
             </ul>
         </section>
 
-        <section id="projects" class="glass-effect">
-            <h2>🚀 פרויקטים אחרונים</h2>
-            <div class="project-grid">
-                <div class="project-card glass-effect">
-                    <h1>🐸</h1>
-                    <h3>X-Pythons</h3>
-                    <p>תיאור קצר של הפרויקט</p>
-                    <a href="https://anlominus.github.io/X-Pythons/" class="project-link">צפה בפרויקט 👀</a>
-                </div>
-                <!-- הוסף עוד כרטיסי פרויקטים כאן -->
+        <section class="technical-skills">
+            <h3>🛠 Technical Skills:</h3>
+            <ul>
+                <li>Expert in communication infrastructure installations (internet, TV, telephony) 📡</li>
+                <li>Extensive knowledge of computer science, software, and game development 🎮</li>
+                <li>Advanced troubleshooting in both field and digital domains 🔧</li>
+                <li>High proficiency in self-learning and leveraging advanced tools 🛠</li>
+                <li>Strong sense of responsibility and customer service for private and business clients 🤝</li>
+            </ul>
+        </section>
+
+        <section class="company-info">
+            <h2>AnLoMinus Solutions</h2>
+            <h3>📍 Location & Contact Details:</h3>
+            <ul>
+                <li>Email: areweleon@gmail.com 📧</li>
+                <li>Phone: 054-3285967 📱</li>
+            </ul>
+        </section>
+
+        <!-- Social Widget -->
+        <div class="social-widget">
+            <a href="https://www.facebook.com/AnLoMinusx" class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/AnLoMinus" class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/AnLoMinusx" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/AnLoMinus" class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.youtube.com/@AnLoMinus" class="social-icon youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/AnLoMinus" class="social-icon github">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.tiktok.com/@AnLoMinus" class="social-icon tiktok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="=https://api.whatsapp.com/send/?phone=972543285967" class="social-icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/AnLoMinus" class="social-icon telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
             </div>
-        </section>
-    </main>
-
-    <footer class="glass-effect">
-        <p>&copy; 2024 לאון יעקובוב. כל הזכויות שמורות. 🔒</p>
-    </footer>
-
-    <div id="contact-modal" class="modal" aria-hidden="true">
-        <div class="modal-content glass-effect">
-            <span class="close">&times;</span>
-            <h2>צור קשר 📞</h2>
-            <form id="contact-form">
-                <label for="name">שם:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">אימייל:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">הודעה:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit" class="glass-effect">שלח 📤</button>
-            </form>
+            <div class="size-controls">
+                <button class="size-btn" data-size="small"><i class="fas fa-minus"></i></button>
+                <button class="size-btn" data-size="large"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="share-count"></div>
+            <div class="tooltip"></div>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
