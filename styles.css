@@ -854,6 +854,7 @@ section:nth-child(4) {
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .header-section::before {
@@ -868,7 +869,7 @@ section:nth-child(4) {
     rgba(255, 255, 255, 0.1) 0%,
     rgba(255, 255, 255, 0.05) 100%
   );
-  z-index: 0;
+  z-index: -1;
 }
 
 .header-section h1 {
@@ -1127,5 +1128,48 @@ section:nth-child(4) {
 
   .social-widget {
     backdrop-filter: none;
+  }
+}
+
+.services-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #2196f3, #00bcd4);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.services-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #1976d2, #0097a7);
+  color: white;
+  text-decoration: none;
+}
+
+.services-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.services-btn .emoji {
+  margin: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Add responsiveness for mobile devices */
+@media (max-width: 768px) {
+  .services-btn {
+    padding: 12px 25px;
+    font-size: 0.9em;
   }
 }
