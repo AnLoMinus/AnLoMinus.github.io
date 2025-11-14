@@ -52,3 +52,20 @@ document.addEventListener("scroll", () => {
     if (!nav) return;
     nav.classList.toggle("nav--scrolled", window.scrollY > 32);
 });
+
+const accordions = document.querySelectorAll("[data-accordion]");
+accordions.forEach((accordion) => {
+    const buttons = accordion.querySelectorAll("[data-accordion-toggle]");
+    buttons.forEach((button) => {
+        const panel = button.nextElementSibling;
+        if (!panel) return;
+        button.setAttribute("aria-expanded", "false");
+        panel.hidden = true;
+
+        button.addEventListener("click", () => {
+            const isExpanded = button.getAttribute("aria-expanded") === "true";
+            button.setAttribute("aria-expanded", String(!isExpanded));
+            panel.hidden = isExpanded;
+        });
+    });
+});
