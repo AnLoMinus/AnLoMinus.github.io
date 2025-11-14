@@ -1,41 +1,36 @@
-# Social Media Widget
+# AnLoMinus Studio
 
-An enhanced social media widget with modern animations and effects.
+דף נחיתה מודרני עבור לאון יעקובוב, המציג את שירותי התקשורת, הפיתוח והליווי האסטרטגי של הסטודיו. האתר נבנה כעמוד סטטי מינימליסטי, מותאם לשפה העברית ומספק חוויית משתמש רספונסיבית עם מצב כהה/בהיר.
 
-## Features
+## מבנה הפרויקט
+- `index.html` – שלד ה־HTML הראשי, מחולק למדורים: Hero, אודות, פתרונות, ניסיון, Case Study, יצירת קשר.
+- `styles.css` – מערכת עיצוב מבוססת טייפוגרפיה עברית, גריד מודולרי, תמיכה במצב כהה והנפשות גלילה.
+- `script.js` – לוגיקת צד־לקוח קלה למצב כהה, Intersection Observer וסטטיסטיקת שנה דינמית.
 
-- Responsive design
-- Advanced hover animations with overlay effects
-- Smooth entrance animations
-- Interactive tooltips
-- Click animations
-- Glass morphism design
-- Font Awesome icons
-- Supports Facebook, Twitter, Instagram, LinkedIn, YouTube, GitHub, and TikTok
+## סטאק וטכנולוגיות
+- HTML5 + CSS3 מודרני (Grid/Flex).
+- Google Fonts (Assistant + Space Grotesk).
+- JavaScript וניטור Intersection Observer.
 
-## Usage
+## פיתוח מקומי
+```bash
+npx serve .
+```
+או העלאה דרך GitHub Pages/GitHub Actions.
 
-1. Include Font Awesome in your project
-2. Copy the HTML structure
-3. Add the CSS styles
-4. Include the JavaScript file
-5. Update the social media links in the HTML
+## בדיקות איכות
+- Lighthouse Performance ≥ 90 (Mobile / Desktop).
+- אימות HTML/CSS (W3C Validators).
+- בדיקות נגישות ידניות (Tab/Screen Reader).
 
-## New Features
+## רישיונות והתנהלות
+- רישיון שימוש: MIT (ראה `LICENSE`).
+- קוד אתי: Contributor Covenant (ראה `CODE_OF_CONDUCT.md`).
+- תהליך תרומות: `CONTRIBUTING.md`.
+- היסטוריית שינויים: `CHANGELOG.md`.
+- רשימת תורמים: `CONTRIBUTORS.md`.
+- מדיניות אבטחה: `SECURITY.md`.
 
-- Glass morphism effect
-- Tooltips showing social media names
-- Click animations
-- Entrance animations
-- Additional social platforms
-- Enhanced hover effects
-
-## Customization
-
-You can customize:
-
-- Colors and gradients
-- Animation timing and effects
-- Icon sizes and spacing
-- Tooltip appearance
-- Glass morphism intensity
+## יצירת קשר
+- דוא"ל: [areweleon@gmail.com](mailto:areweleon@gmail.com)
+- לינקדאין: [linkedin.com/in/AnLoMinus](https://www.linkedin.com/in/AnLoMinus)
