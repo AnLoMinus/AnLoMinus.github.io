@@ -168,6 +168,59 @@
       gap: 4px;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .action-btn {
+      border: 1px solid rgba(247, 197, 82, 0.4);
+      background: linear-gradient(135deg, rgba(247, 197, 82, 0.16), rgba(247, 197, 82, 0.04));
+      color: #fff9e6;
+      padding: 9px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .action-btn:hover,
+    .action-btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(247, 197, 82, 0.7);
+      box-shadow: 0 14px 30px rgba(247, 197, 82, 0.18);
+      text-decoration: none;
+    }
+
+    .action-btn.secondary {
+      background: rgba(17, 17, 26, 0.85);
+      color: var(--accent);
+      border-color: rgba(105, 105, 145, 0.6);
+    }
+
+    .quick-nav {
+      margin: 16px 0 4px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .quick-nav a {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(17, 17, 26, 0.8);
+      border: 1px solid rgba(247, 197, 82, 0.3);
+      color: #ffeec7;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -252,6 +305,43 @@
       height: 1px;
       margin: 14px 0 10px;
       background: linear-gradient(90deg, transparent, rgba(247, 197, 82, 0.65), transparent);
+    }
+
+    .signal-card {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(247, 197, 82, 0.2);
+      background: radial-gradient(circle at 5% 15%, rgba(247, 197, 82, 0.12), transparent 45%),
+        rgba(11, 11, 18, 0.8);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    .signal-item {
+      display: grid;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .signal-item strong {
+      color: #ffeac1;
+      font-size: 14px;
+    }
+
+    .signal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(247, 197, 82, 0.12);
+      border: 1px solid rgba(247, 197, 82, 0.26);
+      font-size: 12px;
+      color: #ffeec7;
+      width: fit-content;
     }
 
     .projects-list {
@@ -345,6 +435,11 @@
       margin-inline-start: 4px;
       color: #f7f0ff;
     }
+
+    .placeholder-text {
+      color: rgba(247, 247, 255, 0.68);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -379,22 +474,51 @@
             <span>⏱️ שעה: 08:58 (Asia/Jerusalem)</span>
             <span>🌍 מיקום: Israel – Holon (הערכה)</span>
           </div>
+
+          <div class="hero-actions">
+            <a class="action-btn" href="#projects">🚀 קפיצה לפרויקטים מובילים</a>
+            <a class="action-btn secondary" href="#contact">📬 יצירת קשר/הזמנה</a>
+            <a class="action-btn secondary" href="https://github.com/AnLoMinus" target="_blank" rel="noreferrer">🌐 GitHub Portfolio</a>
+          </div>
         </div>
       </div>
     </header>
 
+    <nav class="quick-nav" aria-label="ניווט מהיר">
+      <a href="#profile">פרופיל מקצועי</a>
+      <a href="#skills">כישורים</a>
+      <a href="#projects">ניסיון ופרויקטים</a>
+      <a href="#contact">פרטים ליצירת קשר</a>
+    </nav>
+
+    <section class="signal-card" aria-label="תמצית מהירה">
+      <div class="signal-item">
+        <strong>חזון מיידי</strong>
+        <span>לחבר מותגים, סאונד וחוויות תודעתיות למסע אחד זוהר.</span>
+      </div>
+      <div class="signal-item">
+        <strong>מצב נוכחי</strong>
+        <span class="signal-pill">⚡ זמין לשיתופי פעולה יצירתיים</span>
+        <span>מוביל תהליכים מקצה לקצה עם דגש על חוויית משתמש וערך עסקי.</span>
+      </div>
+      <div class="signal-item">
+        <strong>מילות מפתח</strong>
+        <span>Sound Design · GitHub Pages · Storytelling · Branding Systems · Creative Ops</span>
+      </div>
+    </section>
+
     <!-- LAYOUT -->
     <main class="layout">
       <!-- LEFT COLUMN -->
-      <section class="card">
+      <section class="card" id="profile">
         <h2>👤 פרטים אישיים</h2>
         <ul class="info-list">
           <li><strong>שם מלא:</strong> משה לאון יעקובוב (AnLoMinus)</li>
-          <li><strong>טלפון:</strong> __________________</li>
-          <li><strong>אימייל:</strong> __________________</li>
-          <li><strong>כתובת:</strong> __________________</li>
+          <li><strong>טלפון:</strong> <span class="placeholder-text">מוכן לעדכון לפי צורך</span></li>
+          <li><strong>אימייל:</strong> <span class="placeholder-text">יעודכן לפי פרויקט/הזמנה</span></li>
+          <li><strong>כתובת:</strong> <span class="placeholder-text">חולון, ישראל (גמיש לעבודה מרחוק)</span></li>
           <li><strong>GitHub:</strong> <a href="https://github.com/AnLoMinus" target="_blank">github.com/AnLoMinus</a></li>
-          <li><strong>קישורים נוספים:</strong> __________________</li>
+          <li><strong>קישורים נוספים:</strong> <span class="placeholder-text">ניתן להוסיף לפי בקשה</span></li>
         </ul>
 
         <div class="section-divider"></div>
@@ -418,7 +542,7 @@
 
         <div class="section-divider"></div>
 
-        <h2>🛠️ כישורים טכניים</h2>
+        <h2 id="skills">🛠️ כישורים טכניים</h2>
         <div class="skills-columns">
           <div>
             <strong>🎨 עיצוב גרפי</strong>
@@ -472,6 +596,18 @@
 
         <div class="section-divider"></div>
 
+        <h2 id="contact">📬 יצירת קשר</h2>
+        <p>
+          זמינות להצעות שיתוף פעולה, ייעוץ או הפקה מלאה – בהתאם לצורך ולחזון שלכם.
+        </p>
+        <div class="chip-list">
+          <span class="chip">זמין לפרויקטים דיגיטליים / היברידיים</span>
+          <span class="chip">תיאום ציפיות מהיר + מסלול אסטרטגיה</span>
+          <span class="chip">GitHub + מערכות ווב</span>
+        </div>
+
+        <div class="section-divider"></div>
+
         <h2>❤️ תחומי עניין</h2>
         <p>
           מוזיקה, טכנולוגיה, הגשמה יצירתית, קבלה, עולמות תוכן וחיבור בין לב לתודעה.
@@ -484,7 +620,7 @@
       </section>
 
       <!-- RIGHT COLUMN – PROJECTS -->
-      <section class="card">
+      <section class="card" id="projects">
         <h2>🌟 ניסיון תעסוקתי / פרויקטים מובילים</h2>
 
         <div class="projects-list">
