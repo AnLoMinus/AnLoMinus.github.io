@@ -1,344 +1,983 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="לאון יעקובוב - פתרונות תקשורת, מחקר ופיתוח תוכנה לעסקים מודרניים">
-    <title>Leon Yaakobov | פתרונות טכנולוגיים</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Space+Grotesk:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>קורות חיים – משה לאון יעקובוב | SparkCV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="קורות חיים – משה לאון יעקובוב (AnLoMinus) – יוצר יקומים יצירתיים, מוזיקה, עיצוב, טכנולוגיה ותודעה." />
+
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #0b0b12;
+      --card: #11111a;
+      --accent: #f7c552;
+      --accent-soft: rgba(247, 197, 82, 0.15);
+      --text: #f7f7ff;
+      --muted: #9b9bb5;
+      --border: #262635;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
+      --radius-lg: 22px;
+      --radius-xl: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151526 0, #050509 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .hero {
+      position: relative;
+      background: radial-gradient(circle at 10% 0, rgba(247, 197, 82, 0.16), transparent 60%),
+                  radial-gradient(circle at 90% 100%, rgba(116, 89, 255, 0.24), transparent 60%),
+                  linear-gradient(135deg, #090914, #050509);
+      border-radius: var(--radius-xl);
+      padding: 24px 22px 22px;
+      border: 1px solid rgba(247, 197, 82, 0.24);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 100%, rgba(255, 255, 255, 0.08), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-orb {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 20%, #fff, #ffe8b3 24%, transparent 60%),
+        radial-gradient(circle at 70% 80%, #7f5cff, transparent 55%),
+        radial-gradient(circle at 25% 80%, #ff7aa2, transparent 55%);
+      border: 2px solid rgba(247, 197, 82, 0.7);
+      box-shadow:
+        0 0 18px rgba(247, 197, 82, 0.5),
+        0 0 48px rgba(143, 110, 255, 0.6);
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-orb span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 24px;
+      color: #1b132e;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-main {
+      flex: 1;
+      min-width: 230px;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      margin: 0 0 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .hero-sub {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 10px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(11, 11, 18, 0.8);
+      border: 1px solid rgba(247, 197, 82, 0.3);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #fef7df;
+    }
+
+    .hero-meta {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(9, 9, 18, 0.96), rgba(6, 6, 12, 0.98));
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card h3 {
+      margin: 14px 0 4px;
+      font-size: 14px;
+    }
+
+    .card h4 {
+      margin: 10px 0 4px;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .card p {
+      margin: 3px 0;
+      font-size: 13px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 0;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(247, 197, 82, 0.08);
+      border: 1px solid rgba(247, 197, 82, 0.26);
+      color: #ffe9b8;
+      white-space: nowrap;
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 6px 18px;
+      font-size: 13px;
+    }
+
+    .section-divider {
+      height: 1px;
+      margin: 14px 0 10px;
+      background: linear-gradient(90deg, transparent, rgba(247, 197, 82, 0.65), transparent);
+    }
+
+    .projects-list {
+      max-height: 640px;
+      overflow: auto;
+      padding-inline-end: 6px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(247, 197, 82, 0.5) transparent;
+    }
+
+    .projects-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .projects-list::-webkit-scrollbar-thumb {
+      background: rgba(247, 197, 82, 0.55);
+      border-radius: 8px;
+    }
+
+    .project-item {
+      border-radius: 14px;
+      padding: 10px 10px 8px;
+      border: 1px solid rgba(105, 105, 145, 0.6);
+      background: radial-gradient(circle at 0 0, rgba(247, 197, 82, 0.09), transparent 55%);
+      margin-bottom: 8px;
+    }
+
+    .project-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-years {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .project-role {
+      font-size: 12px;
+      color: #fbe3a2;
+      margin-bottom: 2px;
+    }
+
+    .project-label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer-rap {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #fef5d5;
+      line-height: 1.5;
+    }
+
+    .verse {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #ffe7a2;
+    }
+
+    .credits {
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    .badge-mini {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(247, 197, 82, 0.6);
+      margin-inline-start: 4px;
+      color: #f7f0ff;
+    }
+  </style>
 </head>
-
 <body>
-    <header class="hero" id="top">
-        <nav class="nav layout">
-            <div class="brand">
-                <span class="brand__dot"></span>
-                <span class="brand__name">AnLoMinus Studio</span>
-            </div>
-            <div class="nav__controls">
-                <ul class="nav__links">
-                    <li><a href="#about">אודות</a></li>
-                    <li><a href="#services">פתרונות</a></li>
-                    <li><a href="#roadmap">מפת דרכים</a></li>
-                    <li><a href="#experience">ניסיון</a></li>
-                    <li><a href="#blog">בלוג</a></li>
-                    <li><a href="#contact">יצירת קשר</a></li>
-                </ul>
-                <button class="theme-toggle" type="button" aria-label="החלפת מצב צבע" data-theme-toggle>
-                    <span class="theme-toggle__icon" aria-hidden="true"></span>
-                </button>
-            </div>
-        </nav>
-
-        <div class="layout hero__content" data-scroll>
-            <p class="eyebrow">אסטרטג טכנולוגי · פתרונות קצה לקצה</p>
-            <h1>לאון יעקובוב<br><span>טכנולוגיה שמחברת אנשים, עסקים ורעיונות.</span></h1>
-            <p class="lead">
-                מעל 15 שנות ניסיון בהנדסת תקשורת, מחקר מדעי המחשב ופיתוח מערכות דיגיטליות. אני מלווה ארגונים וסטארטאפים
-                החל משלב הרעיון ועד הפעלה יציבה בשטח.
-            </p>
-            <div class="hero__actions">
-                <a class="btn btn--primary" href="mailto:areweleon@gmail.com">תיאום שיחה</a>
-                <a class="btn btn--ghost" href="#projects">לראות עבודות</a>
-            </div>
-            <div class="stats">
-                <article>
-                    <p class="stat__value">15+</p>
-                    <p class="stat__label">שנות אינטגרציה ותקשורת</p>
-                </article>
-                <article>
-                    <p class="stat__value">40</p>
-                    <p class="stat__label">פרויקטים מלווים בשנים האחרונות</p>
-                </article>
-                <article>
-                    <p class="stat__value">4.9/5</p>
-                    <p class="stat__label">מדד שביעות רצון לקוחות</p>
-                </article>
-            </div>
+  <div class="page">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-top">
+        <div class="avatar-orb">
+          <span>LY</span>
         </div>
+        <div class="hero-main">
+          <h1 class="hero-title">
+            📄 קורות חיים – משה לאון יעקובוב
+            <span class="badge-mini">SparkCV · Spark Career Vision (SC)</span>
+          </h1>
+          <p class="hero-sub">
+            AnLoMinus — יוצר יקומים יצירתיים, מוזיקה, קלפים, מותגים ואתרי טכנולוגיה מחוברים לתודעה.
+          </p>
+          <div class="badge-row">
+            <span class="badge">🎧 Audio &amp; Sound Design</span>
+            <span class="badge">🎨 Branding &amp; Visual Systems</span>
+            <span class="badge">🌐 GitHub &amp; Creative Workflows</span>
+            <span class="badge">🎴 Cards &amp; Realms Architect</span>
+            <span class="badge">🔥 Visionary Creative Leader</span>
+          </div>
+          <p class="tagline">
+            הופך רעיונות לאורות, אורות למוצרים, ומוצרים למסע תודעתי שמחולל מציאות. ⚡
+          </p>
+
+          <div class="hero-meta">
+            <span>📅 תאריך: 07.12.2025 / ט&quot;ז כסלו תשפ&quot;ו</span>
+            <span>⏱️ שעה: 08:58 (Asia/Jerusalem)</span>
+            <span>🌍 מיקום: Israel – Holon (הערכה)</span>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <main>
-        <section id="about" class="section layout" data-scroll>
-            <div class="section__title">
-                <p class="eyebrow">חזון</p>
-                <h2>שילוב מלא בין תשתיות פיזיות לחוויית משתמש דיגיטלית.</h2>
-            </div>
-            <div class="columns">
-                <p>
-                    אנליזה מדויקת של הצרכים העסקיים היא הבסיס לכל פתרון. אני משלב עבודת שטח מהירה עם תכנון
-                    ארכיטקטורי, כדי להבטיח שכל שכבות המערכת – תקשורת, פיתוח ותפעול – ידברו בשפה אחת.
-                </p>
-                <p>
-                    הגישה שלי נשענת על שקיפות מלאה, שיתוף ידע ומתודולוגיות DevOps זריזות. כך ניתן
-                    להטמיע פתרונות יציבים גם בארגונים עמוסים, מבלי לעצור את השוטף.
-                </p>
-            </div>
-        </section>
+    <!-- LAYOUT -->
+    <main class="layout">
+      <!-- LEFT COLUMN -->
+      <section class="card">
+        <h2>👤 פרטים אישיים</h2>
+        <ul class="info-list">
+          <li><strong>שם מלא:</strong> משה לאון יעקובוב (AnLoMinus)</li>
+          <li><strong>טלפון:</strong> __________________</li>
+          <li><strong>אימייל:</strong> __________________</li>
+          <li><strong>כתובת:</strong> __________________</li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/AnLoMinus" target="_blank">github.com/AnLoMinus</a></li>
+          <li><strong>קישורים נוספים:</strong> __________________</li>
+        </ul>
 
-        <section id="services" class="section section--surface" data-scroll>
-            <div class="layout">
-                <div class="section__title">
-                    <p class="eyebrow">פתרונות מובילים</p>
-                    <h2>כל מה שנדרש כדי להניע תשתית מודרנית וחדשנית.</h2>
-                </div>
-                <div class="card-grid">
-                    <article class="card">
-                        <h3>הנדסת תקשורת</h3>
-                        <p>תכנון והטמעת רשתות אינטרנט, טלפוניה ו־OTT עם ניטור חכם והקשחת אבטחה.</p>
-                        <ul>
-                            <li>ניתוח ביצועים ורוחב פס</li>
-                            <li>תחזוקת SLA ומערכות בקרה</li>
-                            <li>שדרוג מהיר ללא השבתה</li>
-                        </ul>
-                    </article>
-                    <article class="card">
-                        <h3>פיתוח & אוטומציה</h3>
-                        <p>בניית שירותים, ממשקים ובוטים מותאמים בסביבות Python, Node ו־Unity.</p>
-                        <ul>
-                            <li>API-first & אינטגרציות</li>
-                            <li>CI/CD ו־Infrastructure as Code</li>
-                            <li>אוטומציות שירות ולוגיסטיקה</li>
-                        </ul>
-                    </article>
-                    <article class="card">
-                        <h3>חוויית לקוח דיגיטלית</h3>
-                        <p>מסעות משתמש מדויקים, חוויות אינטראקטיביות ואנליטיקות בלייב.</p>
-                        <ul>
-                            <li>UX מחקרי + עיצוב קונספט</li>
-                            <li>פרסונליזציה מבוססת דאטה</li>
-                            <li>כלי תמיכה אוטומטיים</li>
-                        </ul>
-                    </article>
-                    <article class="card">
-                        <h3>תמיכה מנוהלת</h3>
-                        <p>ליווי end-to-end, מסמכי מדיניות, הדרכות צוות ושגרות אופרציונליות.</p>
-                        <ul>
-                            <li>Playbooks ונהלי חירום</li>
-                            <li>מדדי KPI מותאמים</li>
-                            <li>שיפור רציף רבעוני</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <div class="section-divider"></div>
 
-        <section id="roadmap" class="section section--holo" data-scroll>
-            <div class="layout">
-                <div class="section__title">
-                    <p class="eyebrow">מפת דרכים</p>
-                    <h2>התפתחות גרסאות עד להפיכת האתר לגלגול בלוגיסטי־דיגיטלי.</h2>
-                </div>
-                <div class="roadmap">
-                    <article class="roadmap__card">
-                        <p class="roadmap__version">v1.1.0 · דצמבר 2025</p>
-                        <h3>Neon Flux Update</h3>
-                        <ul>
-                            <li>שדרוג שפת הממשק לניאון חשמלי עם שכבות ערפל דיגיטלי.</li>
-                            <li>הטמעת גריד בלוג בסיסי (Hero + פוסטים אחרונים + קטגוריות).</li>
-                            <li>הוספת מערכת Markdown מבוססת Git לאוצר הידע.</li>
-                        </ul>
-                    </article>
-                    <article class="roadmap__card">
-                        <p class="roadmap__version">v1.2.0 · פברואר 2026</p>
-                        <h3>Quantum Blog Release</h3>
-                        <ul>
-                            <li>אינדקס פוסטים עם מנוע חיפוש, תגיות ו-RSS.</li>
-                            <li>מצבי "Playbook" לניתוחי סייבר ומאמרי עומק.</li>
-                            <li>שילוב רכיב Storyblok / MDX לכתיבה WYSIWYG.</li>
-                        </ul>
-                    </article>
-                    <article class="roadmap__card">
-                        <p class="roadmap__version">v1.3.0 · רבעון שני 2026</p>
-                        <h3>Community Mesh</h3>
-                        <ul>
-                            <li>דשבורד אינטראקטיבי המאגד טלמטריות GitHub, TryHackMe וקהילות.</li>
-                            <li>סדנאות Live Coding מובנות בבלוג עם RSVP ולוח זמנים.</li>
-                            <li>API ציבורי קטן לחשיפת נתונים סטטיסטיים ו-CTA לשיתופי פעולה.</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <h2>🎯 פרופיל מקצועי</h2>
+        <p>
+          יוצר מערכות יצירתיות בעולם השמע והעיצוב, בונה מותגים, מפתח אתרים,
+          יועץ טכנולוגי, מפיק מוזיקלי ומנהיג קהילות. אנרגיה גבוהה, חשיבה אסטרטגית,
+          הובלת תהליכים ופרויקטים משלב רעיון עד ביצוע מושלם.
+        </p>
 
-        <section id="blog" class="section section--surface" data-scroll>
-            <div class="layout">
-                <div class="section__title">
-                    <p class="eyebrow">בלוג עתידי</p>
-                    <h2>פלטפורמה שתתעד את מסעות המחקר, הסייבר והקהילה.</h2>
-                </div>
-                <div class="blog-grid">
-                    <article class="card blog-card">
-                        <h3>Field Notes</h3>
-                        <p>יומני שטח מהתקנות תשתית, Blue Team drills וניתוחי איומים.</p>
-                        <ul>
-                            <li>Snippets קוד + Playbooks להקשחת רשתות</li>
-                            <li>מדדי הצלחה ותובנות KPI</li>
-                        </ul>
-                    </article>
-                    <article class="card blog-card">
-                        <h3>Project Capsules</h3>
-                        <p>Case Studies קצרים לפרויקטים כגון HolisView, Sparks-War ו-SparKit.</p>
-                        <ul>
-                            <li>תרשימי טכנולוגיה, מחזור חיים וחוויית משתמש</li>
-                            <li>שיתופי קהילה, Discord ו-Telegram</li>
-                        </ul>
-                    </article>
-                    <article class="card blog-card">
-                        <h3>Community Signals</h3>
-                        <p>סיכומי אירועים, הדרכות ועדכוני קוד פתוח שמקורם ב-GitHub.</p>
-                        <ul>
-                            <li>RSS + ניוזלטר מוצפן</li>
-                            <li>פינה ניסיונית ל-AI Agents</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <h4>💡 חוזקות מרכזיות</h4>
+        <ul class="info-list">
+          <li>🎧 יצירה והפקת סאונד – עריכה, קריינות, שיפור איכות, עיצוב ווקאלי</li>
+          <li>🎨 עיצוב גרפי ומיתוג – לוגואים, פוסטרים, קלפים ומשחקים</li>
+          <li>🌐 ווב וטכנולוגיה – GitHub Pages, אוטומציות, פריסה ותחזוקת מערכות</li>
+          <li>📢 תקשורת – תוכן, סטוריטלינג, ניהול קהילה ומדיות חברתיות</li>
+          <li>🛠️ תפעול – סדר עבודה, אנליטיות ועמידה בזמנים</li>
+          <li>⚡ יצירתיות – חיבור רעיונות לאפקטים ביצירת מציאות</li>
+        </ul>
 
-        <section id="experience" class="section layout" data-scroll>
-            <div class="section__title">
-                <p class="eyebrow">ניסיון מעשי</p>
-                <h2>סייבר, קהילות ויצירת עולמות דיגיטליים.</h2>
-            </div>
-            <div class="accordion" data-accordion>
-                <article class="accordion__item">
-                    <button class="accordion__header" type="button" data-accordion-toggle aria-expanded="false">
-                        <div>
-                            <p class="accordion__title">Cyber Fusion Lead · Sparks-War</p>
-                            <p class="accordion__meta">2022–2025 · פרויקט מולטימדיה + הגנת מידע</p>
-                        </div>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__panel" hidden>
-                        <p class="accordion__summary">עיצוב זירות הולוגרפיות ומודלי אבטחה לפרויקט Sparks-War (“מלחמת
-                            הניצוצות”) תוך חיבור חוויית משתמש ניאונית לתהליכי Red/Blue Team.</p>
-                        <ul>
-                            <li>יצירת ספריית UI חשמלית למאבקי Light vs Dark.</li>
-                            <li>אינטגרציה בין Unity, WebGL ותשתיות ענן לצפיפות גבוהה.</li>
-                            <li>הטמעת תהליכי Incident Response בקהילה הדיגיטלית.</li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="accordion__item">
-                    <button class="accordion__header" type="button" data-accordion-toggle aria-expanded="false">
-                        <div>
-                            <p class="accordion__title">Holistic Intelligence Architect · HolisView</p>
-                            <p class="accordion__meta">2019–2022 · מאגר השקפות הוליסטיות</p>
-                        </div>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__panel" hidden>
-                        <p class="accordion__summary">בניית פלטפורמת נתונים המתעדת מסעות אישיים וקהילתיים, עם דגש על
-                            אנליטיקות BI ונרטיבים אינטראקטיביים.</p>
-                        <ul>
-                            <li>אוטומציה לאיסוף תובנות מאירועי קהילה וקורסים.</li>
-                            <li>מודלי דירוג חזון ותעדוף תעדות KPI.</li>
-                            <li>שיתוף נתונים עם צוותי מחקר דרך GraphQL.</li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="accordion__item">
-                    <button class="accordion__header" type="button" data-accordion-toggle aria-expanded="false">
-                        <div>
-                            <p class="accordion__title">Community Builder · SparKit & Love-Parents</p>
-                            <p class="accordion__meta">2016–2019 · עלוני נשמה וחוויית משתמש משפחתית</p>
-                        </div>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__panel" hidden>
-                        <p class="accordion__summary">פיתוח חוויות יומיות המדגישות התקדמות קהילתית, תמיכה דיגיטלית
-                            ומיקרו-אינטראקציות רגשיות.</p>
-                        <ul>
-                            <li>עיצוב טמפלטים רספונסיביים לניוזלטרים וארכיונים.</li>
-                            <li>חיבור Slack, Telegram ו-Discord ללופים של משוב.</li>
-                            <li>הטמעת מנגנוני נגישות למשפחות מרובות דורות.</li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="accordion__item">
-                    <button class="accordion__header" type="button" data-accordion-toggle aria-expanded="false">
-                        <div>
-                            <p class="accordion__title">Security Researcher · AnLoMinus Lab</p>
-                            <p class="accordion__meta">2009–2016 · Bootstrapping · TryHackMe & OSINT</p>
-                        </div>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__panel" hidden>
-                        <p class="accordion__summary">ניסויים בבוטים, מחקר בינה מלאכותית ומשחקים חינוכיים ששילבו טכניקות
-                            OSINT, DFIR והתקשות שרתים.</p>
-                        <ul>
-                            <li>יצירת Playbooks להקשחת Linux ו-Telegram Bots.</li>
-                            <li>הקמת קהילות ראשונות סביב X/Twitter ו-Facebook.</li>
-                            <li>חיבור נתוני TryHackMe להתעדכנות ויעדי לימוד.</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
+        <div class="section-divider"></div>
 
-        <section id="projects" class="section highlight" data-scroll>
-            <div class="layout highlight__content">
-                <div>
-                    <p class="eyebrow">Case Study</p>
-                    <h2>Modern Field Operations</h2>
-                    <p>
-                        פרויקט רב-שנתי עבור ארגון לוגיסטי: חיבור צוותי השטח לאקו־סיסטם ענני, אפליקציית שליטה לראשי צוות
-                        ושכבת
-                        נתונים אחודה. התוצאה: ירידה של 32% בזמן תגובה ועלייה של 21% בהפקת דו"חות.
-                    </p>
-                </div>
-                <div class="highlight__cta">
-                    <p>מעוניינים בתהליך דומה?</p>
-                    <a class="btn btn--primary" href="https://www.linkedin.com/in/AnLoMinus" target="_blank"
-                        rel="noreferrer">לינקדאין</a>
-                </div>
+        <h2>🛠️ כישורים טכניים</h2>
+        <div class="skills-columns">
+          <div>
+            <strong>🎨 עיצוב גרפי</strong>
+            <div class="chip-list">
+              <span class="chip">Adobe Photoshop</span>
+              <span class="chip">Adobe Illustrator</span>
+              <span class="chip">InDesign</span>
             </div>
-        </section>
+          </div>
+          <div>
+            <strong>💻 פיתוח ווב</strong>
+            <div class="chip-list">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">GitHub Pages</span>
+            </div>
+          </div>
+          <div>
+            <strong>🎧 אודיו &amp; מוזיקה</strong>
+            <div class="chip-list">
+              <span class="chip">DAWs</span>
+              <span class="chip">Suno AI</span>
+              <span class="chip">Sound Design</span>
+            </div>
+          </div>
+          <div>
+            <strong>🔐 סייבר</strong>
+            <div class="chip-list">
+              <span class="chip">Cyber Security Basics</span>
+              <span class="chip">Pentesting Intro</span>
+            </div>
+          </div>
+          <div>
+            <strong>⚙️ תהליכים</strong>
+            <div class="chip-list">
+              <span class="chip">GitHub DevOps</span>
+              <span class="chip">RepoCraft Systems</span>
+            </div>
+          </div>
+        </div>
 
-        <section id="contact" class="section layout" data-scroll>
-            <div class="section__title">
-                <p class="eyebrow">זמינות</p>
-                <h2>פרויקטים קצרים וארוכי טווח, בארץ ובחו"ל.</h2>
+        <div class="section-divider"></div>
+
+        <h2>🌍 שפות</h2>
+        <ul class="info-list">
+          <li><strong>עברית:</strong> שפת אם</li>
+          <li><strong>אנגלית:</strong> גבוהה</li>
+          <li><strong>רוסית:</strong> — (ניתן לעדכן)</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>❤️ תחומי עניין</h2>
+        <p>
+          מוזיקה, טכנולוגיה, הגשמה יצירתית, קבלה, עולמות תוכן וחיבור בין לב לתודעה.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>📩 המלצות</h2>
+        <p>זמינות לפי בקשה.</p>
+      </section>
+
+      <!-- RIGHT COLUMN – PROJECTS -->
+      <section class="card">
+        <h2>🌟 ניסיון תעסוקתי / פרויקטים מובילים</h2>
+
+        <div class="projects-list">
+          <!-- SparKing Ascension -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">⚡ SparKing Ascension — יוצר ומפתח יקום יצירתי רב־מערכתי</span>
+              <span class="project-years">2023–היום</span>
             </div>
-            <div class="contact-grid">
-                <article>
-                    <h3>דוא"ל</h3>
-                    <a href="mailto:areweleon@gmail.com">areweleon@gmail.com</a>
-                    <p>תגובה ראשונית עד 24 שעות.</p>
-                </article>
-                <article>
-                    <h3>טלפון / וואטסאפ</h3>
-                    <a href="tel:+972543285967">+972 54-328-5967</a>
-                    <p>זמין בימים א'-ה', 09:00–19:00.</p>
-                </article>
-                <article>
-                    <h3>רשתות</h3>
-                    <ul class="social">
-                        <li><a href="https://github.com/AnLoMinus" target="_blank" rel="noreferrer">GitHub</a></li>
-                        <li><a href="https://t.me/AnLoMinus" target="_blank" rel="noreferrer">Telegram</a></li>
-                        <li><a href="https://www.youtube.com/@AnLoMinus" target="_blank" rel="noreferrer">YouTube</a>
-                        </li>
-                    </ul>
-                </article>
+            <p class="project-role">תפקיד: Creative Director · Systems Architect</p>
+            <p class="project-label">
+              • פיתוח שפה עיצובית קוסמית + יצירת נכסים גרפיים (קלפים, לוגואים, פוסטרים)<br />
+              • בניית אתרים יצירתיים ב־GitHub Pages עם תהליכי הפצה אוטומטיים<br />
+              • יצירת אלבומי מוזיקה, הפקה קולית ועריכת סאונד<br />
+              • הובלת חזון ומיתוג בר־השפעה ברשתות החברתיות<br />
+              <strong>השפעה:</strong> הקמת קהילה סביב יצירה אנרגטית ומוזיקלית בעלת ערך השראתי
+            </p>
+          </article>
+
+          <!-- Nesle -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🟣 Nesle — מותג משפחתי יצירתי | מעצב ומוביל פיתוח</span>
+              <span class="project-years">2024–היום</span>
             </div>
-        </section>
+            <p class="project-label">
+              • עיצוב לוגואים רשמיים, פוסטרים וקלפי דמויות משפחתיים<br />
+              • בניית אסטרטגיית שיווק וחזון המותג<br />
+              • יצירת תוכן לקהילה + עיצוב פייסבוק מקצועי<br />
+              <strong>השפעה:</strong> מיצוב המשפחה כסטודיו חי ויוצר המצית השראה סביבו
+            </p>
+          </article>
+
+          <!-- HacKing-DJ -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎧 HacKing-DJ — מיתוג DJ וקולנועיות מוזיקלית</span>
+              <span class="project-years">2024–היום</span>
+            </div>
+            <p class="project-label">
+              • עיצוב לוגו חכם אנרגטי + יצירת אייקון דמות טיטאן<br />
+              • בניית זיהוי חזותי ליוטיוב + אנימציות וגרפיקות<br />
+              • תחזוקת נכסי מוזיקה והפקת תוכן לסטים אלקטרוניים<br />
+              <strong>השפעה:</strong> יצירת נוכחות בימתית ומקצועית בתחום המוזיקה האלקטרונית
+            </p>
+          </article>
+
+          <!-- Exit the Matrix -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎴 Exit The Matrix — מחבר ומעצב סדרת קלפים חינוכית</span>
+              <span class="project-years">2023–2025</span>
+            </div>
+            <p class="project-label">
+              • כתיבה ופיתוח עולם תוכן חינוכי על תיקון המודעות<br />
+              • עיצוב 18 קלפים בסגנון הולוגרפי מתקדם<br />
+              • בניית גרסאות חדשות אחידות ברמה גרפית גבוהה<br />
+              <strong>השפעה:</strong> מאות צפיות ושיתוף השראה בקהילות תוכן
+            </p>
+          </article>
+
+          <!-- GameForge -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🕹️ GameForge — מפתח משחקים ובונה נכסים גרפיים</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • אפיון משחקי דפדפן וקלפים<br />
+              • יצירת גרפיקות, שולחנות משחק ותשתיות תוכן<br />
+              <strong>השפעה:</strong> מתחם משחקים יצירתי עם אפשרויות הרחבה
+            </p>
+          </article>
+
+          <!-- SoundFlow -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎵 SoundFlow — פיתוח סביבות שמע ויצירת אלבומים</span>
+              <span class="project-years">2024–היום</span>
+            </div>
+            <p class="project-label">
+              • הפקת מוזיקה אלקטרונית ואווירתית<br />
+              • יצירת רימיקסים ומיקסינג ברמה מקצועית<br />
+              • עיצוב סאונד + אינטגרציות AI למוזיקה<br />
+              <strong>השפעה:</strong> בניית ספרייה מוזיקלית מתפתחת לקהל יצירתי
+            </p>
+          </article>
+
+          <!-- MotionCraft -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎥 MotionCraft — פיתוח מעטפת ליצירת סרטונים מבוססי מודלים</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • חיבור בין מודלים ליצירת וידאו<br />
+              • יצירת תבניות עבודה ופרומפטים מתקדמים<br />
+              • עיצוב מסכים, אפקטים וזרימת הפקה<br />
+              <strong>השפעה:</strong> מענה מדויק למהפכת ה־AI Video
+            </p>
+          </article>
+
+          <!-- DreamHints -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🌙 DreamHints — עיצוב ועולם תוכן על חלומות מודרכים</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • יצירת סדרת קלפים בנושא מודעות חלומות<br />
+              • עיצוב עולם מסקרן וויזואלי<br />
+              • כתיבת סיפורים מאחורי כל קלף<br />
+              <strong>השפעה:</strong> הענקת כלים לחקר תת־מודע באופן יצירתי
+            </p>
+          </article>
+
+          <!-- Digital Tree -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🌳 Digital Tree — מפתח קונספטים ויזואליים לתשתיות אנרגטיות</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • אפיון זרימת אנרגיה דרך עולמות ותעלות רוחניות<br />
+              • בניית תרשימים וקונספטים אינטראקטיביים<br />
+              <strong>השפעה:</strong> השראה לפיתוח מערכות תוכן מתקדמות
+            </p>
+          </article>
+
+          <!-- Diablo -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🔐 Diablo — כלי למידת סייבר והאקינג אתי</span>
+              <span class="project-years">2025</span>
+            </div>
+            <p class="project-label">
+              • עיצוב תשתית פרויקט קוד פתוח<br />
+              • בניית אתר ותיעוד מקצועי<br />
+              <strong>השפעה:</strong> לימוד כלים וטכניקות ברמה ראשונית באבטחת מידע
+            </p>
+          </article>
+
+          <!-- IShowHits -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎧 IShowHits — פלטפורמת תוכן ביוטיוב</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • יצירת גרפיקות ותמונות ערוץ<br />
+              • העלאת תוכן והפקת סרטונים מוזיקליים<br />
+              <strong>השפעה:</strong> נוכחות בריאה ואקטיבית בעולם התוכן המוזיקלי
+            </p>
+          </article>
+
+          <!-- GuardMatrix -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🛡️ GuardMatrix — פיתוח עולם קלפי הגנה ומודעות</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • עיצוב תוכן חינוכי + קלפי תודעה<br />
+              • יצירת ויזואליזציה לאנרגיות הגנה<br />
+              <strong>השפעה:</strong> חיבור בין הגנה פנימית לעולם הגרפי
+            </p>
+          </article>
+
+          <!-- LifeGuard -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">💎 LifeGuard — יצירת מוצרי חיזוק תודעתי</span>
+              <span class="project-years">2024–היום</span>
+            </div>
+            <p class="project-label">
+              • פיתוח קלפים להעצמה יומית<br />
+              • עיצוב תוכן מנחה ומעורר השראה<br />
+              <strong>השפעה:</strong> רשת תמיכה פנימית פועמת בקהל משתמשים
+            </p>
+          </article>
+
+          <!-- רוח חדשה -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🔮 רוח חדשה — סדרת שערים לניקוי אנרגטי</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • פיתוח תכנים גרפיים ומסרים מעצימים<br />
+              • בניית ערכה מלאה של קלפים + ספרון<br />
+              <strong>השפעה:</strong> מתן כלים פיזיים לניקוי נפשי ורוחני
+            </p>
+          </article>
+
+          <!-- LifePearls -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🛡️ LifePearls — תזכורות חיים וקלפי חיזוק</span>
+              <span class="project-years">2024–היום</span>
+            </div>
+            <p class="project-label">
+              • פיתוח עשרות משפטי השראה<br />
+              • עיצוב גרפי נקי ומוביל<br />
+              <strong>השפעה:</strong> כלים מיידיים לשינוי תודעתי ויציבות נפשית
+            </p>
+          </article>
+
+          <!-- RepoCraft -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">⚙️ RepoCraft — בניית תשתיות מלאות ל־GitHub</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • יצירת תבניות ריפו עם סטנדרטים גבוהים<br />
+              • בניית מסמכי README, CI/CD, רישוי ובאדג'ים<br />
+              <strong>השפעה:</strong> העלאת רמת המקצועיות של פרויקטים אישיים וציבוריים
+            </p>
+          </article>
+
+          <!-- StarScope -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">👑 StarScope — עיצוב יקום תוכן ויזואלי</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • יצירת שפת צבעים וכוכבים<br />
+              • בניית תשתית גרפית לסדרות תוכן<br />
+              <strong>השפעה:</strong> הרחבת עולם SparKing לעולמות חזותיים נוספים
+            </p>
+          </article>
+
+          <!-- PortalVerse -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">💫 PortalVerse — חיבור בין עולמות בעיצוב אינטראקטיבי</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • עיצוב דפי שער דיגיטליים<br />
+              • פיתוח ניווט חווייתי בין פרויקטים<br />
+              <strong>השפעה:</strong> יצירת מערכת תוכן אסטרטגית אחידה
+            </p>
+          </article>
+
+          <!-- LightCast -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🔊 LightCast — יצירת שידורים חיים ותכנים ויזואליים</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • מיתוג ערוץ שידור<br />
+              • עיצוב גרפיקות תומכות<br />
+              <strong>השפעה:</strong> יצירת מרחב לתוכן חי ויצירתי
+            </p>
+          </article>
+
+          <!-- MatrixBreaker -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">💥 MatrixBreaker — פיתוח מסרים מרדניים לשינוי תודעה</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • כתיבת סלוגנים עוצמתיים<br />
+              • עיצוב גרפי חד ומנפץ<br />
+              <strong>השפעה:</strong> העצמה ושחרור מהגבלות מחשבתיות
+            </p>
+          </article>
+
+          <!-- LegacyRise -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🧬 LegacyRise — אסטרטגיית מיתוג לחיים בעלי משמעות</span>
+              <span class="project-years">2024–היום</span>
+            </div>
+            <p class="project-label">
+              • פיתוח מסרים לחיי שליחות<br />
+              • עיצוב תכנים מעוררי השראה<br />
+              <strong>השפעה:</strong> יצירת זהות מותג אישי בין־דורית
+            </p>
+          </article>
+
+          <!-- SparkCards & Realms -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎴 SparkCards &amp; Realms — עולם קלפים על תודעה ויצירה</span>
+              <span class="project-years">2023–2025</span>
+            </div>
+            <p class="project-label">
+              • יצירה של עשרות קלפים למודעות ותיקון<br />
+              • פיתוח גרסאות הולוגרפיות ומערכות משחק<br />
+              <strong>השפעה:</strong> הרחבת כלי למידה חווייתיים ומרגשים
+            </p>
+          </article>
+
+          <!-- OpenTorah.AI -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🌐 OpenTorah.AI — פיתוח פלטפורמה ללימוד תורה חכם</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • אפיון ממשק לימוד אינטראקטיבי<br />
+              • עיצוב תהליכי למידה מותאמת אישית<br />
+              <strong>השפעה:</strong> פתיחת שערים לחיבור רוחני מתקדם
+            </p>
+          </article>
+
+          <!-- Nesle – Designs with Soul -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎨 Nesle – Designs with Soul — סטודיו משפחתי לאומנות חיה</span>
+              <span class="project-years">2024–היום</span>
+            </div>
+            <p class="project-label">
+              • עיצוב שפה גרפית אחידה<br />
+              • ניהול משימות ותהליכים מול משפחה וקהילה<br />
+              <strong>השפעה:</strong> העצמת היכולות של בני המשפחה דרך יצירה משותפת
+            </p>
+          </article>
+
+          <!-- MultiVerse Ascension -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎮 MultiVerse Ascension — בניית יקום מקביל ומשחקיות</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • יצירת קלפי עולמות מקבילים<br />
+              • אפיון משחקים ונכסים ויזואליים עתידיים<br />
+              <strong>השפעה:</strong> הרחבת עולם SparKing לחוויית משחק על־מציאותית
+            </p>
+          </article>
+
+          <!-- ParallelPranks -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">😆 ParallelPranks — עולם פארודיה וקומדיה על החיים</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • כתיבת דמויות הומוריסטיות<br />
+              • יצירת קלפים מצחיקים בסגנון אימפרובי<br />
+              <strong>השפעה:</strong> הומור ככלי להרחבת תודעה ושחרור רגשי
+            </p>
+          </article>
+
+          <!-- SparkDevotion -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">✨ SparkDevotion — מוזיקת תפילה ומסרים קדושים</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • כתיבה, קריינות והפקת טראקים יצירתיים<br />
+              • עיצוב תכנים ויזואליים<br />
+              <strong>השפעה:</strong> חיבור בין עולמות הקדושה והסאונד המודרני
+            </p>
+          </article>
+
+          <!-- Equalizer AI -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎛️ Equalizer AI — פיתוח ממשקי נגן ויזואליים</span>
+              <span class="project-years">2025</span>
+            </div>
+            <p class="project-label">
+              • עיצוב אינטראקטיבי במוזיקה<br />
+              • פיתוח מודלים דינמיים לתגובת תדרים<br />
+              <strong>השפעה:</strong> חוויית מוזיקה שמחברת בין ראייה לשמיעה
+            </p>
+          </article>
+
+          <!-- PowerRise -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🔥 PowerRise — הפקת אלבומים באנרגיית התעלות</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • כתיבה והפקת מוזיקה מקורית<br />
+              • בניית חוויות שמרימות קהל<br />
+              <strong>השפעה:</strong> השראה לחיים מתוך אש פנימית
+            </p>
+          </article>
+
+          <!-- HolyRap -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🎤 HolyRap — שילוב קדושה וראפ עילאי</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • פיתוח סגנון מוזיקלי ייחודי<br />
+              • עיצוב גרפיקה וקליפי מיתוג<br />
+              <strong>השפעה:</strong> יצירת ז’אנר עצמאי של ראפ קדוש
+            </p>
+          </article>
+
+          <!-- SpiritGates -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🌀 SpiritGates — חיבור בין שערי מודעות</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • עיצוב שערים חזותיים ותדרים פנימיים<br />
+              • יצירת פוסטרים וכלי עבודה רוחניים<br />
+              <strong>השפעה:</strong> פתיחת מרחבי עומק והשראה
+            </p>
+          </article>
+
+          <!-- LightRise -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🌟 LightRise — עולם של עליית תדרים פנימית</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • פיתוח גרפיקות ומוצרים להעצמה<br />
+              • יצירת חוויות אור חזקות<br />
+              <strong>השפעה:</strong> תמיכה במסע אישי של התעלות
+            </p>
+          </article>
+
+          <!-- SparkChild -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">👶 SparkChild — עולמות יצירתיים לילדים</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • עיצוב כרטיסי למידה צבעוניים<br />
+              • יצירת דמויות מעצימות לילדים<br />
+              <strong>השפעה:</strong> חיזוק דימוי עצמי ויצירתיות מגיל צעיר
+            </p>
+          </article>
+
+          <!-- SparkMind -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🧠 SparkMind — כלים לפיתוח חשיבה ותפיסה</span>
+              <span class="project-years">2025–היום</span>
+            </div>
+            <p class="project-label">
+              • פיתוח קלפים לתרגול תודעתי<br />
+              • עיצוב תהליכי למידה פנימית<br />
+              <strong>השפעה:</strong> שדרוג יכולות חשיבה והכרה
+            </p>
+          </article>
+
+          <!-- SparkGuard -->
+          <article class="project-item">
+            <div class="project-header">
+              <span class="project-title">🛡️ SparkGuard — עולם מודעות להגנה רוחנית</span>
+              <span class="project-years">2024–2025</span>
+            </div>
+            <p class="project-label">
+              • עיצוב תכנים וסמלי הגנה<br />
+              • פיתוח כלים לתחזוקת נפש יציבה<br />
+              <strong>השפעה:</strong> חיזוק ביטחון פנימי והכרה רוחנית
+            </p>
+          </article>
+        </div>
+      </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="layout">
-            <p>© <span id="year"></span> Leon Yaakobov. כל הזכויות שמורות.</p>
-            <a href="#top" class="back-to-top" aria-label="חזרה לראש הדף">חזרה למעלה</a>
-        </div>
+      <div class="credits">
+        📅 מעודכן ל־07.12.2025 · ט&quot;ז כסלו תשפ&quot;ו · ⏱️ 08:58 Asia/Jerusalem<br />
+        🔗 קרדיטים ומאגרים: כל הזכויות שמורות למשה לאון יעקובוב – AnLoMinus ·
+        <a href="https://github.com/AnLoMinus" target="_blank">GitHub – AnLoMinus</a>
+      </div>
+
+      <div class="verse">
+        📜 פסוק השראה:  
+        <strong>“וִיהִי נֹעַם ה' אֱלֹקינוּ עָלֵינוּ, וּמַעֲשֵׂה יָדֵינוּ כּוֹנְנָה עָלֵינוּ, וּמַעֲשֵׂה יָדֵינוּ כּוֹנְנֵהוּ”</strong> (תהלים צ׳, י״ז)
+        <br />
+        מידה 21: חזון – לראות רחוק, לפעול קרוב, ולהפוך כל כישרון לשליחות. ✨
+      </div>
+
+      <div class="footer-rap">
+        🎤 SparkCV Rap Hook:<br />
+        I turn my story to a beam, upgraded CV flow 🚀<br />
+        Every project is a realm, watch the golden neo-glow 💫<br />
+        From Holon to the stars, I embed my sacred code 🌌<br />
+        Leon on the rise — AnLoMinus in hero mode ⚡
+      </div>
     </footer>
-
-    <script src="script.js" defer></script>
+  </div>
 </body>
-
 </html>
