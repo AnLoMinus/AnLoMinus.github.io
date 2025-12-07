@@ -28,9 +28,74 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #151526 0, #050509 60%);
+      background: radial-gradient(circle at 30% 20%, rgba(74, 255, 171, 0.06), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(247, 197, 82, 0.08), transparent 45%),
+        #03030a;
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    #matrix-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: radial-gradient(circle at 50% 20%, rgba(0, 255, 170, 0.06), transparent 55%);
+      filter: drop-shadow(0 0 12px rgba(0, 255, 170, 0.25));
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: radial-gradient(circle, rgba(247, 197, 82, 0.18) 0%, rgba(0, 255, 170, 0.1) 40%, transparent 70%);
+      box-shadow:
+        0 0 18px rgba(247, 197, 82, 0.3),
+        0 0 40px rgba(0, 255, 170, 0.3),
+        0 0 70px rgba(111, 98, 255, 0.25);
+      transition: transform 0.1s linear;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      backdrop-filter: blur(1px);
+    }
+
+    .cursor-glow::after {
+      content: "";
+      position: absolute;
+      inset: 20%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 60%);
+      filter: blur(14px);
+      opacity: 0.6;
+    }
+
+    .spark {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, #f7c552 0%, #66ffd2 60%, transparent 75%);
+      box-shadow: 0 0 12px rgba(247, 197, 82, 0.8);
+      animation: spark-fade 0.8s ease-out forwards;
+      mix-blend-mode: screen;
+      z-index: 3;
+    }
+
+    @keyframes spark-fade {
+      0% {
+        opacity: 1;
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.6) translate3d(0, -16px, 0);
+      }
     }
 
     a {
@@ -443,6 +508,8 @@
   </style>
 </head>
 <body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
   <div class="page">
     <!-- HERO -->
     <header class="hero">
@@ -1115,5 +1182,80 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    // Matrix rain background
+    const canvas = document.getElementById("matrix-canvas");
+    const ctx = canvas.getContext("2d");
+    let columns = [];
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const count = Math.floor(canvas.width / 16);
+      columns = new Array(count).fill(0).map(() => Math.random() * canvas.height);
+    };
+
+    const drawMatrix = () => {
+      ctx.fillStyle = "rgba(3, 3, 10, 0.07)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "rgba(102, 255, 210, 0.85)";
+      ctx.shadowColor = "rgba(0, 255, 170, 0.4)";
+      ctx.shadowBlur = 8;
+      ctx.font = "14px 'SFMono-Regular', 'Consolas', monospace";
+
+      columns.forEach((y, index) => {
+        const text = String.fromCharCode(0x30a0 + Math.floor(Math.random() * 96));
+        const x = index * 16;
+        ctx.fillText(text, x, y);
+
+        if (y > canvas.height && Math.random() > 0.975) {
+          columns[index] = 0;
+        } else {
+          columns[index] = y + 16;
+        }
+      });
+
+      requestAnimationFrame(drawMatrix);
+    };
+
+    resize();
+    drawMatrix();
+    window.addEventListener("resize", resize);
+
+    // Cursor glow and sparks
+    const glow = document.querySelector(".cursor-glow");
+    let lastSpark = 0;
+
+    const spawnSpark = (x, y) => {
+      const spark = document.createElement("span");
+      spark.className = "spark";
+      const size = 4 + Math.random() * 7;
+      spark.style.width = `${size}px`;
+      spark.style.height = `${size}px`;
+      spark.style.left = `${x - size / 2}px`;
+      spark.style.top = `${y - size / 2}px`;
+      spark.style.opacity = `${0.7 + Math.random() * 0.3}`;
+      spark.style.transform = `translate3d(${(Math.random() - 0.5) * 8}px, ${(Math.random() - 0.5) * 8}px, 0)`;
+      spark.style.animationDuration = `${0.6 + Math.random() * 0.5}s`;
+
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 900);
+    };
+
+    window.addEventListener("pointermove", (event) => {
+      if (glow) {
+        glow.style.left = `${event.clientX}px`;
+        glow.style.top = `${event.clientY}px`;
+      }
+
+      const now = performance.now();
+      if (now - lastSpark > 28) {
+        spawnSpark(event.clientX, event.clientY);
+        lastSpark = now;
+      }
+    });
+  </script>
 </body>
 </html>
