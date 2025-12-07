@@ -37,6 +37,68 @@
       overflow-x: hidden;
     }
 
+    #matrix-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: radial-gradient(circle at 50% 20%, rgba(0, 255, 170, 0.06), transparent 55%);
+      filter: drop-shadow(0 0 12px rgba(0, 255, 170, 0.25));
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: radial-gradient(circle, rgba(247, 197, 82, 0.18) 0%, rgba(0, 255, 170, 0.1) 40%, transparent 70%);
+      box-shadow:
+        0 0 18px rgba(247, 197, 82, 0.3),
+        0 0 40px rgba(0, 255, 170, 0.3),
+        0 0 70px rgba(111, 98, 255, 0.25);
+      transition: transform 0.1s linear;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      backdrop-filter: blur(1px);
+    }
+
+    .cursor-glow::after {
+      content: "";
+      position: absolute;
+      inset: 20%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 60%);
+      filter: blur(14px);
+      opacity: 0.6;
+    }
+
+    .spark {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, #f7c552 0%, #66ffd2 60%, transparent 75%);
+      box-shadow: 0 0 12px rgba(247, 197, 82, 0.8);
+      animation: spark-fade 0.8s ease-out forwards;
+      mix-blend-mode: screen;
+      z-index: 3;
+    }
+
+    @keyframes spark-fade {
+      0% {
+        opacity: 1;
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.6) translate3d(0, -16px, 0);
+      }
+    }
+
     a {
       color: var(--accent);
       text-decoration: none;
